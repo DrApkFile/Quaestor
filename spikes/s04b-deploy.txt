@@ -1,0 +1,39 @@
+No files changed, compilation skipped
+Script ran successfully.
+
+== Return ==
+deployed: struct DeployQuaestorPool.Deployed Deployed({ shieldVerifier: 0x3cb8eE2C2e79bD777646a0063cf95Eb3631524EC, dualVerifier: 0xFc2f080502091b89955a3839311eBee2931C8b17, pool: 0x27dD6Fd63B1CFdce96F6202B259E45A9587C8C55, memoBoard: 0xD6131645AB115D589Cc059A6207E127fC3d88545 })
+
+== Logs ==
+  poseidon2 0xBC6b7401C6B0443AaC23fa47506ADe3Eb6FA571D
+  shieldVerifier 0x3cb8eE2C2e79bD777646a0063cf95Eb3631524EC
+  dualVerifier 0xFc2f080502091b89955a3839311eBee2931C8b17
+  pool 0x27dD6Fd63B1CFdce96F6202B259E45A9587C8C55
+  memoBoard 0xD6131645AB115D589Cc059A6207E127fC3d88545
+  fusd 0x97143B771D34ddb9130b807b135Ae675A5a963CA
+
+## Setting up 1 EVM.
+
+==========================
+
+Chain 9800
+
+Estimated max fee per gas: 200.000000001 gwei
+Estimated base fee per gas: 100 gwei
+Estimated max priority fee per gas: 0.000000001 gwei
+
+Estimated total gas used for script: 8430304
+
+Estimated amount required: 1.686060800008430304 ETH
+
+==========================
+
+
+==========================
+
+ONCHAIN EXECUTION COMPLETE & SUCCESSFUL.
+
+Transactions saved to: /home/kingghidorah/Documents/projects/bounties/quaestor/contracts/broadcast/DeployQuaestorPool.s.sol/9800/run-latest.json
+
+Sensitive values saved to: /home/kingghidorah/Documents/projects/bounties/quaestor/contracts/cache/DeployQuaestorPool.s.sol/9800/run-latest.json
+

@@ -1,0 +1,6 @@
+
+> @quaestor/scripts@ s04 /home/kingghidorah/Documents/projects/bounties/quaestor/scripts
+> node day2/s04-check-verifiers.mjs
+
+{"shieldVerifier":"0x3cb8eE2C2e79bD777646a0063cf95Eb3631524EC","realProofAccepted":true,"tamperedAmountRejected":true,"at":"2026-11-20T10:32:45.291Z"}
+PASS: QoreChain testnet verifies a real Groth16 proof on chain and rejects a tampered one

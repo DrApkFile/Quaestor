@@ -1,0 +1,7 @@
+
+> @quaestor/scripts@ poseidon /home/kingghidorah/Documents/projects/bounties/quaestor/scripts
+> node day2/deploy-poseidon.mjs
+
+tx 0x7082fa9f66590210609b0832c87a483aebe74dd52946f9afd51cbb8c1ecff1de
+{"poseidonT3":"0xbc6b7401c6b0443aac23fa47506ade3eb6fa571d","block":"10426994","tx":"0x7082fa9f66590210609b0832c87a483aebe74dd52946f9afd51cbb8c1ecff1de","gasUsed":"2157126","check":"poseidon([1,2]) matches circomlibjs"}
+put POSEIDON2=0xbc6b7401c6b0443aac23fa47506ade3eb6fa571d in contracts/.env

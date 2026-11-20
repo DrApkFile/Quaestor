@@ -1,0 +1,43 @@
+{
+  "what": "Quaestor private rail: our deployment of Gloam's open-source shielded pool (MIT, vendored unmodified at d8db1e6) on QoreChain testnet",
+  "network": "qorechain-diana (testnet), EVM chain id 9800",
+  "evmRpc": "https://evm-testnet.qore.host",
+  "class": "real",
+  "recorded": "2026-11-20",
+  "deployer": { "qor1": "qor13hu40qyck0zwc62w4p90mt08ckq8v6c9l5p7ae", "evm": "0x8df9578098B3c4ec694EA84afdAde7C580766b05" },
+  "evmWindow": {
+    "openTx": "2F90A3E9996846DBEF0322299CAF5208CE146639D7AC4504FAA2BE533F7DDF0E",
+    "size": { "blocks": 600, "txs": 16, "maxUqor": "12000000" },
+    "statusBeforePoolDeploy": "live; 72 blocks, 15 txs, 11449932 uqor left"
+  },
+  "commands": [
+    "pnpm -C tools/evm-window window open",
+    "pnpm -C scripts poseidon",
+    "forge script script/DeployQuaestorPool.s.sol:DeployQuaestorPool --rpc-url qorechain_testnet --broadcast --slow"
+  ],
+  "contracts": [
+    { "name": "PoseidonT3 (circomlibjs 0.1.7)", "address": "0xbc6b7401c6b0443aac23fa47506ade3eb6fa571d", "tx": "0x7082fa9f66590210609b0832c87a483aebe74dd52946f9afd51cbb8c1ecff1de", "block": 10426994, "gasUsed": 2157126, "check": "poseidon([1,2]) on chain matches circomlibjs" },
+    { "name": "ShieldVerifierFinal", "address": "0xb68FFc332DD93287D5dff3Edf357c2b23bCdde4c", "tx": "0xf75b802e97af6ba0413a5c2190669d2a59c27b524efd66f68066aab95ef21441", "block": 10427499, "gasUsed": 385529 },
+    { "name": "ShieldIVerifierFinal", "address": "0x3cb8eE2C2e79bD777646a0063cf95Eb3631524EC", "tx": "0xdc4117279ce2c34fd5c1a553cf76b684cf42a538cebf3de16b148b05deb8a765", "block": 10427501, "gasUsed": 321000 },
+    { "name": "UnshieldVerifierFinal", "address": "0x6f4Ba02E0Fda5601ee41A6964D65f4103aE7FdF2", "tx": "0xea1e18cfb4b99ca1c1f469aeff2643ba97a7e55fd7bbaae69a0fcf6c6566a951", "block": 10427503, "gasUsed": 425676 },
+    { "name": "UnshieldIVerifierFinal", "address": "0x1ec5CB49995a58De99F80B62d7873bd02d9D23AE", "tx": "0x813809ebaeb1da3760d2a15b569c0a73923ede72ee7779cc1a55a734cad93cd6", "block": 10427505, "gasUsed": 321000 },
+    { "name": "TransferVerifierFinal", "address": "0xcCb2A43d665ca04409c558f15E56F6Ad6d7dbD85", "tx": "0xc3ae6710eedde13183a679e81510d2a9c7b287a9ebf84595ea9efa2896e466e0", "block": 10427508, "gasUsed": 406928 },
+    { "name": "TransferIVerifierFinal", "address": "0x9f3865ea12670178A2455d57eb78AD3eBa4e751F", "tx": "0x1297dafca384abe5fa29e4ccaf7f918a264445ebd4ccffee1bda24a61fd991d8", "block": 10427510, "gasUsed": 321000 },
+    { "name": "DualProofVerifier", "address": "0xFc2f080502091b89955a3839311eBee2931C8b17", "tx": "0x1314273c2030310f1d6fcc35da8d99f3befebc7c09eb537f9f0de9226554c372", "block": 10427513, "gasUsed": 239024 },
+    { "name": "ShieldPoolPayments (pool)", "address": "0x27dD6Fd63B1CFdce96F6202B259E45A9587C8C55", "tx": "0xa0c9bca91230f1f9c3935901d8eeb6edfbac9a207c552199f9f2a0d78e93e601", "block": 10427515, "gasUsed": 3686426 },
+    { "name": "GloamPayMemo (memo board)", "address": "0xD6131645AB115D589Cc059A6207E127fC3d88545", "tx": "0xc87dab25707400039a5957df37ea0ce8bb611cf1a497c88900dc42e1015a3aad", "block": 10427527, "gasUsed": 152323 }
+  ],
+  "poolSetup": [
+    { "call": "turnOnDepositLimits()", "tx": "0xa6d53d986c822ce3f05e5923dcc48171385fafc38d917df5b73eba1169341180", "block": 10427517 },
+    { "call": "setShieldVerifier(0x3cb8eE2C2e79bD777646a0063cf95Eb3631524EC)", "tx": "0x4c0bcc8a9a4bca9cab131bd2a011e3e2aa7f5396b045e74dc501202ece40a42c", "block": 10427519 },
+    { "call": "setDepositLimit(fUSD 0x97143B771D34ddb9130b807b135Ae675A5a963CA, 500 fUSD per deposit, 25,000 fUSD total)", "tx": "0x4e4dc81bb51bf160c6c3c20d0f7c3f60d96c8c25bf49490a15ea73be13754cae", "block": 10427521 },
+    { "call": "setDepositLimit(native QOR, 20 QOR per deposit, 1,000 QOR total)", "tx": "0xbe69b56d57145dccb520d576f3a239475732c380a241569ae3bb22507c519c88", "block": 10427523 },
+    { "call": "endSetup()", "tx": "0x169f4b0d284aefc38b309f853405b63ce33cb83cd3a526bcc09f0c954842664a", "block": 10427525 }
+  ],
+  "totals": { "poolDeployTxs": 14, "gasUsed": 6468592, "avgGasPriceGwei": "100.000000001", "paidQor": "0.646859200006468592" },
+  "ceremonyKeyCheck": "forge simulation verified Gloam's final-key proofs (and rejected dev-key proofs) for shield, unshield and transfer before broadcasting; on-chain verification is spike S04",
+  "notes": [
+    "Every tx above succeeded. Raw forge output: spikes/s04b-deploy.txt; forge broadcast record: contracts/broadcast/DeployQuaestorPool.s.sol/9800/run-latest.json.",
+    "Window sizing assumes 3M gas at 250 gwei per tx; actual gas price was ~100 gwei and the largest tx (pool) used 3.69M gas, under the 3M-per-tx *budget average* because the other txs were small."
+  ]
+}
