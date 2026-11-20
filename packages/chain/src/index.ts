@@ -13,3 +13,4 @@ export * from './window.js';
 export * from './evidence.js';
 export * from './network.js';
 export * from './gas.js';
+export * from './nativeError.js';

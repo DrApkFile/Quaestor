@@ -5,6 +5,7 @@
     "test",
     "../../scripts/m1-*.ts",
     "../../scripts/evidence.ts",
-    "scripts"
+    "scripts",
+    "../../scripts/m1b-*.ts"
   ]
 }

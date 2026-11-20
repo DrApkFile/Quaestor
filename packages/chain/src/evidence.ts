@@ -27,6 +27,8 @@ export const evidenceSchema = z.object({
   tree: z.object({ block: uintSchema, root: hexSchema, leafCount: z.number().int(), requestedRange: uintSchema, effectiveRange: uintSchema }).strict().nullable(),
   balanceCheck: z.object({ expectedDeltaWei: z.string().regex(/^-?\d+$/), actualDeltaWei: z.string().regex(/^-?\d+$/), passed: z.boolean() }).strict().nullable(),
   fusd: z.object({ status: z.enum(['CONVERTED', 'FAILED']), before: uintSchema.nullable(), after: uintSchema.nullable(),
+    code: z.number().int().nullable().optional(), codespace: z.string().nullable().optional(),
+    rawLog: z.string().max(500).nullable().optional(), transactionHash: z.string().regex(/^[\da-fA-F]{64}$/).nullable().optional(),
     bankBefore: uintSchema.nullable(), bankAfter: uintSchema.nullable(), errorCode: z.string().nullable(), at: z.string().datetime() }).strict().nullable(),
   errorCode: z.string().nullable(),
 }).strict();

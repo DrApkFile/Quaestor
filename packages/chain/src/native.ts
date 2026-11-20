@@ -2,6 +2,7 @@ import { StargateClient } from '@cosmjs/stargate';
 import { EthNativeSigner, type UnifiedAccount } from '@qorechain/sdk';
 import { z } from 'zod';
 import type { Registry } from '@cosmjs/proto-signing';
+import { NativeBroadcastError, accountSecrets } from './nativeError.js';
 import { uintSchema, type ChainConfig } from './config.js';
 
 const sequenceSchema = z.object({ account_number: uintSchema, sequence: uintSchema }).passthrough();
@@ -24,8 +25,12 @@ export async function broadcastNative(config: ChainConfig, account: UnifiedAccou
       chainId: config.nativeChainId, accountNumber: BigInt(sequence.account_number), sequence: BigInt(sequence.sequence),
       fee: { amount: [{ denom: 'uqor', amount: '100000' }], gas: '800000' }, messages,
     });
-    if (result.code !== 0 || result.gasUsed === undefined || result.height === undefined) throw new Error('NATIVE_TRANSACTION_FAILED');
+    if (result.code !== 0) throw new NativeBroadcastError(result, accountSecrets(account));
+    if (result.gasUsed === undefined || result.height === undefined) throw new Error('NATIVE_RECEIPT_INVALID');
     return { hash: result.transactionHash, height: result.height, gasUsed: result.gasUsed.toString() };
+  } catch (error: unknown) {
+    if (error instanceof NativeBroadcastError) throw error;
+    throw new NativeBroadcastError(error, accountSecrets(account));
   } finally {
     transport.disconnect();
   }
