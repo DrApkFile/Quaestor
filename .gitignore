@@ -1,0 +1,15 @@
+node_modules/
+dist/
+out/
+cache/
+broadcast/
+coverage/
+.env
+.env.*
+!.env.example
+.accounts/
+*.mnemonic
+*.key
+.DS_Store
+apps/web/public/circuits/
+contracts/lib/

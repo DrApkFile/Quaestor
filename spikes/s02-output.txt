@@ -1,0 +1,1 @@
+{"chainId":9800,"fn":"shieldBound","pool":"0x000000000000000000000000000000000000dEaD","proofBytes":256,"offchainVerify":true,"ms":891}

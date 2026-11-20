@@ -1,0 +1,5 @@
+epoch 1n size 5093 audit vs {ada,bayo,chi}: { entries: 3, anonymous: false, missing: [], exact: true }
+audit vs {ada,bayo} (claims chi absent): { entries: 3, anonymous: false, missing: [], exact: false }
+after chi lapses -> epoch 2n audit vs {ada,bayo}: { entries: 2, anonymous: false, missing: [], exact: true }
+ada opens: epoch 2 | chi opens: refused (NOT_A_RECIPIENT) | dee (never paid): refused (NOT_A_RECIPIENT)
+chi still opens old epoch: epoch 1

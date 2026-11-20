@@ -1,0 +1,19 @@
+Quaestor
+Copyright (c) 2026 Quaestor contributors. Licensed under the MIT License (see LICENSE).
+
+This project includes or depends on third-party software:
+
+1. Gloam — shielded pool contracts, circuits, final ceremony keys and SDK
+   https://github.com/gloamtrade/gloam (MIT License, Copyright (c) 2026 Gloam)
+   Vendored unmodified at commit d8db1e6c805c5887678fa2c6c82ea617efe1659c in
+   contracts/vendor/gloam/ (its LICENSE is kept there). The SDK is used from npm
+   as @gloamtrade/sdk 0.8.0. Quaestor deploys its own instance of these contracts
+   on QoreChain testnet and uses none of Gloam's hosted services.
+   Quaestor is not affiliated with or endorsed by Gloam.
+
+2. QoreChain kits — @qorechain/qoreseal, @qorechain/qoresign, @qorechain/sdk,
+   @qorechain/evm, @qorechain/pqc, create-qorechain-dapp
+   https://github.com/qorechain (Apache License 2.0, QoreChain Association)
+
+3. snarkjs (GPL-3.0), @noble/curves (MIT), viem (MIT), Foundry forge-std (MIT/Apache-2.0).
+   Each keeps its own licence; see the package's own files.
