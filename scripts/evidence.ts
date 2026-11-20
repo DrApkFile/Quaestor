@@ -3,4 +3,5 @@ else if (process.argv[2] === '--m1-logs') await import('./m1-logrange.js');
 else if (process.argv[2] === '--m1-gas') await import('./m1-gas.js');
 else if (process.argv[2] === '--m1b-fusd') await import('./m1b-fusd.js');
 else if (process.argv[2] === '--m1-gas-policy') await import('./m1-gas-policy.js');
-else throw new Error('Specify --m1 or --m1-logs; later milestone evidence is not built.');
+else if (process.argv[2] === '--m2') await import('./m2-ticket.js');
+else throw new Error('Specify an implemented M1 or M2 evidence command.');

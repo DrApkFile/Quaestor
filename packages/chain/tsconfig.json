@@ -6,6 +6,7 @@
     "../../scripts/m1-*.ts",
     "../../scripts/evidence.ts",
     "scripts",
-    "../../scripts/m1b-*.ts"
+    "../../scripts/m1b-*.ts",
+    "../../scripts/m2-*.ts"
   ]
 }

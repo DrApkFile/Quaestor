@@ -26,7 +26,8 @@ export async function readRegistry(config: ChainConfig, address: string, block: 
   return { address, block, mlkemPublicKey, pqPublicKey: pq.publicKey, possessionProven: true as const };
 }
 export type RegistrySnapshot = Awaited<ReturnType<typeof readRegistry>>;
-export async function registerKemKey(config: ChainConfig, account: UnifiedAccount, keys: SealKeyPair, block: bigint) {
+export async function registerKemKey(config: ChainConfig, account: UnifiedAccount, keys: SealKeyPair, block: bigint,
+  onTransaction?: (transaction: Awaited<ReturnType<typeof broadcastNative>>) => void) {
   const existing = await fetchKemKey({ rest: config.rest, address: account.cosmos, fetch: registryFetch(config, block) });
   if (existing.registered) {
     const same = existing.algorithmId === 2 && existing.publicKey !== undefined &&
@@ -37,6 +38,7 @@ export async function registerKemKey(config: ChainConfig, account: UnifiedAccoun
   const message = { typeUrl: encoded.typeUrl, value: qorechainTypes.pqc.MsgRegisterKEMKey.decode(encoded.value) };
   try {
     const transaction = await broadcastNative(config, account, 'hybrid', [message]);
+    onTransaction?.(transaction);
     const confirmed = await fetchMlkemPublicKey({ rest: config.rest, address: account.cosmos,
       fetch: registryFetch(config, BigInt(transaction.height)) });
     if (!Buffer.from(confirmed).equals(Buffer.from(keys.mlkemPublicKey))) return { kind: 'KEM_KEY_MISMATCH' } as const;

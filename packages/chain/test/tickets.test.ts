@@ -9,6 +9,7 @@ import { seal, recipientOf, type SealKeyPair } from '@qorechain/qoreseal';
 import { zeroAddress } from 'viem';
 import { beforeAll, expect, it, vi } from 'vitest';
 import { accountSealKeys } from '../src/tickets/sealKeys.js';
+import type { RegistrySnapshot } from '../src/tickets/kemRegistry.js';
 import { createCard, verifyCard, type VerifiedRecipient } from '../src/tickets/card.js';
 import { sealTicket, openTicket, ticketAad, ticketMetadata, type TicketNote } from '../src/tickets/ticket.js';
 import { receiveMemo } from '../src/tickets/receive.js';
@@ -75,6 +76,9 @@ it('T-CARD refuses another signing identity, stale KEM registration and unproven
   const registry = { address: account.cosmos, block: 42n, possessionProven: true as const,
     pqPublicKey: account.pqc.publicKey, mlkemPublicKey: keys[0]!.mlkemPublicKey };
   expect(verifyCard(card, { ...registry, pqPublicKey: identities[1]!.pqc.publicKey })).toEqual({ kind: 'CARD_INVALID' });
+  const otherCard = createCard(identities[1]!, keys[1]!, '2026-11-20T00:00:00Z');
+  expect(verifyCard({ ...card, signature: otherCard.signature }, registry)).toEqual({ kind: 'CARD_INVALID' });
+  expect(verifyCard(card, { ...registry, possessionProven: false } as unknown as RegistrySnapshot)).toEqual({ kind: 'CARD_INVALID' });
   expect(verifyCard(card, { ...registry, mlkemPublicKey: keys[2]!.mlkemPublicKey })).toEqual({ kind: 'CARD_INVALID' });
   expect(verifyCard({ ...card, secretKey: 'forbidden' }, registry)).toEqual({ kind: 'CARD_INVALID' });
 });
