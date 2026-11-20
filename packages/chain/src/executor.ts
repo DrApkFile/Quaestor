@@ -54,7 +54,7 @@ export function resolveOperation(journal: Journal, id: string, gateway: Gateway)
     const data = journal.read();
     const operation = data.operations.find(item => item.id === id);
     if (!operation || !operation.hash) throw new Error('TRANSACTION_HASH_REQUIRED');
-    if (operation.stage === 'LANDED') {
+    if ((operation.stage === 'LANDED' || operation.stage === 'TICKET_POSTED')) {
       return operation.receipt?.status === 'success' ? { kind: 'LANDED', operation } : { kind: 'TRANSACTION_REVERTED' };
     }
     return settle(journal, data, operation, gateway);
@@ -68,7 +68,7 @@ export function executeOperation(journal: Journal, request: Request, gateway: Ga
     if (operation && (operation.requestKey !== request.requestKey || operation.input !== request.input)) {
       return { kind: 'REQUEST_CONFLICT' };
     }
-    if (operation?.stage === 'LANDED') {
+    if ((operation?.stage === 'LANDED' || operation?.stage === 'TICKET_POSTED')) {
       return operation.receipt?.status === 'success' ? { kind: 'LANDED', operation } : { kind: 'TRANSACTION_REVERTED' };
     }
     if (operation?.stage === 'BROADCAST' || operation?.stage === 'OUTCOME_UNKNOWN') return { kind: 'OUTCOME_UNKNOWN' };
@@ -85,7 +85,8 @@ export function executeOperation(journal: Journal, request: Request, gateway: Ga
     }
     if (!operation.prepared) {
       operation.prepared = await request.build();
-      data.notes.push(...operation.prepared.outputs.map(note => ({ ...note, state: 'INCOMING' as const })));
+      data.notes.push(...operation.prepared.outputs.filter(note => journal.owner === undefined || note.owner === journal.owner)
+        .map(note => ({ ...note, state: 'INCOMING' as const })));
       operation.stage = 'PROVED';
       operation.updatedAt = new Date().toISOString();
       journal.save(data);

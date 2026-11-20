@@ -13,6 +13,8 @@
     "@cosmjs/stargate": "0.39.0",
     "@gloamtrade/sdk": "0.8.0",
     "@qorechain/evm": "0.14.0",
+    "@qorechain/qoreseal": "0.1.0",
+    "@qorechain/qoresign": "0.2.0",
     "@qorechain/sdk": "0.14.0",
     "protobufjs": "7.5.4",
     "snarkjs": "0.7.6",
