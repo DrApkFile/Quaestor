@@ -1,0 +1,41 @@
+{
+  "command": "pnpm evidence --m1-gas",
+  "commit": "07ef35eb6dd0233534fe753b35f88b8b75de5f5c",
+  "at": "2026-11-20T11:23:08.690Z",
+  "demo": true,
+  "network": "qorechain-diana",
+  "pool": "0x27dD6Fd63B1CFdce96F6202B259E45A9587C8C55",
+  "amountWei": "1000000000000000000",
+  "window": {
+    "hash": "7E05B87FA980D2E76DE97A42C04DEA9DCC2F911F443C35EEE12500398AE785AB",
+    "height": 10430051,
+    "gasUsed": "186749"
+  },
+  "payment": {
+    "id": "gas-shield-one-qor",
+    "hash": "0x8c4cab77c5fd99f5ff233b9f0fa3876ccdad2ba929ea814c5d7d35f278e66f12",
+    "blockNumber": "10430070",
+    "blockHash": "0x2e11bfa12475ea60bca6df55dd7dfda68d80447e8c67eca13104746ec27b5ac9",
+    "gasUsed": "1080492",
+    "effectiveGasPrice": "101000000000",
+    "status": "success",
+    "gas": {
+      "estimatedGas": "1102576",
+      "gasLimit": "1378220",
+      "maxFeePerGas": "250000000000",
+      "estimationBlock": "10430067"
+    },
+    "root": null,
+    "nullifier": null,
+    "feeWei": "0",
+    "commitments": [
+      "0x0316b120ccf72711fd4f50ae2ae791a6cca2c1a8226f51d849f9b6cd1a87d556"
+    ],
+    "plannedAt": "2026-11-20T11:22:43.119Z",
+    "landedAt": "2026-11-20T11:23:08.493Z"
+  },
+  "feePaidWei": "109129692000000000",
+  "halfGasLimit": "689110",
+  "chargedExactlyHalfLimit": false,
+  "chargedAtLeastHalfLimit": true
+}
