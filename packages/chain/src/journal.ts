@@ -3,6 +3,7 @@ import { dirname } from 'node:path';
 import { z } from 'zod';
 import { addressSchema, hexSchema, uintSchema } from './config.js';
 import { roleSchema } from './accounts.js';
+import { gasSchema } from './gas.js';
 import { writePrivateJson } from './storage.js';
 
 export const noteSchema = z.object({
@@ -22,7 +23,7 @@ export const operationSchema = z.object({
   id: z.string().regex(/^[a-zA-Z0-9_-]+$/), requestKey: z.string(),
   stage: z.enum(['PLANNED', 'PROVED', 'BROADCAST', 'LANDED', 'OUTCOME_UNKNOWN']),
   input: hexSchema.nullable(), prepared: preparedSchema.nullable(), hash: hexSchema.nullable(),
-  receipt: receiptSchema.nullable(), plannedAt: z.string().datetime(), updatedAt: z.string().datetime(),
+  gas: gasSchema.optional(), receipt: receiptSchema.nullable(), plannedAt: z.string().datetime(), updatedAt: z.string().datetime(),
 }).strict();
 const journalSchema = z.object({ v: z.literal(1), operations: z.array(operationSchema), notes: z.array(noteSchema) }).strict();
 export type StoredNote = z.infer<typeof noteSchema>;

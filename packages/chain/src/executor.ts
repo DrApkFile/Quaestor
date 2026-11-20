@@ -1,9 +1,10 @@
+import type { SignedGas } from './gas.js';
 import type { Hex } from 'viem';
 import { Journal, type JournalData, type Operation, type Prepared, type StoredReceipt } from './journal.js';
 
 export interface Gateway {
   windowOpen(): Promise<boolean>;
-  sign(prepared: Prepared): Promise<{ serialized: Hex; hash: Hex }>;
+  sign(prepared: Prepared): Promise<{ serialized: Hex; hash: Hex; gas?: SignedGas }>;
   broadcast(serialized: Hex): Promise<Hex>;
   receipt(hash: Hex): Promise<StoredReceipt>;
   included(commitments: Hex[], block: bigint): Promise<boolean>;
@@ -92,6 +93,7 @@ export function executeOperation(journal: Journal, request: Request, gateway: Ga
     const signed = await gateway.sign(operation.prepared);
     operation.stage = 'BROADCAST';
     operation.hash = signed.hash;
+    if (signed.gas) operation.gas = signed.gas;
     operation.updatedAt = new Date().toISOString();
     journal.save(data);
     try {

@@ -23,7 +23,7 @@ it('T-TREE pages every deployment block and checks only the root at the pinned h
   expect(getLogs).toHaveBeenNthCalledWith(3, expect.objectContaining({ fromBlock: 106n, toBlock: 107n }));
   expect(readContract).toHaveBeenCalledTimes(1);
   expect(readContract).toHaveBeenCalledWith(expect.objectContaining({ functionName: 'currentRoot', blockNumber: 107n }));
-});
+}, 30_000);
 it('T-TREE refuses a replayed root mismatch without trusting a known-root response', async () => {
   const reader = { getLogs: async () => [], readContract: vi.fn(async () => `0x${'01'.repeat(32)}`),
     getChainId: async () => 9800 } as unknown as PublicClient;

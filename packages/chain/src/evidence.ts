@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { z } from 'zod';
 import { addressSchema, hexSchema, uintSchema } from './config.js';
+import { gasSchema } from './gas.js';
 import { writePrivateJson } from './storage.js';
 import type { Operation } from './journal.js';
 
@@ -11,7 +12,7 @@ const nativeTransactionSchema = z.object({
 }).strict();
 const balanceSchema = z.object({ block: uintSchema, wei: uintSchema }).strict();
 const paymentSchema = z.object({
-  id: z.string(), hash: hexSchema, blockNumber: uintSchema, blockHash: hexSchema,
+  gas: gasSchema.optional(), id: z.string(), hash: hexSchema, blockNumber: uintSchema, blockHash: hexSchema,
   gasUsed: uintSchema, effectiveGasPrice: uintSchema, status: z.enum(['success', 'reverted']),
   root: hexSchema.nullable(), nullifier: hexSchema.nullable(), feeWei: uintSchema,
   commitments: z.array(hexSchema), plannedAt: z.string().datetime(), landedAt: z.string().datetime(),
@@ -41,7 +42,7 @@ export function saveEvidence(path: string, evidence: RoundtripEvidence) {
 }
 export function paymentEvidence(operation: Operation): RoundtripEvidence['payments'][number] {
   if (!operation.receipt || !operation.prepared || !operation.hash) throw new Error('RECEIPT_REQUIRED');
-  return { id: operation.id, ...operation.receipt,
+  return { id: operation.id, ...operation.receipt, ...(operation.gas ? { gas: operation.gas } : {}),
     root: operation.prepared.root, nullifier: operation.prepared.nullifier, feeWei: operation.prepared.feeWei,
     commitments: operation.prepared.outputs.map(note => note.commitment),
     plannedAt: operation.plannedAt, landedAt: operation.updatedAt };

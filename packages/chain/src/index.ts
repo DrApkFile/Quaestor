@@ -12,3 +12,4 @@ export * from './tree.js';
 export * from './window.js';
 export * from './evidence.js';
 export * from './network.js';
+export * from './gas.js';
