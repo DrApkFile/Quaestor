@@ -1,0 +1,18 @@
+{
+  "command": "pnpm evidence --m1-gas-policy",
+  "commit": "2035d1ce27dcafe7f4e03b2229d4bc00c6be8089",
+  "at": "2026-11-20T11:28:24.707Z",
+  "network": "qorechain-diana",
+  "requestedBlock": "10430288",
+  "responseHeight": "10430288",
+  "endpoint": "/cosmos/evm/feemarket/v1/params",
+  "params": {
+    "no_base_fee": false,
+    "base_fee_change_denominator": 8,
+    "elasticity_multiplier": 2,
+    "enable_height": "0",
+    "base_fee": "0.100000000000000000",
+    "min_gas_price": "0.100000000000000000",
+    "min_gas_multiplier": "0.500000000000000000"
+  }
+}
