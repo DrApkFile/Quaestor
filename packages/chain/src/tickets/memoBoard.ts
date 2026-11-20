@@ -39,7 +39,7 @@ export async function scanMemos(reader: PublicClient, abi: Abi, board: BoardConf
 export async function postTicket(journal: Journal, paymentId: string, commitment: Hex, envelope: Uint8Array, abi: Abi, gateway: Gateway) {
     ticketMetadata(envelope);
     const payment = journal.read().operations.find(operation => operation.id === paymentId);
-    if (!payment || (payment.stage !== 'LANDED' && payment.stage !== 'TICKET_POSTED') || payment.receipt?.status !== 'success' ||
+    if (!payment || (payment.stage !== 'LANDED' && payment.stage !== 'TICKET_POSTED' && payment.stage !== 'BOOKED' && payment.stage !== 'ANCHORED') || payment.receipt?.status !== 'success' ||
         !payment.prepared?.outputs.some(note => note.commitment === commitment && note.owner !== journal.owner))
         throw new Error('PAYMENT_REQUIRED');
     const sha3: Hex = `0x${createHash('sha3-256').update(envelope).digest('hex')}`;
@@ -58,7 +58,7 @@ export async function postTicket(journal: Journal, paymentId: string, commitment
             const current = data.operations.find(operation => operation.id === paymentId);
             if (!current || current.receipt?.status !== 'success')
                 throw new Error('PAYMENT_REQUIRED');
-            current.stage = 'TICKET_POSTED';
+            if(current.stage !== 'BOOKED' && current.stage !== 'ANCHORED')current.stage = 'TICKET_POSTED';
             current.ticket = { memoId, memoHash, commitment, sha3 };
             current.updatedAt = new Date().toISOString();
             journal.save(data);

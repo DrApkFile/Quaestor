@@ -3,6 +3,8 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, beforeEach, expect, it } from 'vitest';
 import { executeOperation, resolveOperation } from '../src/executor.js';
+import { bookPayment, anchorPayment } from '../src/books.js';
+import type { EntryArtifact } from '@quaestor/core';
 import { Journal } from '../src/journal.js';
 import { commitment, fakeGateway, hash, note, request } from './fixtures.js';
 let directory: string;
@@ -85,4 +87,19 @@ it('T-JOURNAL refuses changed parameters under an existing operation id', async 
     expect(await executeOperation(journal, { ...request(), requestKey: 'different' }, gateway)).toEqual({ kind: 'REQUEST_CONFLICT' });
     expect(gateway.broadcast).toHaveBeenCalledTimes(1);
     expect(journal.read().operations[0]?.input).toBe(commitment);
+});
+
+it('T-BOOKS holds BOOKED until a successful anchor receipt and never replays an ANCHORED payment', async()=>{
+ const gateway=fakeGateway();await executeOperation(journal,request(),gateway);
+ const artifact={book:hash,period:'2026-11-20',index:0,prevEntrySha3:hash,blob:hash,blobSha3:hash,signature:{}} as EntryArtifact;
+ await expect(bookPayment(journal,'send',artifact)).rejects.toThrow('PAYMENT_NOT_TICKETED');
+ const data=journal.read();const operation=data.operations[0];if(!operation)throw new Error('MISSING_OPERATION');
+ operation.ticket={memoId:'memo',memoHash:hash,commitment:hash,sha3:hash};operation.stage='TICKET_POSTED';journal.save(data);
+ await bookPayment(journal,'send',artifact);expect(journal.read().operations[0]?.stage).toBe('BOOKED');
+ const receipt={hash,blockNumber:'10',blockHash:hash,gasUsed:'20',effectiveGasPrice:'30',status:'reverted' as const};
+ await expect(anchorPayment(journal,'send',hash,receipt)).rejects.toThrow('ENTRY_UNANCHORED');
+ expect(journal.read().operations[0]?.stage).toBe('BOOKED');
+ await anchorPayment(journal,'send',hash,{...receipt,status:'success'});
+ expect(journal.read().operations[0]?.stage).toBe('ANCHORED');
+ await executeOperation(journal,request(),gateway);expect(gateway.broadcast).toHaveBeenCalledTimes(1);
 });

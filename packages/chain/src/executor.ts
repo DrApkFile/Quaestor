@@ -70,7 +70,7 @@ export function resolveOperation(journal: Journal, id: string, gateway: Gateway)
             const operation = data.operations.find(item => item.id === id);
             if (!operation || !operation.hash)
                 throw new Error('TRANSACTION_HASH_REQUIRED');
-            if ((operation.stage === 'LANDED' || operation.stage === 'TICKET_POSTED')) {
+            if ((operation.stage === 'LANDED' || operation.stage === 'TICKET_POSTED' || operation.stage === 'BOOKED' || operation.stage === 'ANCHORED')) {
                 return operation.receipt?.status === 'success' ? { kind: 'LANDED', operation } : { kind: 'TRANSACTION_REVERTED' };
             }
             return settle(journal, data, operation, gateway);
@@ -84,7 +84,7 @@ export function executeOperation(journal: Journal, request: Request, gateway: Ga
         if (operation && (operation.requestKey !== request.requestKey || operation.input !== request.input)) {
             return { kind: 'REQUEST_CONFLICT' };
         }
-        if ((operation?.stage === 'LANDED' || operation?.stage === 'TICKET_POSTED')) {
+        if ((operation?.stage === 'LANDED' || operation?.stage === 'TICKET_POSTED' || operation?.stage === 'BOOKED' || operation?.stage === 'ANCHORED')) {
             return operation.receipt?.status === 'success' ? { kind: 'LANDED', operation } : { kind: 'TRANSACTION_REVERTED' };
         }
         if (operation?.stage === 'BROADCAST' || operation?.stage === 'OUTCOME_UNKNOWN')

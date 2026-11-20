@@ -20,9 +20,10 @@ const receiptSchema = z.object({
 }).strict();
 export const operationSchema = z.object({
     id: z.string().regex(/^[a-zA-Z0-9_-]+$/), requestKey: z.string(),
-    stage: z.enum(['PLANNED', 'PROVED', 'BROADCAST', 'LANDED', 'TICKET_POSTED', 'OUTCOME_UNKNOWN']),
+    stage: z.enum(['PLANNED', 'PROVED', 'BROADCAST', 'LANDED', 'TICKET_POSTED', 'BOOKED', 'ANCHORED', 'OUTCOME_UNKNOWN']),
     input: hexSchema.nullable(), prepared: preparedSchema.nullable(), hash: hexSchema.nullable(),
     ticket: z.object({ memoId: z.string(), memoHash: hexSchema, commitment: hexSchema, sha3: hexSchema }).strict().optional(),
+    bookEntry: z.object({book: hexSchema, period: z.string(), index: z.number().int().nonnegative(), blobSha3: hexSchema, anchorHash: hexSchema.nullable()}).strict().optional(),
     gas: gasSchema.optional(), receipt: receiptSchema.nullable(), plannedAt: z.string().datetime(), updatedAt: z.string().datetime(),
 }).strict();
 const journalSchema = z.object({ v: z.literal(1), operations: z.array(operationSchema), notes: z.array(noteSchema) }).strict();
