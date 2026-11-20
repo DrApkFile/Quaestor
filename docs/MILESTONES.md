@@ -28,10 +28,10 @@ Done when:
 
 ## M2 — Post-quantum tickets (Codex, 23–24 Nov)
 Done when:
-- [ ] In-app account onboarding in code: register ML-KEM-1024 key, sign + publish a recipient card.
-- [ ] Ticket = Gloam note package sealed with QoreSeal hybrid to the payee's registry key + card, posted to our memo board; payee scans, opens, verifies the commitment is in the tree.
-- [ ] Tests: T-TICKET-NO-CLASSICAL-FALLBACK, ticket fits 8,192 B, outsider can't open, wrong AAD refused.
-- [ ] Round trip of M1 repeated with a PQ ticket; evidence/m2-ticket.json.
+- [x] In-app account onboarding primitives in code (M2 scripts; browser onboarding remains M6): register ML-KEM-1024 key, sign + publish a recipient card.
+- [x] Ticket = Gloam note package sealed with QoreSeal hybrid to the payee's registry key + card, posted to our memo board; payee scans, opens, verifies the commitment is in the tree.
+- [x] Tests: T-TICKET-NO-CLASSICAL-FALLBACK, ticket fits 8,192 B, outsider can't open, wrong AAD refused.
+- [x] Round trip of M1 repeated with a PQ ticket; evidence/m2-ticket.json.
 
 ## M3 — Sealed books and grants (Codex, 24–25 Nov)
 Done when:

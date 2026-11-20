@@ -1,0 +1,229 @@
+{
+  "v": 1,
+  "command": "pnpm evidence --m2",
+  "commit": "349d4c622669d18f5c6780926c98d7132f73e768",
+  "startedAt": "2026-11-20T12:05:03.159Z",
+  "updatedAt": "2026-11-20T12:07:32.123Z",
+  "demo": true,
+  "status": "PASSED",
+  "payerPid": 77433,
+  "payerJournal": ".accounts/m2/business.json",
+  "nativeTransactions": [
+    {
+      "role": "business",
+      "action": "register-kem",
+      "hash": "8A8AFDBFD76F673141B8DEB7FDE937CE1B007A42E9F6A470BCEC137510B3AA85",
+      "height": 10431840,
+      "gasUsed": "267675"
+    },
+    {
+      "role": "supplier1",
+      "action": "register-kem",
+      "hash": "65E722F6CC2DC1E439B82338DC8BC65830C1BB710AF3B5A0AE109B4FB36A3F31",
+      "height": 10431846,
+      "gasUsed": "267708"
+    },
+    {
+      "role": "auditor",
+      "action": "register-pq",
+      "hash": "A1D0F3DED37ED9D25B40D4483CBB5A0020AF4FE6B1E699B725522492C9E51230",
+      "height": 10431851,
+      "gasUsed": "297156"
+    },
+    {
+      "role": "auditor",
+      "action": "register-kem",
+      "hash": "090A791129046E8BE2CFEB010DC40179F52575B1AAB742AD47ED6B73B54B9616",
+      "height": 10431854,
+      "gasUsed": "267675"
+    },
+    {
+      "role": "client",
+      "action": "register-pq",
+      "hash": "A880A40E691258EAEE5AEFBC144C49C2F573FA5768F9B50ECEB99AB3E328FF6B",
+      "height": 10431859,
+      "gasUsed": "297114"
+    },
+    {
+      "role": "client",
+      "action": "register-kem",
+      "hash": "461DD574EBB6DB2B988B097A6FC76C4FD4DF6F906CA36ACCA9228C38B23F120D",
+      "height": 10431862,
+      "gasUsed": "267675"
+    },
+    {
+      "role": "business",
+      "action": "open-window",
+      "hash": "1B50408031CAC3F2E8B01FD6B0CDDA52E277CC0CC7F638702FBE50D6CE257E0E",
+      "height": 10431870,
+      "gasUsed": "186749"
+    }
+  ],
+  "identities": [
+    {
+      "role": "business",
+      "address": "qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf",
+      "kemSha3": "0x13ef1987bafd0ab3e783fee7dfc15fe4cdbe9e64a0cb36a6f6cbb2076166e9b3",
+      "registryBlock": "10431842",
+      "cardSha3": "0x3cebeb4a3b31155f982741ef3e9afd61f6206b627003a6b546f832fc88d5746a",
+      "cardVerified": true
+    },
+    {
+      "role": "supplier1",
+      "address": "qor1uz3zu3883m06vcguymnkxema9uantwxn8dmmw2",
+      "kemSha3": "0xc108f2ee24c7581feebd2f6ad662e88bf886b83346598731d0a2fd074f160494",
+      "registryBlock": "10431848",
+      "cardSha3": "0x5a2e319527ba24a564cfd2b3bbf00c6f16ec943debe6b4ce1af6b7b070543826",
+      "cardVerified": true
+    },
+    {
+      "role": "auditor",
+      "address": "qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp",
+      "kemSha3": "0x43ae6f703f388302b2d24bbab820ede948e6345addc497b1bf393e3eb9442692",
+      "registryBlock": "10431856",
+      "cardSha3": "0x8541ef6822a3eb7953dbf8c420cbd7719e59effacfd815fa5e47d61e64bfdb5b",
+      "cardVerified": true
+    },
+    {
+      "role": "client",
+      "address": "qor1j708k8j9fzev3ncnzkzz25u6wgxztcxhzewd9g",
+      "kemSha3": "0x53121c68ed991a4caa2c81ee861a37fbfdad0c2fe6d847a0a0fd3e2b980b7344",
+      "registryBlock": "10431864",
+      "cardSha3": null,
+      "cardVerified": false
+    }
+  ],
+  "importedCommitment": "0x23e6558fcb703bfe28de85486ccb2a714a718042d35dcbdcb7007aca4b40f890",
+  "payment": {
+    "gas": {
+      "estimatedGas": "1809651",
+      "gasLimit": "2262064",
+      "maxFeePerGas": "250000000000",
+      "estimationBlock": "10431879"
+    },
+    "id": "m2-send",
+    "hash": "0xcbc51e6283447f883b31a0cb7d5b40531bcc82449e3f7e0d0e94a38d04e5cba2",
+    "blockNumber": "10431882",
+    "blockHash": "0x5296fa4987fd910ce614e11cbb8543b23a396bd6fcf79f46c98b4326b5871a30",
+    "gasUsed": "1787565",
+    "effectiveGasPrice": "101000000000",
+    "status": "success",
+    "root": "0x070b36090c5469dc729c63040f150abab45f31737669974c9361b35a8e1ac0a8",
+    "nullifier": "0x1dc4367d178b1713ed34af550233d867234721ceffa7b9be784d10c0cc361e27",
+    "feeWei": "0",
+    "commitments": [
+      "0x1e6dd5457663610295bede015de08c29ff53f6e2bd51b545b167226e711879e6",
+      "0x1444b207b2e25693dc16f7563d444cade3f12877cb8abf1d0f08916adb2153b7"
+    ],
+    "plannedAt": "2026-11-20T12:06:09.484Z",
+    "landedAt": "2026-11-20T12:06:24.708Z"
+  },
+  "ticket": {
+    "bytes": 3786,
+    "mode": "hybrid",
+    "recipientCount": 2,
+    "sha3": "0x30a80a6dfaf12c2699d384c42b760171ea9b2ba85da80059e351cef1a7d623b4",
+    "commitment": "0x1e6dd5457663610295bede015de08c29ff53f6e2bd51b545b167226e711879e6",
+    "registryBlock": "10431882"
+  },
+  "memo": {
+    "gas": {
+      "estimatedGas": "174500",
+      "gasLimit": "218125",
+      "maxFeePerGas": "250000000000",
+      "estimationBlock": "10431884"
+    },
+    "id": "m2-send-memo",
+    "hash": "0xa0fca7bb491f0d3f44e14b474eb4c1c71a8116247434bf62bacdfbee9f976a31",
+    "blockNumber": "10431886",
+    "blockHash": "0xb007436bdae8f4515a708c90b5de932feb0ea9010cf8b81a348ffdfd43fa14b9",
+    "gasUsed": "115908",
+    "effectiveGasPrice": "101000000000",
+    "status": "success",
+    "root": null,
+    "nullifier": null,
+    "feeWei": "0",
+    "commitments": [],
+    "plannedAt": "2026-11-20T12:06:26.401Z",
+    "landedAt": "2026-11-20T12:06:30.126Z"
+  },
+  "supplier": {
+    "role": "supplier1",
+    "pid": 78197,
+    "loadedAccounts": [
+      "supplier1"
+    ],
+    "journal": ".accounts/m2/supplier1.json",
+    "journalInitiallyEmpty": true,
+    "scanBlock": "10431899",
+    "memoHash": "0xa0fca7bb491f0d3f44e14b474eb4c1c71a8116247434bf62bacdfbee9f976a31",
+    "commitment": "0x1e6dd5457663610295bede015de08c29ff53f6e2bd51b545b167226e711879e6",
+    "openCode": "OPENED",
+    "treeIncluded": true,
+    "treeRoot": "0x21facef495d78ba5c738d11e26a0aa1dfe52900b937c80be342d4f6a4a9f6208",
+    "notesAfterScan": 1,
+    "scanErrors": [],
+    "unshield": {
+      "gas": {
+        "estimatedGas": "328259",
+        "gasLimit": "410324",
+        "maxFeePerGas": "250000000000",
+        "estimationBlock": "10431912"
+      },
+      "id": "m2-unshield",
+      "hash": "0x5ad18c690c091e312bff3150f74cce85019ecc20cdb8dca04bd5ee0d2b3c4aea",
+      "blockNumber": "10431915",
+      "blockHash": "0x3df6b7283af045cd914b214f8b2d169a824921ce1174a787bd56245c5b313db7",
+      "gasUsed": "306179",
+      "effectiveGasPrice": "101000000000",
+      "status": "success",
+      "root": "0x21facef495d78ba5c738d11e26a0aa1dfe52900b937c80be342d4f6a4a9f6208",
+      "nullifier": "0x1306a4fec2e6e5c9e22c491079abd7714f41cabaa469063a121fc72462d3c6be",
+      "feeWei": "0",
+      "commitments": [],
+      "plannedAt": "2026-11-20T12:06:59.661Z",
+      "landedAt": "2026-11-20T12:07:11.963Z"
+    },
+    "window": {
+      "role": "supplier1",
+      "action": "open-window",
+      "hash": "CCF23915904CE7752969D85EB5BCEB03D96A5CFB684DCE9C4D42703A93D11831",
+      "height": 10431905,
+      "gasUsed": "186742"
+    },
+    "before": {
+      "block": "10431906",
+      "wei": "11448500000000000000"
+    },
+    "after": {
+      "block": "10431915",
+      "wei": "13417575921000000000"
+    },
+    "balanceMatched": true
+  },
+  "client": {
+    "role": "client",
+    "pid": 78299,
+    "loadedAccounts": [
+      "client"
+    ],
+    "journal": ".accounts/m2/client.json",
+    "journalInitiallyEmpty": true,
+    "scanBlock": "10431926",
+    "memoHash": "0xa0fca7bb491f0d3f44e14b474eb4c1c71a8116247434bf62bacdfbee9f976a31",
+    "commitment": "0x1e6dd5457663610295bede015de08c29ff53f6e2bd51b545b167226e711879e6",
+    "openCode": "NOT_A_RECIPIENT",
+    "treeIncluded": false,
+    "treeRoot": null,
+    "notesAfterScan": 0,
+    "scanErrors": [],
+    "unshield": null,
+    "window": null,
+    "before": null,
+    "after": null,
+    "balanceMatched": null
+  },
+  "failure": null,
+  "registryReason": null,
+  "errorCode": null
+}

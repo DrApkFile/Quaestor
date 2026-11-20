@@ -27,6 +27,7 @@ Filled in as the build goes. One row per meaningful piece of work.
 | Briefing pack | EVENT, LANDSCAPE, IDEA_CHECK, PRD, spikes, plan | reviewed the pitch; answered organiser questions; added prize targets | briefing/ |
 | M1 private rail | Codex implemented chain wrappers, durable note journal, tests and evidence runners; executed the native-QOR Diana round trip and log replay | builder supplied the M1 brief; Claude review is pending | docs/handoff/M1.md; evidence/m1-roundtrip.json; evidence/m1-logrange.json |
 | M1 review fixes | Codex preserved native diagnostics, estimated gas, funded and ran fUSD conversion plus a 50-fUSD shield, and corrected docs | builder supplied Claude’s approval and three required fixes; deferred two should-fixes to M3 | docs/reviews/M1-review.md; docs/handoff/M1-fixes.md; evidence/m1b-fusd.json; evidence/m1-gas.json; evidence/m1-gas-policy.json |
+| M2 post-quantum tickets | Codex implemented verified registry-bound cards, hybrid tickets, journal ownership isolation and separate-process memo discovery/spending; ran the live Diana flow | builder supplied Claude’s approved scope and offline S15 result; M2 review pending | docs/briefs/M2.md; docs/handoff/M2.md; evidence/m2-ticket.json; cards/ |
 
 ## What the AI got wrong, and how it was caught
 Kept honestly; an empty table here would not be believable.

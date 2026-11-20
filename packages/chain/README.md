@@ -1,6 +1,6 @@
 # @quaestor/chain
 
-M1 script support for our deployment of Gloam's open-source pool on QoreChain Diana (9800). The pool's Groth16 BN254 proofs are not post-quantum.
+M1/M2 script support for our deployment of Gloam's open-source pool on QoreChain Diana (9800). The pool's Groth16 BN254 proofs are not post-quantum.
 
 `config/diana.json` supplies every required endpoint, address and scan parameter. Startup validates it with Zod. `accounts.ts` derives script accounts from the git-ignored `.accounts/` files; it is not a browser account store.
 
@@ -28,4 +28,12 @@ Native broadcast failures preserve the chain code, codespace and rawLog, with ke
 
 Proofs use only local wasm/zkey files under `apps/web/public/circuits/`, with snarkjs workers disabled. The offline proof test requires these artifacts. They are not committed.
 
-Not built: browser persistence, PQ tickets, KEM registration, hosted services, fUSD payments, auditor root-history verdicts or UI. The fUSD spike's protobuf field layout follows the upstream [Cosmos EVM MsgConvertCoin definition](https://github.com/cosmos/evm/blob/main/proto/cosmos/evm/erc20/v1/tx.proto); the QoreChain SDK registry is extended only for that spike.
+Not built: browser persistence, hosted services, fUSD payments, auditor root-history verdicts or UI. The fUSD spike's protobuf field layout follows the upstream [Cosmos EVM MsgConvertCoin definition](https://github.com/cosmos/evm/blob/main/proto/cosmos/evm/erc20/v1/tx.proto); the QoreChain SDK registry is extended only for that spike.
+
+M2 adds `pnpm evidence --m2`: register ML-KEM-1024 keys, publish verified public recipient cards under `cards/`, and hand a payment note over via the memo board using QoreSeal hybrid ML-KEM-1024 + X25519. The registered non-recipient client must be refused. This proves the scripted ticket flow; it does not establish Groth16 soundness, metadata privacy (the board and recipient hints are public), or browser behaviour.
+
+M2 uses separate role-scoped journals at `.accounts/m2/<role>.json`. The payer's pending output stays private to its journal until sealed; only its change note becomes owned there. The supplier worker loads only supplier1's account and journal, scans chain memo events from the deployed board's block, opens the ticket, checks the note commitment/nullifier and the pool tree at a pinned block, then imports ownership. It never reads the payer journal. The legacy shared M1 journal is used only to migrate the business's own unspent 3-QOR change note, with its source held until a spend receipt confirms it.
+
+The payment reaches `TICKET_POSTED` only after a successful memo receipt. Pending ciphertext is retained locally so retries do not rebuild a possibly broadcast memo with different bytes. Unknown broadcasts stay held. An already successful M2 run retains its recorded evidence instead of sending again. If a receiver process fails after changing its journal, inspect the held operation and receipts before any retry; workers require an initially fresh receiver journal.
+
+M2 performs script onboarding only. Browser onboarding, encrypted browser backup, books, grants and M3 remain unbuilt. Public cards contain only strict-schema public fields and signatures; they are verified against both registry keys, with ML-DSA possession proven. A different registered KEM key is refused rather than overwritten. We never fall back to an unsigned card, anonymous envelope or weaker envelope mode.

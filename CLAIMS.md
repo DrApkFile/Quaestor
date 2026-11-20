@@ -4,7 +4,7 @@ README, project page and video may repeat only claims marked PROVEN here. Each c
 
 | ID | Claim | Status | Evidence | What it does not establish |
 |---|---|---|---|---|
-| C1 | A payee opens its ML-KEM-sealed ticket and spends the note; nobody else opens it | NOT PROVEN | — | — |
+| C1 | Supplier1 opens its hybrid ML-KEM-1024 + X25519 ticket from our memo board and spends the note; the registered non-recipient client is refused (the payer has an authorized self-copy) | PROVEN (live + tests) | evidence/m2-ticket.json; docs/handoff/M2.md; packages/chain/test/tickets.test.ts | Groth16 soundness; metadata privacy (the memo board is public, recipient hints are visible); browser behaviour |
 | C2 | An auditor reads exactly the granted period | NOT PROVEN | — | — |
 | C3 | Every honest entry on the demo book is MATCHED | NOT PROVEN | — | — |
 | C4 | Tampered, invented and receipt-reused entries are caught | NOT PROVEN | — | — |
