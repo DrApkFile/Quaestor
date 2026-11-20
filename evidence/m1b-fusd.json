@@ -1,0 +1,100 @@
+{
+  "command": "pnpm evidence --m1b-fusd",
+  "commit": "2035d1ce27dcafe7f4e03b2229d4bc00c6be8089",
+  "startedAt": "2026-11-20T11:25:42.784Z",
+  "updatedAt": "2026-11-20T11:26:27.129Z",
+  "demo": true,
+  "stage": "SHIELDED",
+  "initial": {
+    "block": "10430179",
+    "businessBank": "0",
+    "deployerBank": "1000000000",
+    "businessToken": "0"
+  },
+  "afterFunding": {
+    "block": "10430187",
+    "businessBank": "100000000",
+    "deployerBank": "900000000",
+    "businessToken": "0"
+  },
+  "final": {
+    "block": "10430209",
+    "businessBank": "0",
+    "deployerBank": "900000000",
+    "businessToken": "50000000"
+  },
+  "funding": {
+    "hash": "881210DD590D1E12CEAC456FC69EFDCC6B92B1E48B9D6478116196963E7EA1AA",
+    "height": 10430186,
+    "gasUsed": "193209"
+  },
+  "conversionTransaction": {
+    "hash": "9DA1A1E5F911102D9FB11C73331B4791878F208B92E3D2B1E13775952315B18D",
+    "height": 10430191,
+    "gasUsed": "443049"
+  },
+  "window": {
+    "hash": "A6988C8A9180B53C38B60A114D4415A5F1AC618C4438382C516388B47947DF92",
+    "height": 10430196,
+    "gasUsed": "186749"
+  },
+  "conversion": {
+    "status": "CONVERTED",
+    "before": "0",
+    "after": "100000000",
+    "code": null,
+    "codespace": null,
+    "rawLog": null,
+    "transactionHash": "9DA1A1E5F911102D9FB11C73331B4791878F208B92E3D2B1E13775952315B18D",
+    "bankBefore": "100000000",
+    "bankAfter": "0",
+    "errorCode": null,
+    "at": "2026-11-20T11:25:56.515Z"
+  },
+  "approval": {
+    "gas": {
+      "estimatedGas": "46342",
+      "gasLimit": "57928",
+      "maxFeePerGas": "250000000000",
+      "estimationBlock": "10430198"
+    },
+    "id": "fusd-approve-fifty",
+    "hash": "0x447c475dbe04f88205fa92d4aead012254c2c9e3548b9047feda7607860375fb",
+    "blockNumber": "10430200",
+    "blockHash": "0x38fe470aea5d20e13e907adef7a18d8a536f9ae95ea30ec76ae7b653963a6883",
+    "gasUsed": "46342",
+    "effectiveGasPrice": "101000000000",
+    "status": "success",
+    "root": null,
+    "nullifier": null,
+    "feeWei": "0",
+    "commitments": [],
+    "plannedAt": "2026-11-20T11:26:09.631Z",
+    "landedAt": "2026-11-20T11:26:13.090Z"
+  },
+  "shield": {
+    "gas": {
+      "estimatedGas": "1166378",
+      "gasLimit": "1457973",
+      "maxFeePerGas": "250000000000",
+      "estimationBlock": "10430206"
+    },
+    "id": "fusd-shield-fifty",
+    "hash": "0x2c5947b82f9987b8dac1ddc6480cb4cedcdabaffa08fe74af1963028bbdef762",
+    "blockNumber": "10430208",
+    "blockHash": "0x926fa431424172a41cdaf3d85e81e1a31ba4712b33bef3b0b060ce11648178d4",
+    "gasUsed": "1139494",
+    "effectiveGasPrice": "101000000000",
+    "status": "success",
+    "root": null,
+    "nullifier": null,
+    "feeWei": "0",
+    "commitments": [
+      "0x12c30543d7f2be03c99c01800157b7d5a969ea5efaa0ed4c43f75a1841fa9832"
+    ],
+    "plannedAt": "2026-11-20T11:26:13.590Z",
+    "landedAt": "2026-11-20T11:26:25.700Z"
+  },
+  "failure": null,
+  "errorCode": null
+}
