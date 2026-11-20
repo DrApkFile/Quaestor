@@ -6,7 +6,8 @@
   "exports": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "test": "vitest run --maxWorkers=1 --minWorkers=1"
+    "test": "vitest run --maxWorkers=1 --minWorkers=1",
+    "lint": "eslint src scripts test"
   },
   "dependencies": {
     "@cosmjs/proto-signing": "0.39.0",

@@ -9,9 +9,15 @@
   },
   "scripts": {
     "typecheck": "pnpm -r --if-present typecheck",
-    "lint": "pnpm -r --if-present lint",
+    "lint": "pnpm -r --workspace-concurrency=1 --if-present lint",
     "test": "pnpm -r --if-present test",
     "gate": "pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test",
     "evidence": "pnpm -C packages/chain exec tsx ../../scripts/evidence.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.1",
+    "eslint": "9.39.1",
+    "typescript": "5.6.3",
+    "typescript-eslint": "8.46.4"
   }
 }

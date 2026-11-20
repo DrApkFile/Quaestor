@@ -8,7 +8,9 @@
     "s03": "node day2/s03-bn254-precompiles.mjs",
     "poseidon": "node day2/deploy-poseidon.mjs",
     "s04": "node day2/s04-check-verifiers.mjs",
-    "write-env": "node day2/write-env.mjs"
+    "write-env": "node day2/write-env.mjs",
+    "lint": "eslint *.ts",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@gloamtrade/sdk": "0.8.0",
@@ -18,5 +20,9 @@
     "circomlibjs": "0.1.7",
     "snarkjs": "0.7.6",
     "viem": "2.58.2"
+  },
+  "devDependencies": {
+    "@types/node": "22.7.5",
+    "typescript": "5.6.3"
   }
 }
