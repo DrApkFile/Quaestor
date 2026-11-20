@@ -4,7 +4,7 @@ README, project page and video may repeat only claims marked PROVEN here. Each c
 
 | ID | Claim | Status | Evidence | What it does not establish |
 |---|---|---|---|---|
-| C1 | Supplier1 opens its hybrid ML-KEM-1024 + X25519 ticket from our memo board and spends the note; the registered non-recipient client is refused (the payer has an authorized self-copy) | PROVEN (live + tests) | evidence/m2-ticket.json; docs/handoff/M2.md; packages/chain/test/tickets.test.ts | Groth16 soundness; metadata privacy (the memo board is public); browser behaviour; payer anonymity: the payer’s EVM address sends the private send and the memo post (no relay) |
+| C1 | Supplier1 opens its anonymous hybrid ML-KEM-1024 + X25519 ticket from our memo board and spends the note; the registered non-recipient client is refused (the payer has an authorized self-copy) | PROVEN (live + tests) | evidence/m2b-ticket-anonymous.json (anonymous correction); evidence/m2-ticket.json (historical non-anonymous); packages/chain/test/tickets.test.ts | Groth16 soundness; metadata privacy (the memo board is public); browser behaviour; payer anonymity: the payer’s EVM address sends the private send and the memo post (no relay) |
 | C2 | An auditor reads exactly the granted period | NOT PROVEN | — | — |
 | C3 | Every honest entry on the demo book is MATCHED | NOT PROVEN | — | — |
 | C4 | Tampered, invented and receipt-reused entries are caught | NOT PROVEN | — | — |

@@ -1,0 +1,152 @@
+{
+  "command": "pnpm evidence --m2",
+  "label": "m2b-ticket-anonymous",
+  "commit": "d2eea7db17c17be79dc5a2e91b45e57f5ecb89b5",
+  "at": "2026-11-20T12:40:51.374Z",
+  "demo": true,
+  "status": "PASSED",
+  "anonymous": true,
+  "ticket": {
+    "bytes": 3786,
+    "mode": "hybrid",
+    "recipients": 2
+  },
+  "registeredKeyCount": 4,
+  "hintsUnlinkable": true,
+  "window": {
+    "hash": "3A8964FF902A8F5F586868C9FC05FE850EA755658146CD926071CC6E8A1B8B99",
+    "height": 10433269,
+    "gasUsed": "186749"
+  },
+  "payment": {
+    "id": "m2b-send",
+    "hash": "0xc0ae5028d166759c9529d1e4bce3589a40bed7d2d244f9ab900a02ce6d21fe7a",
+    "blockNumber": "10433277",
+    "blockHash": "0x58d5fb525912a637e9efef5a1f27f415e7b391592a86224a97876002cb2d57ab",
+    "gasUsed": "1792241",
+    "effectiveGasPrice": "101000000000",
+    "status": "success",
+    "gas": {
+      "estimatedGas": "1814327",
+      "gasLimit": "2267909",
+      "maxFeePerGas": "250000000000",
+      "estimationBlock": "10433274"
+    },
+    "root": "0x21facef495d78ba5c738d11e26a0aa1dfe52900b937c80be342d4f6a4a9f6208",
+    "nullifier": "0x129b96d6223298c57462a2d1ba8d1f4b7d5dd15c26c17f92a72130c87e752acd",
+    "feeWei": "0",
+    "commitments": [
+      "0x28af58734a7a4d58d881adb11340a1079bf6244e482dbbcd132b35fd056658d3",
+      "0x1db1866eb390a3aadf3459e11dbed8020c0278a634ae1b4bbc8c409a15684f02"
+    ],
+    "plannedAt": "2026-11-20T12:39:26.753Z",
+    "landedAt": "2026-11-20T12:39:41.479Z"
+  },
+  "memo": {
+    "id": "m2b-send-memo",
+    "hash": "0x4438d004b7adf24786fb7ddc0b61822a85219966745a896044d3f2cfffba5efd",
+    "blockNumber": "10433280",
+    "blockHash": "0xbc91a8a9325ffbd3f260cb81332034925859f8c38992cc6cc779828eecafe1da",
+    "gasUsed": "115500",
+    "effectiveGasPrice": "101000000000",
+    "status": "success",
+    "gas": {
+      "estimatedGas": "173480",
+      "gasLimit": "216850",
+      "maxFeePerGas": "250000000000",
+      "estimationBlock": "10433278"
+    },
+    "root": null,
+    "nullifier": null,
+    "feeWei": "0",
+    "commitments": [],
+    "plannedAt": "2026-11-20T12:39:41.968Z",
+    "landedAt": "2026-11-20T12:39:44.911Z"
+  },
+  "supplier": {
+    "role": "supplier1",
+    "pid": 82630,
+    "loadedAccounts": [
+      "supplier1"
+    ],
+    "journal": ".accounts/m2b/supplier1.json",
+    "journalInitiallyEmpty": true,
+    "scanBlock": "10433289",
+    "memoHash": "0x4438d004b7adf24786fb7ddc0b61822a85219966745a896044d3f2cfffba5efd",
+    "commitment": "0x28af58734a7a4d58d881adb11340a1079bf6244e482dbbcd132b35fd056658d3",
+    "openCode": "OPENED",
+    "treeIncluded": true,
+    "treeRoot": "0x0e4d057b40e60cd5087bdb405514f65fb872fe34c877a145ee34e5ef19da5daa",
+    "notesAfterScan": 1,
+    "scanErrors": [
+      {
+        "commitment": "0x1e6dd5457663610295bede015de08c29ff53f6e2bd51b545b167226e711879e6",
+        "code": "TICKET_INVALID"
+      }
+    ],
+    "unshield": {
+      "gas": {
+        "estimatedGas": "328295",
+        "gasLimit": "410369",
+        "maxFeePerGas": "250000000000",
+        "estimationBlock": "10433302"
+      },
+      "id": "m2-unshield",
+      "hash": "0xaea0f2bc7fa0a1a96e86545623861d589f86b34502b1d026fce26d76bfaf4469",
+      "blockNumber": "10433304",
+      "blockHash": "0x33da287e014f82d00af71dd4077f22db308f8761c6866a47b264829757ba896a",
+      "gasUsed": "306215",
+      "effectiveGasPrice": "101000000000",
+      "status": "success",
+      "root": "0x0e4d057b40e60cd5087bdb405514f65fb872fe34c877a145ee34e5ef19da5daa",
+      "nullifier": "0x09a429960f84fc81d260e5dfd91b3e0dcb647e8c8a5fd42b08d68798e49ae263",
+      "feeWei": "0",
+      "commitments": [],
+      "plannedAt": "2026-11-20T12:40:09.925Z",
+      "landedAt": "2026-11-20T12:40:21.749Z"
+    },
+    "window": {
+      "role": "supplier1",
+      "action": "open-window",
+      "hash": "6AF2A84FC865D68473990BA00AF8911BC10A6417C4A2C26F308DD9FC4E2B127F",
+      "height": 10433295,
+      "gasUsed": "186742"
+    },
+    "before": {
+      "block": "10433296",
+      "wei": "13317575921000000000"
+    },
+    "after": {
+      "block": "10433304",
+      "wei": "14286648206000000000"
+    },
+    "balanceMatched": true
+  },
+  "client": {
+    "role": "client",
+    "pid": 82720,
+    "loadedAccounts": [
+      "client"
+    ],
+    "journal": ".accounts/m2b/client.json",
+    "journalInitiallyEmpty": true,
+    "scanBlock": "10433319",
+    "memoHash": "0x4438d004b7adf24786fb7ddc0b61822a85219966745a896044d3f2cfffba5efd",
+    "commitment": "0x28af58734a7a4d58d881adb11340a1079bf6244e482dbbcd132b35fd056658d3",
+    "openCode": "DECRYPTION_FAILED",
+    "treeIncluded": false,
+    "treeRoot": null,
+    "notesAfterScan": 0,
+    "scanErrors": [
+      {
+        "commitment": "0x1e6dd5457663610295bede015de08c29ff53f6e2bd51b545b167226e711879e6",
+        "code": "TICKET_INVALID"
+      }
+    ],
+    "unshield": null,
+    "window": null,
+    "before": null,
+    "after": null,
+    "balanceMatched": null
+  }
+}

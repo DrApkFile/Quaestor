@@ -27,3 +27,5 @@ The research sandbox cannot reach api-testnet.qore.host (proxy refused, 20 Nov).
 ## Conflicts on record
 - Precompile activation (S09): docs dated 25 Oct vs FAQ 20 Nov.
 - Gloam's deploy scripts hard-code Gloam's chains, deployer and fee recipient: we write our own deploy script (credited) rather than editing theirs.
+
+M2 review correction: non-anonymous recipient hints in the original S11/M2 run were linkable. The preserved corrected run `evidence/m2b-ticket-anonymous.json` uses anonymous hybrid envelopes; all entry hints are zero and match none of the four project registry keys. The registered client returns DECRYPTION_FAILED. Payer EVM anonymity is not claimed (direct private send and memo transactions, no relay).
