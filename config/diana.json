@@ -1,0 +1,11 @@
+{
+  "chainId": 9800,
+  "nativeChainId": "qorechain-diana",
+  "pool": "0x27dD6Fd63B1CFdce96F6202B259E45A9587C8C55",
+  "fusd": "0x97143B771D34ddb9130b807b135Ae675A5a963CA",
+  "evmRpc": "https://evm-testnet.qore.host",
+  "rest": "https://api-testnet.qore.host",
+  "consensusRpc": "https://rpc-testnet.qore.host",
+  "deployBlock": "10427515",
+  "chunkSize": "10000"
+}
