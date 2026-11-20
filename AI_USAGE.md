@@ -25,7 +25,7 @@ Filled in as the build goes. One row per meaningful piece of work.
 |---|---|---|---|
 | Idea and scope | 4 rounds of idea proposals; stakeholder research | chose Quaestor; made the private rail mandatory; dropped region focus; chose a normal web app; set the "not affiliated with Gloam" wording | docs/ai-log/2026-11-20.md |
 | Briefing pack | EVENT, LANDSCAPE, IDEA_CHECK, PRD, spikes, plan | reviewed the pitch; answered organiser questions; added prize targets | briefing/ |
-| — | — | — | — |
+| M1 private rail | Codex implemented chain wrappers, durable note journal, tests and evidence runners; executed the native-QOR Diana round trip and log replay | builder supplied the M1 brief; Claude review is pending | docs/handoff/M1.md; evidence/m1-roundtrip.json; evidence/m1-logrange.json |
 
 ## What the AI got wrong, and how it was caught
 Kept honestly; an empty table here would not be believable.

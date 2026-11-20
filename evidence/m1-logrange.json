@@ -1,0 +1,37 @@
+{
+  "command": "pnpm evidence --m1-logs",
+  "commit": "18a9f3f74d70aee289c1b237d6c67fc1b1a46827",
+  "at": "2026-11-20T11:02:41.221Z",
+  "network": "qorechain-diana",
+  "pool": "0x27dD6Fd63B1CFdce96F6202B259E45A9587C8C55",
+  "fromBlock": "10427515",
+  "toBlock": "10429207",
+  "requestedRange": "500",
+  "effectiveRange": "500",
+  "requests": [
+    {
+      "from": "10427515",
+      "to": "10428014",
+      "logs": 5
+    },
+    {
+      "from": "10428015",
+      "to": "10428514",
+      "logs": 0
+    },
+    {
+      "from": "10428515",
+      "to": "10429014",
+      "logs": 0
+    },
+    {
+      "from": "10429015",
+      "to": "10429207",
+      "logs": 3
+    }
+  ],
+  "leafCount": 3,
+  "root": "0x063c8f81be5981b8fbf7f1d44e7bcd8f02dc77cc03e84343d1ffbf51228e60e9",
+  "rootMatchesPinnedCurrentRoot": true,
+  "capEncountered": false
+}

@@ -1,0 +1,131 @@
+{
+  "v": 1,
+  "command": "pnpm evidence --m1",
+  "commit": "eb803cad99cedf9a9c87a36bf5a2f8e4e36d8ebd",
+  "network": "qorechain-diana",
+  "chainId": 9800,
+  "pool": "0x27dD6Fd63B1CFdce96F6202B259E45A9587C8C55",
+  "demo": true,
+  "asset": "native QOR",
+  "proofSystem": "Groth16 BN254; not post-quantum",
+  "status": "PASSED",
+  "startedAt": "2026-11-20T10:59:17.724Z",
+  "updatedAt": "2026-11-20T11:00:39.494Z",
+  "supplier": "0xe0a22E44E78edFA6611C26e763677d2f3B35B8d3",
+  "before": {
+    "block": "10429071",
+    "wei": "10000000000000000000"
+  },
+  "beforeUnshield": {
+    "block": "10429109",
+    "wei": "9800000000000000000"
+  },
+  "after": {
+    "block": "10429119",
+    "wei": "11648500000000000000"
+  },
+  "nativeTransactions": [
+    {
+      "action": "register-business",
+      "hash": "D873979D1BE48DC42F4D6B3A906C06938EDB0B73809D76757E8C5F4B8FE9C007",
+      "height": 10429080,
+      "gasUsed": "297114",
+      "feeUqor": "100000"
+    },
+    {
+      "action": "window-business",
+      "hash": "E43B95B22B43D17FB04C658DA959C15A2C7CF12807C1AD9803FA74F9A342854E",
+      "height": 10429084,
+      "gasUsed": "186749",
+      "feeUqor": "100000"
+    },
+    {
+      "action": "register-supplier1",
+      "hash": "11E1332E3E14B047C5C2997431F2CD854A3F13808210DF75DD6AE41020A64C40",
+      "height": 10429088,
+      "gasUsed": "297114",
+      "feeUqor": "100000"
+    },
+    {
+      "action": "window-supplier1",
+      "hash": "B098678939A35204138717A82CEAE8617AA406DAD7CBC194AD0467408B393748",
+      "height": 10429091,
+      "gasUsed": "186709",
+      "feeUqor": "100000"
+    }
+  ],
+  "payments": [
+    {
+      "id": "shield",
+      "hash": "0x2a84c91aa00df8221bd8e041737cbed27ad45da291956d64cafd86e98c26d0e6",
+      "blockNumber": "10429100",
+      "blockHash": "0xb14b0a9bb4d14d10e7cfcb1e7c2bd2e35205c426c365234b58933cd1ee44f8de",
+      "gasUsed": "1500000",
+      "effectiveGasPrice": "101000000000",
+      "status": "success",
+      "root": null,
+      "nullifier": null,
+      "feeWei": "0",
+      "commitments": [
+        "0x0078b57111bf5626ee5823bee673b14bf26f05d5347a0507792fb7cafedcbd0a"
+      ],
+      "plannedAt": "2026-11-20T10:59:52.400Z",
+      "landedAt": "2026-11-20T11:00:03.231Z"
+    },
+    {
+      "id": "send",
+      "hash": "0xbe6ccd6c68325ba707c2c8d533b49420e6a99dd60c6f2af83ce6133c9798ee6e",
+      "blockNumber": "10429109",
+      "blockHash": "0x8e99863a288a0d4ebccfe41e7129403828ff2696735fd1a22dd57a8c53c8df12",
+      "gasUsed": "1792731",
+      "effectiveGasPrice": "101000000000",
+      "status": "success",
+      "root": "0x0ebb9d6972819c9a4a730f4750b14cfa1f9955294402e40d0bd89299b890c0a6",
+      "nullifier": "0x0f6e70ea3f4deb30e4f25e6ec1ff53587db81c05933b618e3b87e430888a4a86",
+      "feeWei": "0",
+      "commitments": [
+        "0x1173d713bfa4c42791267c4cffee1d544ce5f9799cac37f7e506266db003db96",
+        "0x23e6558fcb703bfe28de85486ccb2a714a718042d35dcbdcb7007aca4b40f890"
+      ],
+      "plannedAt": "2026-11-20T11:00:04.011Z",
+      "landedAt": "2026-11-20T11:00:15.612Z"
+    },
+    {
+      "id": "unshield",
+      "hash": "0x8677da7c92ccd22bd28ad1f8209762c02be354387bb592794b60a3fea6639fa7",
+      "blockNumber": "10429118",
+      "blockHash": "0xd155b6027b1daf5ba056aaa8490ac038247b48db17e540c132da1f58fdb9603e",
+      "gasUsed": "1500000",
+      "effectiveGasPrice": "101000000000",
+      "status": "success",
+      "root": "0x063c8f81be5981b8fbf7f1d44e7bcd8f02dc77cc03e84343d1ffbf51228e60e9",
+      "nullifier": "0x03529726bb43426651dec15e1ac5645e53b679f6b1048ad12f53f1765949f602",
+      "feeWei": "0",
+      "commitments": [],
+      "plannedAt": "2026-11-20T11:00:17.200Z",
+      "landedAt": "2026-11-20T11:00:29.308Z"
+    }
+  ],
+  "tree": {
+    "block": "10429119",
+    "root": "0x063c8f81be5981b8fbf7f1d44e7bcd8f02dc77cc03e84343d1ffbf51228e60e9",
+    "leafCount": 3,
+    "requestedRange": "10000",
+    "effectiveRange": "10000"
+  },
+  "balanceCheck": {
+    "expectedDeltaWei": "1848500000000000000",
+    "actualDeltaWei": "1848500000000000000",
+    "passed": true
+  },
+  "fusd": {
+    "status": "FAILED",
+    "before": "0",
+    "after": "0",
+    "bankBefore": "0",
+    "bankAfter": "0",
+    "errorCode": "CONVERSION_FAILED",
+    "at": "2026-11-20T11:00:30.852Z"
+  },
+  "errorCode": null
+}

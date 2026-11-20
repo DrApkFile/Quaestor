@@ -13,6 +13,7 @@ const block = await client.getBlockNumber({ cacheTime: 0 });
 const requests: { from: string; to: string; logs: number }[] = [];
 const reader: PublicClient = Object.assign({}, client, {
   getLogs: (async (parameters: Parameters<PublicClient['getLogs']>[0]) => {
+    if (!parameters) throw new Error('LOG_RANGE_REQUIRED');
     const logs = await client.getLogs(parameters);
     requests.push({ from: String(parameters.fromBlock), to: String(parameters.toBlock), logs: logs.length });
     return logs;
