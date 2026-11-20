@@ -17,7 +17,7 @@ contracts/
   script/          our deploy script for PoseidonT3, final verifiers, ShieldPoolPayments, GloamPayMemo on Diana
   Books.sol        anchors, grants, period close (ours)
 packages/core      pure TS, no network, no clock: entry/grant/close codecs, period keys, ticket codec, verdict engine, reconciliation
-packages/chain     Diana reads pinned to one height, KEM/ML-DSA registry, EVM windows, pool wrapper over @gloamtrade/sdk (chainId 9800 + our poolAddress), tree sync from Insert logs
+packages/chain     Diana reads pinned to one height, KEM/ML-DSA registry, EVM windows, pool wrapper over @gloamtrade/sdk (chainId 9800 + our poolAddress), tree sync from the pool’s insertion events (Shielded, Transferred)
 apps/web           Vite + React web app: Business, Pay, Auditor, Public check
 apps/store         content-addressed ciphertext store (SHA3-256 keys); rejects anything that isn't QoreSeal bytes or a signed record
 apps/audit-cli     `quaestor-audit <book> --period <p> --key <file>` read-only verdicts from a terminal
@@ -77,7 +77,7 @@ Close record `{book, period, entryCount, lastEntrySha3, openingBalance, closingB
 5. Receipt: `context` ≠ expected for (book, period, index) → `UNBACKED`.
 6. Receipt Groth16 verification (receipt vkey) fails → `UNBACKED`.
 7. `commitment` ≠ entry's `paymentCommitment`, `shownAmount` ≠ amount, or asset mismatch → `UNBACKED`.
-8. `root` is not a root the pool tree ever had (rebuilt from Insert logs; not `isKnownRoot`, which keeps only 100) → `UNBACKED`.
+8. `root` is not a root the pool tree ever had (rebuilt from the pool’s insertion events (Shielded, Transferred); not `isKnownRoot`, which keeps only 100) → `UNBACKED`.
 9. Else `MATCHED`.
 `MATCHED` does not establish who the counterparty is in real life, or that every payment was booked.
 

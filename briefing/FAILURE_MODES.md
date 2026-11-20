@@ -6,7 +6,7 @@
 | Timeout / 5xx | 3 retries with backoff, then `UNKNOWN`; never `MATCHED` | packages/chain/read.ts | T-FAIL-READ |
 | Mixed heights in one decision | every read for one verdict pinned to one block | packages/chain/snapshot.ts | T-FAIL-HEIGHT |
 | Log range capped | page `eth_getLogs` by range; a gap → `UNKNOWN` | packages/chain/logs.ts | T-FAIL-LOG-GAP |
-| Root not in pool history | the pool's `isKnownRoot` only keeps the last 100 roots (IncrementalMerkleTreePoseidon `rootHistorySize = 100`), so audits months later can't rely on it. The verdict engine rebuilds the tree from `Insert` logs and accepts a receipt's root only if it is a root the tree actually had → else `UNBACKED` | packages/core/verdict.ts | T-VERDICT-UNKNOWN-ROOT, T-VERDICT-OLD-ROOT |
+| Root not in pool history | the pool's `isKnownRoot` only keeps the last 100 roots (IncrementalMerkleTreePoseidon `rootHistorySize = 100`), so audits months later can't rely on it. The verdict engine rebuilds the tree from the pool’s insertion events (Shielded, Transferred) and accepts a receipt's root only if it is a root the tree actually had → else `UNBACKED` | packages/core/verdict.ts | T-VERDICT-UNKNOWN-ROOT, T-VERDICT-OLD-ROOT |
 
 ## Diana writes (pool txs, memo posts, Books anchors)
 | Mode | Guard | Where | Test |

@@ -16,9 +16,15 @@ Done when:
 
 ## M1 — Private payment round trip from code (Codex, 22–23 Nov)
 Done when:
-- [ ] `packages/chain` wraps the SDK for chain 9800: shieldBound (fUSD), private send, unshield; window checks; tree sync from Insert logs with paged `eth_getLogs`.
-- [ ] One scripted round trip on Diana: shield → send to a second account → that account unshields. Tx hashes in `evidence/m1-roundtrip.json`.
-- [ ] Unit tests for the wrapper; T-JOURNAL and T-NOTES behaviour for unknown broadcast outcomes.
+- [x] `packages/chain` wraps the SDK for chain 9800: shieldBound (native QOR), private send, unshield; window checks; tree sync from the pool’s insertion events (Shielded, Transferred) with paged `eth_getLogs`.
+- [x] One scripted round trip on Diana: shield → send to a second account → that account unshields. Tx hashes in `evidence/m1-roundtrip.json`.
+- [x] Unit tests for the wrapper; T-JOURNAL and T-NOTES behaviour for unknown broadcast outcomes.
+
+## M1b — Funded fUSD conversion and shield (conditional on S13)
+Done when:
+- [x] Deployer sends 100 bank fUSD to business with a hybrid MsgSend; balances and transaction recorded in `evidence/m1b-fusd.json`.
+- [x] S13 rerun with a funded business account; preserve chain code, codespace and a key-redacted rawLog of at most 500 characters on failure. The original zero-bank-balance attempt is not a valid conversion test.
+- [x] If S13 confirms conversion, business approves and shields 50 fUSD; receipts and commitment in `evidence/m1b-fusd.json`. No further fUSD paths are built.
 
 ## M2 — Post-quantum tickets (Codex, 23–24 Nov)
 Done when:
