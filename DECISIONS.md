@@ -20,3 +20,9 @@ Context: Gloam's proving stack uses snarkjs (GPL-3.0); PoseidonT3 bytecode comes
 
 ## D11 Anonymous hybrid tickets and period-key envelopes
 Context: public nonzero recipient hints permit anyone with registry public keys to identify recipients. Claude's original M2 brief incorrectly prohibited anonymous envelopes. Decision: hybrid envelopes must be anonymous. Scan decryption refusal is an expected non-recipient result. The payer's EVM address still originates private sends and memo posts; no payer anonymity is claimed without a relay. Where: M2 review/erratum, tickets, period grants.
+
+## D3 implementation note — close verification
+S09/S16 at block 10434078 confirm both precompiles active. Books uses registered algorithm-1 possession-proven keys and raw ML-DSA-87 verification (empty context, no prehash). The PRD fallback is not selected.
+
+## D12 M3 deterministic encodings
+SDK proofContext accepts an object, not the PRD's shorthand string. Use kind payment, chainId 9800, our pool, verifier quaestor|book|period|index, expiresAt 0 as a deterministic context tag; no expiry claim or clock read. Contract period bytes32 is keccak256(UTF-8 UTC YYYY-MM-DD). Epoch ordinals start at 1; entry indices start at 0. Close records in M3 omit reconciliation fields pending D5. Demo period dates are book labels, not assertions that all payment transactions occurred on those dates.

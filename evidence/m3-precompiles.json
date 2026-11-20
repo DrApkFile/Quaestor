@@ -1,0 +1,19 @@
+{
+  "command": "pnpm evidence --m3-spikes",
+  "commit": "836aec01ae8e0697be3d288bef1bc4e19ecf9970",
+  "at": "2026-11-20T12:59:07.484Z",
+  "block": "10434078",
+  "business": "0x61D3d2B524ef290C13ec8580Bf83D85b9AD332ab",
+  "registered": true,
+  "algorithm": 1,
+  "possessionProven": true,
+  "publicKeyMatches": true,
+  "publicKeySha3": "0xec6a7e1f4958d648cc1ba188092ed96d1831cafc2caf7e0909193bc31ce33bec",
+  "messageBytes": 32,
+  "signatureBytes": 4627,
+  "accepted": true,
+  "flippedRejected": true,
+  "context": "",
+  "prehash": false,
+  "source": "https://github.com/qorechain/qorechain-core/blob/main/docs/EVM_PRECOMPILES.md#pqcverify-0x0a01"
+}
