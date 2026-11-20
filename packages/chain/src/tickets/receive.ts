@@ -25,6 +25,7 @@ export async function receiveMemo(journal: Journal, memo: Memo, keys: SealKeyPai
     return { kind: 'OPENED', commitment: note.commitment, treeBlock: block.toString(), root: inclusion.root, treeIncluded: true } as const;
   } catch (error: unknown) {
     if (error instanceof TicketError) return { kind: 'REFUSED', code: error.code, commitment: memo.commitment } as const;
-    return { kind: 'REFUSED', code: 'NETWORK_UNAVAILABLE', commitment: memo.commitment } as const;
+    const code = error instanceof Error && /^[A-Z_]+$/.test(error.message) ? error.message : 'RECEIVE_FAILED';
+    return { kind: 'REFUSED', code, commitment: memo.commitment } as const;
   }
 }

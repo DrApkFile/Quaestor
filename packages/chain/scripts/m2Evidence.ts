@@ -13,7 +13,7 @@ const balanceSchema = z.object({ block: uintSchema, wei: uintSchema }).strict();
 export const workerSchema = z.object({
   role: z.enum(['supplier1', 'client']), pid: z.number().int(), loadedAccounts: z.array(roleSchema).length(1), journal: z.string(),
   journalInitiallyEmpty: z.boolean(), scanBlock: uintSchema, memoHash: hexSchema, commitment: hexSchema,
-  openCode: z.enum(['OPENED', 'NOT_A_RECIPIENT', 'DECRYPTION_FAILED', 'TICKET_INVALID', 'NETWORK_UNAVAILABLE']),
+  openCode: z.string().regex(/^[A-Z_]+$/),
   treeIncluded: z.boolean(), treeRoot: hexSchema.nullable(), notesAfterScan: z.number().int(),
   scanErrors: z.array(z.object({ commitment: hexSchema, code: z.string() }).strict()),
   unshield: evidenceSchema.shape.payments.element.nullable(), window: nativeRecordSchema.nullable(),

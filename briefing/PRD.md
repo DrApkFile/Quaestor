@@ -41,8 +41,8 @@ Every user (business, client, supplier, auditor) gets an **in-app QoreChain acco
 **Pay (private send)**
 1. Payer's browser resolves the payee's qor1 address → ML-KEM key from registry + verified recipient card. No key → `NO_KEM_KEY`, no payment.
 2. `buildPrivateSendIntent({ chainId: 9800, poolAddress, ... })` → proof in the browser → `transfer` on Diana through the payer's window.
-3. **Ticket** = Gloam note package for the payee's output note, sealed with QoreSeal hybrid, purpose `quaestor:ticket`, AAD = `9800|pool|paymentCommitment`, recipients = payee (+ payer's own key for its records). Posted via our `GloamPayMemo.postMemo(paymentCommitment, ticket)`. No P-256 path exists.
-4. Payee's app scans memos, tries its hint, opens the ticket, verifies the commitment is in the tree, stores the note.
+3. **Ticket** = Gloam note package for the payee's output note, sealed with QoreSeal hybrid and anonymous envelopes, purpose `quaestor:ticket`, AAD = `9800|pool|paymentCommitment`, recipients = payee (+ payer's own key for its records). Posted via our `GloamPayMemo.postMemo(paymentCommitment, ticket)`. No P-256 path exists.
+4. Payee's app scans memos, attempts anonymous opening, skips non-recipient decryption failures, opens the ticket, verifies the commitment is in the tree, stores the note.
 
 **Book entry** (both sides keep books if they use Quaestor; demo: the business)
 ```json

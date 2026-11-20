@@ -5,7 +5,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { deriveUnifiedAccount } from '@qorechain/sdk';
 import { makeBoundNotePoseidon } from '@gloamtrade/sdk';
-import { seal, recipientOf, type SealKeyPair } from '@qorechain/qoreseal';
+import { seal, recipientOf, parseEnvelope, recipientHint, type SealKeyPair } from '@qorechain/qoreseal';
 import { zeroAddress } from 'viem';
 import { beforeAll, expect, it, vi } from 'vitest';
 import { accountSealKeys } from '../src/tickets/sealKeys.js';
@@ -57,15 +57,15 @@ it('T-TICKET seals a real two-recipient hybrid envelope within 8192 bytes and op
   expect(await openTicket(envelope, keys[1]!, pool, note.commitment)).toEqual(note);
 });
 it('T-TICKET refuses an outsider and authenticates the reconstructed AAD', async () => {
-  await expect(openTicket(envelope, keys[2]!, pool, note.commitment)).rejects.toMatchObject({ code: 'NOT_A_RECIPIENT' });
+  await expect(openTicket(envelope, keys[2]!, pool, note.commitment)).rejects.toMatchObject({ code: 'DECRYPTION_FAILED' });
   await expect(openTicket(envelope, keys[0]!, zeroAddress, note.commitment)).rejects.toMatchObject({ code: 'DECRYPTION_FAILED' });
 });
 it('T-TICKET-NO-CLASSICAL-FALLBACK refuses weaker modes, anonymous envelopes and oversized input', async () => {
   await expect(sealTicket(note, recipients, { mode: 'mlkem', anonymous: false })).rejects.toMatchObject({ code: 'TICKET_INVALID' });
-  await expect(sealTicket(note, recipients, { mode: 'hybrid', anonymous: true })).rejects.toMatchObject({ code: 'TICKET_INVALID' });
+  await expect(sealTicket(note, recipients, { mode: 'hybrid', anonymous: false })).rejects.toMatchObject({ code: 'TICKET_INVALID' });
   for (const mode of ['mlkem', 'hybrid'] as const) {
     const invalid = seal({ chainId: 'qorechain-diana', purpose: 'quaestor:ticket', mode,
-      anonymous: mode === 'hybrid', recipients: keys.slice(0, 2).map(recipientOf), plaintext: new Uint8Array(), aad: ticketAad(pool, note.commitment) });
+      anonymous: false, recipients: keys.slice(0, 2).map(recipientOf), plaintext: new Uint8Array(), aad: ticketAad(pool, note.commitment) });
     await expect(openTicket(invalid, keys[0]!, pool, note.commitment)).rejects.toMatchObject({ code: 'TICKET_INVALID' });
   }
   expect(() => ticketMetadata(new Uint8Array(8193))).toThrow('TICKET_INVALID');
@@ -116,4 +116,13 @@ it('T-NOTES the payer journal retains change without granting the payee ownershi
     expect(journal.read().notes.map(item => [item.owner, item.state])).toEqual([['business', 'SPENT'], ['business', 'OWNED']]);
     expect(journal.read().operations[0]?.prepared?.outputs[0]?.state).toBe('INCOMING');
   } finally { rmSync(directory, { recursive: true, force: true }); }
+});
+
+it('T-TICKET anonymous hints cannot be matched with any registered public key', () => {
+  const parsed = parseEnvelope(envelope);
+  expect(parsed.anonymous).toBe(true);
+  for (const entry of parsed.entries) {
+    expect(entry.hint.every(byte => byte === 0)).toBe(true);
+    for (const key of keys) expect(entry.hint).not.toEqual(recipientHint(parsed.salt, key.mlkemPublicKey));
+  }
 });

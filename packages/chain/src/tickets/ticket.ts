@@ -26,7 +26,7 @@ export function ticketMetadata(envelope: Uint8Array) {
   if (envelope.length === 0 || envelope.length > MAX_TICKET_BYTES) throw new TicketError('TICKET_INVALID');
   try {
     const parsed = parseEnvelope(envelope);
-    if (parsed.mode !== 'hybrid' || parsed.anonymous || parsed.entries.length !== 2) throw new TicketError('TICKET_INVALID');
+    if (parsed.mode !== 'hybrid' || !parsed.anonymous || parsed.entries.length !== 2) throw new TicketError('TICKET_INVALID');
     return { bytes: envelope.length, mode: parsed.mode, recipients: parsed.entries.length };
   } catch { throw new TicketError('TICKET_INVALID'); }
 }
@@ -42,13 +42,13 @@ async function requireValidNote(input: unknown): Promise<TicketNote> {
   } catch { throw new TicketError('TICKET_INVALID'); }
   return note;
 }
-export async function sealTicket(input: unknown, recipients: readonly [VerifiedRecipient, VerifiedRecipient], options: { mode: string; anonymous: boolean } = { mode: 'hybrid', anonymous: false }) {
-  if (options.mode !== 'hybrid' || options.anonymous || recipients.some(recipient => recipient.kind !== 'VERIFIED' || !recipient.recipient.x25519PublicKey)) {
+export async function sealTicket(input: unknown, recipients: readonly [VerifiedRecipient, VerifiedRecipient], options: { mode: string; anonymous: boolean } = { mode: 'hybrid', anonymous: true }) {
+  if (options.mode !== 'hybrid' || !options.anonymous || recipients.some(recipient => recipient.kind !== 'VERIFIED' || !recipient.recipient.x25519PublicKey)) {
     throw new TicketError('TICKET_INVALID');
   }
   if (recipients[0].block !== recipients[1].block || recipients[0].address === recipients[1].address) throw new TicketError('TICKET_INVALID');
   const note = await requireValidNote(input);
-  const envelope = seal({ chainId: 'qorechain-diana', purpose: 'quaestor:ticket', mode: 'hybrid', anonymous: false,
+  const envelope = seal({ chainId: 'qorechain-diana', purpose: 'quaestor:ticket', mode: 'hybrid', anonymous: true,
     recipients: recipients.map(recipient => recipient.recipient), plaintext: new TextEncoder().encode(canonicalNote(note)), aad: ticketAad(note.pool, note.commitment) });
   ticketMetadata(envelope);
   return envelope;

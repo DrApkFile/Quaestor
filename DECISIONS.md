@@ -17,3 +17,6 @@ Decision: our own deployment of Gloam's MIT pool on Diana, driven by @gloamtrade
 ## D9 snarkjs and circomlibjs are GPL-3.0
 Context: Gloam's proving stack uses snarkjs (GPL-3.0); PoseidonT3 bytecode comes from circomlibjs (GPL-3.0). Decision: our own code stays MIT; these are dependencies, credited in NOTICE. The web bundle includes snarkjs, so the deployed bundle carries its GPL terms. Revisit only if a licence question is raised.
 ## D10 Demo uses 1-day "demo-scale periods"; production default is calendar quarters (PRD §5)
+
+## D11 Anonymous hybrid tickets and period-key envelopes
+Context: public nonzero recipient hints permit anyone with registry public keys to identify recipients. Claude's original M2 brief incorrectly prohibited anonymous envelopes. Decision: hybrid envelopes must be anonymous. Scan decryption refusal is an expected non-recipient result. The payer's EVM address still originates private sends and memo posts; no payer anonymity is claimed without a relay. Where: M2 review/erratum, tickets, period grants.

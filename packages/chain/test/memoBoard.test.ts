@@ -11,7 +11,7 @@ import { fakeGateway, prepared, output, note, request } from './fixtures.js';
 
 const fakeBoardAbi = parseAbi(['function postMemo(bytes32 paymentCommitment, bytes memo)']);
 function opaqueTicket() {
-  return seal({ chainId: 'qorechain-diana', purpose: 'quaestor:ticket', mode: 'hybrid',
+  return seal({ chainId: 'qorechain-diana', purpose: 'quaestor:ticket', mode: 'hybrid', anonymous: true,
     recipients: [recipientOf(generateSealKeys()), recipientOf(generateSealKeys())], plaintext: new Uint8Array() });
 }
 it('T-JOURNAL advances LANDED to TICKET_POSTED only after the memo receipt and never resends the payment', async () => {
