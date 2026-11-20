@@ -1,0 +1,9 @@
+
+> @quaestor/scripts@ s03 /home/kingghidorah/Documents/projects/bounties/quaestor/scripts
+> node day2/s03-bn254-precompiles.mjs
+
+PASS  ecAdd G1+G1
+PASS  ecMul G1*7
+PASS  ecPairing e(G1,G2)*e(-G1,G2) = 1
+PASS  ecPairing e(G1,G2)*e(G1,G2) = 0
+https://evm-testnet.qore.host · 2026-11-20T09:53:01.844Z · all BN254 precompiles answer correctly

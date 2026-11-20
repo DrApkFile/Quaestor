@@ -24,4 +24,4 @@ writeFileSync(contractsEnv, [
 ].join("\n"), { mode: 0o600 });
 console.log(`deployer ${deployer.cosmos} (${deployer.evm})`);
 console.log("wrote tools/evm-window/.env and contracts/.env (both git-ignored)");
-if (!poseidon) console.log("POSEIDON2 is empty: after deploy-poseidon, rerun with POSEIDON2=0x... pnpm -C scripts env");
+if (!poseidon) console.log("POSEIDON2 is empty: after deploy-poseidon, rerun with POSEIDON2=0x... pnpm -C scripts write-env");

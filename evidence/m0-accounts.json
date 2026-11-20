@@ -1,0 +1,14 @@
+{
+  "network": "qorechain-diana (testnet)",
+  "recorded": "2026-11-20",
+  "class": "real",
+  "deployer": { "qor1": "qor13hu40qyck0zwc62w4p90mt08ckq8v6c9l5p7ae", "evm": "0x8df9578098B3c4ec694EA84afdAde7C580766b05",
+    "mlDsa87Registration": "98235E8AB0B6D450939EC05A60CDCA1A1FB6B7CB386C1D25A9254890B813DD52" },
+  "funding": [
+    { "role": "business",  "qor1": "qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf", "uqor": "10000000", "tx": "35255BDCB5C6B1D42BEC89A962883CD94B3CB8A98BEF517C9E2E3E9ECC46660E" },
+    { "role": "client",    "qor1": "qor1j708k8j9fzev3ncnzkzz25u6wgxztcxhzewd9g", "uqor": "10000000", "tx": "806E838DA2C07EB9D109F5A9A5A5A621978085B0C0C14A60573735A024561B95" },
+    { "role": "supplier1", "qor1": "qor1uz3zu3883m06vcguymnkxema9uantwxn8dmmw2", "uqor": "10000000", "tx": "F5E90B103140DE76E50A7A7927034E37FBCE22AA9AC26A77588C1B6A93AB3B4D" },
+    { "role": "supplier2", "qor1": "qor16jxhmu9fyqhypxt3ug4mlusd8aqzpj7vc8mtkz", "uqor": "10000000", "tx": "84C1FDEC2DD327D92ABB0B61F6E4A8138D648E3D413B4DE3E220BC7ED563E1D4" },
+    { "role": "auditor",   "qor1": "qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp", "uqor": "10000000", "tx": "85C76A119CD3A868312FF882CEB35DC5ED49FD2E83A8D6EE845CEAD8110C77EF" }
+  ]
+}

@@ -8,7 +8,7 @@
     "s03": "node day2/s03-bn254-precompiles.mjs",
     "poseidon": "node day2/deploy-poseidon.mjs",
     "s04": "node day2/s04-check-verifiers.mjs",
-    "env": "node day2/write-env.mjs"
+    "write-env": "node day2/write-env.mjs"
   },
   "dependencies": {
     "@gloamtrade/sdk": "0.8.0",

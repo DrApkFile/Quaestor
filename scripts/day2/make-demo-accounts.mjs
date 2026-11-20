@@ -20,4 +20,4 @@ for (const role of ROLES) {
 }
 console.table(rows);
 console.log("Mnemonics are in .accounts/ (git-ignored). Testnet only: never send real funds to these accounts.");
-console.log("Fund each qor1 address at https://dashboard.qorechain.io/faucet");
+console.log("Fund ONLY the deployer at https://dashboard.qorechain.io/faucet, then `pnpm -C tools/evm-window fund` sends QOR to the others.");

@@ -22,11 +22,17 @@ The organiser says rules, prizes and dates may still change until the end of the
 "Build an application using post-quantum encryption for QoreChain-addressed recipients."
 Main requirements: ML-KEM-1024 encryption, registered recipient keys, ML-DSA key binding, client-side encryption and decryption.
 
-## Scoring
-The per-category rubric is **not published** on any page we could read (prizes, rules, start, faq). Strong entrants (Peal, Allot) structure their README as "the category's requirements, with evidence" — a table: requirement | how | code and tests | on-chain proof. We do the same.
+## Scoring (from the organisers, 20 Nov — same for every category)
+| Criterion | Weight | How Quaestor earns it | Where a judge sees it |
+|---|---|---|---|
+| Works as described | 25% | every demo act runs on testnet; README claims only what CLAIMS.md marks PROVEN | video, live app, evidence/ |
+| QoreChain tech usage (verified in repo **and on chain**) | 25% | KEM + ML-DSA registries, hybrid-signed txs, EVM windows, pqcKeyStatus/pqcVerify, QoreSeal, QoreSign, SDK, create-qorechain-dapp — each with a tx hash | README requirements table, evidence/, project page kits |
+| Post-quantum correctness and security | 20% | ML-KEM-1024 + X25519 hybrid, no classical fallback, keys only from the registry, ML-DSA binding checked; honest that Groth16 is not PQ | THREAT_MODEL.md, tests T-SEAL/T-BIND/T-TICKET, QCAI audit |
+| Originality | 15% | per-period auditor access + verdicts against a private pool; PQ tickets replacing P-256 | README §1, LANDSCAPE |
+| Clarity, UX and documentation | 15% | clean web app, JUDGES.md 60-second path, README, HOW_ITS_MADE | app, docs |
 
-Heaviest item: unknown. Fatal gate: failing the submission checks (repo, licence, README, video ≤ 3 min, testnet addresses).
-Open question → ask on Discord (see below).
+For Encrypted Apps, "tech usage" and "security" are judged against the four track requirements (ML-KEM-1024, registered recipient keys, ML-DSA key binding, client-side enc/dec). They must be **visible in the repo and on testnet and explained in the README**.
+Top-Quality needs ≥ 70/100 on this rubric.
 
 ## Eligibility gates (acceptance IDs)
 | ID | Requirement | How we verify | Evidence file |
@@ -79,7 +85,7 @@ Project page (description, "How it's made", kits ticked/verified) → README →
 - FAQ: "Nothing on mainnet is needed or counted." PQC precompiles active on diana, not on mainnet.
 
 ## Open questions for organisers (ask in Discord #developer-fest today)
-1. Is the Encrypted Apps scoring rubric published anywhere? What are the criteria and weights?
+1. ~~Is the Encrypted Apps scoring rubric published anywhere?~~ Answered 20 Nov (Scoring).
 2. Is the two-stage QCAI audit (docs/audit/) expected for Encrypted Apps projects that deploy contracts, or only for Post-Quantum dApp?
 3. Is the cover image required or optional? (/rules says required, /start says optional.)
 4. Is there a recording of Workshop 3 (Encrypted apps, cross-VM)?
@@ -89,7 +95,7 @@ Record answers here with date and who answered.
 ### Answers (2026-11-20, relayed by the builder)
 | Q | Answer |
 |---|---|
-| 1 rubric | asked, waiting |
+| 1 rubric | **answered** — see Scoring above |
 | 2 QCAI audit | not yet answered; **decision: do it anyway** on Books.sol (stage 1 → fix → stage 2), reports in docs/audit/, findings mapped in docs/AUDIT.md. Gloam contracts are vendored unmodified and excluded, stated in AUDIT.md |
 | 3 cover image | we provide one (16:9, ≥ 1200×675, ≤ 5 MB) |
 | 4 Workshop 3 | builder will provide notes as markdown → knowledge/workshop-3.md |

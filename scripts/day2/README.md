@@ -15,7 +15,7 @@ forge build --root contracts
 ## 1. Accounts and funds
 ```sh
 pnpm -C scripts accounts             # creates .accounts/{deployer,business,client,supplier1,supplier2,auditor}.json (git-ignored)
-pnpm -C scripts env                  # writes tools/evm-window/.env and contracts/.env from the deployer account
+pnpm -C scripts write-env                  # writes tools/evm-window/.env and contracts/.env from the deployer account
 ```
 - Fund **only the deployer** from the faucet (dashboard.qorechain.io/faucet; 100 QOR + 1,000 fUSD per claim, one claim per 24 h). The faucet pays fUSD as a **bank coin**; using it as an ERC-20 needs `MsgConvertCoin` (spike S13, milestone M1).
 - Register the deployer's ML-DSA-87 key, then send QOR to the other five accounts:
@@ -35,7 +35,7 @@ Four vectors (ecAdd, ecMul, two pairings), checked beforehand against a referenc
 ```sh
 pnpm -C tools/evm-window window open           # 600 blocks, 16 txs (enough for steps 3 and 4)
 pnpm -C scripts poseidon | tee spikes/s04a-poseidon.txt
-POSEIDON2=0x... pnpm -C scripts env            # rewrite contracts/.env with the address it printed
+POSEIDON2=0x... pnpm -C scripts write-env            # rewrite contracts/.env with the address it printed
 ```
 The script refuses to send without a live window, then checks `poseidon([1,2])` on chain against circomlibjs.
 
