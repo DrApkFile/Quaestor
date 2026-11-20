@@ -26,3 +26,28 @@ export async function requireNotePath(tree: SyncedTree, commitment: `0x${string}
         throw new Error('NOTE_NOT_IN_TREE');
     return path;
 }
+
+export function createPoolTreeSync(client: PublicClient, config: ChainConfig, abi: Abi) {
+    let height = config.deployBlock;
+    let last: bigint | null = null;
+    const pinned = Object.assign({}, client, {
+        getBlockNumber: () => Promise.resolve(height),
+        readContract: ((parameters: Parameters<PublicClient['readContract']>[0]) => client.readContract({ ...parameters, blockNumber: height })) as PublicClient['readContract'],
+    });
+    const make = () => createTreeSync(pinned, { pool: config.pool, fromBlock: config.deployBlock, chunkSize: config.chunkSize, concurrency: 1, verifyRoot: false });
+    let sync = make();
+    let queue: Promise<unknown> = Promise.resolve();
+    return (block: bigint) => {
+        const work = queue.then(async () => {
+            if (last !== null && block < last) sync = make();
+            height = block;
+            const tree = await sync.sync();
+            const root: unknown = await pinned.readContract({ address: config.pool, abi, functionName: 'currentRoot' });
+            if (typeof root !== 'string' || root.toLowerCase() !== tree.root.toLowerCase()) throw new Error('TREE_ROOT_MISMATCH');
+            last = block;
+            return { tree, block, logRange: sync.logRange };
+        });
+        queue = work.catch(() => undefined);
+        return work;
+    };
+}

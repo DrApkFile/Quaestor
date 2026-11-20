@@ -5,11 +5,12 @@ import type { UnifiedAccount } from '@qorechain/sdk';
 import { hexSchema, type ChainConfig } from './config.js';
 import type { Gateway } from './executor.js';
 import { checkWindow } from './window.js';
-import { syncPoolTree } from './tree.js';
+import { createPoolTreeSync } from './tree.js';
 import { gasLimitForEstimate } from './gas.js';
 const MAX_FEE = 250000000000n;
 export function createGateway(config: ChainConfig, account: UnifiedAccount, reader: PublicClient, abi: Abi, destination: Address = config.pool): Gateway {
     const signer = privateKeyToAccount(hexSchema.parse(account.privateKey));
+    const syncIncluded = createPoolTreeSync(reader, config, abi);
     return {
         windowOpen: async () => (await checkWindow(config, account.cosmos)).kind === 'OPEN',
         async sign(prepared) {
@@ -39,7 +40,8 @@ export function createGateway(config: ChainConfig, account: UnifiedAccount, read
                 gasUsed: receipt.gasUsed.toString(), effectiveGasPrice: receipt.effectiveGasPrice.toString(), status: receipt.status };
         },
         async included(commitments, block) {
-            const { tree } = await syncPoolTree(reader, config, abi, block);
+            if (commitments.length === 0) return true;
+            const { tree } = await syncIncluded(block);
             return commitments.every(commitment => tree.indexByCommitment.has(commitment.toLowerCase()));
         },
     };

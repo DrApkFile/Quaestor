@@ -28,3 +28,19 @@ it('T-TREE refuses a replayed root mismatch without trusting a known-root respon
         getChainId: () => Promise.resolve().then(() => 9800) } as unknown as PublicClient;
     await expect(syncPoolTree(reader, config, [], 107n)).rejects.toThrow('TREE_ROOT_MISMATCH');
 });
+
+it('T-TREE cached inclusion sync reads only recent history and pins every root check', async () => {
+    const { createPoolTreeSync } = await import('../src/tree.js');
+    const tree = new IncrementalMerkleTreePoseidon();
+    await tree.init();
+    const ranges: { fromBlock?: bigint; toBlock?: bigint }[] = [];
+    const getLogs = (parameters: { fromBlock: bigint; toBlock: bigint }) => { ranges.push(parameters); return Promise.resolve([]); };
+    const readContract = vi.fn(() => Promise.resolve(fieldToBytes32(tree.currentRoot)));
+    const reader = { getLogs, readContract, getChainId: () => Promise.resolve(9800) } as unknown as PublicClient;
+    const sync = createPoolTreeSync(reader, { ...config, chunkSize: 100n }, []);
+    await sync(140n);
+    ranges.length = 0;
+    await sync(150n);
+    expect(ranges.every(range => range.fromBlock !== undefined && range.fromBlock > config.deployBlock)).toBe(true);
+    expect(readContract).toHaveBeenLastCalledWith(expect.objectContaining({ functionName: 'currentRoot', blockNumber: 150n }));
+});
