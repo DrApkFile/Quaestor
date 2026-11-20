@@ -11,4 +11,5 @@ README, project page and video may repeat only claims marked PROVEN here. Each c
 | C5 | No plaintext or secret leaves the browser | NOT PROVEN | — | — |
 | C6 | A hidden payment from booked funds makes the period DOES_NOT_ADD_UP | NOT PROVEN | — | — |
 | S01 | QoreSeal envelopes can be checked against public keys | PROVEN (offline) | spikes/s01-output.txt | nothing about the live chain |
-| S02 | Gloam SDK builds a valid shield proof for chain 9800 with our pool address | PROVEN (offline) | spikes/s02-output.txt | that Diana verifies it on chain |
+| S02 | Gloam SDK builds a valid shield proof for chain 9800 with our pool address | PROVEN (offline) | spikes/s02-output.txt | — |
+| M0 | Our deployment of Gloam's pool is live on QoreChain testnet, and Diana verifies a real Groth16 proof on chain and rejects a tampered one | PROVEN (live) | evidence/m0-deploy.json, spikes/s03-output.txt, spikes/s04-output.txt | that deposits, sends and cash-outs work end to end (M1) |

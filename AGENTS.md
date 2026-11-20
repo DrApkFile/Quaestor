@@ -6,7 +6,7 @@ Read the relevant section of `briefing/PRD.md` before writing code. Do not deriv
 Quaestor: a normal web app (Vite + React, no PWA) where a business pays and gets paid privately on QoreChain testnet (qorechain-diana, EVM 9800) through **our own deployment of Gloam's open-source shielded pool (MIT)**, keeps books sealed with ML-KEM-1024 and signed with ML-DSA-87, and grants an auditor one period at a time. Fest: Build Before Q-Day, category Encrypted Apps. **Deadline 2 Dec 2026 23:59 UTC; internal 20:00 UTC. No commits after the deadline.**
 
 ## How we work (Codex builds, Claude reviews, the builder decides)
-1. Work one milestone at a time from `docs/MILESTONES.md`. Read its "done when" list before starting.
+1. Work one milestone at a time from `docs/MILESTONES.md`. Read its brief in `docs/briefs/M<n>.md` (written by Claude) and its "done when" list before starting.
 2. Commit small, behavioural commits as you go. Never squash or rewrite history.
 3. When the milestone's "done when" list is met, write `docs/handoff/M<n>.md` from `docs/handoff/TEMPLATE.md`: what changed, exact commands run with their real output, commit hashes, what is not done, open questions. Never report a test or a tx hash you did not see.
 4. Stop. The builder sends the handoff to Claude, who writes `docs/reviews/M<n>-review.md`. Fix every **must fix** before starting the next milestone.

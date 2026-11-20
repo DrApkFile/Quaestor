@@ -5,12 +5,14 @@ Codex works one milestone at a time. Each ends with `docs/handoff/M<n>.md`, then
 ## M0 — Private rail live on QoreChain testnet (builder + Codex, 21–22 Nov)
 Run by the builder on their machine; Codex fixes scripts if they fail.
 Done when:
-- [ ] `scripts/day2/make-demo-accounts.mjs` made the six accounts; each funded from the faucet; ML-DSA-87 key registered for the deployer (`tools/evm-window`, `pnpm window register`).
-- [ ] `scripts/day2/s03-bn254-precompiles.mjs` passes all 4 vectors against Diana's EVM RPC (output saved to spikes/s03-output.txt).
-- [ ] PoseidonT3 deployed (`scripts/day2/deploy-poseidon.mjs`); address in `.env` as POSEIDON2.
-- [ ] Pool, verifiers and memo board deployed with `contracts/script/DeployQuaestorPool.s.sol`; addresses and tx hashes in `evidence/m0-deploy.json`.
-- [ ] `scripts/day2/s04-check-verifiers.mjs` shows Diana's deployed shield verifier accepts a fresh real proof and rejects a tampered one (spikes/s04-output.txt).
-- [ ] REALITY_SPIKES.md rows S03–S06, S09, S12 filled in with real results.
+- [x] `scripts/day2/make-demo-accounts.mjs` made the six accounts; each funded from the faucet; ML-DSA-87 key registered for the deployer (`tools/evm-window`, `pnpm window register`).
+- [x] `scripts/day2/s03-bn254-precompiles.mjs` passes all 4 vectors against Diana's EVM RPC (output saved to spikes/s03-output.txt).
+- [x] PoseidonT3 deployed (`scripts/day2/deploy-poseidon.mjs`); address in `.env` as POSEIDON2.
+- [x] Pool, verifiers and memo board deployed with `contracts/script/DeployQuaestorPool.s.sol`; addresses and tx hashes in `evidence/m0-deploy.json`.
+- [x] `scripts/day2/s04-check-verifiers.mjs` shows Diana's deployed shield verifier accepts a fresh real proof and rejects a tampered one (spikes/s04-output.txt).
+- [x] REALITY_SPIKES.md rows S03, S04, S04v, S14 confirmed live (S05–S07 move to M1; S09, S10, S12, S13 to M1/M2).
+
+**M0 closed 2026-11-20 10:32 UTC.**
 
 ## M1 — Private payment round trip from code (Codex, 22–23 Nov)
 Done when:
