@@ -15,6 +15,12 @@ import { sha3, type M2Evidence } from './m2Evidence.js';
 
 export async function payM2(context: M2Context, payeeAddress: string, evidence: M2Evidence, save: () => void) {
   const { config, account, reader, journal, pool } = context;
+  const beforePayment = await reader.getBlockNumber({ cacheTime: 0 });
+  const preflight = await Promise.all([
+    resolveCard(config, `${m2Root}/cards/${payeeAddress}.json`, payeeAddress, beforePayment),
+    resolveCard(config, `${m2Root}/cards/${account.cosmos}.json`, account.cosmos, beforePayment),
+  ]);
+  if (preflight.some(card => card.kind !== 'VERIFIED')) throw new Error('CARD_INVALID');
   evidence.importedCommitment = await importM1Change(context); save();
   const held = journal.read().operations.find(operation => operation.id === 'm2-send' &&
     (operation.stage === 'BROADCAST' || operation.stage === 'OUTCOME_UNKNOWN'));

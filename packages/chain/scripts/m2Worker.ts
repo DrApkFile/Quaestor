@@ -30,6 +30,11 @@ export async function runM2Worker(roleInput: unknown, commitmentInput: unknown, 
     journalInitiallyEmpty: empty, scanBlock: block.toString(), memoHash, commitment, openCode: 'TICKET_INVALID',
     treeIncluded: false, treeRoot: null, notesAfterScan: 0, scanErrors: [], unshield: null, window: null,
     before: null, after: null, balanceMatched: null };
+  const saveProgress = () => {
+    const output = workerSchema.parse(result);
+    assertPublic(output, [...accountSecrets(account), ...sealSecrets(sealKeys), ...journal.read().notes.map(note => note.secret)]);
+    writePrivateJson(`${m2Root}/.accounts/m2/${role}-progress.json`, output);
+  };
   let found = false;
   for (const memo of memos) {
     const opened = await receiveMemo(journal, memo, sealKeys, config.pool, block, async (leaf, nullifier, atBlock) => {
@@ -44,19 +49,23 @@ export async function runM2Worker(roleInput: unknown, commitmentInput: unknown, 
       if (opened.kind === 'OPENED') { result.treeIncluded = true; result.treeRoot = opened.root; }
     }
   }
-  if (!found) throw new Error('MEMO_NOT_FOUND');
   result.notesAfterScan = journal.read().notes.length;
+  saveProgress();
+  if (!found) throw new Error('MEMO_NOT_FOUND');
   if (role === 'supplier1') {
     if (result.openCode !== 'OPENED' || !result.treeIncluded) throw new Error('TICKET_INVALID');
     const window = await openWindow(config, account, 1n, 750_000n);
     result.window = { role, action: 'open-window', ...window.transaction };
+    saveProgress();
     if (window.status.kind !== 'OPEN') throw new Error('WINDOW_CLOSED');
     const balanceBlock = await reader.getBlockNumber({ cacheTime: 0 });
     const address = account.evm as `0x${string}`;
     result.before = { block: balanceBlock.toString(), wei: (await reader.getBalance({ address, blockNumber: balanceBlock })).toString() };
+    saveProgress();
     const outcome = await context.pool.unshield('m2-unshield', commitment, address);
     if (outcome.kind !== 'LANDED') throw new Error(outcome.kind);
     result.unshield = paymentEvidence(outcome.operation);
+    saveProgress();
     const afterBlock = await reader.getBlockNumber({ cacheTime: 0 });
     result.after = { block: afterBlock.toString(), wei: (await reader.getBalance({ address, blockNumber: afterBlock })).toString() };
     const expected = 2_000_000_000_000_000_000n - BigInt(result.unshield.feeWei)

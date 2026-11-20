@@ -88,6 +88,8 @@ it('T-NOTES payee ownership requires opening and pinned tree inclusion; replay n
     const journal = new Journal(join(directory, 'supplier1.json'), 'supplier1');
     const memo = { commitment: note.commitment, envelope, hash: note.commitment, block: 41n };
     const missing = vi.fn(async () => ({ included: false, spent: false, root: note.commitment }));
+    expect(await receiveMemo(journal, memo, keys[0]!, zeroAddress, 42n, missing)).toMatchObject({ kind: 'REFUSED', code: 'DECRYPTION_FAILED' });
+    expect(missing).not.toHaveBeenCalled();
     expect(await receiveMemo(journal, memo, keys[0]!, pool, 42n, missing)).toMatchObject({ kind: 'REFUSED', code: 'TICKET_INVALID' });
     expect(journal.read().notes).toEqual([]);
     const included = vi.fn(async () => {

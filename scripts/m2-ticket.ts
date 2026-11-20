@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { m2Context, m2Root } from '../packages/chain/scripts/m2Context.js';
 import { onboardM2 } from '../packages/chain/scripts/m2Onboard.js';
 import { payM2 } from '../packages/chain/scripts/m2Pay.js';
-import { launchM2Worker } from '../packages/chain/scripts/m2Child.js';
+import { launchM2Worker, readM2WorkerProgress } from '../packages/chain/scripts/m2Child.js';
 import { loadM2Evidence, saveM2Evidence, type M2Evidence } from '../packages/chain/scripts/m2Evidence.js';
 import { accountSecrets, NativeBroadcastError } from '../packages/chain/src/nativeError.js';
 import { sealSecrets } from '../packages/chain/src/tickets/sealKeys.js';
@@ -57,6 +57,8 @@ async function run() {
 try { await run(); }
 catch (error: unknown) {
   evidence.status = 'FAILED';
+  evidence.supplier = evidence.supplier ?? readM2WorkerProgress('supplier1');
+  evidence.client = evidence.client ?? readM2WorkerProgress('client');
   if (error instanceof NativeBroadcastError) { evidence.failure = error.fields(); evidence.errorCode = error.kind; }
   else { const message = error instanceof Error ? error.message : ''; evidence.errorCode = /^[A-Z_]+$/.test(message) ? message : 'M2_RUN_FAILED'; }
   save();
