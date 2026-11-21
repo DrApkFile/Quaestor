@@ -34,7 +34,7 @@ Every user (business, client, supplier, auditor) gets an **in-app QoreChain acco
 - **Entry:** one payment in or out, sealed under the period key, signed ML-DSA-87 by the business, anchored on chain.
 - **Grant:** the period key sealed to the auditor's registered key + a signed grant record anchored on chain.
 - **Entry verdicts (closed):** `MATCHED`, `UNBACKED`, `TAMPERED`, `UNKNOWN`.
-- **Period verdicts (closed):** `ADDS_UP`, `DOES_NOT_ADD_UP`, `INCOMPLETE` (entries not anchored), `UNKNOWN`.
+- **Period verdicts (closed):** `HOLDINGS_COVER_BOOKS`, `HOLDINGS_SHORT`, `UNKNOWN` (D5 holdings coverage, not complete reconciliation).
 - **UI error codes (closed):** `WINDOW_CLOSED`, `NO_PQ_KEY`, `PQ_POSSESSION_NOT_PROVEN`, `NO_KEM_KEY`, `CARD_INVALID`, `NOT_GRANTED`, `WRONG_CONTEXT`, `NOTE_SPENT`, `OUTCOME_UNKNOWN`, `NETWORK_UNAVAILABLE`.
 
 ## 6. Flows and wire formats
@@ -60,13 +60,13 @@ Every user (business, client, supplier, auditor) gets an **in-app QoreChain acco
 `sealEpochKey`-style envelope of the period key to the auditor (purpose `quaestor:<book>:period-key`, AAD = `book|period|auditorAddress`), grant record `{book, period, auditor, envelopeSha3, issuedAt}` signed ML-DSA-87 → store → `Books.anchorGrant(...)`. Grants can't be revoked for that period (stated in the UI).
 
 **Close period**
-Close record `{book, period, entryCount, lastEntrySha3, openingBalance, closingBalance, reconciliation proofs…}` signed ML-DSA-87 → `Books.closePeriod(...)`, which checks the signature with **pqcVerify** against the business's key from **pqcKeyStatus** (`possessionProven` required). If S09 shows the precompiles inactive, the contract stores the signature and the verdict engine checks it (D3).
+Close record `{book, period, entryCount, lastEntrySha3, priorSha3, closingBalance, cashOutFees, holdings proofs}` signed ML-DSA-87 → `Books.closePeriod(...)`, which checks the signature with **pqcVerify** against the business's key from **pqcKeyStatus** (`possessionProven` required). If S09 shows the precompiles inactive, the contract stores the signature and the verdict engine checks it (D3).
 
 ## 7. Books.sol
-- `registerBook(bytes32 salt)` → book id, owner = msg.sender (must pass `_requireProvenPqKey`).
+- `registerBook(bytes32 salt, bytes32 openingSha3)` → book id, owner = msg.sender (must pass `_requireProvenPqKey`).
 - `anchorEntry(bytes32 book, bytes32 period, uint64 index, bytes32 blobSha3, bytes32 prevSha3)` — owner only; `index == nextIndex`; `prevSha3 == lastSha3`; period not closed.
 - `anchorGrant(bytes32 book, bytes32 period, address auditor, bytes32 grantSha3)` — owner only.
-- `closePeriod(bytes32 book, bytes32 period, bytes32 closeSha3, bytes calldata mlDsaSignature)` — owner only; verifies as above; locks the period.
+- `closePeriod(bytes32 book, bytes32 period, uint64 entryCount, bytes32 lastEntrySha3, bytes32 closeSha3, bytes calldata mlDsaSignature)` — owner only; verifies as above; locks the period.
 - Events for each; custom errors; no strings; Foundry tests.
 
 ## 8. Verdict engine (packages/core/verdict.ts), per entry, first failure returns
@@ -82,7 +82,9 @@ Close record `{book, period, entryCount, lastEntrySha3, openingBalance, closingB
 `MATCHED` does not establish who the counterparty is in real life, or that every payment was booked.
 
 ## 9. Reconciliation (D5, decide by day 4)
-Target statement per period: `opening + Σ IN − Σ OUT − Σ cash-out fees = closing`, with `closing` proven exactly on one consolidated note (receipt with `reveal=1`). Candidate evidence for Σ OUT funded by the business: Gloam `payroll_total` over the period's outflows (≤ 32 per proof). Ceiling test on day 4: construct one honest period and one with a hidden payment and confirm the design tells them apart. If it can't be made sound in time, ship entry verdicts only and mark reconciliation NOT PROVEN — never show `ADDS_UP` on an unsound check.
+D5 (Claude/builder, M4): signed opening balances per asset are anchored at registration. Closing balances are previous closing balance (or opening) + Σ IN - Σ OUT - Σ cash-out fees. A context-bound Gloam funds proof (at most four distinct notes) establishes holdings at least the declared closing balance. Validate the proof against self-hosted funds_vkey.json, the root against full insertion history, and every nonzero revealed nullifier against spent at the actual close block, pinned. Consolidate to self if more than four notes are needed.
+
+Period results are HOLDINGS_COVER_BOOKS, HOLDINGS_SHORT or UNKNOWN. Never show adds up. A lower-threshold valid proof is insufficient coverage; missing/invalid proof or spent backing is UNKNOWN. This does not detect collusive hidden income or payments from unbooked funds. See DECISIONS D5 and THREAT_MODEL.md.
 
 ## 10. State machines
 - Payment: `PLANNED → PROVED → BROADCAST → LANDED → TICKET_POSTED → BOOKED → ANCHORED`, with `OUTCOME_UNKNOWN` held (never re-sent while the nullifier may be used).
@@ -96,7 +98,7 @@ Target statement per period: `opening + Σ IN − Σ OUT − Σ cash-out fees = 
 | 0:15 | Client pays the business privately; the business's app finds the ML-KEM-sealed ticket; book entry appears sealed |
 | 0:45 | Business pays two suppliers privately; entries sealed, signed, anchored (tx links) |
 | 1:10 | Period closes; business grants period A to the auditor |
-| 1:25 | Auditor opens period A: every entry `MATCHED`, period `ADDS_UP` (if D5 proven) |
+| 1:25 | Auditor opens period A: every entry `MATCHED`, period `HOLDINGS_COVER_BOOKS` (D5) |
 | 1:45 | Auditor tries period B → `NOT_GRANTED` |
 | 2:00 | Attack lab (labelled demo book): edited entry → `TAMPERED`; invented entry with no payment → `UNBACKED`; receipt reused from another entry → `UNBACKED` (context) |
 | 2:25 | Public check page: anchors and counts, nothing readable; network tab shows only ciphertext |
@@ -107,7 +109,7 @@ T-SEAL-* (context/AAD binding, outsider refused) · T-TICKET-* (no classical fal
 
 ## 13. Priorities
 - **P0:** pool deployed on Diana and a private send round trip; PQ tickets; in-app accounts + key registration; book entries sealed/signed/anchored; period grant; auditor open + entry verdicts; Books.sol; store; attack lab; evidence; README; video.
-- **P1:** reconciliation `ADDS_UP` (D5); invoice file attachments; audit CLI as a package; QoreX funding.
+- **P1:** holdings coverage (D5); invoice file attachments; audit CLI as a package; QoreX funding.
 - **Never in this build:** PWA, mobile, revocation of granted periods, multi-user businesses, Gloam hosted services.
 
 ## 14. Definition of finished

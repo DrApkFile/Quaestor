@@ -2,7 +2,7 @@ declare module 'snarkjs' {
   import type { Groth16Proof } from '@gloamtrade/sdk';
   export const groth16: {
     fullProve(
-      input: Record<string, string | string[]>,
+      input: Record<string, string | string[] | string[][]>,
       wasm: string,
       zkey: string,
       logger: undefined,

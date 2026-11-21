@@ -1,5 +1,5 @@
 import { fieldToBytes32, IncrementalMerkleTreePoseidon } from '@gloamtrade/sdk';
-import { zeroAddress, type PublicClient } from 'viem';
+import { zeroAddress, parseAbi, encodeEventTopics, encodeAbiParameters, type PublicClient } from 'viem';
 import { expect, it, vi } from 'vitest';
 import { syncPoolTree } from '../src/tree.js';
 import type { ChainConfig } from '../src/config.js';
@@ -64,3 +64,51 @@ it('T-TREE cached inclusion sync reads only recent history and pins every root c
     expect.objectContaining({ functionName: 'currentRoot', blockNumber: 150n }),
   );
 });
+
+it('T-TREE full history includes the intermediate root of both ordered Transferred insertions', async () => {
+  const { fullRootHistory } = await import('../src/rootHistory.js');
+  const events = parseAbi([
+    'event Shielded(bytes32 indexed commitment, address indexed asset, uint256 amount, uint256 leafIndex, address indexed from)',
+    'event Transferred(bytes32 indexed nullifier, bytes32[2] newCommitments)',
+  ]);
+  const tree = new IncrementalMerkleTreePoseidon();
+  await tree.init();
+  const roots = [];
+  for (const leaf of [1n, 2n, 3n]) {
+    await tree.insert(leaf);
+    roots.push(tree.currentRoot.toString());
+  }
+  const metadata = { address: zeroAddress, blockHash: fieldToBytes32(99n), removed: false, transactionIndex: 0 };
+  const shield = {
+    ...metadata,
+    blockNumber: 101n,
+    logIndex: 0,
+    transactionHash: fieldToBytes32(10n),
+    topics: encodeEventTopics({
+      abi: events,
+      eventName: 'Shielded',
+      args: { commitment: fieldToBytes32(1n), asset: zeroAddress, from: zeroAddress },
+    }),
+    data: encodeAbiParameters([{ type: 'uint256' }, { type: 'uint256' }], [7n, 0n]),
+  };
+  const transfer = {
+    ...metadata,
+    blockNumber: 102n,
+    logIndex: 0,
+    transactionHash: fieldToBytes32(11n),
+    topics: encodeEventTopics({ abi: events, eventName: 'Transferred', args: { nullifier: fieldToBytes32(8n) } }),
+    data: encodeAbiParameters([{ type: 'bytes32[2]' }], [[fieldToBytes32(2n), fieldToBytes32(3n)]]),
+  };
+  const readContract = vi.fn(() => Promise.resolve(fieldToBytes32(tree.currentRoot)));
+  const reader = {
+    getLogs: () => Promise.resolve([transfer, shield]),
+    readContract,
+    getChainId: () => Promise.resolve(9800),
+  } as unknown as PublicClient;
+  const result = await fullRootHistory(reader, { ...config, chunkSize: 20n }, [], 110n);
+  expect(result.tree.leaves.map((leaf) => BigInt(leaf.commitment))).toEqual([1n, 2n, 3n]);
+  expect([...result.roots]).toEqual(roots);
+  expect(readContract).toHaveBeenCalledWith(
+    expect.objectContaining({ functionName: 'currentRoot', blockNumber: 110n }),
+  );
+}, 30000);

@@ -10,7 +10,9 @@ Decision: our own deployment of Gloam's MIT pool on Diana, driven by @gloamtrade
 
 ## D3 QoreSeal hybrid only; no P-256 tickets
 ## D4 Seal keys never derived from a wallet signature
-## D5 Reconciliation design — OPEN until M4 (see PRD §9). UI never shows ADDS_UP before this is marked proven.
+## D5 Scoped holdings coverage — decided by Claude, authorized by builder for M4
+Context: completeness of income and spending cannot be established from a business's voluntarily disclosed payments. Decision: signed opening balances are anchored at book registration; closing balances are previous close/opening + IN - OUT - cash-out fees per asset. A funds proof supports a lower bound with threshold equal to closing balance, bound to quaestor|holdings|book|period, using at most four distinct notes (consolidate to self if necessary). Every nonzero revealed nullifier must be unspent at the actual close block; the root must be in the pool's full insertion history at that block. Proof verification and all reads are pinned to that block.
+Verdicts are HOLDINGS_COVER_BOOKS, HOLDINGS_SHORT, UNKNOWN. A valid lower-threshold proof is SHORT relative to the declared books; it does not prove an upper bound on all holdings. Missing/invalid proof, unavailable data or spent backing produces UNKNOWN. A failed construction due to insufficient selected notes is recorded as such, not fabricated into a valid proof or proof of global insolvency. Never display adds up. C6: the business holds at least the balance its books imply; does not detect income kept off the books or payments made from unbooked funds. This replaces the old complete-reconciliation proposal in PRD §9. Where: core holdings, Books v2 opening/close, M4 auditor and evidence.
 ## D6 Gloam vendored unmodified at d8db1e6; our changes live in our deploy script and wrapper
 ## D7 Exact version pins (AGENTS.md "Versions")
 ## D8 No Gloam hosted service; circuit files self-hosted
@@ -26,3 +28,6 @@ S09/S16 at block 10434078 confirm both precompiles active. Books uses registered
 
 ## D12 M3 deterministic encodings
 SDK proofContext accepts an object, not the PRD's shorthand string. Use kind payment, chainId 9800, our pool, verifier quaestor|book|period|index, expiresAt 0 as a deterministic context tag; no expiry claim or clock read. Contract period bytes32 is keccak256(UTF-8 UTC YYYY-MM-DD). Epoch ordinals start at 1; entry indices start at 0. Close records in M3 omit reconciliation fields pending D5. Demo period dates are book labels, not assertions that all payment transactions occurred on those dates.
+
+## D13 Books v2 close binding
+Close entryCount is uint64, matching nextIndex. The signed packed domain appends uint64 entryCount and bytes32 lastEntrySha3 before closeSha3. Registration requires a nonzero opening-record SHA3, emits OpeningAnchored, and stores it. The record also has a hybrid QoreSign signature checked by the auditor. v1 remains historical in M3 evidence; v2 has a new deployment. Closing balances and holdings proofs are encrypted to the period key with the signed close record; only its SHA3/count/last hash are public at close. Opening balances are signed locally and anchored by hash, not published as plaintext evidence.

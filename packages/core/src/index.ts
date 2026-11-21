@@ -3,3 +3,8 @@ export * from './signing.js';
 export * from './entry.js';
 export * from './period.js';
 export type { EpochKey } from '@qorechain/qoreseal';
+export * from './proof.js';
+export * from './verdict.js';
+export * from './history.js';
+export * from './holdings.js';
+export * from './records.js';

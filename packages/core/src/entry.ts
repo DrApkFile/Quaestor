@@ -93,7 +93,7 @@ export function verifyArtifact(artifact: EntryArtifact, anchor: Hex, signer: str
   if (digest !== anchor || digest !== artifact.blobSha3) throw new BookError('TAMPERED');
   requireSignature(digest, artifact.signature, signer, pqPublicKey);
 }
-export function openEntry(artifact: EntryArtifact, key: EpochKey, pool: Address): Entry {
+export function decryptEntry(artifact: EntryArtifact, key: EpochKey): Entry {
   let batch: OpenedBatch;
   try {
     batch = openBatch({ blob: hexToBytes(artifact.blob), keys: [key] });
@@ -120,7 +120,6 @@ export function openEntry(artifact: EntryArtifact, key: EpochKey, pool: Address)
     entry.prevEntrySha3 !== artifact.prevEntrySha3
   )
     throw new BookError('TAMPERED');
-  requireReceiptContext(entry, pool);
   return entry;
 }
 export function requireEntryChain(entries: readonly EntryArtifact[], expectedCount: number): void {
@@ -130,4 +129,10 @@ export function requireEntryChain(entries: readonly EntryArtifact[], expectedCou
     if (entry.index !== index || entry.prevEntrySha3 !== previous) throw new BookError('CHAIN_BROKEN');
     previous = entry.blobSha3;
   }
+}
+
+export function openEntry(artifact: EntryArtifact, key: EpochKey, pool: Address): Entry {
+  const entry = decryptEntry(artifact, key);
+  requireReceiptContext(entry, pool);
+  return entry;
 }
