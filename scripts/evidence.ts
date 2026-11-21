@@ -6,4 +6,5 @@ else if (process.argv[2] === '--m1-gas-policy') await import('./m1-gas-policy.js
 else if (process.argv[2] === '--m2') await import('./m2b-ticket.js');
 else if (process.argv[2] === '--m3-spikes') await import('./m3-spikes.js');
 else if (process.argv[2] === '--m3') await import('./m3-books.js');
+else if (process.argv[2] === '--m4-deploy') await import('./m4-deploy.js');
 else throw new Error('Specify an implemented M1 or M2 evidence command.');

@@ -118,3 +118,19 @@ export const closeDigest = (book: Hex, period: string, closeSha3: Hex, chainId: 
       ['quaestor:close', chainId, contract, book, contractPeriod(period), closeSha3],
     ),
   );
+
+export const closeDigestV2 = (
+  book: Hex,
+  period: string,
+  entryCount: number,
+  lastEntrySha3: Hex,
+  closeSha3: Hex,
+  chainId: bigint,
+  contract: Address,
+): Hex =>
+  keccak256(
+    encodePacked(
+      ['string', 'uint256', 'address', 'bytes32', 'bytes32', 'uint64', 'bytes32', 'bytes32'],
+      ['quaestor:close', chainId, contract, book, contractPeriod(period), BigInt(entryCount), lastEntrySha3, closeSha3],
+    ),
+  );

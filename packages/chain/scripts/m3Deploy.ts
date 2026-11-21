@@ -9,8 +9,8 @@ import { executeOperation } from '../src/executor.js';
 import { createGateway } from '../src/gateway.js';
 import { paymentEvidence } from '../src/evidence.js';
 
-export async function deployBooks() {
-  const context = await m2Context('deployer', 'm3');
+export async function deployBooks(run = 'm3') {
+  const context = await m2Context('deployer', run);
   const path = `${m2Root}/contracts/out/Books.sol/Books.json`;
   const source = z
     .object({ bytecode: z.object({ object: hexSchema }).passthrough() })
@@ -22,7 +22,7 @@ export async function deployBooks() {
   const result = await executeOperation(
     context.journal,
     {
-      id: 'm3-deploy-books',
+      id: `${run}-deploy-books`,
       input: null,
       requestKey: data,
       build: () => Promise.resolve({ data, valueWei: '0', outputs: [], root: null, nullifier: null, feeWei: '0' }),
