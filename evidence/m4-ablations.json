@@ -1,0 +1,26 @@
+{
+  "command": "pnpm evidence --m4",
+  "label": "real-proof ablations; root case uses a constructed anchor input, not an on-chain anchor",
+  "at": "2026-11-21T13:12:07.271Z",
+  "context": {
+    "without": {
+      "kind": "MATCHED",
+      "reason": "VERIFIED"
+    },
+    "with": {
+      "kind": "UNBACKED",
+      "reason": "WRONG_CONTEXT"
+    }
+  },
+  "rootHistory": {
+    "rootWasNeverInPool": true,
+    "without": {
+      "kind": "MATCHED",
+      "reason": "VERIFIED"
+    },
+    "with": {
+      "kind": "UNBACKED",
+      "reason": "UNKNOWN_ROOT"
+    }
+  }
+}

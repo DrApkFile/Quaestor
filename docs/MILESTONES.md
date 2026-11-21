@@ -43,9 +43,11 @@ M3 script evidence: `evidence/m3-books.json`; fresh auditor opens A (2 entries),
 
 ## M4 — Verdict engine and reconciliation decision (Codex + Claude, 25–26 Nov)
 Done when:
-- [ ] Verdict engine per PRD §8 with every verdict produced on constructed inputs (ceiling check), including the old-root case.
-- [ ] Ablations from EVAL_DESIGN (context check, root history) show what each check catches.
-- [ ] DECISIONS D5 written: reconciliation design proven on an honest vs hidden-payment period, or shipped as NOT PROVEN.
+- [x] Verdict engine per PRD §8 with every verdict produced on constructed inputs (ceiling check), including the old-root case.
+- [x] Ablations from EVAL_DESIGN (context check, root history) show what each check catches.
+- [x] DECISIONS D5 written: scoped holdings coverage proven on the honest and inflated demo closes; no complete-reconciliation claim.
+
+Evidence: `evidence/m4-verdicts.json` and `evidence/m4-ablations.json`. All three granted A entries MATCHED; holdings covered at A’s close block; B refused. The attack lab exposes tampering, reused-receipt context failure and insufficient proof coverage. Books v2 deployment and v1 address are in `evidence/m4-books-v2.json`.
 
 ## M5 — Store and end-to-end evidence run (Codex, 26 Nov)
 Done when:
