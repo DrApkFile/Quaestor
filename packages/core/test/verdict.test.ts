@@ -228,6 +228,28 @@ it('T-HOLDINGS derives declared balances and checks every proof/nullifier before
   });
   mocked.verify.mockResolvedValueOnce(false);
   expect(await holdingsVerdict(base)).toEqual({ kind: 'UNKNOWN', reason: 'BAD_PROOF' });
+  const proof = close.holdings[zeroAddress];
+  if (!proof) throw new Error('FIXTURE');
+  const changed = (index: number, value: string) => ({
+    ...base,
+    close: {
+      ...close,
+      holdings: {
+        [zeroAddress]: {
+          ...proof,
+          publicSignals: proof.publicSignals.map((signal, i) => (i === index ? value : signal)),
+        },
+      },
+    },
+  });
+  expect(await holdingsVerdict(changed(3, '0'))).toEqual({ kind: 'UNKNOWN', reason: 'WRONG_CONTEXT' });
+  expect(await holdingsVerdict(changed(1, '1'))).toEqual({ kind: 'UNKNOWN', reason: 'MISMATCH' });
+  expect(await holdingsVerdict(changed(5, '8'))).toEqual({ kind: 'UNKNOWN', reason: 'MISMATCH' });
+  mocked.verify.mockRejectedValueOnce(new Error('verification unavailable'));
+  expect(await holdingsVerdict(base)).toEqual({ kind: 'UNKNOWN', reason: 'VERIFICATION_UNAVAILABLE' });
+  expect(() => closingBalances({ [zeroAddress]: '1' }, [{ ...entry(), direction: 'OUT', amount: '2' }], {})).toThrow(
+    'INVALID_RECORD',
+  );
   expect(
     closingBalances({ [zeroAddress]: '10' }, [entry(), { ...entry(), direction: 'OUT', amount: '2' }], {
       [zeroAddress]: '1',
