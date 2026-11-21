@@ -1,4 +1,3 @@
-# @quaestor/store
+# Retired proposal
 
-Content-addressed ciphertext store (key = SHA3-256 of the bytes). Accepts only QoreSeal envelopes, sealed batches and signed records; everything else is a 400. Never sees plaintext or keys.
-Built in milestone M5.
+D14 replaces apps/store with the permissionless on-chain BlobBoard. No data server is built here. The only serverless code is an allowlisted public-query/already-signed-transaction CORS pass-through for apps/web.

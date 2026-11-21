@@ -28,7 +28,7 @@ Done when:
 
 ## M2 — Post-quantum tickets (Codex, 23–24 Nov)
 Done when:
-- [x] In-app account onboarding primitives in code (M2 scripts; browser onboarding remains M6): register ML-KEM-1024 key, sign + publish a recipient card.
+- [x] In-app account onboarding primitives in code (M2 scripts; browser onboarding completed in M5): register ML-KEM-1024 key, sign + publish a recipient card.
 - [x] Ticket = Gloam note package sealed with QoreSeal hybrid to the payee's registry key + card, posted to our memo board; payee scans, opens, verifies the commitment is in the tree.
 - [x] Tests: T-TICKET-NO-CLASSICAL-FALLBACK, ticket fits 8,192 B, outsider can't open, wrong AAD refused.
 - [x] Round trip of M1 repeated with a PQ ticket; evidence/m2-ticket.json.
@@ -49,10 +49,16 @@ Done when:
 
 Evidence: `evidence/m4-verdicts.json` and `evidence/m4-ablations.json`. All three granted A entries MATCHED; holdings covered at A’s close block; B refused. The attack lab exposes tampering, reused-receipt context failure and insufficient proof coverage. Books v2 deployment and v1 address are in `evidence/m4-books-v2.json`.
 
-## M5 — Store and end-to-end evidence run (Codex, 26 Nov)
-Done when:
-- [ ] `apps/store` (ciphertext only, T-NOPLAIN-STORE).
-- [ ] `pnpm evidence` runs pay → ticket → entry → anchor → grant → audit against Diana and writes evidence/.
+## M5 — Chain storage and read-only web foundations (Codex, 21 Nov)
+Done when (builder's replacement brief, D14/D15):
+- [x] Duplicate-payment ceiling test and C4 scope limitation.
+- [x] Ownerless BlobBoard deployed; bounded, validated ciphertext posting and paged SHA3-verified reads.
+- [x] M4 ciphertexts/cards and legacy owner-signed mappings posted; fresh auditor reproduces M4 without local ciphertexts.
+- [x] S08/S17 real browser spikes, allowlisted CORS pass-through and browser shield proof timing.
+- [x] Encrypted IndexedDB vault, mandatory encrypted backup and chain-driven onboarding.
+- [x] Public check and Auditor read the M4 book from chain; lazy cached circuits and download progress.
+- [x] Unit tests, production build, live Playwright request interception and 390px/desktop checks pass.
+- [x] Gate passes and handoff is written; final delivery is the handoff commit push, then stop before M6.
 
 ## M6 — Web app: accounts, pay, business books (Codex, 27 Nov)
 ## M7 — Web app: auditor, public check, attack lab (Codex, 28–29 Nov)
