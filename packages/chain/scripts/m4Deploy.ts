@@ -13,7 +13,7 @@ const v1 = z
   .passthrough()
   .parse(readJson(`${m2Root}/evidence/m3-books.json`));
 execFileSync('forge', ['build'], { cwd: `${m2Root}/contracts`, stdio: 'pipe' });
-const v2 = await deployBooks('m4');
+const v2 = await deployBooks('m4-v2');
 const evidence = {
   command: 'pnpm evidence --m4-deploy',
   commit: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: m2Root, encoding: 'utf8' }).trim(),

@@ -7,4 +7,7 @@ else if (process.argv[2] === '--m2') await import('./m2b-ticket.js');
 else if (process.argv[2] === '--m3-spikes') await import('./m3-spikes.js');
 else if (process.argv[2] === '--m3') await import('./m3-books.js');
 else if (process.argv[2] === '--m4-deploy') await import('./m4-deploy.js');
+else if (process.argv[2] === '--m4-deploy-recover') await import('./m4-recover.js');
+else if (process.argv[2] === '--m4-proof-spike') await import('./m4-proof-spike.js');
+else if (process.argv[2] === '--m4') await import('./m4-verdicts.js');
 else throw new Error('Specify an implemented M1 or M2 evidence command.');

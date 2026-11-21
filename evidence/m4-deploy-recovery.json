@@ -1,0 +1,13 @@
+{
+  "command": "pnpm evidence --m4-deploy-recover",
+  "label": "interrupted stale-artifact deployment",
+  "at": "2026-11-21T12:40:59.271Z",
+  "observation": {
+    "status": "OUTCOME_UNKNOWN",
+    "hash": "0xb6c28a040905ae298e2129efa15390f3efcab20886170b9f6a52e654e5016b7c",
+    "version": "UNCONFIRMED",
+    "reason": "receipt not observed after resolution timeout; operation held"
+  },
+  "resent": false,
+  "held": true
+}

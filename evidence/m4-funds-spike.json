@@ -1,0 +1,19 @@
+{
+  "command": "pnpm evidence --m4-proof-spike",
+  "at": "2026-11-21T12:44:58.240Z",
+  "label": "offline synthetic funds witness; not a live holding",
+  "accepted": true,
+  "changedThresholdRejected": true,
+  "signalCount": 8,
+  "slots": 4,
+  "publicSignalOrder": [
+    "root",
+    "asset",
+    "threshold",
+    "context",
+    "nullifier0",
+    "nullifier1",
+    "nullifier2",
+    "nullifier3"
+  ]
+}

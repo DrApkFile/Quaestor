@@ -1,0 +1,40 @@
+{
+  "command": "pnpm evidence --m4-deploy",
+  "commit": "8f9f4d7eb7a01e7e8416a236fe915d41e467e4e5",
+  "at": "2026-11-21T12:41:20.678Z",
+  "v1": {
+    "version": 1,
+    "address": "0xd81b97057a3e80b5005194466a8f6b0c93915d6a",
+    "evidence": "evidence/m3-books.json"
+  },
+  "v2": {
+    "version": 2,
+    "address": "0x9775c1d0dc814e41fb1b38d26fa17f60d24faf64",
+    "transaction": {
+      "id": "m4-v2-deploy-books",
+      "hash": "0x4fc80660987e9a9259eade0b72829eceac23110c442a6dead53008b56e92d769",
+      "blockNumber": "10493747",
+      "blockHash": "0x7fceaccb6d7de535ce86cc766b07eb6a8fccb8d6907383bb623176b078cd5430",
+      "gasUsed": "799337",
+      "effectiveGasPrice": "101000000000",
+      "status": "success",
+      "gas": {
+        "estimatedGas": "799337",
+        "gasLimit": "999172",
+        "maxFeePerGas": "250000000000",
+        "estimationBlock": "10493745"
+      },
+      "root": null,
+      "nullifier": null,
+      "feeWei": "0",
+      "commitments": [],
+      "plannedAt": "2026-11-21T12:41:15.549Z",
+      "landedAt": "2026-11-21T12:41:20.291Z"
+    },
+    "window": {
+      "hash": "D8678ACAF6CF3DDEB11EA539E8B842D87B973788FAC867B43A54D5637868D518",
+      "height": 10493742,
+      "gasUsed": "186742"
+    }
+  }
+}
