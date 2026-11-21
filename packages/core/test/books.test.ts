@@ -107,3 +107,16 @@ it('T-BIND receipt context binds book, period and index before sealing', () => {
   expect(() => sealEntry({ ...entry, period: '2026-11-21' }, keyA, signing, zeroAddress)).toThrow('WRONG_CONTEXT');
   expect(() => sealEntry({ ...entry, book: zero }, keyA, signing, zeroAddress)).toThrow('WRONG_CONTEXT');
 });
+
+it('T-BIND authenticated batch metadata mismatches remain TAMPERED while a wrong key is NOT_GRANTED', () => {
+  const entry = sealEntry(input(0, zero), keyA, signing, zeroAddress);
+  for (const changed of [
+    { ...entry, book: zero },
+    { ...entry, index: 1 },
+    { ...entry, period: '2026-11-21' },
+    { ...entry, prevEntrySha3: book },
+  ])
+    expect(() => openEntry(changed, keyA, zeroAddress)).toThrow('TAMPERED');
+  expect(() => openEntry(entry, { epoch: keyA.epoch, key: keyB.key }, zeroAddress)).toThrow('NOT_GRANTED');
+  expect(() => openEntry({ ...entry, blob: '0x00' }, keyA, zeroAddress)).toThrow('TAMPERED');
+});

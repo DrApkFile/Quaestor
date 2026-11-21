@@ -1,4 +1,4 @@
-import { sealBatch, openBatch, type EpochKey } from '@qorechain/qoreseal';
+import { sealBatch, openBatch, isQoreSealError, type OpenedBatch, type EpochKey } from '@qorechain/qoreseal';
 import { proofContext } from '@gloamtrade/sdk';
 import { toBytes, toHex, hexToBytes, type Hex, type Address } from 'viem';
 import { z } from 'zod';
@@ -94,14 +94,21 @@ export function verifyArtifact(artifact: EntryArtifact, anchor: Hex, signer: str
   requireSignature(digest, artifact.signature, signer, pqPublicKey);
 }
 export function openEntry(artifact: EntryArtifact, key: EpochKey, pool: Address): Entry {
+  let batch: OpenedBatch;
+  try {
+    batch = openBatch({ blob: hexToBytes(artifact.blob), keys: [key] });
+  } catch (error: unknown) {
+    if (isQoreSealError(error) && (error.code === 'DECRYPTION_FAILED' || error.code === 'UNKNOWN_EPOCH'))
+      throw new BookError('NOT_GRANTED');
+    throw new BookError('TAMPERED');
+  }
+  if (batch.context !== `quaestor:${artifact.book}:entry` || batch.batchIndex !== BigInt(artifact.index))
+    throw new BookError('TAMPERED');
   let raw: unknown;
   try {
-    const batch = openBatch({ blob: hexToBytes(artifact.blob), keys: [key] });
-    if (batch.context !== `quaestor:${artifact.book}:entry` || batch.batchIndex !== BigInt(artifact.index))
-      throw new BookError('TAMPERED');
     raw = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(batch.data)) as unknown;
   } catch {
-    throw new BookError('NOT_GRANTED');
+    throw new BookError('TAMPERED');
   }
   const parsed = entrySchema.safeParse(raw);
   if (!parsed.success) throw new BookError('TAMPERED');
