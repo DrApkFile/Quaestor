@@ -1,0 +1,74 @@
+{
+  "command": "pnpm evidence --m5-browser-spike initial",
+  "at": "2026-11-21T13:45:30.978Z",
+  "origin": "http://127.0.0.1:5173",
+  "status": "COMPLETED",
+  "errorCode": null,
+  "browserErrors": [],
+  "results": {
+    "cors": {
+      "evm": true,
+      "height": "10496422",
+      "consensus": false,
+      "rest": [
+        {
+          "name": "kem",
+          "pinned": false,
+          "ok": false,
+          "status": null
+        },
+        {
+          "name": "kem",
+          "pinned": true,
+          "ok": false,
+          "status": null
+        },
+        {
+          "name": "account",
+          "pinned": false,
+          "ok": false,
+          "status": null
+        },
+        {
+          "name": "account",
+          "pinned": true,
+          "ok": false,
+          "status": null
+        },
+        {
+          "name": "evm_window",
+          "pinned": false,
+          "ok": false,
+          "status": null
+        },
+        {
+          "name": "evm_window",
+          "pinned": true,
+          "ok": false,
+          "status": null
+        },
+        {
+          "name": "cosmos_auth",
+          "pinned": false,
+          "ok": false,
+          "status": null
+        },
+        {
+          "name": "cosmos_auth",
+          "pinned": true,
+          "ok": false,
+          "status": null
+        }
+      ]
+    },
+    "crypto": {
+      "sdkDerived": true,
+      "sdkMs": 879.8000000119209,
+      "hybridSignatureVerified": true,
+      "anonymousHybridOpened": true,
+      "shieldProofVerified": true,
+      "shieldMs": 7405,
+      "totalMs": 9049.10000000894
+    }
+  }
+}

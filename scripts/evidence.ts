@@ -11,4 +11,10 @@ else if (process.argv[2] === '--m4-deploy-recover') await import('./m4-recover.j
 else if (process.argv[2] === '--m4-proof-spike') await import('./m4-proof-spike.js');
 else if (process.argv[2] === '--m4') await import('./m4-verdicts.js');
 else if (process.argv[2] === '--m4-deployment-diagnostics') await import('./m4-diagnostics.js');
+else if (process.argv[2] === '--m5-browser-spike') await import('./m5-browser-spike.js');
+else if (process.argv[2] === '--m5-deploy') await import('./m5-deploy.js');
+else if (process.argv[2] === '--m5-native-spike') await import('./m5-native-spike.js');
+else if (process.argv[2] === '--m5-publish') await import('./m5-publish.js');
+else if (process.argv[2] === '--m5-blobs') await import('./m5-blobs.js');
+else if (process.argv[2] === '--m5-web') await import('./m5-web.js');
 else throw new Error('Specify an implemented M1 or M2 evidence command.');

@@ -1,0 +1,12 @@
+.accounts
+.accounts/**
+**/.accounts/**
+.env*
+**/.env*
+**/*.mnemonic
+**/*.key
+.git
+evidence
+docs/screenshots
+**/test-results
+**/playwright-report

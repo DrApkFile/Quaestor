@@ -1,0 +1,42 @@
+{
+  "name": "@quaestor/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint server src test e2e vite.config.ts playwright.config.ts vitest.config.ts ../../api",
+    "test": "vitest run --config vitest.config.ts",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@cosmjs/stargate": "0.39.0",
+    "@gloamtrade/sdk": "0.8.0",
+    "@noble/hashes": "2.4.0",
+    "@qorechain/evm": "0.14.0",
+    "@qorechain/qoreseal": "0.1.0",
+    "@qorechain/qoresign": "0.2.0",
+    "@qorechain/sdk": "0.14.0",
+    "@quaestor/chain": "workspace:*",
+    "@quaestor/core": "workspace:*",
+    "buffer": "6.0.3",
+    "events": "3.3.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "snarkjs": "0.7.6",
+    "viem": "2.58.2",
+    "zod": "3.24.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "@types/node": "22.19.1",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.3.0",
+    "typescript": "5.6.3",
+    "vite": "8.3.8",
+    "vitest": "2.1.9"
+  }
+}

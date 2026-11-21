@@ -13,3 +13,6 @@ coverage/
 .DS_Store
 apps/web/public/circuits/
 contracts/lib/
+
+**/test-results/
+**/playwright-report/

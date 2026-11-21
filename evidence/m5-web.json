@@ -1,0 +1,15 @@
+{
+  "command": "pnpm evidence --m5-web",
+  "at": "2026-11-21T20:30:18.714Z",
+  "status": "PASSED",
+  "elapsedMs": 149390.71550599998,
+  "publicCheck": true,
+  "auditorFromChain": true,
+  "viewportWidths": [
+    1440,
+    390
+  ],
+  "plaintextRequestLeaks": 0,
+  "source": "production Vite preview with the Vercel CSP and same relay handler",
+  "backup": "encrypted local fixture only; credentials excluded"
+}

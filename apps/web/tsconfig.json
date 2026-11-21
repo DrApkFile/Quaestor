@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "noEmit": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src",
+    "test",
+    "e2e",
+    "vite.config.ts",
+    "playwright.config.ts",
+    "../../packages/chain/src/snarkjs.d.ts",
+    "../../api",
+    "vitest.config.ts",
+    "server"
+  ]
+}

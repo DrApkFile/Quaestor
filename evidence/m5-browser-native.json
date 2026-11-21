@@ -1,0 +1,21 @@
+{
+  "command": "pnpm evidence --m5-native-spike",
+  "at": "2026-11-21T13:52:31.742Z",
+  "transport": "Chromium -> same-origin allowlisted Vercel-compatible pass-through -> consensus RPC",
+  "signing": "SDK hybrid eth-native; already-signed bytes only crossed the relay",
+  "hash": "F821A2BB83C65E3A529C8D3D0E94E04ADD34C5C58A9D7E6DFB4AAE228E18C5F9",
+  "height": 10496731,
+  "gasUsed": "186739",
+  "code": 0,
+  "broadcast": {
+    "jsonrpc": "2.0",
+    "id": 42,
+    "result": {
+      "code": 0,
+      "data": "",
+      "log": "",
+      "codespace": "",
+      "hash": "F821A2BB83C65E3A529C8D3D0E94E04ADD34C5C58A9D7E6DFB4AAE228E18C5F9"
+    }
+  }
+}

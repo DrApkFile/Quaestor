@@ -1,0 +1,94 @@
+{
+  "command": "pnpm evidence --m5-browser-spike relay-cache-fixed",
+  "at": "2026-11-21T20:25:33.965Z",
+  "origin": "http://127.0.0.1:5173",
+  "status": "COMPLETED",
+  "errorCode": null,
+  "browserErrors": [],
+  "results": {
+    "cors": {
+      "evm": true,
+      "height": "10513260",
+      "consensus": true,
+      "rest": [
+        {
+          "name": "kem",
+          "pinned": false,
+          "ok": true,
+          "status": 200
+        },
+        {
+          "name": "kem",
+          "pinned": true,
+          "ok": true,
+          "status": 200
+        },
+        {
+          "name": "account",
+          "pinned": false,
+          "ok": true,
+          "status": 200
+        },
+        {
+          "name": "account",
+          "pinned": true,
+          "ok": true,
+          "status": 200
+        },
+        {
+          "name": "evm_window",
+          "pinned": false,
+          "ok": true,
+          "status": 200
+        },
+        {
+          "name": "evm_window",
+          "pinned": true,
+          "ok": true,
+          "status": 200
+        },
+        {
+          "name": "cosmos_auth",
+          "pinned": false,
+          "ok": true,
+          "status": 200
+        },
+        {
+          "name": "cosmos_auth",
+          "pinned": true,
+          "ok": true,
+          "status": 200
+        }
+      ]
+    },
+    "crypto": {
+      "sdkReceiptRead": true,
+      "warmCircuitCacheHits": 3,
+      "circuitDownloads": [
+        {
+          "file": "shield.wasm",
+          "cached": false,
+          "loaded": 1835706
+        },
+        {
+          "file": "shield_final.zkey",
+          "cached": false,
+          "loaded": 250049
+        },
+        {
+          "file": "shield_vkey.json",
+          "cached": false,
+          "loaded": 3291
+        }
+      ],
+      "sdkDerived": true,
+      "browserHybridSigned": true,
+      "sdkMs": 175.1000000089407,
+      "hybridSignatureVerified": true,
+      "anonymousHybridOpened": true,
+      "shieldProofVerified": true,
+      "shieldMs": 3325.4000000059605,
+      "totalMs": 3945.4000000059605
+    }
+  }
+}

@@ -3,8 +3,8 @@ declare module 'snarkjs' {
   export const groth16: {
     fullProve(
       input: Record<string, string | string[] | string[][]>,
-      wasm: string,
-      zkey: string,
+      wasm: string | Uint8Array,
+      zkey: string | Uint8Array,
       logger: undefined,
       witnessOptions: undefined,
       proverOptions: {

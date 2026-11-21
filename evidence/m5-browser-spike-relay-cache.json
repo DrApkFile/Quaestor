@@ -1,0 +1,9 @@
+{
+  "command": "pnpm evidence --m5-browser-spike relay-cache",
+  "at": "2026-11-21T20:23:59.317Z",
+  "origin": "http://127.0.0.1:5173",
+  "status": "FAILED",
+  "errorCode": "Error",
+  "browserErrors": [],
+  "results": null
+}
