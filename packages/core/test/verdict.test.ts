@@ -5,6 +5,7 @@ import { zeroAddress, toBytes, toHex, type Hex } from 'viem';
 import { RECEIPT_PUBLIC_SIGNALS, FUNDS_PUBLIC_SIGNALS } from '@gloamtrade/sdk';
 import {
   entryVerdict,
+  entryVerdicts,
   receiptContext,
   canonical,
   hashBytes,
@@ -59,26 +60,26 @@ function input(value = entry()): VerdictInput {
   const batch = sealBatch({
     epochKey: key,
     context: `quaestor:${book}:entry`,
-    batchIndex: 0,
+    batchIndex: value.index,
     data: toBytes(canonical(value)),
   });
   const digest = hashBytes(batch.blob);
   const artifact = {
     book,
     period: value.period,
-    index: 0,
-    prevEntrySha3: zero,
+    index: value.index,
+    prevEntrySha3: value.prevEntrySha3,
     blob: toHex(batch.blob),
     blobSha3: digest,
     signature: signHash(digest, signing),
   };
   return {
     artifact,
-    anchor: { book, period: value.period, index: 0, prevSha3: zero, blobSha3: digest },
+    anchor: { book, period: value.period, index: value.index, prevSha3: value.prevEntrySha3, blobSha3: digest },
     key,
     signer,
     pqPublicKey: pqKey.publicKey,
-    expectedPrevSha3: zero,
+    expectedPrevSha3: value.prevEntrySha3,
     pool: zeroAddress,
     receiptVkey: { synthetic: true },
     roots: new Set(['7']),
@@ -255,4 +256,22 @@ it('T-HOLDINGS derives declared balances and checks every proof/nullifier before
       [zeroAddress]: '1',
     }),
   ).toEqual({ [zeroAddress]: '12' });
+});
+
+it('T-VERDICT duplicate payment commitments after the first are UNBACKED across openable periods', async () => {
+  mocked.verify.mockResolvedValue(true);
+  const first = input();
+  const value = entry();
+  value.index = 1;
+  value.receipt.publicSignals[6] = receiptContext(book, value.period, 1, zeroAddress).toString();
+  const second = input(value);
+  const later = entry();
+  later.period = '2026-11-22';
+  later.receipt.publicSignals[6] = receiptContext(book, later.period, 0, zeroAddress).toString();
+  expect(await entryVerdicts([first, second, input(later)])).toEqual([
+    { kind: 'MATCHED', reason: 'VERIFIED' },
+    { kind: 'UNBACKED', reason: 'DUPLICATE_PAYMENT' },
+    { kind: 'UNBACKED', reason: 'DUPLICATE_PAYMENT' },
+  ]);
+  expect(await entryVerdicts([input(later)])).toEqual([{ kind: 'MATCHED', reason: 'VERIFIED' }]);
 });

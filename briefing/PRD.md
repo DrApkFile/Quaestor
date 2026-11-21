@@ -74,7 +74,8 @@ Close record `{book, period, entryCount, lastEntrySha3, priorSha3, closingBalanc
 2. SHA3-256(blob) ≠ anchored `blobSha3`, or `prevSha3` chain broken → `TAMPERED`.
 3. ML-DSA-87 signature invalid for the book owner's on-chain key → `TAMPERED`.
 4. Open with the granted period key; failure → `UNKNOWN(NOT_GRANTED)` (the auditor UI shows `NOT_GRANTED`).
-5. Receipt: `context` ≠ expected for (book, period, index) → `UNBACKED`.
+5. Among entries openable by this auditor, later occurrences of a paymentCommitment in the same book are `UNBACKED(DUPLICATE_PAYMENT)`; preserve audit scope across granted periods in their ordered traversal. No on-chain payment uniqueness index is used.
+6. Receipt: `context` ≠ expected for (book, period, index) → `UNBACKED`.
 6. Receipt Groth16 verification (receipt vkey) fails → `UNBACKED`.
 7. `commitment` ≠ entry's `paymentCommitment`, `shownAmount` ≠ amount, or asset mismatch → `UNBACKED`.
 8. `root` is not a root the pool tree ever had (rebuilt from the pool’s insertion events (Shielded, Transferred); not `isKnownRoot`, which keeps only 100) → `UNBACKED`.

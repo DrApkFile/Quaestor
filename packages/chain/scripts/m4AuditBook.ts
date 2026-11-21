@@ -30,6 +30,7 @@ export async function auditBookM4(
   kind: 'honest' | 'attack',
   abi: Abi,
   auditBlock: bigint,
+  visiblePayments = new Set<string>(),
 ) {
   const book = manifest[kind];
   const closeBlock = BigInt(book.closeTx.blockNumber);
@@ -113,13 +114,16 @@ export async function auditBookM4(
       pool: manifest.pool,
       receiptVkey: readJson(`${m2Root}/apps/web/public/circuits/receipt_vkey.json`),
       roots: roots.roots,
+      seenPayments: visiblePayments,
     });
   };
   for (const [index, artifact] of book.entries.entries()) {
     if (artifact.index !== index) throw new Error('ENTRY_ORDER_INVALID');
     const verdict = await check(artifact, previous);
     entries.push({ index, blobSha3: artifact.blobSha3, verdict });
-    plaintext.push(decryptEntry(artifact, key));
+    const opened = decryptEntry(artifact, key);
+    plaintext.push(opened);
+    visiblePayments.add(opened.paymentCommitment.toLowerCase());
     previous = artifact.blobSha3;
   }
   if (

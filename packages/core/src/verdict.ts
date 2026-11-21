@@ -9,7 +9,7 @@ import { verifyProof } from './proof.js';
 export type EntryVerdict =
   | { kind: 'UNKNOWN'; reason: 'MISSING_INPUTS' | 'NOT_GRANTED' }
   | { kind: 'TAMPERED'; reason: 'ANCHOR_MISMATCH' | 'BAD_SIGNATURE' | 'BROKEN_CHAIN' | 'METADATA_MISMATCH' }
-  | { kind: 'UNBACKED'; reason: 'WRONG_CONTEXT' | 'BAD_PROOF' | 'MISMATCH' | 'UNKNOWN_ROOT' }
+  | { kind: 'UNBACKED'; reason: 'WRONG_CONTEXT' | 'BAD_PROOF' | 'MISMATCH' | 'UNKNOWN_ROOT' | 'DUPLICATE_PAYMENT' }
   | { kind: 'MATCHED'; reason: 'VERIFIED' };
 export interface EntryAnchor {
   book: Hex;
@@ -28,6 +28,7 @@ export interface VerdictInput {
   pool: Address;
   receiptVkey: unknown;
   roots: ReadonlySet<string> | null;
+  seenPayments?: ReadonlySet<string>;
 }
 async function evaluate(input: VerdictInput, contextCheck: boolean, rootCheck: boolean): Promise<EntryVerdict> {
   const { artifact, anchor, key, signer, pqPublicKey, expectedPrevSha3, pool, receiptVkey, roots } = input;
@@ -52,6 +53,8 @@ async function evaluate(input: VerdictInput, contextCheck: boolean, rootCheck: b
       ? { kind: 'UNKNOWN', reason: 'NOT_GRANTED' }
       : { kind: 'TAMPERED', reason: 'METADATA_MISMATCH' };
   }
+  if (input.seenPayments?.has(entry.paymentCommitment.toLowerCase()))
+    return { kind: 'UNBACKED', reason: 'DUPLICATE_PAYMENT' };
   const signals = readReceiptSignals(entry.receipt.publicSignals);
   if (contextCheck && signals.context !== receiptContext(entry.book, entry.period, entry.index, pool))
     return { kind: 'UNBACKED', reason: 'WRONG_CONTEXT' };
@@ -73,3 +76,22 @@ async function evaluate(input: VerdictInput, contextCheck: boolean, rootCheck: b
 export const entryVerdict = (input: VerdictInput): Promise<EntryVerdict> => evaluate(input, true, true);
 export const ablateEntry = (input: VerdictInput, omitted: 'CONTEXT' | 'ROOT_HISTORY'): Promise<EntryVerdict> =>
   evaluate(input, omitted !== 'CONTEXT', omitted !== 'ROOT_HISTORY');
+
+export async function entryVerdicts(inputs: readonly VerdictInput[]): Promise<EntryVerdict[]> {
+  const scopes = new Map<string, Set<string>>();
+  const verdicts: EntryVerdict[] = [];
+  for (const input of inputs) {
+    const book = input.artifact?.book.toLowerCase();
+    const seen = book ? (scopes.get(book) ?? new Set<string>()) : new Set<string>();
+    verdicts.push(await entryVerdict({ ...input, seenPayments: seen }));
+    if (input.artifact && input.key) {
+      try {
+        seen.add(decryptEntry(input.artifact, input.key).paymentCommitment.toLowerCase());
+      } catch {
+        continue;
+      }
+    }
+    if (book) scopes.set(book, seen);
+  }
+  return verdicts;
+}
