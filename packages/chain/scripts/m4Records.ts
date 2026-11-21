@@ -13,7 +13,7 @@ import {
   verifyProof,
   hashRecord,
   contractPeriod,
-  sealRecord,
+  sealLegacyRecord,
   sealedRecordSchema,
   type EpochKey,
   type Entry,
@@ -124,7 +124,7 @@ export async function fundsM4(
 }
 export function recordM4(context: M2Context, record: unknown, key: EpochKey, label: string, book: Hex) {
   return artifact(`${m4Public}/${label}.json`, sealedRecordSchema, () =>
-    sealRecord(record, key, signingKeys(context), `quaestor:${book}:${label}`),
+    sealLegacyRecord(record, key, signingKeys(context), `quaestor:${book}:${label}`),
   );
 }
 export async function closeM4(context: M2Context, contract: Hex, record: HoldingsClose, id: string) {

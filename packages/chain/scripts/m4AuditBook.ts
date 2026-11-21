@@ -3,7 +3,7 @@ import { toHex, type Abi } from 'viem';
 import { parseAddress } from '@qorechain/qoresign';
 import {
   openGrant,
-  openRecord,
+  openLegacyRecord,
   openingSchema,
   holdingsCloseSchema,
   closingBalances,
@@ -58,7 +58,7 @@ export async function auditBookM4(
     parseAddress(manifest.business).hex.toLowerCase()
   )
     throw new Error('BOOK_OWNER_MISMATCH');
-  const opening = openRecord(
+  const opening = openLegacyRecord(
     book.opening,
     key,
     `quaestor:${book.book}:${kind}-opening`,
@@ -68,7 +68,7 @@ export async function auditBookM4(
   );
   if (opening.book !== book.book || (await read('openings', [book.book])) !== book.opening.sha3)
     throw new Error('OPENING_MISMATCH');
-  const close = openRecord(
+  const close = openLegacyRecord(
     book.close,
     key,
     `quaestor:${book.book}:${kind}-close`,
