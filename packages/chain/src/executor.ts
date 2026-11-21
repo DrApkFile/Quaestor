@@ -1,6 +1,6 @@
 import type { SignedGas } from './gas.js';
 import type { Hex } from 'viem';
-import { Journal, type JournalData, type Operation, type Prepared, type StoredReceipt } from './journal.js';
+import type { Journal, JournalData, Operation, Prepared, StoredReceipt } from './journal.js';
 export interface Gateway {
   windowOpen(): Promise<boolean>;
   sign(prepared: Prepared): Promise<{

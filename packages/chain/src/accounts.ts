@@ -2,8 +2,8 @@ import { readFileSync } from 'node:fs';
 import { deriveUnifiedAccount } from '@qorechain/sdk';
 import { z } from 'zod';
 import { addressSchema } from './config.js';
-export const roleSchema = z.enum(['deployer', 'business', 'client', 'supplier1', 'supplier2', 'auditor']);
-export type Role = z.infer<typeof roleSchema>;
+import { roleSchema, type Role } from './roles.js';
+export { roleSchema, type Role } from './roles.js';
 const accountSchema = z
   .object({
     role: roleSchema,
