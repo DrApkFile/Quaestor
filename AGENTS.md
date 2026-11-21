@@ -35,6 +35,12 @@ From BUILD_CONTRACT.md. Never fabricate. Label demo data. Evidence only from `pn
 ## Conventions
 TypeScript strict, no `any`, zod at boundaries, external data parsed as `unknown`. No comments; names carry meaning. Files under ~180 lines. Discriminated unions for verdicts and states; closed error codes. Behaviour-named tests with acceptance IDs (`"A12 server never receives plaintext entries"`). Small behavioural commits, never rewritten. Check UI at 390 px wide. `pnpm gate` before every push.
 
+## Storage and hosting (D14/D15)
+- The chain is the store: ownerless BlobBoard events, no apps/store data server. Vercel hosts apps/web.
+- New entry/opening/close anchors hash ciphertext. Only historical M4 opening/close records use owner-signed legacy-map records; verify both ciphertext SHA3 and decrypted plaintext against the old Books anchor.
+- M4 opening balances are disclosed demo data because their plaintext hashes are guessable.
+- A Vercel pass-through may relay only allowlisted public queries/signed transactions after S08 establishes CORS need. It never receives keys or logs bodies.
+
 ## Scope
 New ideas → ROADMAP.md. Anything not built is listed as not built.
 
