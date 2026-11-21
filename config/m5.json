@@ -1,0 +1,33 @@
+{
+  "chain": {
+    "chainId": 9800,
+    "nativeChainId": "qorechain-diana",
+    "pool": "0x27dD6Fd63B1CFdce96F6202B259E45A9587C8C55",
+    "fusd": "0x97143B771D34ddb9130b807b135Ae675A5a963CA",
+    "evmRpc": "https://evm-testnet.qore.host",
+    "rest": "https://api-testnet.qore.host",
+    "consensusRpc": "https://rpc-testnet.qore.host",
+    "deployBlock": "10427515",
+    "chunkSize": "10000"
+  },
+  "books": {
+    "address": "0x9775c1d0dc814e41fb1b38d26fa17f60d24faf64",
+    "deployBlock": "10493747",
+    "chunkSize": "10000"
+  },
+  "board": {
+    "address": "0xe79e5a3108d8e856aa7ac770c97ac7af308c1d67",
+    "deployBlock": "10496688",
+    "chunkSize": "2000"
+  },
+  "legacyBooks": {
+    "0xd7f14b9d8aa6f19c80c6d8fa16960c48e0a9bda42dbe5a6a3b1b4a47cadec6ac": "honest",
+    "0x8653f6a5a736b2413a29f641b5ed6ab41c1b3db713a611e2f14e918f16f36b39": "attack"
+  },
+  "demo": {
+    "honest": "0xd7f14b9d8aa6f19c80c6d8fa16960c48e0a9bda42dbe5a6a3b1b4a47cadec6ac",
+    "attack": "0x8653f6a5a736b2413a29f641b5ed6ab41c1b3db713a611e2f14e918f16f36b39",
+    "periodA": "2026-11-21",
+    "periodB": "2026-11-22"
+  }
+}

@@ -66,7 +66,7 @@ export async function scanBlobs(
       strict: true,
     });
     for (const log of logs) {
-      if (log.removed || log.blockNumber === null || log.transactionHash === null) throw new Error('BLOB_LOG_INVALID');
+      if (log.removed || log.blockNumber < from || log.blockNumber > block) throw new Error('BLOB_LOG_INVALID');
       const args = blobLogSchema.parse(log.args);
       rows.push({ ...args, block: log.blockNumber, transactionHash: log.transactionHash });
     }

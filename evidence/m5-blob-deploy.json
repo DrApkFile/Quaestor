@@ -1,0 +1,102 @@
+{
+  "command": "pnpm evidence --m5-deploy",
+  "commit": "58ed535c146bc25e3f2b05b760643eeb2214d116",
+  "at": "2026-11-21T13:51:29.762Z",
+  "address": "0xe79e5a3108d8e856aa7ac770c97ac7af308c1d67",
+  "deployBlock": "10496688",
+  "transaction": {
+    "id": "m5-blob-deploy",
+    "hash": "0xad12aa546037c07c5f405197bcf5a83aaec2156f9fd056ad260b3c491b8b932c",
+    "blockNumber": "10496688",
+    "blockHash": "0xbde1a2e612418c278cdc7cba8547f4684da865fe48b6894799134c5336194601",
+    "gasUsed": "146303",
+    "effectiveGasPrice": "101000000000",
+    "status": "success",
+    "gas": {
+      "estimatedGas": "146303",
+      "gasLimit": "182879",
+      "maxFeePerGas": "250000000000",
+      "estimationBlock": "10496686"
+    },
+    "root": null,
+    "nullifier": null,
+    "feeWei": "0",
+    "commitments": [],
+    "plannedAt": "2026-11-21T13:51:25.512Z",
+    "landedAt": "2026-11-21T13:51:29.437Z"
+  },
+  "window": {
+    "hash": "F847FFCE17E8C70B7BEF0754257D5FC5AEDFA844C7ED62DB46950F2B4E36A481",
+    "height": 10496684,
+    "gasUsed": "186742"
+  },
+  "permissionless": true,
+  "eventOnly": true,
+  "maximumBytes": 24576,
+  "abi": [
+    {
+      "type": "function",
+      "name": "post",
+      "inputs": [
+        {
+          "name": "kind",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "sha3",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "Blob",
+      "inputs": [
+        {
+          "name": "kind",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "sha3",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "poster",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "indexed": false,
+          "internalType": "bytes"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "error",
+      "name": "BlobTooLarge",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "EmptyBlob",
+      "inputs": []
+    }
+  ]
+}

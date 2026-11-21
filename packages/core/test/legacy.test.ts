@@ -50,7 +50,9 @@ it('T-LEGACY mismatched decrypted plaintext hash and non-owner mapping signature
     ),
   ).toThrow('TAMPERED');
   const other = pqKeyFromSeed(new Uint8Array(32).fill(35));
-  const impostor = signLegacyMap(mapping.record, { ...signing, pqKey: other });
+  const otherClassical = classicalKeyFromPrivate(new Uint8Array(32).fill(36), 'eth_secp256k1');
+  const otherSigner = addressFromPublicKey(otherClassical.publicKey, 'eth_secp256k1').bech32;
+  const impostor = signLegacyMap(mapping.record, { signer: otherSigner, classicalKey: otherClassical, pqKey: other });
   expect(() => verifyLegacyMap(impostor, book, 'opening', blob.sha3, signer, pqKey.publicKey)).toThrow('TAMPERED');
 });
 it('T-RECORD new opening/close anchors hash ciphertext instead of guessable plaintext', () => {

@@ -40,11 +40,13 @@ it('T-BLOB absent and corrupt public hash claims are unavailable and TAMPERED', 
 });
 it('T-BLOB publisher refuses plaintext and secret-bearing unsigned JSON', () => {
   assertPublishable('entry', bytes);
-  expect(() => assertPublishable('entry', toBytes(canonical({ secret: 'synthetic-secret', amount: '1' })))).toThrow(
-    'BLOB_FORMAT_INVALID',
-  );
-  expect(() => assertPublishable('card', toBytes(canonical({ mnemonic: 'synthetic fixture (demo)' })))).toThrow(
-    'BLOB_FORMAT_INVALID',
-  );
-  expect(() => assertPublishable('entry', new Uint8Array(24577))).toThrow('BLOB_SIZE_INVALID');
+  expect(() => {
+    assertPublishable('entry', toBytes(canonical({ secret: 'synthetic-secret', amount: '1' })));
+  }).toThrow('BLOB_FORMAT_INVALID');
+  expect(() => {
+    assertPublishable('card', toBytes(canonical({ mnemonic: 'synthetic fixture (demo)' })));
+  }).toThrow('BLOB_FORMAT_INVALID');
+  expect(() => {
+    assertPublishable('entry', new Uint8Array(24577));
+  }).toThrow('BLOB_SIZE_INVALID');
 });
