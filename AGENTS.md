@@ -14,7 +14,7 @@ Quaestor: a normal web app (Vite + React, no PWA) where a business pays and gets
 
 ## Invariants the code cannot show
 - `packages/core` does no network and reads no clock; chain data and time are arguments.
-- Verdicts come from the closed sets in PRD §5. `UNKNOWN` is never green. `ADDS_UP` is never shown until DECISIONS D5 is marked proven.
+- Verdicts come from the closed sets in PRD §5. `UNKNOWN` is never green. Period verdicts are the scoped holdings results in DECISIONS D5; never show `ADDS_UP`.
 - The verdict engine accepts a receipt root only if the pool tree (rebuilt from the pool’s insertion events (Shielded, Transferred)) actually had it. Never rely on `isKnownRoot` (last 100 roots only).
 - Tickets are sealed only with QoreSeal hybrid to keys read from the QoreChain registry. There is no P-256/ECDH path. Gloam's `sealToReceiveTag`/`openSealedTicket` are never imported.
 - No request carries plaintext entries, invoices, note secrets, mnemonics or secret keys. Playwright intercepts every request to prove it.
