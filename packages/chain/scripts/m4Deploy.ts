@@ -12,6 +12,7 @@ const v1 = z
   .object({ contract: addressSchema })
   .passthrough()
   .parse(readJson(`${m2Root}/evidence/m3-books.json`));
+execFileSync('forge', ['build'], { cwd: `${m2Root}/contracts`, stdio: 'pipe' });
 const v2 = await deployBooks('m4');
 const evidence = {
   command: 'pnpm evidence --m4-deploy',
