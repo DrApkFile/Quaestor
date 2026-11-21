@@ -50,3 +50,5 @@ Pay, browser book writing, the full browser payment journey and a hosted Vercel 
 
 ## Licence
 MIT — see [LICENSE](LICENSE).
+
+UI style adapted from the builder's earlier project Muuve. See [the source-cited style study](docs/design/muuve-style.md) and the retained font/icon licences in apps/web/public/.

@@ -1,3 +1,4 @@
+import { Landing } from './Landing.js';
 import { useState } from 'react';
 import { AccountView } from './AccountView.js';
 import { PublicView } from './PublicView.js';
@@ -7,8 +8,9 @@ type View = 'account' | 'public' | 'auditor';
 export function App() {
   const query = new URLSearchParams(location.search).get('view');
   const [view, setView] = useState<View>(query === 'account' || query === 'auditor' ? query : 'public');
+  if (location.pathname === '/' && !query) return <Landing />;
   return (
-    <>
+    <div className="dashboard">
       <header className="site-header">
         <div className="brand">
           <span className="brand-icon">Q</span>
@@ -43,6 +45,6 @@ export function App() {
           </a>
         </footer>
       </div>
-    </>
+    </div>
   );
 }
