@@ -132,6 +132,7 @@ export async function runHonestM4(contexts: Contexts, setup: Setup, contract: Ad
     hashRecord(honest.selfB),
   ]);
   console.log('M4: payment in open B spends an A backing note after its close');
+  await windowM4(business, 12n, 1_500_000n);
   const later = await payM4(business, supplier1, 'm4-b-out', second.change, 125_000_000_000_000_000n);
   const entryB = await entryM4(
     business,
