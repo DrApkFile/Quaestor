@@ -35,6 +35,8 @@ it('T-BIND edited ciphertext fails the anchor SHA3 and signature even if its sta
  verifyArtifact(entry,entry.blobSha3,signer,pqKey.publicKey);
  const edited={...entry,blob:`${entry.blob.slice(0,-2)}${entry.blob.endsWith('00')?'01':'00'}` as Hex};
  expect(()=>{ verifyArtifact(edited,entry.blobSha3,signer,pqKey.publicKey); }).toThrow('TAMPERED');
+ const replacedDigest={...edited,blobSha3:hashBytes(hexToBytes(edited.blob))};
+ expect(()=>{ verifyArtifact(replacedDigest,replacedDigest.blobSha3,signer,pqKey.publicKey); }).toThrow('TAMPERED');
  const forged={...entry,signature:{...entry.signature,pq:{algorithmId:1 as const,signature:Buffer.alloc(4627).toString('base64')}}};
  expect(()=>{ verifyArtifact(forged,entry.blobSha3,signer,pqKey.publicKey); }).toThrow('TAMPERED');
 });
