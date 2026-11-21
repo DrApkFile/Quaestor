@@ -10,4 +10,5 @@ else if (process.argv[2] === '--m4-deploy') await import('./m4-deploy.js');
 else if (process.argv[2] === '--m4-deploy-recover') await import('./m4-recover.js');
 else if (process.argv[2] === '--m4-proof-spike') await import('./m4-proof-spike.js');
 else if (process.argv[2] === '--m4') await import('./m4-verdicts.js');
+else if (process.argv[2] === '--m4-deployment-diagnostics') await import('./m4-diagnostics.js');
 else throw new Error('Specify an implemented M1 or M2 evidence command.');

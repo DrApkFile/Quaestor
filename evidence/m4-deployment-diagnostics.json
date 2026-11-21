@@ -1,0 +1,46 @@
+{
+  "command": "pnpm evidence --m4-deployment-diagnostics",
+  "at": "2026-11-21T13:10:01.479Z",
+  "legacySignedHash": "0xb6c28a040905ae298e2129efa15390f3efcab20886170b9f6a52e654e5016b7c",
+  "legacyReceiptStatus": "not observed; original checkpoint preserved",
+  "v2Hash": "0x4fc80660987e9a9259eade0b72829eceac23110c442a6dead53008b56e92d769",
+  "v2Block": "10493747",
+  "nonce": 28,
+  "matchingLegacySignatureAtSameNonce": false,
+  "legacyCannotLandAfterConfirmedV2": false,
+  "resent": false,
+  "nativeHistory": [
+    {
+      "hash": "5E36C9279AA880BC42737B45D670220DA6846764457FAC918A3BD478491210EC",
+      "height": "10493510",
+      "code": 0,
+      "actions": [
+        "/qorechain.pqc.v1.MsgOpenEVMWindow"
+      ]
+    },
+    {
+      "hash": "C99FD881451EF39B115A91C6E56F6917910C8CF412760D1BA1631DE0203A6347",
+      "height": "10493562",
+      "code": 0,
+      "actions": [
+        "/qorechain.pqc.v1.MsgOpenEVMWindow"
+      ]
+    },
+    {
+      "hash": "D8678ACAF6CF3DDEB11EA539E8B842D87B973788FAC867B43A54D5637868D518",
+      "height": "10493742",
+      "code": 0,
+      "actions": [
+        "/qorechain.pqc.v1.MsgOpenEVMWindow"
+      ]
+    },
+    {
+      "hash": "F7DA8564AB128314CA6FCB725777A23B38CFC9157A41FA5709179A60526BD2FA",
+      "height": "10493747",
+      "code": 0,
+      "actions": [
+        "/cosmos.evm.vm.v1.MsgEthereumTx"
+      ]
+    }
+  ]
+}
