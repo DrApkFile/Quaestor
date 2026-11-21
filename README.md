@@ -29,6 +29,8 @@ Script milestones M0–M3 have live evidence. Claims and their limits are record
 | scripts/day2/ | M0 runbook: accounts, BN254 check, deploy, verifier check |
 | AI_USAGE.md, docs/ai-log/ | how AI was used, with the human's decisions |
 
+See the [threat model](THREAT_MODEL.md) for confidentiality boundaries and public metadata.
+
 ## Credits
 - **Gloam** — shielded pool contracts, circuits, final ceremony keys and SDK, MIT licence. We deploy our own instance on QoreChain testnet. **Not affiliated with Gloam.** See [NOTICE](NOTICE).
 - **QoreChain Association** — QoreSeal, QoreSign, QoreChain SDK, `@qorechain/evm`, `@qorechain/pqc`, create-qorechain-dapp (Apache-2.0).
