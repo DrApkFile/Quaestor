@@ -1,0 +1,7 @@
+node_modules/
+.accounts/
+contracts/vendor/
+contracts/lib/
+contracts/out/
+contracts/cache/
+apps/web/public/circuits/
