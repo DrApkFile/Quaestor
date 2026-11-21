@@ -35,9 +35,11 @@ Done when:
 
 ## M3 — Sealed books and grants (Codex, 24–25 Nov)
 Done when:
-- [ ] `packages/core`: entry codec, period keys, grant and close records; ML-DSA-87 signatures via QoreSign.
-- [ ] `contracts/Books.sol` + Foundry tests (T-BOOKS-*), deployed on Diana.
-- [ ] Entries anchored for M2's payments; a grant for one period to the auditor account.
+- [x] `packages/core`: entry codec, period keys, grant and close records; ML-DSA-87 signatures via QoreSign.
+- [x] `contracts/src/Books.sol` + Foundry tests (T-BOOKS-*), deployed on Diana.
+- [x] Entries anchored for M2's payments; a grant for one period to the auditor account.
+
+M3 script evidence: `evidence/m3-books.json`; fresh auditor opens A (2 entries), is refused B (1 entry). Anonymous ticket correction: `evidence/m2b-ticket-anonymous.json`; historical M2 evidence retained. Browser workflows and receipt verdicts remain M4–M7.
 
 ## M4 — Verdict engine and reconciliation decision (Codex + Claude, 25–26 Nov)
 Done when:

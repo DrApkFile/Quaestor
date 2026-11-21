@@ -2,19 +2,20 @@
 
 **Keep your books private for decades, and open them to your auditor one quarter at a time.**
 
-Quaestor is a web app for private business payments on QoreChain testnet. Payments move through our own deployment of Gloam's open-source shielded pool; every payment writes a book entry sealed with post-quantum encryption (ML-KEM-1024) and signed with ML-DSA-87; the business grants its auditor one quarter, and the auditor checks each entry against the chain.
+Quaestor is building a normal web app for private business payments on QoreChain testnet. The script prototype moves payments through our own deployment of Gloam's open-source shielded pool, seals demo book entries with period keys, signs them with ML-DSA-87, and grants an auditor access to one demo-scale period.
 
 Built for **Build Before Q-Day**, the QoreChain Developer Fest · category **Encrypted Apps** · testnet `qorechain-diana` only.
 
-## Status (20 Nov 2026)
-Planning done; building starts. **Nothing below is claimed as working until it is marked PROVEN in [CLAIMS.md](CLAIMS.md).**
+## Status (21 Nov 2026)
+Script milestones M0–M3 have live evidence. Claims and their limits are recorded in [CLAIMS.md](CLAIMS.md). Browser workflows remain unbuilt.
 
 | What | Status |
 |---|---|
 | Gloam SDK proof for chain 9800 (offline) | proven offline — spikes/s02-output.txt |
-| Pool deployed on QoreChain testnet | not yet (milestone M0) |
-| Post-quantum payment tickets | not yet (M2) |
-| Sealed books, grants, verdicts | not yet (M3–M4) |
+| Our deployment of Gloam’s open-source pool | proven live — [M0 evidence](evidence/m0-deploy.json) |
+| Anonymous hybrid payment tickets | proven live — [C1 evidence](evidence/m2b-ticket-anonymous.json) |
+| Sealed books and one-period auditor access | proven in scripts — [C2 evidence](evidence/m3-books.json) |
+| Receipt verdicts and reconciliation | not built (M4); Groth16 proofs are not post-quantum |
 | Web app | not yet (M6–M7) |
 
 ## Repository map

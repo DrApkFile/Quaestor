@@ -5,7 +5,7 @@ README, project page and video may repeat only claims marked PROVEN here. Each c
 | ID | Claim | Status | Evidence | What it does not establish |
 |---|---|---|---|---|
 | C1 | Supplier1 opens its anonymous hybrid ML-KEM-1024 + X25519 ticket from our memo board and spends the note; the registered non-recipient client is refused (the payer has an authorized self-copy) | PROVEN (live + tests) | evidence/m2b-ticket-anonymous.json (anonymous correction); evidence/m2-ticket.json (historical non-anonymous); packages/chain/test/tickets.test.ts | Groth16 soundness; metadata privacy (the memo board is public); browser behaviour; payer anonymity: the payer’s EVM address sends the private send and the memo post (no relay) |
-| C2 | An auditor reads exactly the granted period | NOT PROVEN | — | — |
+| C2 | A fresh auditor process opens both anchored entries in granted demo period A and is refused the populated, ungranted period B | PROVEN (live + tests) | evidence/m3-books.json; evidence/m3-precompiles.json; packages/core/test/books.test.ts; contracts/test/Books.t.sol | receipt Groth16 verification or soundness; reconciliation; completeness of bookkeeping; browser behaviour; metadata privacy or payer anonymity; protection against an authorized auditor sharing keys/plaintext |
 | C3 | Every honest entry on the demo book is MATCHED | NOT PROVEN | — | — |
 | C4 | Tampered, invented and receipt-reused entries are caught | NOT PROVEN | — | — |
 | C5 | No plaintext or secret leaves the browser | NOT PROVEN | — | — |
