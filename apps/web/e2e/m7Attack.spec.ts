@@ -62,6 +62,18 @@ test('T-NOPLAIN-WEB M7 attack lab reads four chain cases and never broadcasts', 
         2,
       ) + '\n',
     );
+  } catch (error: unknown) {
+    writeFileSync(
+      `../../evidence/m7-attack-attempt-${String(Date.now())}.json`,
+      JSON.stringify({
+        command: 'pnpm evidence --m7',
+        status: 'FAILED',
+        code: error instanceof Error ? error.name : 'FAILED',
+        network: await monitor.finish(),
+        transactionRequests: mutations.length,
+      }) + '\n',
+    );
+    throw error;
   } finally {
     await context.close();
   }
