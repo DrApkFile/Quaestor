@@ -68,7 +68,7 @@ Builder's approved scope: docs/briefs/M6.md. M7 attack-lab UI remains separate.
 - [x] T-NOPLAIN-WEB inspects all requests/responses for entry/invoice canaries and account/seal/note secrets.
 - [x] Live three-context daily demo books the 1/.5/.25-QOR journey, closes/grants A, reproduces all MATCHED and HOLDINGS_COVER_BOOKS, refuses populated B.
 - [x] evidence/m6-browser.json and landing/dashboard/every-screen screenshots at 390px and desktop; scoped C5 evidence.
-- [ ] pnpm gate and production build pass; handoff written; pushed, stop before M7.
+- [x] pnpm gate and production build pass; handoff written. Final delivery is the handoff commit push, then stop before M7.
 
 ## M7 — Web app: attack lab (Codex, 28–29 Nov)
 - [ ] Browser attack-lab demonstrations from PRD §11; independently briefed and reviewed after M6.
