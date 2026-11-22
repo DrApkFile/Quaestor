@@ -1,0 +1,68 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "post",
+      "inputs": [
+        {
+          "name": "kind",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "sha3",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "Blob",
+      "inputs": [
+        {
+          "name": "kind",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "sha3",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "poster",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "indexed": false,
+          "internalType": "bytes"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "error",
+      "name": "BlobTooLarge",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "EmptyBlob",
+      "inputs": []
+    }
+  ]
+}

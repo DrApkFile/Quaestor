@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { TxRaw } from 'cosmjs-types/cosmos/tx/v1beta1/tx';
 const addr = 'qor1[0-9a-z]{20,80}';
 const restPath = new RegExp(
-  `^/(?:qorechain/pqc/v1/(?:kem|account|evm_window)/${addr}|cosmos/auth/v1beta1/accounts/${addr}|qorechain/pqc/v1/protocol_features|cosmos/upgrade/v1beta1/applied_plan/(?:v3\\.2\\.0|v3\\.1\\.98))$`,
+  `^/(?:qorechain/pqc/v1/(?:kem|account|evm_window)/${addr}|cosmos/auth/v1beta1/accounts/${addr}|cosmos/bank/v1beta1/balances/${addr}|qorechain/pqc/v1/protocol_features|cosmos/upgrade/v1beta1/applied_plan/(?:v3\\.2\\.0|v3\\.1\\.98))$`,
 );
 const hash = z
   .string()

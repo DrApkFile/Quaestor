@@ -1,5 +1,5 @@
 import { z } from 'zod';
-export type CircuitName = 'shield' | 'receipt' | 'funds';
+export type CircuitName = 'shield' | 'transfer' | 'unshield' | 'receipt' | 'funds';
 export interface DownloadProgress {
   file: string;
   loaded: number;

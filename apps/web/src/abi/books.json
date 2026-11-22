@@ -1,0 +1,463 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "anchorEntry",
+      "inputs": [
+        {
+          "name": "book",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "period",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "index",
+          "type": "uint64",
+          "internalType": "uint64"
+        },
+        {
+          "name": "blobSha3",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "prevSha3",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "anchorGrant",
+      "inputs": [
+        {
+          "name": "book",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "period",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "auditor",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "grantSha3",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "books",
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "closePeriod",
+      "inputs": [
+        {
+          "name": "book",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "period",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "entryCount",
+          "type": "uint64",
+          "internalType": "uint64"
+        },
+        {
+          "name": "lastEntrySha3",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "closeSha3",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "mlDsaSignature",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "entryAnchors",
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "uint64",
+          "internalType": "uint64"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "blobSha3",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "prevSha3",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "grants",
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "openings",
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "periods",
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "nextIndex",
+          "type": "uint64",
+          "internalType": "uint64"
+        },
+        {
+          "name": "lastSha3",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "closed",
+          "type": "bool",
+          "internalType": "bool"
+        },
+        {
+          "name": "closeSha3",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "registerBook",
+      "inputs": [
+        {
+          "name": "salt",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "openingSha3",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "book",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "BookRegistered",
+      "inputs": [
+        {
+          "name": "book",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "owner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "EntryAnchored",
+      "inputs": [
+        {
+          "name": "book",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "period",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "index",
+          "type": "uint64",
+          "indexed": false,
+          "internalType": "uint64"
+        },
+        {
+          "name": "blobSha3",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "prevSha3",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "GrantAnchored",
+      "inputs": [
+        {
+          "name": "book",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "period",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "auditor",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "grantSha3",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "OpeningAnchored",
+      "inputs": [
+        {
+          "name": "book",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "openingSha3",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "PeriodClosedEvent",
+      "inputs": [
+        {
+          "name": "book",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "period",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "closeSha3",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "error",
+      "name": "BadEntryCount",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "BadIndex",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "BadLastHash",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "BadSignature",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "BookExists",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "BrokenChain",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "GrantExists",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NoPqKey",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NotOwner",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "PeriodClosed",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "PossessionNotProven",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "WrongAlgorithm",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "ZeroHash",
+      "inputs": []
+    }
+  ]
+}
