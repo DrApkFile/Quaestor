@@ -189,6 +189,8 @@ section,
   border: 1px solid var(--highlight);
   border-radius: var(--radius);
   padding: 24px;
+  min-width: 0;
+  overflow-wrap: anywhere;
   box-shadow: var(--shadow);
   margin: 16px 0;
 }
@@ -218,6 +220,7 @@ section,
 }
 .stats strong {
   font-size: 38px;
+  overflow-wrap: anywhere;
   display: block;
 }
 .stats span {
@@ -388,6 +391,7 @@ th {
     flex-wrap: wrap;
   }
   .stats {
+    grid-template-columns: 1fr;
     gap: 8px;
   }
   .stats .panel {
