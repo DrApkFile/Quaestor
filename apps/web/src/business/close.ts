@@ -103,6 +103,8 @@ export async function closePeriod(runtime: BusinessRuntime, book: Book) {
     period.close = {
       ...summary,
       priorSha3: previous?.sealedClose?.sha3 ?? book.sealedOpening.sha3,
+      openingBalance: period.start,
+      periodLength: book.mode,
       closingBalance,
       cashOutFees,
       holdings,

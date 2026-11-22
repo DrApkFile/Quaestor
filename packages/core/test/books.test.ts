@@ -14,6 +14,10 @@ import {
   hashRecord,
   hashBytes,
   closeRecord,
+  declaredOpening,
+  sealRecord,
+  openRecord,
+  holdingsCloseSchema,
 } from '../src/index.js';
 
 const classicalKey = classicalKeyFromPrivate(new Uint8Array(32).fill(1), 'eth_secp256k1');
@@ -119,4 +123,29 @@ it('T-BIND authenticated batch metadata mismatches remain TAMPERED while a wrong
     expect(() => openEntry(changed, keyA, zeroAddress)).toThrow('TAMPERED');
   expect(() => openEntry(entry, { epoch: keyA.epoch, key: keyB.key }, zeroAddress)).toThrow('NOT_GRANTED');
   expect(() => openEntry({ ...entry, blob: '0x00' }, keyA, zeroAddress)).toThrow('TAMPERED');
+});
+
+it('T-PERIOD-B-ONLY later-period key opens its signed declared opening without granting the first period', () => {
+  const grant = grantPeriod(book, '2026-11-21', auditor, keyB, recipientOf(keys), '2026-11-21T00:00:00Z', signing);
+  const granted = openGrant(grant, book, '2026-11-21', auditor, keys, signer, pqKey.publicKey);
+  const close = {
+    v: 1 as const,
+    book,
+    period: '2026-11-21',
+    entryCount: 0,
+    lastEntrySha3: zero,
+    priorSha3: book,
+    openingBalance: { [zeroAddress]: '5' },
+    closingBalance: { [zeroAddress]: '5' },
+    cashOutFees: {},
+    holdings: {},
+  };
+  const sealed = sealRecord(close, keyB, signing, `quaestor:${book}:close`);
+  const opened = openRecord(sealed, granted, `quaestor:${book}:close`, holdingsCloseSchema, signer, pqKey.publicKey);
+  expect(declaredOpening(opened, null, book)).toEqual(close.openingBalance);
+  expect(() => declaredOpening(opened, { [zeroAddress]: '6' }, book)).toThrow('TAMPERED');
+  expect(() => declaredOpening(opened, null, zero)).toThrow('TAMPERED');
+  expect(() => openEntry(sealEntry(input(0, zero), keyA, signing, zeroAddress), granted, zeroAddress)).toThrow(
+    'NOT_GRANTED',
+  );
 });

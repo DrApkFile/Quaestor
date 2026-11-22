@@ -8,6 +8,7 @@ import {
   holdingsVerdict,
   closingBalances,
   canonical,
+  declaredOpening,
   type EntryVerdict,
 } from '@quaestor/core';
 import type { BookSnapshot, PeriodRow } from './booksReader.js';
@@ -39,19 +40,27 @@ export async function grantedPeriod(
   const closeBlock = period.closeBlock;
   const historical = await ownerKey(context, snapshot, closeBlock);
   if (toHex(historical.publicKey) !== toHex(pq.publicKey)) throw new Error('PQC_KEY_CHANGED');
-  const openingRef = await recordCipher(context, snapshot, 'opening', snapshot.openingSha3, pq);
   const closeRef = await recordCipher(context, snapshot, 'close', period.closeSha3, pq);
-  const opening = decodeRecord(openingRef, key, openingSchema, historical);
   const close = decodeRecord(closeRef, key, holdingsCloseSchema, historical);
+  const prior = snapshot.periods
+    .filter((row) => row.closed && row.closeBlock !== null && row.closeBlock < closeBlock)
+    .sort((a, b) => Number((b.closeBlock ?? 0n) - (a.closeBlock ?? 0n)))[0];
+  const openingRef = prior ? null : await recordCipher(context, snapshot, 'opening', snapshot.openingSha3, pq);
+  const opening = openingRef ? decodeRecord(openingRef, key, openingSchema, historical) : null;
+  const openingBalance = declaredOpening(
+    close,
+    opening?.openingBalance ?? null,
+    prior?.closeSha3 ?? snapshot.openingSha3,
+  );
   const rows = snapshot.entries.filter((row) => row.period === period.id).sort((a, b) => a.index - b.index);
   if (
-    opening.book !== snapshot.book ||
+    (opening !== null && opening.book !== snapshot.book) ||
     close.book !== snapshot.book ||
     close.period !== grant.record.period ||
     close.entryCount !== period.count ||
     rows.length !== period.count ||
     close.lastEntrySha3 !== period.lastSha3 ||
-    close.priorSha3 !== snapshot.openingSha3
+    close.priorSha3 !== (prior?.closeSha3 ?? snapshot.openingSha3)
   )
     throw new Error('TAMPERED');
   const history = await fullRootHistory(context.client, context.chain, poolReadAbi, closeBlock);
@@ -86,12 +95,12 @@ export async function grantedPeriod(
     const entry = decryptEntry(artifact, key);
     seen.add(entry.paymentCommitment.toLowerCase());
     plaintext.push(entry);
-    entries.push({ index: row.index, blobSha3: row.blobSha3, verdict });
+    entries.push({ index: row.index, blobSha3: row.blobSha3, verdict, entry, anchorHash: row.transactionHash });
     previous = row.blobSha3;
   }
   if (
     previous !== close.lastEntrySha3 ||
-    canonical(closingBalances(opening.openingBalance, plaintext, close.cashOutFees)) !== canonical(close.closingBalance)
+    canonical(closingBalances(openingBalance, plaintext, close.cashOutFees)) !== canonical(close.closingBalance)
   )
     throw new Error('TAMPERED');
   const spent = new Map<string, boolean>();
@@ -136,7 +145,10 @@ export async function grantedPeriod(
   return {
     id: period.id,
     label: grant.record.period,
-    periodLength: opening.periodLength ?? 'Daily (demo-scale)',
+    periodLength: close.periodLength ?? opening?.periodLength ?? 'Daily (demo-scale)',
+    openingBasis: prior
+      ? 'opening balance as declared and signed by the business'
+      : 'opening balance verified against registration',
     kind: 'AUDITED' as const,
     entries,
     holdings,
@@ -144,7 +156,7 @@ export async function grantedPeriod(
     rootHistorySize: history.roots.size,
     nullifiersChecked: spent.size,
     spentAfterClose,
-    legacyRecordsVerified: openingRef.legacy !== null && closeRef.legacy !== null,
+    legacyRecordsVerified: openingRef !== null && openingRef.legacy !== null && closeRef.legacy !== null,
     servedTamper,
   };
 }

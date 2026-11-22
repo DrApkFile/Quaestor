@@ -18,7 +18,7 @@ contracts/
   Books.sol        anchors, grants, period close (ours)
 packages/core      pure TS, no network, no clock: entry/grant/close codecs, period keys, ticket codec, verdict engine, reconciliation
 packages/chain     Diana reads pinned to one height, KEM/ML-DSA registry, EVM windows, pool wrapper over @gloamtrade/sdk (chainId 9800 + our poolAddress), tree sync from the pool’s insertion events (Shielded, Transferred)
-apps/web           Vite + React on Vercel; M5 Account, Public check, Auditor; Business/Pay remain M6
+apps/web           Vite + React on Vercel; Account, Wallet, Pay, Receive, Books, Grants, Auditor, Public check and read-only attack lab
 BlobBoard.sol      permissionless event-only on-chain ciphertext board, indexed by SHA3-256; no data server (D14)
 apps/audit-cli     `quaestor-audit <book> --period <p> --key <file>` read-only verdicts from a terminal
 public/circuits    self-hosted Gloam final wasm/zkey/vkey (shield, transfer, unshield, receipt, payroll_total, funds)
@@ -60,7 +60,7 @@ Every user (business, client, supplier, auditor) gets an **in-app QoreChain acco
 `sealEpochKey`-style envelope of the period key to the auditor (purpose `quaestor:<book>:period-key`, AAD = `book|period|auditorAddress`), grant record `{book, period, auditor, envelopeSha3, issuedAt}` signed ML-DSA-87 → BlobBoard → `Books.anchorGrant(...)`. Grants can't be revoked for that period (stated in the UI).
 
 **Close period**
-Close record `{book, period, entryCount, lastEntrySha3, priorSha3, closingBalance, cashOutFees, holdings proofs}` signed ML-DSA-87 → `Books.closePeriod(...)`, which checks the signature with **pqcVerify** against the business's key from **pqcKeyStatus** (`possessionProven` required). If S09 shows the precompiles inactive, the contract stores the signature and the verdict engine checks it (D3).
+Close record `{book, period, entryCount, lastEntrySha3, priorSha3, openingBalance, closingBalance, cashOutFees, holdings proofs}` signed ML-DSA-87 → `Books.closePeriod(...)`, which checks the signature with **pqcVerify** against the business's key from **pqcKeyStatus** (`possessionProven` required). If S09 shows the precompiles inactive, the contract stores the signature and the verdict engine checks it (D3).
 
 ## 7. Books.sol
 - `registerBook(bytes32 salt, bytes32 openingSha3)` → book id, owner = msg.sender (must pass `_requireProvenPqKey`).
@@ -120,3 +120,5 @@ T-SEAL-* (context/AAD binding, outsider refused) · T-TICKET-* (no classical fal
 Name, one-liner (hook), description (README §1–3), "How it's made" (README#requirements), repo, video, cover, testnet addresses (business, client, 2 suppliers, auditor, deployer, pool, memo board, Books), kits ticked only if in package.json (QoreSeal, QoreSign, SDK, EVM, pqc, create-qorechain-dapp if used), AI-native ticked, country.
 
 M5 storage amendment (D14/D15): all new record anchors hash ciphertext, including opening/close. Historical M4 plaintext-hash anchors use owner-signed legacy-map records and must be checked again after local decryption. The legacy M4 opening balances are treated as disclosed demo data.
+
+M7 amendment (D17): later-period closes carry their own declared openingBalance; verify priorSha3 against the preceding close anchor, without requiring another period’s key. First-period openings still match the registration anchor. Label later openings “opening balance as declared and signed by the business”; no correctness claim for that declaration. Encrypted account backups also include encrypted private journals; restore held operations by original hash.

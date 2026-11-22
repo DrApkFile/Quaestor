@@ -10,3 +10,4 @@ export * from './holdings.js';
 export * from './records.js';
 export * from './legacy.js';
 export * from './holdingsSelection.js';
+export * from './declaredOpening.js';

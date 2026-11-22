@@ -21,6 +21,8 @@ export const openingSchema = z
 export const holdingsCloseSchema = closeSchema
   .extend({
     priorSha3: hex32,
+    openingBalance: balancesSchema.optional(),
+    periodLength: z.enum(['Quarterly', 'Daily (demo-scale)']).optional(),
     closingBalance: balancesSchema,
     cashOutFees: balancesSchema,
     holdings: z.record(assetId, fundsSchema.nullable()),
