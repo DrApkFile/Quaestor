@@ -30,6 +30,11 @@ export function privacyMonitor(context: BrowserContext) {
       const request = response.request();
       console.log(`M6 response ${String(response.status())} ${new URL(request.url()).pathname}`);
       if (!request.frame().page().isClosed()) {
+        await inspect(
+          request.frame().page(),
+          response.url() + JSON.stringify(await response.allHeaders()),
+          request.isNavigationRequest(),
+        );
         const bytes = await response.body();
         responses++;
         for (let offset = 0; offset < bytes.length; offset += 1048576) {
@@ -46,8 +51,15 @@ export function privacyMonitor(context: BrowserContext) {
     });
     pending.push(work);
   });
-  const start = () =>
-    context.route('**/*', async (route) => {
+  const start = async () => {
+    await context.addInitScript(() => {
+      const violations: string[] = [];
+      Object.assign(window, { quaestorCspViolations: violations });
+      window.addEventListener('securitypolicyviolation', (event) => {
+        violations.push(event.violatedDirective);
+      });
+    });
+    await context.route('**/*', async (route) => {
       requests++;
       const request = route.request();
       const id = ++sequence;
@@ -62,10 +74,19 @@ export function privacyMonitor(context: BrowserContext) {
       clearTimeout(timer);
       console.log(`M6 continued ${String(id)}`);
     });
+  };
   return {
     start,
     async finish() {
       await Promise.all(pending);
+      for (const page of context.pages()) {
+        if (!page.isClosed()) {
+          const violations: unknown = await page.evaluate(
+            () => Reflect.get(window, 'quaestorCspViolations') as unknown,
+          );
+          if (Array.isArray(violations) && violations.length > 0) errors.push('CSP_VIOLATION');
+        }
+      }
       return { requests, responses, leaks: leaks.length, errors };
     },
   };

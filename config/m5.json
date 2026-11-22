@@ -18,7 +18,7 @@
   "board": {
     "address": "0xe79e5a3108d8e856aa7ac770c97ac7af308c1d67",
     "deployBlock": "10496688",
-    "chunkSize": "2000"
+    "chunkSize": "10000"
   },
   "legacyBooks": {
     "0xd7f14b9d8aa6f19c80c6d8fa16960c48e0a9bda42dbe5a6a3b1b4a47cadec6ac": "honest",

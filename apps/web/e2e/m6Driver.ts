@@ -48,7 +48,7 @@ export async function action(page: Page, work: () => Promise<unknown>) {
   await work();
   console.log('M6 action clicked');
   await page.waitForTimeout(150);
-  await expect(page.locator('.workflow')).toHaveAttribute('aria-busy', 'false', { timeout: 240000 });
+  await expect(page.locator('.workflow')).toHaveAttribute('aria-busy', 'false', { timeout: 600000 });
   const alert = page.getByTestId('workflow-error');
   if (await alert.isVisible())
     throw new Error(

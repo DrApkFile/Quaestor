@@ -17,6 +17,7 @@ else if (process.argv[2] === '--m5-native-spike') await import('./m5-native-spik
 else if (process.argv[2] === '--m5-publish') await import('./m5-publish.js');
 else if (process.argv[2] === '--m5-blobs') await import('./m5-blobs.js');
 else if (process.argv[2] === '--m5-web') await import('./m5-web.js');
+else if (process.argv[2] === '--m7') await import('./m7-browser.js');
 else if (process.argv[2] === '--m6') await import('./m6-browser.js');
 else if (process.argv[2] === '--m6-funding') await import('./m6-funding.js');
-else throw new Error('Specify an implemented M1 or M2 evidence command.');
+else throw new Error('Specify an implemented milestone evidence command.');
