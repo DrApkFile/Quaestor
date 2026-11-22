@@ -2,6 +2,7 @@ import { installAuditPrivacy } from './privacy.js';
 import { useState, type FormEvent } from 'react';
 import { deriveUnifiedAccount } from '@qorechain/sdk';
 import { deriveSealKeys } from '@qorechain/qoreseal';
+import { hex32 } from '@quaestor/core';
 import { auditFromChain } from '@quaestor/chain/browser';
 import { decryptVault } from './vault.js';
 import { readerConfig, deployment } from './client.js';
@@ -29,7 +30,7 @@ export function AuditorView() {
       const keys = deriveSealKeys({ mnemonic: payload.mnemonic, index: 0 });
       installAuditPrivacy(account, keys);
       setValue(
-        await auditFromChain(readerConfig(setProgress), bookId as `0x${string}`, {
+        await auditFromChain(readerConfig(setProgress), hex32.parse(bookId.trim().toLowerCase()), {
           address: account.cosmos,
           keys,
         }),

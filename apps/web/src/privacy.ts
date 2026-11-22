@@ -13,7 +13,13 @@ export function privateMatcher(account: UnifiedAccount, keys: SealKeyPair, notes
     account.privateKey.slice(2),
     ...notes,
   ];
-  for (const bytes of [keys.seed, keys.mlkemSecretKey, keys.x25519SecretKey, account.pqc.secretKey])
+  for (const bytes of [
+    toBytes(account.privateKey),
+    keys.seed,
+    keys.mlkemSecretKey,
+    keys.x25519SecretKey,
+    account.pqc.secretKey,
+  ])
     strings.push(
       toHex(bytes),
       toHex(bytes).slice(2),
@@ -21,11 +27,10 @@ export function privateMatcher(account: UnifiedAccount, keys: SealKeyPair, notes
       JSON.stringify(Array.from(bytes)),
       JSON.stringify(bytes),
     );
-  return strings
+  const normalized = input.toLowerCase();
+  return [...new Set(strings)]
     .filter((value) => value.length > 20)
-    .some(
-      (value) => input.includes(value) || input.toLowerCase().includes(toHex(toBytes(value)).slice(2).toLowerCase()),
-    );
+    .some((value) => input.includes(value) || normalized.includes(toHex(toBytes(value)).slice(2).toLowerCase()));
 }
 export function installAuditPrivacy(account: UnifiedAccount, keys: SealKeyPair) {
   Object.assign(window, { quaestorPrivateCheck: (input: string) => privateMatcher(account, keys, [], input) });

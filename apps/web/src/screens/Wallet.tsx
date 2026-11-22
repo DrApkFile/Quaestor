@@ -146,13 +146,13 @@ export function Wallet(props: ScreenProps) {
             <tbody>
               {notes.map((note) => (
                 <tr key={note.commitment}>
-                  <td>{note.commitment.slice(0, 14)}…</td>
-                  <td>
+                  <td data-label="Note">{note.commitment.slice(0, 14)}…</td>
+                  <td data-label="Amount">
                     {formatUnits(BigInt(note.amountWei), note.asset === zeroAddress ? 18 : 6)}{' '}
                     {note.asset === zeroAddress ? 'QOR' : 'fUSD'}
                   </td>
-                  <td>{note.state}</td>
-                  <td>
+                  <td data-label="State">{note.state}</td>
+                  <td data-label="Own-address cash-out">
                     <button
                       disabled={busy || note.state !== 'OWNED' || BigInt(note.amountWei) === 0n}
                       onClick={() => {
