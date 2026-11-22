@@ -71,7 +71,7 @@ export async function shots(page: Page, name: string) {
     await page.screenshot({
       path: `../../evidence/m7-screens/${name}-${String(width)}.png`,
       fullPage: true,
-      mask: [page.locator('[data-private-ledger]'), page.locator('input[type=password]')],
+      mask: [page.locator('[data-private-ledger]:visible'), page.locator('input[type=password]:visible')],
     });
   }
 }

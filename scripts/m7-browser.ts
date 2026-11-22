@@ -82,7 +82,14 @@ if (process.env.QUAESTOR_M7_PREPARE_ONLY === '1') {
 const { fundM7 } = await import('./m7-funding.js');
 await fundM7('client', '5000000');
 await fundM7('business', '10000000');
-if (!existsSync(new URL('evidence/m7-browser.json', root))) {
+const recheck = process.env.QUAESTOR_M7_RECHECK_BROWSER === '1';
+if (
+  recheck &&
+  existsSync(new URL('evidence/m7-browser.json', root)) &&
+  !existsSync(new URL('evidence/m7-browser-initial.json', root))
+)
+  copyFileSync(new URL('evidence/m7-browser.json', root), new URL('evidence/m7-browser-initial.json', root));
+if (recheck || !existsSync(new URL('evidence/m7-browser.json', root))) {
   if (m7Command('build-before', ['-C', 'apps/web', 'build'], path.pathname, secrets) !== 0) process.exit(1);
   if (m7Command('run', ['-C', 'apps/web', 'exec', 'playwright', 'test', 'm7.spec.ts'], path.pathname, secrets) !== 0)
     process.exit(1);
