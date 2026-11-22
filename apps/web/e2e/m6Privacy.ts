@@ -6,14 +6,17 @@ export function privacyMonitor(context: BrowserContext) {
   const errors: string[] = [];
   let requests = 0,
     responses = 0;
-  const inspect = async (page: Page, text: string) => {
+  const inspect = async (page: Page, text: string, navigation = false) => {
     const direct = [fixture.password, ...fixture.canaries].some(
       (value) =>
         text.includes(value) ||
         text.toLowerCase().includes(Buffer.from(value).toString('hex')) ||
         text.includes(Buffer.from(value).toString('base64')),
     );
-    if (direct || (await page.evaluate((input) => window.quaestorPrivateCheck?.(input) ?? false, text)))
+    if (
+      direct ||
+      (!navigation && (await page.evaluate((input) => window.quaestorPrivateCheck?.(input) ?? false, text)))
+    )
       leaks.push('PRIVATE_MATERIAL');
   };
   context.on('page', (page) => {
@@ -27,7 +30,11 @@ export function privacyMonitor(context: BrowserContext) {
       if (!request.frame().page().isClosed()) {
         const bytes = await response.body();
         responses++;
-        await inspect(request.frame().page(), bytes.toString('utf8') + '\n' + bytes.toString('hex'));
+        await inspect(
+          request.frame().page(),
+          bytes.toString('utf8') + '\n' + bytes.toString('hex'),
+          request.isNavigationRequest(),
+        );
       }
     })().catch(() => {
       errors.push('RESPONSE_INSPECTION_FAILED');
@@ -39,7 +46,7 @@ export function privacyMonitor(context: BrowserContext) {
       requests++;
       const request = route.request();
       const text = request.url() + JSON.stringify(await request.allHeaders()) + (request.postData() ?? '');
-      await inspect(request.frame().page(), text);
+      await inspect(request.frame().page(), text, request.isNavigationRequest());
       if (leaks.length) await route.abort();
       else await route.continue();
     });

@@ -1,3 +1,4 @@
+import { z } from 'zod';
 import { buildReceiptWitness } from '@gloamtrade/sdk';
 import { sealBatch } from '@qorechain/qoreseal';
 import { sealEntry, receiptContext, receiptSchema, hashBytes, contractPeriod } from '@quaestor/core';
@@ -39,15 +40,15 @@ export async function bookPayment(runtime: BusinessRuntime, book: Book, payment:
     let invoice: { sha3: `0x${string}`; bytes: number } | undefined;
     if (fields.invoice) {
       if (!fields.invoice.size || fields.invoice.size > 20480) throw new Error('INVOICE_TOO_LARGE');
-      const sealed = sealBatch({
-        epochKey: epoch(period),
-        context: 'quaestor:invoice',
-        batchIndex: index,
-        data: new Uint8Array(await fields.invoice.arrayBuffer()),
-      });
-      invoice = { sha3: hashBytes(sealed.blob), bytes: fields.invoice.size };
-      await runtime.storage.put(`invoice-${payment.id}`, Array.from(sealed.blob));
-      await post(runtime, `invoice-${payment.id}`, 'invoice', sealed.blob);
+      const prior = await runtime.storage.get(`invoice-${payment.id}`);
+      const data = new Uint8Array(await fields.invoice.arrayBuffer());
+      const blob =
+        prior === undefined
+          ? sealBatch({ epochKey: epoch(period), context: 'quaestor:invoice', batchIndex: index, data }).blob
+          : Uint8Array.from(z.array(z.number()).parse(prior));
+      invoice = { sha3: hashBytes(blob), bytes: fields.invoice.size };
+      await runtime.storage.put(`invoice-${payment.id}`, Array.from(blob));
+      await post(runtime, `invoice-${payment.id}`, 'invoice', blob);
     }
     const entry = {
       v: 1 as const,
