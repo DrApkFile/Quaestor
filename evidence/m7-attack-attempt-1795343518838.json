@@ -1,0 +1,1 @@
+{"command":"pnpm evidence --m7","status":"FAILED","code":"Error","network":{"requests":175,"responses":174,"leaks":0,"errors":["RESPONSE_INSPECTION_FAILED"]},"transactionRequests":0}
