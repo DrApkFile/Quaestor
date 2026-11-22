@@ -10,7 +10,7 @@ import {
 import { encodeFunctionData, type Abi, type Address, type Hex, type PublicClient } from 'viem';
 import type { ChainConfig } from './config.js';
 import type { Role } from './accounts.js';
-import { Journal, type Prepared, type StoredNote } from './journal.js';
+import type { Journal, Prepared, StoredNote } from './journal.js';
 import { executeOperation, resolveOperation, type Gateway } from './executor.js';
 import { pinnedReader, requireNotePath, syncPoolTree } from './tree.js';
 export interface PoolDependencies {

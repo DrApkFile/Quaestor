@@ -5,7 +5,9 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./browser": "./src/browser.ts"
+    "./browser": "./src/browser.ts",
+    "./journal": "./src/journalSchema.ts",
+    "./executor": "./src/executor.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",

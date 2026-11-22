@@ -8,10 +8,10 @@ import {
   type Hex,
   type PublicClient,
 } from 'viem';
-import { createHash } from 'node:crypto';
+import { hashBytes } from '@quaestor/core';
 import { z } from 'zod';
 import { executeOperation, type Gateway } from '../executor.js';
-import { Journal } from '../journal.js';
+import type { Journal } from '../journal.js';
 import { hexSchema } from '../config.js';
 import { ticketMetadata } from './ticket.js';
 import type { Memo } from './receive.js';
@@ -68,7 +68,7 @@ export async function postTicket(
     !payment.prepared?.outputs.some((note) => note.commitment === commitment && note.owner !== journal.owner)
   )
     throw new Error('PAYMENT_REQUIRED');
-  const sha3: Hex = `0x${createHash('sha3-256').update(envelope).digest('hex')}`;
+  const sha3 = hashBytes(envelope);
   const memoId = `${paymentId}-memo`;
   const result = await executeOperation(
     journal,

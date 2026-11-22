@@ -1,4 +1,5 @@
 import { EthNativeSigner, type UnifiedAccount, type EncodeObject } from '@qorechain/sdk';
+import type { Registry } from '@cosmjs/proto-signing';
 import { StargateClient } from '@cosmjs/stargate';
 import { sha256 } from 'viem';
 import { z } from 'zod';
@@ -22,6 +23,7 @@ export async function nativeAction(
   id: string,
   mode: 'classical' | 'hybrid',
   messages: readonly EncodeObject[],
+  registry?: Registry,
 ) {
   if (!backupDownloaded) throw new Error('BACKUP_REQUIRED');
   const key = `native:${account.cosmos}`;
@@ -56,7 +58,11 @@ export async function nativeAction(
       .passthrough()
       .parse(await response.json());
     const current = 'base_account' in value.account ? seq.parse(value.account.base_account) : seq.parse(value.account);
-    const signer = new EthNativeSigner(account, { signMode: mode, rest: browserChain.rest });
+    const signer = new EthNativeSigner(account, {
+      signMode: mode,
+      rest: browserChain.rest,
+      ...(registry ? { registry } : {}),
+    });
     const version = await signer.resolveSignBytesVersion('qorechain-diana');
     const signed = signer.sign({
       chainId: 'qorechain-diana',

@@ -1,6 +1,6 @@
 import type { SealKeyPair } from '@qorechain/qoreseal';
 import type { Hex } from 'viem';
-import { Journal } from '../journal.js';
+import type { Journal } from '../journal.js';
 import { openTicket, TicketError } from './ticket.js';
 export interface Memo {
   commitment: Hex;

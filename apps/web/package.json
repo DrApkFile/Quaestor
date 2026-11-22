@@ -12,6 +12,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@cosmjs/proto-signing": "0.39.0",
     "@cosmjs/stargate": "0.39.0",
     "@gloamtrade/sdk": "0.8.0",
     "@noble/hashes": "2.4.0",
@@ -23,6 +24,7 @@
     "@quaestor/core": "workspace:*",
     "buffer": "6.0.3",
     "events": "3.3.0",
+    "protobufjs": "7.5.4",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "snarkjs": "0.7.6",
