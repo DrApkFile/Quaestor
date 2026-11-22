@@ -120,6 +120,9 @@ test('T-NOPLAIN-WEB daily A/B closed, C private, complete backup and B-only gran
     step('SCREENS');
     for (const name of ['Wallet', 'Pay', 'Receive', 'Books', 'Grants']) {
       await navigate(b, name);
+      if (name === 'Books' && fixture.publicDemo) {
+        await expect(b.getByText('December planning deposit', { exact: true })).toBeVisible();
+      }
       await shots(b, name.toLowerCase());
     }
     await navigate(b, 'Public check');
