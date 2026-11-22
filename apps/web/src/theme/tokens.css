@@ -1,2 +1,44 @@
-@font-face{font-family:Inter Tight;src:url('/fonts/InterTight.ttf') format('truetype');font-weight:100 900;font-display:swap}
-:root{--ink:#0d0d0c;--cream:#fbf6ef;--paper:#fffdf9;--muted:rgba(13,13,12,.56);--faint:rgba(13,13,12,.42);--border:rgba(13,13,12,.12);--error:#c8402f;--sage:#dfe9d4;--sage-light:#e9ebe0;--sage-strong:#1f7a49;--lemon:#f4ebc6;--lemon-light:#f2ecdf;--lemon-strong:#7d6200;--lemon-accent:#e9c22e;--peach:#f9cba9;--peach-light:#f8dcc7;--peach-strong:#a9441a;--rose:#ecd6e2;--rose-light:#f0e4e6;--rose-strong:#873a86;--glass:rgba(255,253,249,.75);--highlight:rgba(255,255,255,.9);--shadow:0 1px 0 var(--highlight) inset,0 20px 40px -24px rgba(80,60,30,.25);--glow:rgba(246,222,104,.55);--warm-glow:rgba(249,150,84,.18);--backdrop-a:#f4f1ea;--backdrop-b:#f6efdc;--backdrop-c:#f4e7b8;--font:Inter Tight,system-ui,-apple-system,Segoe UI,sans-serif;--radius:28px;--field-radius:16px;--pill:999px;--space:4px;--ease:cubic-bezier(.22,1,.36,1);--transparent:transparent;--focus:rgba(13,13,12,.4)}
+@font-face {
+  font-family: Inter Tight;
+  src: url('/fonts/InterTight.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+:root {
+  --ink: #0d0d0c;
+  --cream: #fbf6ef;
+  --paper: #fffdf9;
+  --muted: rgba(13, 13, 12, 0.56);
+  --faint: rgba(13, 13, 12, 0.42);
+  --border: rgba(13, 13, 12, 0.12);
+  --error: #c8402f;
+  --sage: #dfe9d4;
+  --sage-light: #e9ebe0;
+  --sage-strong: #1f7a49;
+  --lemon: #f4ebc6;
+  --lemon-light: #f2ecdf;
+  --lemon-strong: #7d6200;
+  --lemon-accent: #e9c22e;
+  --peach: #f9cba9;
+  --peach-light: #f8dcc7;
+  --peach-strong: #a9441a;
+  --rose: #ecd6e2;
+  --rose-light: #f0e4e6;
+  --rose-strong: #873a86;
+  --glass: rgba(255, 253, 249, 0.75);
+  --highlight: rgba(255, 255, 255, 0.9);
+  --shadow: 0 1px 0 var(--highlight) inset, 0 20px 40px -24px rgba(80, 60, 30, 0.25);
+  --glow: rgba(246, 222, 104, 0.55);
+  --warm-glow: rgba(249, 150, 84, 0.18);
+  --backdrop-a: #f4f1ea;
+  --backdrop-b: #f6efdc;
+  --backdrop-c: #f4e7b8;
+  --font: Inter Tight, system-ui, -apple-system, Segoe UI, sans-serif;
+  --radius: 28px;
+  --field-radius: 16px;
+  --pill: 999px;
+  --space: 4px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --transparent: transparent;
+  --focus: rgba(13, 13, 12, 0.4);
+}
