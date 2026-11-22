@@ -54,6 +54,8 @@ export async function imageScanSecrets() {
     for (const bytes of [account.pqc.secretKey, keys.seed, keys.mlkemSecretKey, keys.x25519SecretKey]) {
       secrets.add(Buffer.from(bytes).toString('hex'));
       secrets.add(Buffer.from(bytes).toString('base64'));
+      secrets.add(JSON.stringify(Array.from(bytes)));
+      secrets.add(JSON.stringify(bytes));
     }
     const material = Buffer.concat([Buffer.from('quaestor:private-store:v1'), account.pqc.secretKey]);
     const key = await crypto.subtle.importKey(
@@ -95,6 +97,7 @@ export async function imageScanSecrets() {
     if (/^0x[\da-f]{64}$/i.test(value)) {
       secrets.add(value.slice(2));
       secrets.add(BigInt(value).toString());
+      secrets.add(Buffer.from(value.slice(2), 'hex').toString('base64'));
     }
   }
   writeFileSync(new URL('.accounts/m7b-browser/scan-secrets.json', root), JSON.stringify([...secrets]), {
