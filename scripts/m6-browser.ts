@@ -7,6 +7,8 @@ const root = new URL('../', import.meta.url),
   directory = new URL('.accounts/m6-browser/', root);
 if (existsSync(new URL('evidence/m6-browser.json', root))) throw new Error('M6_RUN_ALREADY_EXISTS');
 mkdirSync(directory, { recursive: true, mode: 0o700 });
+const temporary = new URL('tmp/', directory);
+mkdirSync(temporary, { recursive: true, mode: 0o700 });
 const path = new URL('fixtures.json', directory);
 const role = z.enum(['client', 'business', 'supplier1', 'supplier2', 'auditor']);
 const schema = z
@@ -54,7 +56,7 @@ for (const name of role.options) {
 }
 const result = spawnSync('pnpm', ['-C', 'apps/web', 'exec', 'playwright', 'test', 'm6.spec.ts'], {
   cwd: root,
-  env: { ...process.env, QUAESTOR_M6_FIXTURES: path.pathname },
+  env: { ...process.env, QUAESTOR_M6_FIXTURES: path.pathname, TMPDIR: temporary.pathname },
   encoding: 'utf8',
   maxBuffer: 10000000,
 });

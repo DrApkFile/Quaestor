@@ -66,7 +66,7 @@ export class BusinessRuntime {
     if (value.length > 20) this.witnessSecrets.add(value);
   }
   secretChecks() {
-    return [...this.witnessSecrets];
+    return [...this.witnessSecrets, ...this.state.books.flatMap((book) => book.periods.map((period) => period.key))];
   }
   rememberWitness(input: Record<string, string | string[] | string[][]>) {
     for (const [name, value] of Object.entries(input))
