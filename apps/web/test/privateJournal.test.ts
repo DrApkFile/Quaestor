@@ -4,8 +4,8 @@ import { executeOperation, resolveOperation, type Gateway } from '@quaestor/chai
 import { zeroAddress, type Hex } from 'viem';
 import { PrivateJournal } from '../src/privateJournal.js';
 import type { PrivateStorage } from '../src/privateStore.js';
-const hash = `0x${'22'.repeat(32)}` as Hex,
-  commitment = `0x${'33'.repeat(32)}` as Hex;
+const hash: Hex = `0x${'22'.repeat(32)}`,
+  commitment: Hex = `0x${'33'.repeat(32)}`;
 it('T-JOURNAL-BROWSER persists before broadcast and holds unknown spends across reload without rebuilding', async () => {
   const values = new Map<string, unknown>();
   const storage: PrivateStorage = {

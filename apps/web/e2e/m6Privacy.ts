@@ -52,7 +52,9 @@ export function privacyMonitor(context: BrowserContext) {
       const request = route.request();
       const id = ++sequence;
       console.log(`M6 request ${String(id)} ${request.method()} ${new URL(request.url()).pathname}`);
-      const timer = setTimeout(() => console.log(`M6 stalled request ${new URL(request.url()).pathname}`), 15000);
+      const timer = setTimeout(() => {
+        console.log(`M6 stalled request ${new URL(request.url()).pathname}`);
+      }, 15000);
       const text = request.url() + JSON.stringify(await request.allHeaders()) + (request.postData() ?? '');
       await inspect(request.frame().page(), text, request.isNavigationRequest());
       if (leaks.length) await route.abort();

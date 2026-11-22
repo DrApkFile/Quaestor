@@ -11,7 +11,9 @@ export function Prepare({ runtime, run, busy }: ScreenProps) {
   useEffect(() => {
     void checkWindow(browserChain, runtime.account.cosmos)
       .then(setWindow)
-      .catch(() => setWindow(null));
+      .catch(() => {
+        setWindow(null);
+      });
   }, [runtime, busy]);
   return (
     <section className="panel tone-lemon">

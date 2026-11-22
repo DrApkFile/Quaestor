@@ -54,7 +54,7 @@ export async function action(page: Page, work: () => Promise<unknown>) {
   const alert = page.getByTestId('workflow-error');
   if (await alert.isVisible())
     throw new Error(
-      `WORKFLOW_REJECTED: ${await alert.textContent()} · ${(await page.evaluate(() => Reflect.get(window, 'quaestorLastError') as string | undefined)) ?? 'No diagnostic'}`,
+      `WORKFLOW_REJECTED: ${(await alert.textContent()) ?? 'REQUEST_FAILED'} · ${(await page.evaluate(() => Reflect.get(window, 'quaestorLastError') as string | undefined)) ?? 'No diagnostic'}`,
     );
 }
 export async function prepare(page: Page) {
@@ -115,7 +115,7 @@ export async function screenshots(page: Page, name: string) {
         ),
       );
     expect(fits).toBe(true);
-    await page.screenshot({ path: `../../evidence/m6-screens/${name}-${width}.png`, fullPage: true });
+    await page.screenshot({ path: `../../evidence/m6-screens/${name}-${String(width)}.png`, fullPage: true });
   }
 }
 

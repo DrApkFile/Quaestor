@@ -190,7 +190,7 @@ test('T-NOPLAIN-WEB M6 real anonymous payments, sealed entries, close and scoped
     const network = [];
     for (const monitor of monitors) network.push(await monitor.finish());
     writeFileSync(
-      `../../evidence/m6-browser-attempt-${Date.now()}.json`,
+      `../../evidence/m6-browser-attempt-${String(Date.now())}.json`,
       JSON.stringify(
         {
           command: 'pnpm evidence --m6',

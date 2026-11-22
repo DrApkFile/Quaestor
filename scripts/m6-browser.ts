@@ -54,7 +54,7 @@ for (const name of role.options) {
     .parse(JSON.parse(readFileSync(new URL(`.accounts/${name}.json`, root), 'utf8')) as unknown);
   secrets.push(account.mnemonic);
 }
-const log = new URL(`run-${Date.now()}.log`, directory);
+const log = new URL(`run-${String(Date.now())}.log`, directory);
 const logFile = openSync(log, 'w', 0o600);
 const result = spawnSync('pnpm', ['-C', 'apps/web', 'exec', 'playwright', 'test', 'm6.spec.ts'], {
   cwd: root,

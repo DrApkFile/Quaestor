@@ -101,9 +101,15 @@ export class BusinessRuntime {
       gateway: this.gateway(),
       owner: this.journal.owner,
       provers: {
-        shield: browserProver('shield', this.progress, (input) => this.rememberWitness(input)),
-        transfer: browserProver('transfer', this.progress, (input) => this.rememberWitness(input)),
-        unshield: browserProver('unshield', this.progress, (input) => this.rememberWitness(input)),
+        shield: browserProver('shield', this.progress, (input) => {
+          this.rememberWitness(input);
+        }),
+        transfer: browserProver('transfer', this.progress, (input) => {
+          this.rememberWitness(input);
+        }),
+        unshield: browserProver('unshield', this.progress, (input) => {
+          this.rememberWitness(input);
+        }),
       },
     });
   }
