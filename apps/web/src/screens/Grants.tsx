@@ -69,6 +69,7 @@ export function Grants({ runtime, run, busy }: ScreenProps) {
             value={auditor}
             onChange={(event) => {
               setAuditor(event.target.value.trim());
+              setConfirmed(false);
             }}
           />
         </label>

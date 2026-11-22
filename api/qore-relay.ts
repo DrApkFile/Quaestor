@@ -1,5 +1,6 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import { relayPlan } from '../../apps/web/server/qorePolicy.js';
+import { relayRequestPath } from '../apps/web/server/relayPath.js';
+import { relayPlan } from '../apps/web/server/qorePolicy.js';
 async function requestBody(request: IncomingMessage): Promise<unknown> {
   const parsed = request as IncomingMessage & { body?: unknown };
   if (parsed.body !== undefined) {
@@ -22,7 +23,7 @@ export default async function handler(request: IncomingMessage, response: Server
   try {
     const method = request.method ?? '';
     const body = method === 'POST' ? await requestBody(request) : undefined;
-    const plan = relayPlan(request.url ?? '', method, body);
+    const plan = relayPlan(relayRequestPath(request.url ?? ''), method, body);
     const headers: Record<string, string> = {};
     const height = request.headers['x-cosmos-block-height'];
     if (height !== undefined) {
