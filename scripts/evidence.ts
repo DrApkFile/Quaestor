@@ -17,6 +17,11 @@ else if (process.argv[2] === '--m5-native-spike') await import('./m5-native-spik
 else if (process.argv[2] === '--m5-publish') await import('./m5-publish.js');
 else if (process.argv[2] === '--m5-blobs') await import('./m5-blobs.js');
 else if (process.argv[2] === '--m5-web') await import('./m5-web.js');
+else if (process.argv[2] === '--m8-repo') await import('./m8-repo.js');
+else if (process.argv[2] === '--m8-secret-scan') await import('./m8-secret-scan.js');
+else if (process.argv[2] === '--m8-presubmit') await import('./m8-presubmit.js');
+else if (process.argv[2] === '--m8-kits') await import('./m8-kits.js');
+else if (process.argv[2] === '--m8-cover') await import('./m8-cover.js');
 else if (['--m7b', '--m8-privacy'].includes(process.argv[2] ?? '')) await import('./m8-demo.js');
 else if (process.argv[2] === '--m7') await import('./m7-browser.js');
 else if (process.argv[2] === '--m6') await import('./m6-browser.js');

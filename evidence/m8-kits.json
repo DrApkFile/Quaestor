@@ -1,0 +1,51 @@
+{
+  "command": "pnpm evidence --m8-kits",
+  "at": "2026-11-22T12:45:18.780Z",
+  "status": "PASSED",
+  "network": "qorechain-diana",
+  "results": [
+    {
+      "feature": "KEM registry",
+      "hash": "8A8AFDBFD76F673141B8DEB7FDE937CE1B007A42E9F6A470BCEC137510B3AA85",
+      "block": "10431840",
+      "code": 0,
+      "source": "packages/chain/src/tickets/kemRegistry.ts"
+    },
+    {
+      "feature": "ML-DSA registry with possession proof",
+      "hash": "A1D0F3DED37ED9D25B40D4483CBB5A0020AF4FE6B1E699B725522492C9E51230",
+      "block": "10431851",
+      "code": 0,
+      "source": "packages/chain/src/native.ts"
+    },
+    {
+      "feature": "Hybrid native transactions / SDK / EVM windows",
+      "hash": "3A8964FF902A8F5F586868C9FC05FE850EA755658146CD926071CC6E8A1B8B99",
+      "block": "10433269",
+      "code": 0,
+      "source": "packages/chain/src/window.ts"
+    },
+    {
+      "feature": "pqcKeyStatus and pqcVerify / QoreSign close",
+      "hash": "0x572e58fb84757b0207ab9f4de71a57a80a221ece7cd0cbfc2f84a8b05a2f814f",
+      "block": "10434945",
+      "status": "success",
+      "source": "contracts/src/Books.sol"
+    },
+    {
+      "feature": "QoreSeal anonymous ticket",
+      "hash": "0x4438d004b7adf24786fb7ddc0b61822a85219966745a896044d3f2cfffba5efd",
+      "block": "10433280",
+      "status": "success",
+      "source": "packages/chain/src/tickets/ticket.ts"
+    },
+    {
+      "feature": "create-qorechain-dapp Foundry window helper / deployer registration",
+      "hash": "98235E8AB0B6D450939EC05A60CDCA1A1FB6B7CB386C1D25A9254890B813DD52",
+      "block": "10426189",
+      "code": 0,
+      "source": "tools/evm-window/scripts/window.ts"
+    }
+  ],
+  "scope": "Re-read successful historical receipts. Precompile read/bit-flip results are in m3-precompiles.json; template provenance is tools/evm-window/package.json and the builder day-1 log. Off-chain libraries and the scaffolder have no independent on-chain identity; listed transactions are application uses, not a claim that chain receipts name a JavaScript library."
+}

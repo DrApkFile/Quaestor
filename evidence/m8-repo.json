@@ -1,0 +1,9 @@
+{
+  "command": "pnpm evidence --m8-repo",
+  "at": "2026-11-22T23:39:21.356Z",
+  "status": "PASSED",
+  "repository": "https://github.com/DrApkFile/Quaestor",
+  "public": true,
+  "license": "MIT",
+  "scope": "Public GitHub metadata only; not event registration, hosting or project-page verification."
+}
