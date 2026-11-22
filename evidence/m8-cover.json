@@ -1,0 +1,10 @@
+{
+  "command": "pnpm evidence --m8-cover",
+  "status": "PASSED",
+  "path": "apps/web/public/cover.png",
+  "width": 1600,
+  "height": 900,
+  "bytes": 100393,
+  "source": "docs/design/cover.html",
+  "externalRequests": 0
+}

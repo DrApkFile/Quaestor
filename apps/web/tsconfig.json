@@ -18,6 +18,7 @@
     "e2e",
     "vite.config.ts",
     "playwright.config.ts",
+    "playwright.cover.config.ts",
     "../../packages/chain/src/snarkjs.d.ts",
     "../../api",
     "vitest.config.ts",
