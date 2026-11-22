@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { fixture, folder } from './m6Fixtures.js';
 import { unlock, navigate, action, prepare, snapshot, checkpoint, storage, bookEntries } from './m6Driver.js';
 import { privacyMonitor } from './m6Privacy.js';
+import { captureDemoScreens } from './m8Screens.js';
 import { restoreCompleteBackup } from './m7Backup.js';
 import { payment, close, grant, next, audit, shots, step } from './m7Tools.js';
 test('T-NOPLAIN-WEB daily A/B closed, C private, complete backup and B-only grant', async ({ browser }) => {
@@ -118,23 +119,7 @@ test('T-NOPLAIN-WEB daily A/B closed, C private, complete backup and B-only gran
     step('BACKUP');
     await restoreCompleteBackup(b, browser, contexts, monitors);
     step('SCREENS');
-    for (const name of ['Wallet', 'Pay', 'Receive', 'Books', 'Grants']) {
-      await navigate(b, name);
-      if (name === 'Books' && fixture.publicDemo) {
-        await expect(b.getByText('December planning deposit', { exact: true })).toBeVisible();
-      }
-      await shots(b, name.toLowerCase());
-    }
-    await navigate(b, 'Public check');
-    await b.getByLabel('Book ID (demo)', { exact: true }).fill(id);
-    await b.getByRole('button', { name: 'Check chain', exact: true }).click();
-    await expect(b.getByText('anchored entries', { exact: true })).toBeVisible({ timeout: 300000 });
-    await shots(b, 'public');
-    await b.getByRole('button', { name: 'Account', exact: true }).click();
-    await shots(b, 'account');
-    o = await openOther();
-    await o.goto('/');
-    await shots(o, 'landing');
+    await captureDemoScreens(b, id, openOther);
     const network = [];
     for (const monitor of monitors) network.push(await monitor.finish());
     expect(
