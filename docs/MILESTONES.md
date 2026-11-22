@@ -71,7 +71,16 @@ Builder's approved scope: docs/briefs/M6.md. M7 attack-lab UI remains separate.
 - [x] pnpm gate and production build pass; handoff written. Final delivery is the handoff commit push, then stop before M7.
 
 ## M7 — Web app: attack lab (Codex, 28–29 Nov)
-- [ ] Browser attack-lab demonstrations from PRD §11; independently briefed and reviewed after M6.
+Builder's approved scope: docs/briefs/M7.md, including the M6 review fixes.
+- [x] Readable owner/auditor ledgers, proof details, copy and plural fixes.
+- [x] Encrypted account-plus-journal backup restores private balance in a fresh browser; held outcomes resolve by original hash.
+- [x] D17 signed declared openings support B-only auditing; C6 states the limit.
+- [x] Live read-only attack lab reproduces M4 tampering/context/short holdings and a separately anchored fresh-receipt duplicate.
+- [x] Northwind Studio (demo): daily A/B closed and granted, five MATCHED entries and both holdings checks; populated C refused.
+- [x] Public encrypted testnet auditor backup and a real-link 60-second JUDGES.md path.
+- [x] T-NOPLAIN-WEB and every screen at 390/1440; evidence/m7-screens/.
+- [x] Production relay build, explicit Vercel API routing/CSP verification and docs/DEPLOY.md.
+- [x] pnpm gate passes; handoff written. Final delivery is the handoff commit’s push, then stop before M8.
 
 ## M8 — Audit, docs, video (builder + Claude + Codex, 29 Nov – 2 Dec)
 - [ ] QCAI stage 1 and 2 on Books.sol; docs/AUDIT.md.

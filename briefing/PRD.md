@@ -98,10 +98,10 @@ Period results are HOLDINGS_COVER_BOOKS, HOLDINGS_SHORT or UNKNOWN. Never show a
 | 0:00 | Hook; one diagram: private pool, sealed books, one auditor, one period |
 | 0:15 | Client pays the business privately; the business's app finds the ML-KEM-sealed ticket; book entry appears sealed |
 | 0:45 | Business pays two suppliers privately; entries sealed, signed, anchored (tx links) |
-| 1:10 | Period closes; business grants period A to the auditor |
-| 1:25 | Auditor opens period A: every entry `MATCHED`, period `HOLDINGS_COVER_BOOKS` (D5) |
-| 1:45 | Auditor tries period B → `NOT_GRANTED` |
-| 2:00 | Attack lab (labelled demo book): edited entry → `TAMPERED`; invented entry with no payment → `UNBACKED`; receipt reused from another entry → `UNBACKED` (context) |
+| 1:10 | Periods A and B close; business grants each separately (B has one incoming and one outgoing payment) |
+| 1:25 | Auditor opens A and B: every entry `MATCHED`, both periods `HOLDINGS_COVER_BOOKS` (D5/D17) |
+| 1:45 | Auditor tries populated, open period C → `NOT_GRANTED` |
+| 2:00 | Attack lab (labelled demo books): modified served blob → `TAMPERED`; reused receipt → `UNBACKED` (context); insufficient proof coverage → `HOLDINGS_SHORT`; independently bound receipts for one payment → second entry `UNBACKED` (duplicate) |
 | 2:25 | Public check page: anchors and counts, nothing readable; network tab shows only ciphertext |
 | 2:40 | Credits (Gloam MIT pool, QoreChain kits) and what we don't claim |
 

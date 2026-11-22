@@ -2,12 +2,12 @@
 
 **Keep your books private for decades, and open them to your auditor one quarter at a time.**
 
-Quaestor is building a normal web app for private business payments on QoreChain testnet. The script prototype moves payments through our own deployment of Gloam's open-source shielded pool, seals demo book entries with period keys, signs them with ML-DSA-87, and grants an auditor access to one demo-scale period.
+Quaestor is a normal web app for private business payments on QoreChain testnet. The browser moves payments through our own deployment of Gloam's open-source shielded pool, seals demo book entries with period keys, signs them with ML-DSA-87, and grants an auditor access to one demo-scale period.
 
 Built for **Build Before Q-Day**, the QoreChain Developer Fest · category **Encrypted Apps** · testnet `qorechain-diana` only.
 
 ## Status (22 Nov 2026)
-Milestones M0–M6 have scoped testnet evidence. The M6 browser demo receives 1 QOR, pays suppliers 0.5 and 0.25 QOR, books the payments with sealed invoices, closes period A with a holdings proof and grants it to the auditor. All three A entries are MATCHED, A is HOLDINGS_COVER_BOOKS, and the populated open period B is NOT_GRANTED. Claims and their limits are recorded in [CLAIMS.md](CLAIMS.md).
+Milestones M0–M7 have scoped testnet evidence. Northwind Studio (demo) receives 1 QOR and pays suppliers 0.5 and 0.25 QOR in daily period A; period B has one incoming and one outgoing payment. Both close and are granted: all five entries are MATCHED and both periods are HOLDINGS_COVER_BOOKS. Populated C stays open and NOT_GRANTED. A B-only auditor also succeeds, and an encrypted account-plus-journal backup restores the same private balance in an empty browser context. See [M7 evidence](evidence/m7-browser-initial.json), the [judge path](JUDGES.md) and [CLAIMS.md](CLAIMS.md) for scope and limits.
 
 | What | Status |
 |---|---|
@@ -18,7 +18,9 @@ Milestones M0–M6 have scoped testnet evidence. The M6 browser demo receives 1 
 | Receipt verdicts for all granted A entries | proven in scripts — [C3/attack evidence](evidence/m4-verdicts.json) |
 | Holdings coverage at close | proven lower-bound check — [C6 evidence](evidence/m4-verdicts.json); complete reconciliation is not provided |
 | Chain storage and read-only auditor | proven for the M4 demo — [chain-only evidence](evidence/m5-blobs.json), [browser check](evidence/m5-web.json) |
-| Browser payment and book-writing journey | proven for one daily demo book — [M6 browser evidence](evidence/m6-browser.json), [screenshots](evidence/m6-screens/), scoped C5 |
+| Browser payment, booking and scoped A/B audit | proven for the daily M7 demo — [browser evidence](evidence/m7-browser-initial.json), [screenshots](evidence/m7-screens/), scoped C5 |
+| Encrypted journal backup and B-only audit | proven for the exercised M7 browser flow — [backup](evidence/m7-browser.json), [fresh auditors](evidence/m7-fresh-auditors.json), C6/D17 limits apply |
+| Live read-only attack lab | proven for four scoped demo cases — [browser evidence](evidence/m7-attack-browser.json), [fresh-receipt duplicate](evidence/m7-duplicate.json), C4 limits apply |
 
 ## Repository map
 | Path | What |
@@ -39,15 +41,17 @@ See the [threat model](THREAT_MODEL.md) for confidentiality boundaries and publi
 
 Use Node 22+ and `pnpm install --frozen-lockfile`. Circuit artifacts are self-hosted by `./scripts/vendor-gloam.sh`; they are loaded lazily and cached in the browser. Run `pnpm -C apps/web dev`, or `pnpm -C apps/web build` for production. Vercel settings are in `vercel.json`; `.vercelignore` excludes local accounts and keys.
 
-Public check needs no account. Auditor imports an encrypted backup and opens the legacy M4 honest demo book using on-chain blobs. M4 opening balances must be treated as disclosed demo data; public plaintext hashes were guessable. New records anchor ciphertext hashes (D15).
+Public check needs no account. Auditor imports an encrypted backup and opens granted records using on-chain blobs. The [judge path](JUDGES.md) provides the intentionally public encrypted testnet-only demo-auditor backup and passphrase. M4 opening balances must be treated as disclosed demo data; public plaintext hashes were guessable. New records anchor ciphertext hashes (D15).
 
 `pnpm evidence --m5-web` creates a private encrypted fixture from the local demo auditor, then runs Playwright against a production preview with the deployment CSP. It requires local `.accounts/auditor.json`; the fixture and passphrase are never committed or uploaded. `pnpm gate` runs the reproducible unit/Foundry checks separately.
 
 `pnpm evidence --m6` uses local, git-ignored encrypted demo vaults and separate browser contexts/journals. It preserves completed operations across retries, checks plaintext canaries and keys in traffic, and writes the live receipts and 390px/desktop screenshots. See [the M6 brief](docs/briefs/M6.md) and [handoff](docs/handoff/M6.md).
 
-The demo book is `0x6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51`; select it in Public check or Auditor. Period A is 2026-11-22, and B is 2026-11-23; both are labelled daily demo-scale periods. New books default to Quarterly.
+The final demo book is `0x745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1`. A and B are 2026-11-22 and 2026-11-23; C is 2026-11-24. All are daily demo-scale periods; new books default to Quarterly. The historical M6 record remains in [its evidence](evidence/m6-browser.json).
 
-Not built or not established: M7 attack-lab UI, an audit CLI, a hosted Vercel deployment, and universal leak freedom. fUSD/conversion, cash-out and quarterly controls are implemented but not covered by the M6 live privacy claim. Account backups restore keys; private-note journals remain in this browser, so clearing its storage can lose change notes. Later-period-only reconciliation still needs a scoped opening/prior-balance design; the proven auditor journey grants the first period A and refuses B.
+`pnpm evidence --m7` resumes the local encrypted fixtures, checks the browser journey, prepares the separate duplicate fixture and runs read-only judge checks. `QUAESTOR_M7_RECHECK_BROWSER=1 pnpm evidence --m7` repeats the checkpointed browser checks and screenshots, preserving the original full-flow record. [Deployment instructions](docs/DEPLOY.md) cover the production relay and Vercel setup.
+
+Not built or not established: an audit CLI, a hosted Vercel deployment, universal leak freedom or universal recovery from stale backups. fUSD/conversion, cash-out and quarterly controls remain outside the live privacy claim. Unknown-outcome holding is unit tested; no live broadcast-uncertainty fault injection is claimed. Later-period opening balances are declared and signed by the business; their correctness is not established (D17).
 
 Closing selects up to four covering notes per asset, largest first. The pinned pool cannot merge notes; otherwise the app refuses with CONSOLIDATION_UNSUPPORTED (D16).
 

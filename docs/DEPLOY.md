@@ -12,11 +12,11 @@ Run from the repository root. Root Directory must stay at the repository root: t
 ```sh
 curl -I https://YOUR-ACTUAL-DEPLOYMENT/app
 curl -I https://YOUR-ACTUAL-DEPLOYMENT/attack-lab
-curl -i https://YOUR-ACTUAL-DEPLOYMENT/api/qore/rest/qorechain/pqc/v1/kem/DEMO_QOR1_ADDRESS
+curl -i https://YOUR-ACTUAL-DEPLOYMENT/api/qore/rest/qorechain/pqc/v1/kem/qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp
 curl -i https://YOUR-ACTUAL-DEPLOYMENT/api/qore/rest/not-allowlisted
 ```
 
-Use the real demo qor1 address from the evidence/card files. The valid registry query must reach the relay and return the registry response, not HTML. The invalid path must be refused, not rewritten to the SPA. Confirm Public check, Auditor and Attack lab, including reload/deep links and lazy circuit downloads, on that origin at 390px and desktop.
+The registry query above uses the public demo auditor address. The valid registry query must reach the relay and return the registry response, not HTML. The invalid path must be refused, not rewritten to the SPA. Confirm Public check, Auditor and Attack lab, including reload/deep links and lazy circuit downloads, on that origin at 390px and desktop.
 
 The relay only forwards the exact public REST/consensus paths and already-signed native transactions accepted by `apps/web/server/qorePolicy.ts`; EVM RPC stays direct. It does not log bodies or receive keys. CSP permits self and the three QoreChain hosts for connections, self-hosted scripts, `wasm-unsafe-eval` for snarkjs, and blob workers; it does not allow arbitrary API origins or `unsafe-eval`. Fonts/icons/circuits are self-hosted.
 
