@@ -1,3 +1,4 @@
+import { AttackLab } from './AttackLab.js';
 import { installPrivacyMonitor } from './privacy.js';
 import { useState } from 'react';
 import type { UnifiedAccount } from '@qorechain/sdk';
@@ -40,6 +41,7 @@ export function App() {
     setRuntime(opened);
     installPrivacyMonitor(opened);
   };
+  if (location.pathname === '/attack-lab') return <AttackLab />;
   if (location.pathname === '/' && !query) return <Landing />;
   const business = views.slice(0, 5).includes(view as BusinessView);
   return (

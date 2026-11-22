@@ -94,7 +94,7 @@ export function Books(props: ScreenProps) {
             .map((payment) => (
               <EntryForm {...props} book={book} payment={payment} key={payment.id} />
             ))}
-          <div className="grid">
+          <div className="results">
             {book.periods.map((period) => (
               <article className="panel" key={period.id}>
                 <h2>
