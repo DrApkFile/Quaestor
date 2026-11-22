@@ -16,7 +16,8 @@ test('Prepare separate demo notes before registering the new book', async ({ bro
     await navigate(b, 'Wallet');
     const owned = b
       .locator('tbody tr')
-      .filter({ has: b.getByRole('button', { name: 'Cash out', exact: true }).and(b.locator(':enabled')) });
+      .filter({ has: b.getByRole('button', { name: 'Cash out', exact: true }).and(b.locator(':enabled')) })
+      .filter({ has: b.locator('[data-label=Amount]').filter({ hasText: / QOR$/ }) });
     while ((await owned.count()) > 2) {
       const values = await owned.locator('[data-label=Amount]').allTextContents();
       const index = values.indexOf([...values].sort((a, z) => Number.parseFloat(a) - Number.parseFloat(z))[0] ?? '');
