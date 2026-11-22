@@ -27,6 +27,9 @@ export function privacyMonitor(context: BrowserContext) {
       errors.push(error.name);
     });
   });
+  context.on('requestfailed', (request) => {
+    errors.push(request.failure()?.errorText ?? 'REQUEST_FAILED');
+  });
   context.on('response', (response) => {
     const id = ++responseSequence;
     const progress = { path: new URL(response.url()).pathname, phase: 'HEADERS' };

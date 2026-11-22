@@ -26,12 +26,13 @@ test('T-NOPLAIN-WEB M7 attack lab reads four chain cases and never broadcasts', 
     const routing = await page.evaluate(async () => {
       const allowed = await fetch('/api/qore-relay?qorePath=rest/qorechain/pqc/v1/protocol_features');
       const refused = await fetch('/api/qore-relay?qorePath=rest/not-allowlisted');
-      const document = await fetch('/');
+      const pageResponse = await fetch('/');
+      await Promise.all([allowed.arrayBuffer(), refused.arrayBuffer(), pageResponse.arrayBuffer()]);
       return {
         allowed: allowed.status,
         refused: refused.status,
         contentType: allowed.headers.get('content-type'),
-        csp: document.headers.get('content-security-policy'),
+        csp: pageResponse.headers.get('content-security-policy'),
       };
     });
     expect(routing.allowed).toBe(200);
@@ -39,6 +40,12 @@ test('T-NOPLAIN-WEB M7 attack lab reads four chain cases and never broadcasts', 
     expect(routing.contentType).toContain('application/json');
     expect(routing.csp).toContain("script-src 'self' 'wasm-unsafe-eval'");
     await page.getByRole('button', { name: 'Read attack book from chain', exact: true }).click();
+    await page
+      .locator('[data-testid="attack-duplicate"], [role="alert"]')
+      .first()
+      .waitFor({ state: 'visible', timeout: 480000 });
+    const error = page.getByRole('alert');
+    if (await error.isVisible()) throw new Error(`ATTACK_READ_FAILED: ${(await error.textContent()) ?? 'UNKNOWN'}`);
     await expect(page.getByTestId('attack-duplicate')).toHaveText('UNBACKED (DUPLICATE_PAYMENT)', { timeout: 480000 });
     await expect(page.getByTestId('attack-first')).toHaveText('MATCHED');
     await expect(page.getByTestId('attack-context')).toHaveText('UNBACKED (WRONG_CONTEXT)');
