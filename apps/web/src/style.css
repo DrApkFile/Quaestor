@@ -251,6 +251,13 @@ dd {
   gap: 20px;
   align-items: center;
 }
+.grant-row > div {
+  min-width: 0;
+}
+.grant-row > .badge {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
 .entry-result {
   padding: 20px 0;
   border-bottom: 1px solid var(--border);

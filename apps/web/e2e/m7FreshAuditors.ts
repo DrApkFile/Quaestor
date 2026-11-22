@@ -5,6 +5,7 @@ import { hex32 } from '@quaestor/core';
 import { demoAuditorPassphrase } from '../src/demo.js';
 import { audit, shots } from './m7Tools.js';
 import { privacyMonitor } from './m6Privacy.js';
+import { navigate } from './m6Driver.js';
 export async function freshAuditors(browser: Browser) {
   const { bookId } = z
     .object({ bookId: hex32 })
@@ -31,6 +32,13 @@ export async function freshAuditors(browser: Browser) {
       );
       await expect(page.getByTestId('period-verdict')).toHaveCount(role === 'auditor' ? 2 : 1);
       await shots(page, role === 'auditor' ? 'auditor-fresh' : 'auditor-b-only-fresh');
+      if (role === 'auditor') {
+        await navigate(page, 'Public check');
+        await page.getByLabel('Book ID (demo)', { exact: true }).fill(bookId);
+        await page.getByRole('button', { name: 'Check chain', exact: true }).click();
+        await expect(page.getByText('anchored entries', { exact: true })).toBeVisible({ timeout: 300000 });
+        await shots(page, 'public');
+      }
       const network = await monitor.finish();
       expect(network.leaks).toBe(0);
       expect(network.errors).toEqual([]);
