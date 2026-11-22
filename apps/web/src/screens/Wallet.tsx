@@ -65,6 +65,7 @@ export function Wallet(props: ScreenProps) {
         <label>
           Asset
           <select
+            aria-label="Asset"
             value={asset}
             onChange={(event) => {
               setAsset(event.target.value as Hex);

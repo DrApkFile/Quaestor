@@ -29,6 +29,7 @@ export function Grants({ runtime, run, busy }: ScreenProps) {
         <label>
           Grant book
           <select
+            aria-label="Grant book"
             required
             value={bookId}
             onChange={(event) => {
@@ -47,6 +48,7 @@ export function Grants({ runtime, run, busy }: ScreenProps) {
         <label>
           Grant period
           <select
+            aria-label="Grant period"
             required
             value={period?.id ?? ''}
             onChange={(event) => {

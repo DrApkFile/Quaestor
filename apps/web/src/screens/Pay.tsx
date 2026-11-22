@@ -63,6 +63,7 @@ export function Pay({ runtime, run, busy }: ScreenProps) {
         <label>
           Payment asset
           <select
+            aria-label="Payment asset"
             value={asset}
             onChange={(event) => {
               setAsset(event.target.value as Hex);

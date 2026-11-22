@@ -46,6 +46,7 @@ export function Books(props: ScreenProps) {
           <label>
             Period length
             <select
+              aria-label="Period length"
               value={mode}
               onChange={(event) => {
                 setMode(event.target.value as Book['mode']);
@@ -64,6 +65,7 @@ export function Books(props: ScreenProps) {
             <label>
               Book (demo)
               <select
+                aria-label="Book (demo)"
                 value={book.id}
                 onChange={(event) => {
                   setSelected(event.target.value);

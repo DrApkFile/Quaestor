@@ -11,7 +11,7 @@ import {
   contractPeriod,
   type HoldingsClose,
 } from '@quaestor/core';
-import { createPoolTreeSync, requireNotePath } from '@quaestor/chain/browser';
+import { createPoolTreeSync, requireNotePath, hexSchema } from '@quaestor/chain/browser';
 import { encodeFunctionData, hexToBytes, toHex, type Hex } from 'viem';
 import { BusinessRuntime, client, browserChain, poolAbi, booksAbi, deployment } from './runtime.js';
 import { epoch } from './books.js';
@@ -113,22 +113,28 @@ export async function closePeriod(runtime: BusinessRuntime, book: Book) {
   const close = period.close,
     sealed = period.sealedClose;
   await post(runtime, `close-${book.id.slice(2)}-${period.id}-blob`, 'close', blobBytes(sealed.blob));
-  const signature = toHex(
-    pqcSign(
-      runtime.account.pqc.secretKey,
-      hexToBytes(
-        closeDigestV2(
-          book.id,
-          period.id,
-          close.entryCount,
-          close.lastEntrySha3,
-          sealed.sha3,
-          9800n,
-          deployment.books.address,
-        ),
-      ),
-    ),
-  );
+  const signatureKey = `close-signature-${book.id.slice(2)}-${period.id}`;
+  const cachedSignature = await runtime.storage.get(signatureKey);
+  const signature =
+    cachedSignature === undefined
+      ? toHex(
+          pqcSign(
+            runtime.account.pqc.secretKey,
+            hexToBytes(
+              closeDigestV2(
+                book.id,
+                period.id,
+                close.entryCount,
+                close.lastEntrySha3,
+                sealed.sha3,
+                9800n,
+                deployment.books.address,
+              ),
+            ),
+          ),
+        )
+      : hexSchema.parse(cachedSignature);
+  await runtime.storage.put(signatureKey, signature);
   await runtime.call(
     `close-${book.id.slice(2)}-${period.id}-anchor`,
     deployment.books.address,
