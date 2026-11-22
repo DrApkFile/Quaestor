@@ -46,6 +46,19 @@ export async function freshAuditors(browser: Browser) {
         transactionRequests: mutations.length,
         network,
       });
+    } catch (error: unknown) {
+      writeFileSync(
+        `../../evidence/m7-fresh-auditor-attempt-${String(Date.now())}.json`,
+        JSON.stringify({
+          command: 'pnpm evidence --m7',
+          status: 'FAILED',
+          role,
+          code: error instanceof Error ? error.name : 'FAILED',
+          network: await monitor.finish(),
+          transactionRequests: mutations.length,
+        }) + '\n',
+      );
+      throw error;
     } finally {
       await context.close();
     }
