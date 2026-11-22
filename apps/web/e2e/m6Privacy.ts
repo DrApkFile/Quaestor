@@ -2,6 +2,7 @@ import type { BrowserContext, Page } from '@playwright/test';
 import { fixture } from './m6Fixtures.js';
 export function privacyMonitor(context: BrowserContext) {
   const pending: Promise<void>[] = [];
+  let sequence = 0;
   const leaks: string[] = [];
   const errors: string[] = [];
   let requests = 0,
@@ -27,14 +28,18 @@ export function privacyMonitor(context: BrowserContext) {
   context.on('response', (response) => {
     const work = (async () => {
       const request = response.request();
+      console.log(`M6 response ${String(response.status())} ${new URL(request.url()).pathname}`);
       if (!request.frame().page().isClosed()) {
         const bytes = await response.body();
         responses++;
-        await inspect(
-          request.frame().page(),
-          bytes.toString('utf8') + '\n' + bytes.toString('hex'),
-          request.isNavigationRequest(),
-        );
+        for (let offset = 0; offset < bytes.length; offset += 1048576) {
+          const part = bytes.subarray(Math.max(0, offset - 262144), offset + 1048576);
+          await inspect(
+            request.frame().page(),
+            part.toString('utf8') + '\n' + part.toString('hex'),
+            request.isNavigationRequest(),
+          );
+        }
       }
     })().catch(() => {
       errors.push('RESPONSE_INSPECTION_FAILED');
@@ -45,10 +50,15 @@ export function privacyMonitor(context: BrowserContext) {
     context.route('**/*', async (route) => {
       requests++;
       const request = route.request();
+      const id = ++sequence;
+      console.log(`M6 request ${String(id)} ${request.method()} ${new URL(request.url()).pathname}`);
+      const timer = setTimeout(() => console.log(`M6 stalled request ${new URL(request.url()).pathname}`), 15000);
       const text = request.url() + JSON.stringify(await request.allHeaders()) + (request.postData() ?? '');
       await inspect(request.frame().page(), text, request.isNavigationRequest());
       if (leaks.length) await route.abort();
       else await route.continue();
+      clearTimeout(timer);
+      console.log(`M6 continued ${String(id)}`);
     });
   return {
     start,

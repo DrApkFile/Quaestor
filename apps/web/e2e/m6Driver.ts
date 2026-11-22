@@ -20,7 +20,7 @@ export async function unlock(page: Page, name: string) {
   await expect(pass).toBeVisible({ timeout: 60000 });
   await pass.fill(fixture.password);
   await page.getByLabel('Restore encrypted backup', { exact: true }).setInputFiles(role.backup);
-  await expect(page.getByRole('button', { name: 'Download encrypted backup', exact: true })).toBeVisible({
+  await expect(page.getByRole('button', { name: 'Download encrypted backup', exact: true })).toBeEnabled({
     timeout: 60000,
   });
   const download = page.waitForEvent('download');
@@ -28,6 +28,9 @@ export async function unlock(page: Page, name: string) {
   await download;
   await page.waitForFunction(() => !!window.quaestorM6, {}, { timeout: 60000 });
   await expect(page.getByText('Verified card found on BlobBoard.', { exact: true })).toBeVisible({ timeout: 60000 });
+  await expect(page.getByRole('button', { name: 'Download encrypted backup', exact: true })).toBeEnabled({
+    timeout: 60000,
+  });
   if (
     (await snapshot(page)).operations.some((value) => value.stage === 'BROADCAST' || value.stage === 'OUTCOME_UNKNOWN')
   ) {
@@ -38,10 +41,14 @@ export async function unlock(page: Page, name: string) {
   }
 }
 export async function navigate(page: Page, name: string) {
-  await page.getByRole('navigation').getByRole('button', { name, exact: true }).click();
+  console.log(`M6 navigate ${name}`);
+  await page.bringToFront();
+  await page.getByRole('navigation').getByRole('button', { name, exact: true }).click({ timeout: 30000 });
 }
 export async function action(page: Page, work: () => Promise<unknown>) {
+  console.log('M6 action start');
   await work();
+  console.log('M6 action clicked');
   await page.waitForTimeout(150);
   await expect(page.locator('.workflow')).toHaveAttribute('aria-busy', 'false', { timeout: 240000 });
   const alert = page.getByTestId('workflow-error');
@@ -91,9 +98,23 @@ export async function bookEntries(page: Page) {
   }
 }
 export async function screenshots(page: Page, name: string) {
+  if (name === 'wallet') await expect(page.getByText(/^Pinned balance block: \d+/)).toBeVisible({ timeout: 60000 });
   for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: width === 390 ? 844 : 1000 });
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    const fits = await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth);
+    if (!fits)
+      console.log(
+        await page.evaluate(() =>
+          Array.from(document.querySelectorAll('*'))
+            .filter((element) => element.getBoundingClientRect().right > innerWidth)
+            .map((element) => ({
+              tag: element.tagName,
+              class: element.className,
+              width: element.getBoundingClientRect().width,
+            })),
+        ),
+      );
+    expect(fits).toBe(true);
     await page.screenshot({ path: `../../evidence/m6-screens/${name}-${width}.png`, fullPage: true });
   }
 }

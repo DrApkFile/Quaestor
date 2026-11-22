@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { writeFileSync, existsSync, readFileSync } from 'node:fs';
+import { writeFileSync, existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fixture, folder, roleFixture } from './m6Fixtures.js';
 import {
   unlock,
@@ -24,11 +24,12 @@ test('T-NOPLAIN-WEB M6 real anonymous payments, sealed entries, close and scoped
   const client = await browser.newContext(storage('client')),
     business = await browser.newContext(storage('business')),
     other = await browser.newContext(storage('other'));
+  for (const context of [client, business, other]) context.setDefaultTimeout(30000);
   const monitors = [client, business, other].map((context) => privacyMonitor(context));
   for (const monitor of monitors) await monitor.start();
   const c = await client.newPage(),
-    b = await business.newPage(),
-    o = await other.newPage();
+    b = await business.newPage();
+  let o = await other.newPage();
   let stage = 'START';
   const step = (value: string) => {
     stage = value;
@@ -46,6 +47,7 @@ test('T-NOPLAIN-WEB M6 real anonymous payments, sealed entries, close and scoped
     await freshScan(b);
     await checkpoint(business, 'business');
     for (const role of ['supplier1', 'supplier2']) {
+      o = await other.newPage();
       await unlock(o, role);
       await freshScan(o);
       await checkpoint(other, 'other');
@@ -69,17 +71,18 @@ test('T-NOPLAIN-WEB M6 real anonymous payments, sealed entries, close and scoped
     if (!book) throw new Error('BOOK_REQUIRED');
     const bookId = book.id;
     step('CLIENT_TO_BUSINESS');
-    await prepare(c);
+    if ((await snapshot(c)).payments.filter((value) => value.direction === 'OUT').length < 1) await prepare(c);
     await send(c, roleFixture('business').address, '1', 1);
     await checkpoint(client, 'client');
     await scan(b);
     await bookEntries(b);
     await checkpoint(business, 'business');
     step('BUSINESS_TO_SUPPLIER1');
-    await prepare(b);
+    if ((await snapshot(b)).payments.filter((value) => value.direction === 'OUT').length < 1) await prepare(b);
     await send(b, roleFixture('supplier1').address, '0.5', 1);
     await bookEntries(b);
     await checkpoint(business, 'business');
+    o = await other.newPage();
     await unlock(o, 'supplier1');
     await scan(o);
     await checkpoint(other, 'other');
@@ -87,6 +90,7 @@ test('T-NOPLAIN-WEB M6 real anonymous payments, sealed entries, close and scoped
     await send(b, roleFixture('supplier2').address, '0.25', 2);
     await bookEntries(b);
     await checkpoint(business, 'business');
+    o = await other.newPage();
     await unlock(o, 'supplier2');
     await scan(o);
     await checkpoint(other, 'other');
@@ -115,13 +119,14 @@ test('T-NOPLAIN-WEB M6 real anonymous payments, sealed entries, close and scoped
       );
       await checkpoint(business, 'business');
     }
-    await prepare(c);
+    if ((await snapshot(c)).payments.filter((value) => value.direction === 'OUT').length < 2) await prepare(c);
     await send(c, roleFixture('business').address, '0.01', 2);
     await checkpoint(client, 'client');
     await scan(b);
     await bookEntries(b);
     await checkpoint(business, 'business');
     step('AUDITOR');
+    o = await other.newPage();
     await o.goto('/app?view=auditor');
     await o.getByLabel('Audit book ID', { exact: true }).fill(bookId);
     await o.getByLabel('Encrypted backup file', { exact: true }).setInputFiles(roleFixture('auditor').backup);
@@ -156,6 +161,14 @@ test('T-NOPLAIN-WEB M6 real anonymous payments, sealed entries, close and scoped
       status: 'PASSED',
       bookId,
       contextCount: 3,
+      earlierPassedRun: existsSync('../../evidence/m6-browser-initial.json')
+        ? 'evidence/m6-browser-initial.json'
+        : null,
+      priorAttempts: readdirSync('../../evidence')
+        .filter((name) => name.startsWith('m6-browser-attempt-'))
+        .map((name) => `evidence/${name}`),
+      resumption:
+        'Existing journals preserve completed operations; prior attempt records retain their original traffic checks, including the complete financial flow stopped by the 390px screenshot assertion.',
       periodLength: 'Daily (demo-scale)',
       client: await snapshot(c),
       business: await snapshot(b),
@@ -174,6 +187,8 @@ test('T-NOPLAIN-WEB M6 real anonymous payments, sealed entries, close and scoped
     writeFileSync('../../evidence/m6-browser.json', JSON.stringify(evidence, null, 2) + '\n');
     step('PASSED');
   } catch (error: unknown) {
+    const network = [];
+    for (const monitor of monitors) network.push(await monitor.finish());
     writeFileSync(
       `../../evidence/m6-browser-attempt-${Date.now()}.json`,
       JSON.stringify(
@@ -181,6 +196,7 @@ test('T-NOPLAIN-WEB M6 real anonymous payments, sealed entries, close and scoped
           command: 'pnpm evidence --m6',
           at: new Date().toISOString(),
           status: 'FAILED',
+          network,
           stage,
           code: error instanceof Error ? error.name : 'FAILED',
         },

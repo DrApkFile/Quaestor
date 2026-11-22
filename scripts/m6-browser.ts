@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, mkdirSync, writeFileSync, openSync, closeSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { randomBytes } from 'node:crypto';
 import { z } from 'zod';
@@ -54,14 +54,17 @@ for (const name of role.options) {
     .parse(JSON.parse(readFileSync(new URL(`.accounts/${name}.json`, root), 'utf8')) as unknown);
   secrets.push(account.mnemonic);
 }
+const log = new URL(`run-${Date.now()}.log`, directory);
+const logFile = openSync(log, 'w', 0o600);
 const result = spawnSync('pnpm', ['-C', 'apps/web', 'exec', 'playwright', 'test', 'm6.spec.ts'], {
   cwd: root,
   env: { ...process.env, QUAESTOR_M6_FIXTURES: path.pathname, TMPDIR: temporary.pathname },
+  stdio: ['ignore', logFile, logFile],
   encoding: 'utf8',
   maxBuffer: 10000000,
 });
-const output = (result.stdout ?? '') + (result.stderr ?? '');
-writeFileSync(new URL(`run-${Date.now()}.log`, directory), output, { mode: 0o600 });
+closeSync(logFile);
+const output = readFileSync(log, 'utf8');
 let safe = output;
 for (const secret of secrets) safe = safe.split(secret).join('[PRIVATE]');
 console.log(safe);
