@@ -6,6 +6,7 @@ import { demoAuditorPassphrase } from '../src/demo.js';
 import { audit, shots } from './m7Tools.js';
 import { privacyMonitor } from './m6Privacy.js';
 import { navigate } from './m6Driver.js';
+import { fixture } from './m6Fixtures.js';
 export async function freshAuditors(browser: Browser) {
   const run = process.env.QUAESTOR_DEMO_RUN ?? 'm7';
   const { bookId } = z
@@ -24,6 +25,18 @@ export async function freshAuditors(browser: Browser) {
     await monitor.start();
     const page = await context.newPage();
     try {
+      if (fixture.publicDemo && role === 'auditor') {
+        await page.goto('/');
+        await expect(page.getByRole('link', { name: 'Public check', exact: true })).toHaveAttribute(
+          'href',
+          `/app?view=public&book=${bookId}`,
+        );
+        await expect(page.getByRole('link', { name: 'Auditor', exact: true })).toHaveAttribute(
+          'href',
+          `/app?view=auditor&book=${bookId}`,
+        );
+        await shots(page, 'landing');
+      }
       await audit(
         page,
         bookId,
