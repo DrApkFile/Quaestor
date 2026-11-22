@@ -28,6 +28,14 @@ export async function unlock(page: Page, name: string) {
   await download;
   await page.waitForFunction(() => !!window.quaestorM6, {}, { timeout: 60000 });
   await expect(page.getByText('Verified card found on BlobBoard.', { exact: true })).toBeVisible({ timeout: 60000 });
+  if (
+    (await snapshot(page)).operations.some((value) => value.stage === 'BROADCAST' || value.stage === 'OUTCOME_UNKNOWN')
+  ) {
+    await navigate(page, 'Wallet');
+    await action(page, () =>
+      page.getByRole('button', { name: 'Resolve held transactions by hash', exact: true }).click(),
+    );
+  }
 }
 export async function navigate(page: Page, name: string) {
   await page.getByRole('navigation').getByRole('button', { name, exact: true }).click();
@@ -37,7 +45,10 @@ export async function action(page: Page, work: () => Promise<unknown>) {
   await page.waitForTimeout(150);
   await expect(page.locator('.workflow')).toHaveAttribute('aria-busy', 'false', { timeout: 240000 });
   const alert = page.getByTestId('workflow-error');
-  if (await alert.isVisible()) throw new Error(`WORKFLOW_REJECTED: ${await alert.textContent()}`);
+  if (await alert.isVisible())
+    throw new Error(
+      `WORKFLOW_REJECTED: ${await alert.textContent()} · ${(await page.evaluate(() => Reflect.get(window, 'quaestorLastError') as string | undefined)) ?? 'No diagnostic'}`,
+    );
 }
 export async function prepare(page: Page) {
   await navigate(page, 'Wallet');

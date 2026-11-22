@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, existsSync, readFileSync } from 'node:fs';
 import { fixture, folder, roleFixture } from './m6Fixtures.js';
 import {
   unlock,
@@ -149,6 +149,9 @@ test('T-NOPLAIN-WEB M6 real anonymous payments, sealed entries, close and scoped
     expect(network.every((value) => value.leaks === 0 && value.errors.length === 0)).toBe(true);
     const evidence = {
       command: 'pnpm evidence --m6',
+      setupFunding: existsSync('../../evidence/m6-funding.json')
+        ? (JSON.parse(readFileSync('../../evidence/m6-funding.json', 'utf8')) as unknown)
+        : null,
       at: new Date().toISOString(),
       status: 'PASSED',
       bookId,

@@ -92,7 +92,12 @@ export function Wallet(props: ScreenProps) {
                   runtime,
                   asset,
                   asset === zeroAddress ? parseEther(amount) : parseUnits(amount, 6),
-                  `deposit-${crypto.randomUUID()}`,
+                  runtime.journal
+                    .read()
+                    .operations.find(
+                      (operation) =>
+                        operation.id.startsWith('deposit-') && ['PLANNED', 'PROVED'].includes(operation.stage),
+                    )?.id ?? `deposit-${crypto.randomUUID()}`,
                 );
                 await refresh();
               });

@@ -1,3 +1,4 @@
+import { redactNativeText, accountSecrets } from '@quaestor/chain/browser';
 import { useState } from 'react';
 import { Wallet } from './screens/Wallet.js';
 import { Pay } from './screens/Pay.js';
@@ -16,6 +17,11 @@ export function Dashboard({ runtime, view }: { runtime: BusinessRuntime; view: B
     setError('');
     void work()
       .catch((value: unknown) => {
+        const diagnostic =
+          value instanceof Error
+            ? redactNativeText(`${value.name}: ${value.message}`, accountSecrets(runtime.account))
+            : 'REQUEST_FAILED';
+        Object.assign(window, { quaestorLastError: diagnostic });
         setError(errorMessage(value));
       })
       .finally(() => {

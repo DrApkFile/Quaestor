@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { buildReceiptWitness } from '@gloamtrade/sdk';
-import { sealBatch } from '@qorechain/qoreseal';
+import { sealBatch, openBatch } from '@qorechain/qoreseal';
 import { sealEntry, receiptContext, receiptSchema, hashBytes, contractPeriod } from '@quaestor/core';
 import { createPoolTreeSync, requireNotePath } from '@quaestor/chain/browser';
 import { encodeFunctionData, toHex } from 'viem';
@@ -42,6 +42,15 @@ export async function bookPayment(runtime: BusinessRuntime, book: Book, payment:
       if (!fields.invoice.size || fields.invoice.size > 20480) throw new Error('INVOICE_TOO_LARGE');
       const prior = await runtime.storage.get(`invoice-${payment.id}`);
       const data = new Uint8Array(await fields.invoice.arrayBuffer());
+      if (prior !== undefined) {
+        const previous = openBatch({ blob: Uint8Array.from(z.array(z.number()).parse(prior)), keys: [epoch(period)] });
+        if (
+          previous.context !== 'quaestor:invoice' ||
+          previous.batchIndex !== BigInt(index) ||
+          hashBytes(previous.data) !== hashBytes(data)
+        )
+          throw new Error('REQUEST_CONFLICT');
+      }
       const blob =
         prior === undefined
           ? sealBatch({ epochKey: epoch(period), context: 'quaestor:invoice', batchIndex: index, data }).blob
