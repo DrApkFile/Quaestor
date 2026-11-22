@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { hex32, contractPeriod } from '@quaestor/core';
+import { hex32 } from '@quaestor/core';
 import { publicCheck } from '@quaestor/chain/browser';
 import { deployment, readerConfig } from './client.js';
 import { errorMessage } from './messages.js';
@@ -94,10 +94,11 @@ export function PublicView() {
             </div>
           </div>
           <h2>Periods</h2>
+          <p className="muted">Period lengths are encrypted; this public view does not infer quarterly or daily.</p>
           <div className="grid">
             {value.periods.map((period) => (
               <article className="panel" key={period.id}>
-                <h3>{period.id === contractPeriod(deployment.demo.periodA) ? 'Period A (demo)' : 'Period B (demo)'}</h3>
+                <h3>Period {value.periods.indexOf(period) + 1} (demo)</h3>
                 <p className="hash">{period.id}</p>
                 <p>
                   {period.count} {period.count === 1 ? 'entry' : 'entries'} · {period.closed ? 'Closed' : 'Open'}

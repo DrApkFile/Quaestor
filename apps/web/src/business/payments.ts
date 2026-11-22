@@ -119,7 +119,13 @@ export async function receive(runtime: BusinessRuntime) {
       runtime.rememberSecret(ticket.secret);
       const tx = await client.getTransaction({ hash: memo.hash });
       if (tx.from.toLowerCase() === runtime.account.evm.toLowerCase()) continue;
-      await requireNotePath(tree.tree, ticket.commitment);
+      try {
+        await requireNotePath(tree.tree, ticket.commitment);
+      } catch {
+        throw new TicketError('TICKET_INVALID');
+      }
+      const existingNote = runtime.journal.read().notes.find((note) => note.commitment === ticket.commitment);
+      if (existingNote && existingNote.state !== 'OWNED') throw new Error('NOTE_SPENT');
       const spent = await client.readContract({
         address: browserChain.pool,
         abi: poolAbi,

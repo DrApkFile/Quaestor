@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { parseEther, formatUnits } from 'viem';
 import { checkWindow } from '@quaestor/chain/browser';
 import { browserChain } from '../business/runtime.js';
@@ -8,6 +8,11 @@ export function Prepare({ runtime, run, busy }: ScreenProps) {
   const [operations, setOperations] = useState('32'),
     [value, setValue] = useState('5');
   const [window, setWindow] = useState<Awaited<ReturnType<typeof checkWindow>> | null>(null);
+  useEffect(() => {
+    void checkWindow(browserChain, runtime.account.cosmos)
+      .then(setWindow)
+      .catch(() => setWindow(null));
+  }, [runtime, busy]);
   return (
     <section className="panel tone-lemon">
       <div className="row-title">

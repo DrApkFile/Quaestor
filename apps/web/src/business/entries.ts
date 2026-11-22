@@ -84,6 +84,15 @@ export async function bookPayment(runtime: BusinessRuntime, book: Book, payment:
     payment.entryIndex = index;
     payment.stage = 'BOOKED';
     await runtime.save();
+    await runtime.journal.exclusive(async () => {
+      const data = runtime.journal.read();
+      const operation = data.operations.find((value) => value.id === payment.id);
+      if (operation) {
+        operation.stage = 'BOOKED';
+        runtime.journal.save(data);
+        await runtime.journal.flush();
+      }
+    });
     runtime.progress('Booked · posting sealed entry');
   }
   const artifact = saved.artifact;

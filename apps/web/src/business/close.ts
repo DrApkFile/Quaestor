@@ -37,6 +37,24 @@ export async function closePeriod(runtime: BusinessRuntime, book: Book) {
       period.entries.length,
     );
     const cashOutFees: Record<string, string> = {};
+    const previous = book.periods[book.periods.indexOf(period) - 1];
+    const boundaryId = previous ? `close-${book.id.slice(2)}-${previous.id}-anchor` : `register-${book.id.slice(2)}`;
+    const boundary = runtime.state.transactions.find((tx) => tx.id === boundaryId)?.block;
+    if (!boundary) throw new Error('OPENING_UNAVAILABLE');
+    const journal = runtime.journal.read();
+    for (const operation of journal.operations) {
+      if (
+        !operation.id.startsWith('cashout-') ||
+        operation.receipt?.status !== 'success' ||
+        !operation.prepared ||
+        BigInt(operation.receipt.blockNumber) <= BigInt(boundary)
+      )
+        continue;
+      const note = journal.notes.find((value) => value.commitment === operation.input);
+      if (!note) throw new Error('NOTE_UNAVAILABLE');
+      const asset = note.asset.toLowerCase();
+      cashOutFees[asset] = (BigInt(cashOutFees[asset] ?? '0') + BigInt(operation.prepared.feeWei)).toString();
+    }
     const closingBalance = closingBalances(
       period.start,
       period.entries.map((value) => value.entry),
@@ -82,7 +100,6 @@ export async function closePeriod(runtime: BusinessRuntime, book: Book) {
       if (witness.blocker) throw new Error('FUNDS_WITNESS_FAILED');
       holdings[asset] = fundsSchema.parse(await browserProof('funds', witness.circomInput, runtime.progress));
     }
-    const previous = book.periods[book.periods.indexOf(period) - 1];
     period.close = {
       ...summary,
       priorSha3: previous?.sealedClose?.sha3 ?? book.sealedOpening.sha3,

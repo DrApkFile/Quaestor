@@ -9,6 +9,7 @@ import { Dashboard, type BusinessView } from './Dashboard.js';
 import { BusinessRuntime } from './business/runtime.js';
 import './style.css';
 type View = BusinessView | 'account' | 'public' | 'auditor';
+const icons = ['Wallet', 'Send', 'Download', 'BookOpen', 'KeyRound', 'ShieldCheck', 'Search'];
 const views = ['wallet', 'pay', 'receive', 'books', 'grants', 'auditor', 'public'] as const;
 export function App() {
   const query = new URLSearchParams(location.search).get('view');
@@ -54,7 +55,7 @@ export function App() {
       </header>
       <div className="shell">
         <nav aria-label="Main navigation">
-          {views.map((item) => (
+          {views.map((item, index) => (
             <button
               className={item === view ? 'nav-active' : 'nav-item'}
               aria-current={item === view ? 'page' : undefined}
@@ -64,6 +65,7 @@ export function App() {
                 select(item);
               }}
             >
+              <img className="icon" src={`/icons/${icons[index] ?? 'Wallet'}.svg`} alt="" />
               {item === 'public' ? 'Public check' : item.slice(0, 1).toUpperCase() + item.slice(1)}
             </button>
           ))}

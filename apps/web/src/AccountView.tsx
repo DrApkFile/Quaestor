@@ -96,7 +96,10 @@ export function AccountView({
     void task(async () => {
       await saveVault(envelope, true);
       setBackup(true);
-      if (account) await onReady?.(account);
+      if (account) {
+        await onReady?.(account);
+        await refresh(account);
+      }
     });
   };
   const act = (kind: 'pq' | 'kem' | 'card') =>
