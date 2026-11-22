@@ -1,0 +1,27 @@
+{
+  "command": "pnpm evidence --m6",
+  "at": "2026-11-22T02:30:50.318Z",
+  "status": "FAILED",
+  "network": [
+    {
+      "requests": 67,
+      "responses": 67,
+      "leaks": 0,
+      "errors": []
+    },
+    {
+      "requests": 99,
+      "responses": 99,
+      "leaks": 0,
+      "errors": []
+    },
+    {
+      "requests": 140,
+      "responses": 139,
+      "leaks": 0,
+      "errors": []
+    }
+  ],
+  "stage": "BOOK",
+  "code": "TimeoutError"
+}

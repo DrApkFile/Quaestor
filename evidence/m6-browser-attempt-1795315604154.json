@@ -1,0 +1,27 @@
+{
+  "command": "pnpm evidence --m6",
+  "at": "2026-11-22T02:46:44.154Z",
+  "status": "FAILED",
+  "network": [
+    {
+      "requests": 301,
+      "responses": 301,
+      "leaks": 0,
+      "errors": []
+    },
+    {
+      "requests": 747,
+      "responses": 747,
+      "leaks": 0,
+      "errors": []
+    },
+    {
+      "requests": 550,
+      "responses": 550,
+      "leaks": 0,
+      "errors": []
+    }
+  ],
+  "stage": "SCREENSHOTS",
+  "code": "Error"
+}

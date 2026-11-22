@@ -1,0 +1,29 @@
+{
+  "command": "pnpm evidence --m6",
+  "at": "2026-11-22T02:33:06.383Z",
+  "status": "FAILED",
+  "network": [
+    {
+      "requests": 69,
+      "responses": 69,
+      "leaks": 0,
+      "errors": []
+    },
+    {
+      "requests": 69,
+      "responses": 69,
+      "leaks": 0,
+      "errors": []
+    },
+    {
+      "requests": 84,
+      "responses": 74,
+      "leaks": 0,
+      "errors": [
+        "RESPONSE_INSPECTION_FAILED"
+      ]
+    }
+  ],
+  "stage": "UNLOCK",
+  "code": "Error"
+}

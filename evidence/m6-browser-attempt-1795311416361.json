@@ -1,0 +1,7 @@
+{
+  "command": "pnpm evidence --m6",
+  "at": "2026-11-22T01:36:56.361Z",
+  "status": "FAILED",
+  "stage": "LANDING",
+  "code": "Error"
+}

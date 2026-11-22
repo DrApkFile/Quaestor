@@ -60,10 +60,18 @@ Done when (builder's replacement brief, D14/D15):
 - [x] Unit tests, production build, live Playwright request interception and 390px/desktop checks pass.
 - [x] Gate passes and handoff is written; final delivery is the handoff commit push, then stop before M6.
 
-## M6 — Web app: accounts, pay, business books (Codex, 27 Nov)
-## M7 — Web app: auditor, public check, attack lab (Codex, 28–29 Nov)
-Done when (M6+M7):
-- [ ] Every demo act in PRD §11 works in the browser; T-NOPLAIN-WEB passes in Playwright; checked at 390 px.
+## M6 — Web app: accounts, pay, business books (Codex, 22 Nov)
+Builder's approved scope: docs/briefs/M6.md. M7 attack-lab UI remains separate.
+- [x] Read-only Muuve style study, licensed assets, theme tokens, landing and seven-view dashboard; README credit.
+- [x] Browser wallet, anonymous Pay/Receive, ciphertext-anchored books, close and irreversible grants obey M1–M5 invariants.
+- [x] Encrypted journal unit tests prove unknown outcomes remain held without rebuilding.
+- [x] T-NOPLAIN-WEB inspects all requests/responses for entry/invoice canaries and account/seal/note secrets.
+- [x] Live three-context daily demo books the 1/.5/.25-QOR journey, closes/grants A, reproduces all MATCHED and HOLDINGS_COVER_BOOKS, refuses populated B.
+- [x] evidence/m6-browser.json and landing/dashboard/every-screen screenshots at 390px and desktop; scoped C5 evidence.
+- [ ] pnpm gate and production build pass; handoff written; pushed, stop before M7.
+
+## M7 — Web app: attack lab (Codex, 28–29 Nov)
+- [ ] Browser attack-lab demonstrations from PRD §11; independently briefed and reviewed after M6.
 
 ## M8 — Audit, docs, video (builder + Claude + Codex, 29 Nov – 2 Dec)
 - [ ] QCAI stage 1 and 2 on Books.sol; docs/AUDIT.md.

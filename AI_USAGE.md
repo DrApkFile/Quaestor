@@ -29,6 +29,7 @@ Filled in as the build goes. One row per meaningful piece of work.
 | M1 review fixes | Codex preserved native diagnostics, estimated gas, funded and ran fUSD conversion plus a 50-fUSD shield, and corrected docs | builder supplied Claude’s approval and three required fixes; deferred two should-fixes to M3 | docs/reviews/M1-review.md; docs/handoff/M1-fixes.md; evidence/m1b-fusd.json; evidence/m1-gas.json; evidence/m1-gas-policy.json |
 | M2 post-quantum tickets | Codex implemented verified registry-bound cards, hybrid tickets, journal ownership isolation and separate-process memo discovery/spending; ran the live Diana flow | builder supplied Claude’s approved scope and offline S15 result; M2 review pending | docs/briefs/M2.md; docs/handoff/M2.md; evidence/m2-ticket.json; cards/ |
 | M5 chain storage and browser foundations | Codex built BlobBoard, legacy compatibility checks, browser vault/onboarding and read-only audit; ran live chain and Chromium evidence | builder chose on-chain storage/Vercel, authorized the legacy owner-signed mapping design and required ciphertext anchors going forward | docs/briefs/M5.md; DECISIONS D14/D15; evidence/m5-blobs.json; evidence/m5-web.json |
+| M6 browser business workflows | Codex adapted the builder’s Muuve style, implemented browser journal/payment/book services and Playwright evidence | builder approved M5, specified browser scope and corrected the impossible note-consolidation assumption (D16) | docs/briefs/M6.md; docs/design/muuve-style.md; DECISIONS D16 |
 
 ## What the AI got wrong, and how it was caught
 Kept honestly; an empty table here would not be believable.
@@ -39,6 +40,7 @@ Kept honestly; an empty table here would not be believable.
 | 2026-11-20 | Gloam SDK proof spike hung for 10 minutes | process at 0% CPU | snarkjs `singleThread: true`; recorded in REALITY_SPIKES S02 |
 | 2026-11-21 | M4 opening/close anchors hashed plaintext; guessable demo opening balances could be brute-forced | M5 storage integration exposed the mismatch and builder specified the remedy | owner-signed legacy mappings, disclosed-demo labels and ciphertext anchors for all new records (D15) |
 | 2026-11-21 | Initial browser relay policy omitted the SDK’s hash-only tx_search used to read receipts | extended Chromium cache/SDK receipt spike failed | allow only tx.hash-specific search; corrected spike passed, failed evidence retained |
+| 2026-11-22 | M6 brief suggested consolidating notes by sending to self; the pinned pool spends one note into two and cannot merge | installed SDK/pool inspection during browser implementation | builder chose at most four covering notes or CONSOLIDATION_UNSUPPORTED, withdrew self-send consolidation and added multi-proof coverage to ROADMAP (D16) |
 
 ## Limits
 AI output is never treated as verified until a test, spike or chain transaction confirms it. Claims in the README come only from CLAIMS.md entries marked PROVEN.
