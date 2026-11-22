@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@cosmjs/stargate": "0.39.0",
     "@gloamtrade/sdk": "0.8.0",
     "@noble/curves": "1.9.7",
     "@qorechain/evm": "0.14.0",

@@ -1,0 +1,10 @@
+{
+  "command": "pnpm evidence --m6-funding",
+  "at": "2026-11-22T01:49:27.110Z",
+  "purpose": "public demo setup funding; browser payments remain separate",
+  "amountUqor": "5000000",
+  "hash": "FF9BF8CEBE0EDAAF14C8A3C836462683D5EFA4A0F3D5E9C776ED46185DFA349E",
+  "height": 10526901,
+  "gasUsed": "187117",
+  "code": 0
+}
