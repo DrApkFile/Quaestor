@@ -32,6 +32,9 @@ try {
   run('forge', ['--version'], root.pathname);
   run('git', ['clone', '--no-hardlinks', root.pathname, clone], directory);
   run('git', ['rev-parse', 'HEAD'], clone);
+  if (existsSync(join(clone, '.accounts')) || existsSync(join(clone, '.env')))
+    throw new Error('PRIVATE_FIXTURES_IN_CLONE');
+  writeSync(fd, 'Private account fixtures and root .env absent from the fresh clone.\n');
   run('pnpm', ['install', '--frozen-lockfile'], clone);
   run('bash', ['scripts/vendor-gloam.sh'], clone);
   run('git', ['diff', '--exit-code', '--', 'contracts/vendor/gloam/'], clone);

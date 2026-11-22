@@ -7,7 +7,7 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint server src test e2e vite.config.ts playwright.config.ts vitest.config.ts ../../api",
+    "lint": "eslint server src test e2e vite.config.ts playwright.config.ts playwright.cover.config.ts vitest.config.ts ../../api",
     "test": "vitest run --config vitest.config.ts",
     "test:e2e": "playwright test"
   },
