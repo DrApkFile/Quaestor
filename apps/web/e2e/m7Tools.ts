@@ -7,7 +7,10 @@ export async function payment(payer: Page, payee: Page, role: string, amount: st
     await prepare(payer);
   await send(payer, roleFixture(role).address, amount, count);
   await scan(payee);
-  if (bookOwner) await bookEntries(bookOwner);
+  if (bookOwner) {
+    await prepare(bookOwner);
+    await bookEntries(bookOwner);
+  }
 }
 export async function grant(page: Page, who: string, period: string, bookId: string) {
   const txs = (await snapshot(page)).transactions;
