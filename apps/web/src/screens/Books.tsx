@@ -142,7 +142,8 @@ export function Books(props: ScreenProps) {
       )}
       {!book && runtime.state.payments.length > 0 && (
         <aside className="notice">
-          {runtime.state.payments.length} payments are Not booked. Create a book to record them.
+          {runtime.state.payments.length} {runtime.state.payments.length === 1 ? 'payment is' : 'payments are'} Not
+          booked. Create a book to record them.
         </aside>
       )}
     </section>

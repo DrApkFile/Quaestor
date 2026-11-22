@@ -82,15 +82,15 @@ export function PublicView() {
           <div className="stats">
             <div className="panel">
               <strong>{value.entries.length}</strong>
-              <span>anchored entries</span>
+              <span>{value.entries.length === 1 ? 'anchored entry' : 'anchored entries'}</span>
             </div>
             <div className="panel">
               <strong>{value.periods.length}</strong>
-              <span>periods</span>
+              <span>{value.periods.length === 1 ? 'period' : 'periods'}</span>
             </div>
             <div className="panel">
               <strong>{value.grants.length}</strong>
-              <span>grants</span>
+              <span>{value.grants.length === 1 ? 'grant' : 'grants'}</span>
             </div>
           </div>
           <h2>Periods</h2>
