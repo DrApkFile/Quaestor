@@ -6,6 +6,13 @@ import { imageScanSecrets } from './m8Secrets.js';
 import { fundM7 } from './m7-funding.js';
 const run = z.enum(['m7b', 'm8-privacy']).parse(process.argv[2]?.slice(2));
 process.env.QUAESTOR_DEMO_RUN = run;
+if (run === 'm7b') {
+  z.object({ status: z.literal('PASSED'), label: z.literal('Privacy test (demo)') })
+    .passthrough()
+    .parse(
+      JSON.parse(readFileSync(new URL('../evidence/m8-privacy-browser.json', import.meta.url), 'utf8')) as unknown,
+    );
+}
 const root = new URL('../', import.meta.url),
   directory = new URL(`.accounts/${run}-browser/`, root);
 mkdirSync(new URL('tmp/', directory), { recursive: true, mode: 0o700 });

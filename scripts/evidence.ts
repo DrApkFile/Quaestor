@@ -23,7 +23,7 @@ else if (process.argv[2] === '--m8-presubmit') await import('./m8-presubmit.js')
 else if (process.argv[2] === '--m8-kits') await import('./m8-kits.js');
 else if (process.argv[2] === '--m8-cover') await import('./m8-cover.js');
 else if (['--m7b', '--m8-privacy'].includes(process.argv[2] ?? '')) await import('./m8-demo.js');
-else if (process.argv[2] === '--m7') await import('./m7-browser.js');
+else if (process.argv[2] === '--m7') throw new Error('M7_RUN_SUPERSEDED_USE_M7B_OR_M8_PRIVACY');
 else if (process.argv[2] === '--m6') await import('./m6-browser.js');
 else if (process.argv[2] === '--m6-funding') await import('./m6-funding.js');
 else throw new Error('Specify an implemented milestone evidence command.');
