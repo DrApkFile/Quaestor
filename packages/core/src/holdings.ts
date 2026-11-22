@@ -10,7 +10,13 @@ const assetId = z.string().regex(/^0x[\da-fA-F]{40}$/);
 export const balancesSchema = z.record(assetId, uint);
 export type Balances = z.infer<typeof balancesSchema>;
 export const openingSchema = z
-  .object({ v: z.literal(1), book: hex32, openingBalance: balancesSchema, at: z.string().datetime() })
+  .object({
+    v: z.literal(1),
+    book: hex32,
+    openingBalance: balancesSchema,
+    periodLength: z.enum(['Quarterly', 'Daily (demo-scale)']).optional(),
+    at: z.string().datetime(),
+  })
   .strict();
 export const holdingsCloseSchema = closeSchema
   .extend({

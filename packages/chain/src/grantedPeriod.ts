@@ -136,6 +136,7 @@ export async function grantedPeriod(
   return {
     id: period.id,
     label: grant.record.period,
+    periodLength: opening.periodLength ?? 'Daily (demo-scale)',
     kind: 'AUDITED' as const,
     entries,
     holdings,

@@ -9,3 +9,4 @@ export * from './history.js';
 export * from './holdings.js';
 export * from './records.js';
 export * from './legacy.js';
+export * from './holdingsSelection.js';

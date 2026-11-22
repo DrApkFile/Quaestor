@@ -36,6 +36,10 @@ export const entrySchema = z
     category: z.string(),
     notes: z.string(),
     receipt: receiptSchema,
+    invoice: z
+      .object({ sha3: hex32, bytes: z.number().int().min(1).max(20480) })
+      .strict()
+      .optional(),
   })
   .strict();
 export type Entry = z.infer<typeof entrySchema>;

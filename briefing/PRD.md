@@ -83,7 +83,7 @@ Close record `{book, period, entryCount, lastEntrySha3, priorSha3, closingBalanc
 `MATCHED` does not establish who the counterparty is in real life, or that every payment was booked.
 
 ## 9. Reconciliation (D5, decide by day 4)
-D5 (Claude/builder, M4): signed opening balances per asset are anchored at registration. Closing balances are previous closing balance (or opening) + Σ IN - Σ OUT - Σ cash-out fees. A context-bound Gloam funds proof (at most four distinct notes) establishes holdings at least the declared closing balance. Validate the proof against self-hosted funds_vkey.json, the root against full insertion history, and every nonzero revealed nullifier against spent at the actual close block, pinned. Consolidate to self if more than four notes are needed.
+D5 (Claude/builder, M4): signed opening balances per asset are anchored at registration. Closing balances are previous closing balance (or opening) + Σ IN - Σ OUT - Σ cash-out fees. A context-bound Gloam funds proof (at most four distinct notes) establishes holdings at least the declared closing balance. Validate the proof against self-hosted funds_vkey.json, the root against full insertion history, and every nonzero revealed nullifier against spent at the actual close block, pinned. D16 corrects the merge assumption: select up to four covering notes, or refuse CONSOLIDATION_UNSUPPORTED.
 
 Period results are HOLDINGS_COVER_BOOKS, HOLDINGS_SHORT or UNKNOWN. Never show adds up. A lower-threshold valid proof is insufficient coverage; missing/invalid proof or spent backing is UNKNOWN. This does not detect collusive hidden income or payments from unbooked funds. See DECISIONS D5 and THREAT_MODEL.md.
 

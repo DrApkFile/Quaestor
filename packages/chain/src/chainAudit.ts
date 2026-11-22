@@ -58,5 +58,8 @@ export async function auditFromChain(context: AuditConfig, book: Hex, identity: 
       cryptoRefusal,
     });
   }
-  return { book, readBlock: snapshot.block.toString(), owner: snapshot.owner, periods };
+  const periodLength =
+    periods.find((period) => period.kind === 'AUDITED')?.periodLength ??
+    (context.legacyBooks[book] ? 'Daily (demo-scale)' : 'Period length not disclosed');
+  return { periodLength, book, readBlock: snapshot.block.toString(), owner: snapshot.owner, periods };
 }
