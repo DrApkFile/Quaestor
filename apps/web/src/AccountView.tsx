@@ -1,3 +1,4 @@
+import { exportBackup, restoreJournal } from './backup.js';
 import { VaultForm } from './VaultForm.js';
 import { OnboardingSteps } from './OnboardingSteps.js';
 import { useEffect, useState, type FormEvent } from 'react';
@@ -17,6 +18,7 @@ export function AccountView({
   const [envelope, setEnvelope] = useState<VaultEnvelope | null>(null);
   const [backup, setBackup] = useState(false);
   const [passphrase, setPassphrase] = useState('');
+  const [backupPassphrase, setBackupPassphrase] = useState('');
   const [stored, setStored] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
@@ -50,6 +52,7 @@ export function AccountView({
       const mnemonic = generateMnemonic();
       const sealed = await encryptVault(mnemonic, passphrase);
       const derived = await deriveUnifiedAccount(mnemonic, 0);
+      setBackupPassphrase(passphrase);
       await saveVault(sealed);
       setEnvelope(sealed);
       setAccount(derived);
@@ -64,6 +67,8 @@ export function AccountView({
       const payload = await decryptVault(input, passphrase);
       const sealed = vaultSchema.parse(input);
       const derived = await deriveUnifiedAccount(payload.mnemonic, 0);
+      await restoreJournal(derived.cosmos, payload.journal);
+      setBackupPassphrase(passphrase);
       await saveVault(sealed);
       setAccount(derived);
       setEnvelope(sealed);
@@ -78,6 +83,7 @@ export function AccountView({
       if (!saved) throw new Error('INVALID_PASSPHRASE_OR_BACKUP');
       const payload = await decryptVault(saved.envelope, passphrase);
       const derived = await deriveUnifiedAccount(payload.mnemonic, 0);
+      setBackupPassphrase(passphrase);
       setAccount(derived);
       setEnvelope(saved.envelope);
       setBackup(saved.backupDownloaded);
@@ -86,20 +92,21 @@ export function AccountView({
       await refresh(derived);
     });
   const download = () => {
-    if (!envelope) return;
-    const url = URL.createObjectURL(new Blob([JSON.stringify(envelope)], { type: 'application/json' }));
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.download = 'quaestor-testnet-encrypted-backup.json';
-    anchor.click();
-    URL.revokeObjectURL(url);
+    if (!account || !envelope) return;
     void task(async () => {
-      await saveVault(envelope, true);
+      const complete = await exportBackup(account, backupPassphrase);
+      const url = URL.createObjectURL(new Blob([JSON.stringify(complete)], { type: 'application/json' }));
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = 'quaestor-testnet-encrypted-backup.json';
+      anchor.click();
+      URL.revokeObjectURL(url);
+      setEnvelope(complete);
+      setBackupPassphrase('');
+      await saveVault(complete, true);
       setBackup(true);
-      if (account) {
-        await onReady?.(account);
-        await refresh(account);
-      }
+      await onReady?.(account);
+      await refresh(account);
     });
   };
   const act = (kind: 'pq' | 'kem' | 'card') =>
@@ -142,8 +149,20 @@ export function AccountView({
         <p>
           {backup ? 'Backup download completed.' : 'Download an encrypted backup before any transaction is enabled.'}
         </p>
-        <button disabled={busy} onClick={download}>
-          Download encrypted backup
+        <label>
+          Backup passphrase
+          <input
+            type="password"
+            autoComplete="off"
+            value={backupPassphrase}
+            onChange={(event) => {
+              setBackupPassphrase(event.target.value);
+            }}
+          />
+        </label>
+        <p>Includes account keys and the encrypted private journal. Download again after payments or booking.</p>
+        <button disabled={busy || backupPassphrase.length < 12} onClick={download}>
+          Download backup
         </button>
         <dl className="addresses">
           <dt>Native address (demo)</dt>

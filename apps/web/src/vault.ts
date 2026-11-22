@@ -3,7 +3,7 @@ import { z } from 'zod';
 const encoded = z
   .string()
   .regex(/^[A-Za-z0-9+/]+={0,2}$/)
-  .max(20000);
+  .max(64000000);
 export const vaultSchema = z
   .object({
     v: z.literal(1),
@@ -18,7 +18,15 @@ export const vaultSchema = z
   })
   .strict();
 export type VaultEnvelope = z.infer<typeof vaultSchema>;
-const payloadSchema = z.object({ mnemonic: z.string().min(12).max(512), index: z.literal(0) }).strict();
+export const journalBackupSchema = z
+  .object({
+    address: z.string().startsWith('qor1'),
+    records: z.array(z.object({ key: z.string(), value: z.unknown() }).strict()).max(100000),
+  })
+  .strict();
+const payloadSchema = z
+  .object({ mnemonic: z.string().min(12).max(512), index: z.literal(0), journal: journalBackupSchema.optional() })
+  .strict();
 const aad = new TextEncoder().encode('quaestor:vault:1:qorechain-diana');
 const encode = (bytes: Uint8Array) => btoa(Array.from(bytes, (b) => String.fromCharCode(b)).join(''));
 const decode = (value: string) => Uint8Array.from(atob(value), (character) => character.charCodeAt(0));
@@ -35,12 +43,18 @@ async function aesKey(passphrase: string, salt: Uint8Array) {
     password.fill(0);
   }
 }
-export async function encryptVault(mnemonic: string, passphrase: string): Promise<VaultEnvelope> {
+export async function encryptVault(
+  mnemonic: string,
+  passphrase: string,
+  journal?: z.infer<typeof journalBackupSchema>,
+): Promise<VaultEnvelope> {
   if (passphrase.length < 12) throw new Error('PASSPHRASE_TOO_SHORT');
   const salt = crypto.getRandomValues(new Uint8Array(32));
   const nonce = crypto.getRandomValues(new Uint8Array(12));
   const key = await aesKey(passphrase, salt);
-  const data = new TextEncoder().encode(JSON.stringify(payloadSchema.parse({ mnemonic, index: 0 })));
+  const data = new TextEncoder().encode(
+    JSON.stringify(payloadSchema.parse({ mnemonic, index: 0, ...(journal ? { journal } : {}) })),
+  );
   try {
     const ciphertext = await crypto.subtle.encrypt({ name: 'AES-GCM', iv: nonce, additionalData: aad }, key, data);
     return vaultSchema.parse({

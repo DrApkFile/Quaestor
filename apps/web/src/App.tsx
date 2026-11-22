@@ -32,6 +32,11 @@ export function App() {
           : `${value.file}: ${value.cached ? 'cached' : `${String(Math.ceil(value.loaded / 1024))} KB downloaded`}`,
       );
     });
+    try {
+      await opened.resolve();
+    } catch (error: unknown) {
+      if (!(error instanceof Error && error.message === 'OUTCOME_UNKNOWN')) throw error;
+    }
     setRuntime(opened);
     installPrivacyMonitor(opened);
   };

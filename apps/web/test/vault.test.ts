@@ -20,7 +20,17 @@ it('T-VAULT wrong passphrase fails and an encrypted backup restores the same acc
   }
   expect(privateMatcher(original, seal, [note], '{"jsonrpc":"2.0","method":"eth_blockNumber"}')).toBe(false);
   const passphrase = 'synthetic-test-passphrase-only';
-  const backup = await encryptVault(mnemonic, passphrase);
+  const journal = {
+    address: original.cosmos,
+    records: [
+      {
+        key: `${original.cosmos}:private-journal`,
+        value: { nonce: 'synthetic', ciphertext: 'encrypted synthetic journal' },
+      },
+    ],
+  };
+  const backup = await encryptVault(mnemonic, passphrase, journal);
+  expect((await decryptVault(backup, passphrase)).journal).toEqual(journal);
   expect(backup.N).toBe(131072);
   expect(JSON.stringify(backup)).not.toContain(mnemonic);
   expect(JSON.stringify(backup)).not.toContain(original.privateKey);
