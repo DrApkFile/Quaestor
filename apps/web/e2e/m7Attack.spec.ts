@@ -2,6 +2,13 @@ import { test, expect } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
 import { privacyMonitor } from './m6Privacy.js';
 import { shots } from './m7Tools.js';
+import { freshAuditors } from './m7FreshAuditors.js';
+test('T-NOPLAIN-WEB M7 public auditor backup and B-only access work in separate fresh contexts', async ({
+  browser,
+}) => {
+  test.setTimeout(900000);
+  await freshAuditors(browser);
+});
 test('T-NOPLAIN-WEB M7 attack lab reads four chain cases and never broadcasts', async ({ browser }) => {
   test.setTimeout(600000);
   const context = await browser.newContext();

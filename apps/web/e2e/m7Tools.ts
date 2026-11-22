@@ -43,11 +43,19 @@ export async function next(page: Page, bookId: string, count: number) {
     page.getByRole('button', { name: 'Open next Daily (demo-scale) period', exact: true }).click(),
   );
 }
-export async function audit(page: Page, bookId: string, role: string, matches: number) {
+export async function audit(
+  page: Page,
+  bookId: string,
+  role: string,
+  matches: number,
+  backup?: { file: string; passphrase: string },
+) {
   await page.goto('/app?view=auditor');
   await page.getByLabel('Audit book ID', { exact: true }).fill(bookId);
-  await page.getByLabel('Encrypted backup file', { exact: true }).setInputFiles(roleFixture(role).backup);
-  await page.getByLabel('Backup passphrase', { exact: true }).fill(fixture.password);
+  await page
+    .getByLabel('Encrypted backup file', { exact: true })
+    .setInputFiles(backup?.file ?? roleFixture(role).backup);
+  await page.getByLabel('Backup passphrase', { exact: true }).fill(backup?.passphrase ?? fixture.password);
   await page.getByRole('button', { name: 'Open granted period', exact: true }).click();
   await expect(page.getByTestId('entry-verdict')).toHaveCount(matches, { timeout: 300000 });
   for (const row of await page.getByTestId('entry-verdict').all()) await expect(row).toHaveText('MATCHED');
