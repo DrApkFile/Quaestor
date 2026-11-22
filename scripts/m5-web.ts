@@ -15,7 +15,7 @@ const backup = await encryptVault(account.mnemonic, passphrase);
 const path = new URL('auditor-backup.json', folder);
 writeFileSync(path, JSON.stringify(backup), { mode: 0o600 });
 const start = performance.now();
-const result = spawnSync('pnpm', ['-C', 'apps/web', 'test:e2e'], {
+const result = spawnSync('pnpm', ['-C', 'apps/web', 'test:e2e', 'readers.spec.ts'], {
   cwd: root,
   stdio: 'inherit',
   env: { ...process.env, QUAESTOR_AUDITOR_BACKUP: path.pathname, QUAESTOR_AUDITOR_PASSWORD: passphrase },

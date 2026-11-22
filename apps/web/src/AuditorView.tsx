@@ -1,3 +1,4 @@
+import { installAuditPrivacy } from './privacy.js';
 import { useState, type FormEvent } from 'react';
 import { deriveUnifiedAccount } from '@qorechain/sdk';
 import { deriveSealKeys } from '@qorechain/qoreseal';
@@ -7,6 +8,7 @@ import { readerConfig, deployment } from './client.js';
 import { errorMessage } from './messages.js';
 import type { DownloadProgress } from './circuits.js';
 export function AuditorView() {
+  const [bookId, setBookId] = useState(new URLSearchParams(location.search).get('book') ?? deployment.demo.honest);
   const [file, setFile] = useState<File | null>(null);
   const [passphrase, setPassphrase] = useState('');
   const [busy, setBusy] = useState(false);
@@ -25,8 +27,9 @@ export function AuditorView() {
       setPassphrase('');
       const account = await deriveUnifiedAccount(payload.mnemonic, 0);
       const keys = deriveSealKeys({ mnemonic: payload.mnemonic, index: 0 });
+      installAuditPrivacy(account, keys);
       setValue(
-        await auditFromChain(readerConfig(setProgress), deployment.demo.honest, {
+        await auditFromChain(readerConfig(setProgress), bookId as `0x${string}`, {
           address: account.cosmos,
           keys,
         }),
@@ -43,12 +46,21 @@ export function AuditorView() {
         <p className="eyebrow">Auditor (demo)</p>
         <h1>Open only the granted period.</h1>
         <p>
-          Load the auditor’s encrypted backup to verify the M4 honest book. Ciphertexts come from BlobBoard; decryption
-          and proof verification run in this browser.
+          Load the auditor’s encrypted backup to verify the chosen demo book. Ciphertexts come from BlobBoard;
+          decryption and proof verification run in this browser.
         </p>
       </div>
       <form className="panel narrow" onSubmit={(event) => void run(event)}>
         <h2>Auditor backup (demo)</h2>
+        <label htmlFor="auditor-book">Audit book ID</label>
+        <input
+          id="auditor-book"
+          required
+          value={bookId}
+          onChange={(event) => {
+            setBookId(event.target.value);
+          }}
+        />
         <label htmlFor="auditor-backup">Encrypted backup file</label>
         <input
           id="auditor-backup"
@@ -106,7 +118,9 @@ export function AuditorView() {
           </div>
           {value.periods.map((period) => (
             <article className="panel period-result" key={period.id}>
-              <h2>{period.label} (demo)</h2>
+              <h2>
+                {period.label} · {value.periodLength} (demo)
+              </h2>
               {period.kind === 'AUDITED' ? (
                 <>
                   <span

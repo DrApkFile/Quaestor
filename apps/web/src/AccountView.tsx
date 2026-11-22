@@ -6,7 +6,13 @@ import { encryptVault, decryptVault, vaultSchema, type VaultEnvelope } from './v
 import { saveVault, loadVault } from './db.js';
 import { onboardingStatus, registerPQ, registerKEM, publishCard } from './onboarding.js';
 import { errorMessage } from './messages.js';
-export function AccountView() {
+export function AccountView({
+  onReady,
+  onLock,
+}: {
+  onReady?: (account: UnifiedAccount) => Promise<void>;
+  onLock?: () => void;
+}) {
   const [account, setAccount] = useState<UnifiedAccount | null>(null);
   const [envelope, setEnvelope] = useState<VaultEnvelope | null>(null);
   const [backup, setBackup] = useState(false);
@@ -75,6 +81,7 @@ export function AccountView() {
       setAccount(derived);
       setEnvelope(saved.envelope);
       setBackup(saved.backupDownloaded);
+      if (saved.backupDownloaded) await onReady?.(derived);
       setPassphrase('');
       await refresh(derived);
     });
@@ -89,6 +96,7 @@ export function AccountView() {
     void task(async () => {
       await saveVault(envelope, true);
       setBackup(true);
+      if (account) await onReady?.(account);
     });
   };
   const act = (kind: 'pq' | 'kem' | 'card') =>
@@ -148,6 +156,7 @@ export function AccountView() {
             className="secondary"
             disabled={busy}
             onClick={() => {
+              onLock?.();
               setAccount(null);
               setStatus(null);
               setStored(true);

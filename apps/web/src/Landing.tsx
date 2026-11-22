@@ -1,6 +1,6 @@
 import './landing.css';
 const evidence = 'https://github.com/DrApkFile/Quaestor/blob/master/evidence/';
-const steps = [
+const steps: readonly (readonly [string, string, string, string])[] = [
   [
     'Private payments',
     'Shield, send and receive through our deployment of Gloam’s open-source pool.',
@@ -21,7 +21,7 @@ const steps = [
     'rose',
   ],
 ];
-const requirements = [
+const requirements: readonly (readonly [string, string, string])[] = [
   ['ML-KEM-1024 encryption', 'Anonymous hybrid tickets opened by the intended recipient.', 'm2b-ticket-anonymous.json'],
   ['Registered recipient keys', 'Recipient cards checked against the QoreChain registries.', 'm2-ticket.json'],
   ['ML-DSA key binding', 'Signatures and possession-proven on-chain signing keys.', 'm3-precompiles.json'],

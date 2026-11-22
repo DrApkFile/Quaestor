@@ -32,7 +32,7 @@ test('T-NOPLAIN-M5 Public check and Auditor read the live M4 book without leakin
     } else await route.continue();
   });
   await page.setViewportSize({ width: 1440, height: 1000 });
-  const response = await page.goto('/');
+  const response = await page.goto('/app?view=public');
   expect(response?.headers()['content-security-policy']).toContain("'wasm-unsafe-eval'");
   await page.getByRole('button', { name: 'Check chain', exact: true }).click();
   await expect(page.getByText('anchored entries', { exact: true })).toBeVisible({ timeout: 180000 });
