@@ -37,6 +37,7 @@ try {
   writeSync(fd, 'Private account fixtures and root .env absent from the fresh clone.\n');
   run('pnpm', ['install', '--frozen-lockfile'], clone);
   run('bash', ['scripts/vendor-gloam.sh'], clone);
+  run('pnpm', ['-C', 'contracts', 'forge-std'], clone);
   run('git', ['diff', '--exit-code', '--', 'contracts/vendor/gloam/'], clone);
   run('pnpm', ['gate'], clone);
   run('pnpm', ['-C', 'apps/web', 'build'], clone);
