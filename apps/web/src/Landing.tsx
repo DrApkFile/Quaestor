@@ -8,12 +8,7 @@ const steps: readonly (readonly [string, string, string, string])[] = [
     'sage',
   ],
   ['Sealed books', 'Period-key encryption and the business’s ML-DSA-87 signatures.', 'BookOpen', 'lemon'],
-  [
-    'One quarter for your auditor',
-    'Grant a single period. The populated next demo period stays closed to the auditor.',
-    'KeyRound',
-    'peach',
-  ],
+  ['One quarter for your auditor', 'Grant one period. Every other period stays sealed.', 'KeyRound', 'peach'],
   [
     'Checked against the chain',
     'Receipt verdicts and a holdings lower bound at the period’s close block.',
@@ -129,6 +124,7 @@ export function Landing() {
       </main>
       <footer>
         <span>Quaestor · QoreChain Diana</span>
+        <a href="/attack-lab">Attack lab (demo)</a>
         <a href="https://github.com/DrApkFile/Quaestor/blob/master/THREAT_MODEL.md">Threat model ↗</a>
       </footer>
     </div>

@@ -27,6 +27,7 @@ export const entrySchema = z
     period: periodId,
     index: z.number().int().nonnegative().safe(),
     prevEntrySha3: hex32,
+    date: z.string().datetime().optional(),
     direction: z.enum(['IN', 'OUT']),
     asset: address,
     amount: uint,

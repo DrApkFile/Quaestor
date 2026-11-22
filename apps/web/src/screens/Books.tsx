@@ -3,6 +3,7 @@ import { createBook, nextPeriod } from '../business/books.js';
 import { closePeriod } from '../business/close.js';
 import type { Book } from '../business/schema.js';
 import type { ScreenProps } from './types.js';
+import { OwnerLedger } from './OwnerLedger.js';
 import { EntryForm } from './EntryForm.js';
 export function Books(props: ScreenProps) {
   const { runtime, run, busy } = props;
@@ -100,15 +101,10 @@ export function Books(props: ScreenProps) {
                   {period.id} · {book.mode}
                 </h2>
                 <p>
-                  {period.closed ? 'Closed' : 'Open'} · {period.entries.length} entries
+                  {period.closed ? 'Closed' : 'Open'} · {period.entries.length}{' '}
+                  {period.entries.length === 1 ? 'entry' : 'entries'}
                 </p>
-                {period.entries.map((value) => (
-                  <p key={value.artifact.index}>
-                    Entry {value.artifact.index + 1} ·{' '}
-                    <span className="badge">{value.anchored ? 'ANCHORED' : 'UNANCHORED'}</span> ·{' '}
-                    {value.artifact.blobSha3.slice(0, 16)}…
-                  </p>
-                ))}
+                <OwnerLedger runtime={runtime} book={book} period={period} />
               </article>
             ))}
           </div>

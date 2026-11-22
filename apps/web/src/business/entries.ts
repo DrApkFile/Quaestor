@@ -59,12 +59,15 @@ export async function bookPayment(runtime: BusinessRuntime, book: Book, payment:
       await runtime.storage.put(`invoice-${payment.id}`, Array.from(blob));
       await post(runtime, `invoice-${payment.id}`, 'invoice', blob);
     }
+    const memoReceipt = payment.memo ? await client.getTransactionReceipt({ hash: payment.memo }) : null;
+    const paymentBlock = memoReceipt ? await client.getBlock({ blockNumber: memoReceipt.blockNumber }) : null;
     const entry = {
       v: 1 as const,
       book: book.id,
       period: period.id,
       index,
       prevEntrySha3: period.entries.at(-1)?.artifact.blobSha3 ?? zeroHash,
+      ...(paymentBlock ? { date: new Date(Number(paymentBlock.timestamp) * 1000).toISOString() } : {}),
       direction: payment.direction,
       asset: payment.note.asset,
       amount: payment.note.amountWei,

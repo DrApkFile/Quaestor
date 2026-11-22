@@ -1,3 +1,4 @@
+import { Ledger } from './Ledger.js';
 import { installAuditPrivacy } from './privacy.js';
 import { useState, type FormEvent } from 'react';
 import { deriveUnifiedAccount } from '@qorechain/sdk';
@@ -134,25 +135,15 @@ export function AuditorView() {
                     Holdings checked at close block {period.closeBlock}. This is a lower-bound check, not a complete
                     income audit.
                   </p>
-                  <div className="entry-results">
-                    {period.entries.map((entry) => (
-                      <div className="entry-result" key={entry.index}>
-                        <div>
-                          <h3>Entry {entry.index + 1} (demo)</h3>
-                          <p className="hash">{entry.blobSha3}</p>
-                        </div>
-                        <div>
-                          <span
-                            className={`badge ${entry.verdict.kind === 'MATCHED' ? 'good' : entry.verdict.kind === 'UNKNOWN' ? 'unknown' : 'bad'}`}
-                            data-testid="entry-verdict"
-                          >
-                            {entry.verdict.kind}
-                          </span>
-                          <p className="reason">{entry.verdict.reason}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  <p className="notice">{period.openingBasis}</p>
+                  <Ledger
+                    rows={period.entries.map((row) => ({
+                      entry: row.entry,
+                      verdict: row.verdict,
+                      blobSha3: row.blobSha3,
+                      anchorHash: row.anchorHash,
+                    }))}
+                  />
                   {period.legacyRecordsVerified && (
                     <p className="muted">
                       Legacy record mappings, owner signatures and decrypted plaintext anchors verified.
