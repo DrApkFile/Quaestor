@@ -7,8 +7,9 @@ import { unlock, navigate, action, prepare, snapshot, checkpoint, storage, bookE
 import { privacyMonitor } from './m6Privacy.js';
 import { restoreCompleteBackup } from './m7Backup.js';
 import { payment, close, grant, next, audit, shots, step } from './m7Tools.js';
-test('T-NOPLAIN-WEB M7 Northwind A/B closed, C private, complete backup and B-only grant', async ({ browser }) => {
+test('T-NOPLAIN-WEB daily A/B closed, C private, complete backup and B-only grant', async ({ browser }) => {
   test.setTimeout(3600000);
+  const run = process.env.QUAESTOR_DEMO_RUN ?? 'm7';
   const plan = z
     .object({ client: z.number(), business: z.number(), oldBooks: z.array(z.string()) })
     .strict()
@@ -44,7 +45,7 @@ test('T-NOPLAIN-WEB M7 Northwind A/B closed, C private, complete backup and B-on
       await bookEntries(b);
       await checkpoint(business, 'business');
       await navigate(b, 'Books');
-      await b.getByLabel('Book name', { exact: true }).fill('Northwind Studio');
+      await b.getByLabel('Book name', { exact: true }).fill(fixture.label);
       await b.getByLabel('Period length', { exact: true }).selectOption('Daily (demo-scale)');
       await action(b, () => b.getByRole('button', { name: 'Sign and create book', exact: true }).click());
       await checkpoint(business, 'business');
@@ -137,10 +138,10 @@ test('T-NOPLAIN-WEB M7 Northwind A/B closed, C private, complete backup and B-on
       network.every((value) => value.leaks === 0 && value.errors.length === 0 && value.requests === value.responses),
     ).toBe(true);
     writeFileSync(
-      '../../evidence/m7-browser.json',
+      `../../evidence/${run}-browser.json`,
       JSON.stringify(
         {
-          command: 'pnpm evidence --m7',
+          command: `pnpm evidence --${run}`,
           at: new Date().toISOString(),
           status: 'PASSED',
           label: fixture.label,
@@ -156,8 +157,8 @@ test('T-NOPLAIN-WEB M7 Northwind A/B closed, C private, complete backup and B-on
           bOnly: { A: 'NOT_GRANTED', B: ['MATCHED', 'MATCHED', 'HOLDINGS_COVER_BOOKS'], C: 'NOT_GRANTED' },
           backupRestoredPrivateBalanceMatches: true,
           network,
-          screenshots: 'evidence/m7-screens/',
-          screenshotsMaskPrivateLedgerCells: true,
+          screenshots: `evidence/${run}-screens/`,
+          screenshotsMaskPrivateLedgerCells: !fixture.publicDemo,
           openingBasis: 'opening balance as declared and signed by the business',
           notEstablished: [
             'correctness of the declared opening balance for periods after the first',
@@ -174,9 +175,9 @@ test('T-NOPLAIN-WEB M7 Northwind A/B closed, C private, complete backup and B-on
     step('PASSED');
   } catch (error: unknown) {
     writeFileSync(
-      `../../evidence/m7-attempt-${String(Date.now())}.json`,
+      `../../evidence/${run}-attempt-${String(Date.now())}.json`,
       JSON.stringify({
-        command: 'pnpm evidence --m7',
+        command: `pnpm evidence --${run}`,
         status: 'FAILED',
         stage: readFileSync(`${folder}/stage.txt`, 'utf8'),
         code: error instanceof Error ? error.name : 'FAILED',

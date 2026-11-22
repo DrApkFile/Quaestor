@@ -5,6 +5,7 @@ export const fixture = z
   .object({
     password: z.string(),
     label: z.string(),
+    publicDemo: z.boolean().optional(),
     roles: z.record(z.object({ backup: z.string(), address: z.string() }).strict()),
     canaries: z.array(z.string()).length(4),
   })

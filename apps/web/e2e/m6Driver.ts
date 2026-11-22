@@ -1,5 +1,6 @@
 import { expect, type Page, type BrowserContext } from '@playwright/test';
 import { existsSync } from 'node:fs';
+import { demoEntry } from './m8Entries.js';
 import { fixture, folder, roleFixture } from './m6Fixtures.js';
 import type { publicSnapshot } from '../src/privacy.js';
 export async function snapshot(page: Page): Promise<ReturnType<typeof publicSnapshot>> {
@@ -86,12 +87,19 @@ export async function bookEntries(page: Page) {
   await navigate(page, 'Books');
   while (await page.getByRole('button', { name: 'Prove receipt and save entry', exact: true }).count()) {
     const form = page.getByRole('button', { name: 'Prove receipt and save entry', exact: true }).first().locator('..');
-    await form.getByLabel('Counterparty name', { exact: true }).fill(fixture.canaries[0] ?? '');
-    await form.getByLabel('Purpose', { exact: true }).fill(fixture.canaries[1] ?? '');
-    await form.getByLabel('Notes', { exact: true }).fill(fixture.canaries[2] ?? '');
+    const current = (await snapshot(page)).books.at(-1);
+    const index = current?.periods.reduce((sum, period) => sum + period.count, 0) ?? 0;
+    const entry = fixture.publicDemo ? demoEntry(index) : undefined;
+    await form.getByLabel('Counterparty name', { exact: true }).fill(entry?.name ?? fixture.canaries[0] ?? '');
+    await form.getByLabel('Purpose', { exact: true }).fill(entry?.purpose ?? fixture.canaries[1] ?? '');
     await form
-      .getByLabel('Invoice attachment (optional, max 20 KB)', { exact: true })
-      .setInputFiles({ name: 'invoice.txt', mimeType: 'text/plain', buffer: Buffer.from(fixture.canaries[3] ?? '') });
+      .getByLabel('Notes', { exact: true })
+      .fill(entry ? 'Fictional testnet demonstration.' : (fixture.canaries[2] ?? ''));
+    if (entry) await form.getByLabel('Category', { exact: true }).fill(entry.category);
+    if (!entry)
+      await form
+        .getByLabel('Invoice attachment (optional, max 20 KB)', { exact: true })
+        .setInputFiles({ name: 'invoice.txt', mimeType: 'text/plain', buffer: Buffer.from(fixture.canaries[3] ?? '') });
     await action(page, () => form.getByRole('button', { name: 'Prove receipt and save entry', exact: true }).click());
   }
 }

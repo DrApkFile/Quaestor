@@ -6,9 +6,9 @@ import { z } from 'zod';
 import { loadAccount } from '../packages/chain/src/accounts.js';
 import { parseConfig } from '../packages/chain/src/config.js';
 const root = new URL('../', import.meta.url);
-export async function fundM7(role: 'client' | 'business', amount: string) {
-  const output = new URL(`evidence/m7-funding-${role}.json`, root),
-    checkpoint = new URL(`.accounts/m7-browser/funding-${role}.json`, root);
+export async function fundM7(role: 'client' | 'business', amount: string, run = 'm7') {
+  const output = new URL(`evidence/${run}-funding-${role}.json`, root),
+    checkpoint = new URL(`.accounts/${run}-browser/funding-${role}.json`, root);
   if (existsSync(output)) return;
   const config = parseConfig(JSON.parse(readFileSync(new URL('config/diana.json', root), 'utf8')) as unknown);
   const recipient = z
@@ -60,7 +60,7 @@ export async function fundM7(role: 'client' | 'business', amount: string) {
     if (!receipt) throw new Error('OUTCOME_UNKNOWN');
     if (receipt.code !== 0) throw new Error('FUNDING_REVERTED');
     const evidence = {
-      command: 'pnpm evidence --m7',
+      command: `pnpm evidence --${run}`,
       at: new Date().toISOString(),
       purpose: 'public demo setup funding; browser payments remain separate',
       role,

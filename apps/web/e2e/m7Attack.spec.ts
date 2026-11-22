@@ -11,6 +11,7 @@ test('T-NOPLAIN-WEB M7 public auditor backup and B-only access work in separate 
 });
 test('T-NOPLAIN-WEB M7 attack lab reads four chain cases and never broadcasts', async ({ browser }) => {
   test.setTimeout(600000);
+  const run = process.env.QUAESTOR_DEMO_RUN ?? 'm7';
   const context = await browser.newContext();
   const monitor = privacyMonitor(context);
   const mutations: string[] = [];
@@ -58,10 +59,10 @@ test('T-NOPLAIN-WEB M7 attack lab reads four chain cases and never broadcasts', 
     expect(network.errors).toEqual([]);
     expect(network.requests).toBe(network.responses);
     writeFileSync(
-      '../../evidence/m7-attack-browser.json',
+      `../../evidence/${run}-attack-browser.json`,
       JSON.stringify(
         {
-          command: 'pnpm evidence --m7',
+          command: `pnpm evidence --${run}`,
           at: new Date().toISOString(),
           status: 'PASSED',
           m4: ['TAMPERED', 'UNBACKED (WRONG_CONTEXT)', 'HOLDINGS_SHORT'],
@@ -70,7 +71,7 @@ test('T-NOPLAIN-WEB M7 attack lab reads four chain cases and never broadcasts', 
           transactionRequests: mutations.length,
           routing,
           network,
-          screenshots: 'evidence/m7-screens/attack-lab-{390,1440}.png',
+          screenshots: `evidence/${run}-screens/attack-lab-{390,1440}.png`,
         },
         null,
         2,
@@ -78,9 +79,9 @@ test('T-NOPLAIN-WEB M7 attack lab reads four chain cases and never broadcasts', 
     );
   } catch (error: unknown) {
     writeFileSync(
-      `../../evidence/m7-attack-attempt-${String(Date.now())}.json`,
+      `../../evidence/${run}-attack-attempt-${String(Date.now())}.json`,
       JSON.stringify({
-        command: 'pnpm evidence --m7',
+        command: `pnpm evidence --${run}`,
         status: 'FAILED',
         code: error instanceof Error ? error.name : 'FAILED',
         network: await monitor.finish(),

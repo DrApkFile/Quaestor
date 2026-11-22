@@ -7,10 +7,11 @@ import { audit, shots } from './m7Tools.js';
 import { privacyMonitor } from './m6Privacy.js';
 import { navigate } from './m6Driver.js';
 export async function freshAuditors(browser: Browser) {
+  const run = process.env.QUAESTOR_DEMO_RUN ?? 'm7';
   const { bookId } = z
     .object({ bookId: hex32 })
     .passthrough()
-    .parse(JSON.parse(readFileSync('../../evidence/m7-browser.json', 'utf8')) as unknown);
+    .parse(JSON.parse(readFileSync(`../../evidence/${run}-browser.json`, 'utf8')) as unknown);
   const results = [];
   for (const role of ['auditor', 'client'] as const) {
     const context = await browser.newContext();
@@ -56,9 +57,9 @@ export async function freshAuditors(browser: Browser) {
       });
     } catch (error: unknown) {
       writeFileSync(
-        `../../evidence/m7-fresh-auditor-attempt-${String(Date.now())}.json`,
+        `../../evidence/${run}-fresh-auditor-attempt-${String(Date.now())}.json`,
         JSON.stringify({
-          command: 'pnpm evidence --m7',
+          command: `pnpm evidence --${run}`,
           status: 'FAILED',
           role,
           code: error instanceof Error ? error.name : 'FAILED',
@@ -72,9 +73,9 @@ export async function freshAuditors(browser: Browser) {
     }
   }
   writeFileSync(
-    '../../evidence/m7-fresh-auditors.json',
+    `../../evidence/${run}-fresh-auditors.json`,
     JSON.stringify(
-      { command: 'pnpm evidence --m7', at: new Date().toISOString(), status: 'PASSED', bookId, results },
+      { command: `pnpm evidence --${run}`, at: new Date().toISOString(), status: 'PASSED', bookId, results },
       null,
       2,
     ) + '\n',
