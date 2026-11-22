@@ -97,11 +97,13 @@ if (recheck || !existsSync(new URL('evidence/m7-browser.json', root))) {
 const { duplicateM7 } = await import('../packages/chain/scripts/m7Duplicate.js');
 await duplicateM7();
 if (m7Command('build-final', ['-C', 'apps/web', 'build'], path.pathname, secrets) !== 0) process.exit(1);
-process.exitCode = m7Command(
+const filter = process.env.QUAESTOR_M7_TEST_FILTER;
+const exitCode = m7Command(
   'attack',
-  ['-C', 'apps/web', 'exec', 'playwright', 'test', 'm7Attack.spec.ts'],
+  ['-C', 'apps/web', 'exec', 'playwright', 'test', 'm7Attack.spec.ts', ...(filter ? ['--grep', filter] : [])],
   path.pathname,
   secrets,
 );
-if (process.exitCode === 0)
+if (exitCode === 0)
   console.log('M7 PASSED: browser journey, backup, B-only grant, and read-only anchored attack cases.');
+process.stdout.write('', () => process.exit(exitCode));

@@ -2,6 +2,8 @@ import type { BrowserContext, Page } from '@playwright/test';
 import { fixture } from './m6Fixtures.js';
 export function privacyMonitor(context: BrowserContext) {
   const pending: Promise<void>[] = [];
+  const active = new Map<number, { path: string; phase: string }>();
+  let responseSequence = 0;
   let sequence = 0;
   const leaks: string[] = [];
   const errors: string[] = [];
@@ -26,17 +28,20 @@ export function privacyMonitor(context: BrowserContext) {
     });
   });
   context.on('response', (response) => {
+    const id = ++responseSequence;
+    const progress = { path: new URL(response.url()).pathname, phase: 'HEADERS' };
+    active.set(id, progress);
     const work = (async () => {
       const request = response.request();
       console.log(`M6 response ${String(response.status())} ${new URL(request.url()).pathname}`);
       if (!request.frame().page().isClosed()) {
-        await inspect(
-          request.frame().page(),
-          response.url() + JSON.stringify(await response.allHeaders()),
-          request.isNavigationRequest(),
-        );
+        const headers = await response.allHeaders();
+        progress.phase = 'HEADER_PRIVACY_CHECK';
+        await inspect(request.frame().page(), response.url() + JSON.stringify(headers), request.isNavigationRequest());
+        progress.phase = 'BODY';
         const bytes = await response.body();
         responses++;
+        progress.phase = 'PAYLOAD_PRIVACY_CHECK';
         for (let offset = 0; offset < bytes.length; offset += 1048576) {
           const part = bytes.subarray(Math.max(0, offset - 262144), offset + 1048576);
           await inspect(
@@ -46,9 +51,13 @@ export function privacyMonitor(context: BrowserContext) {
           );
         }
       }
-    })().catch(() => {
-      errors.push('RESPONSE_INSPECTION_FAILED');
-    });
+    })()
+      .catch(() => {
+        errors.push('RESPONSE_INSPECTION_FAILED');
+      })
+      .finally(() => {
+        active.delete(id);
+      });
     pending.push(work);
   });
   const start = async () => {
@@ -78,7 +87,17 @@ export function privacyMonitor(context: BrowserContext) {
   return {
     start,
     async finish() {
-      await Promise.all(pending);
+      let inspectionTimeout: ReturnType<typeof setTimeout> | undefined;
+      const completed = await Promise.race([
+        Promise.all(pending).then(() => true),
+        new Promise<boolean>((resolve) => {
+          inspectionTimeout = setTimeout(() => {
+            resolve(false);
+          }, 30000);
+        }),
+      ]);
+      clearTimeout(inspectionTimeout);
+      if (!completed) errors.push('RESPONSE_INSPECTION_TIMEOUT');
       for (const page of context.pages()) {
         if (!page.isClosed()) {
           const violations: unknown = await page.evaluate(
@@ -87,7 +106,7 @@ export function privacyMonitor(context: BrowserContext) {
           if (Array.isArray(violations) && violations.length > 0) errors.push('CSP_VIOLATION');
         }
       }
-      return { requests, responses, leaks: leaks.length, errors };
+      return { requests, responses, leaks: leaks.length, errors, pendingInspections: [...active.values()] };
     },
   };
 }
