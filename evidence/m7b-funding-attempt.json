@@ -1,12 +1,12 @@
 {
   "command": "pnpm evidence --m8-funding-diagnostics",
-  "at": "2026-11-23T00:26:37.980Z",
+  "at": "2026-11-23T02:05:20.575Z",
   "status": "REVERTED",
   "hash": "25F77B978990661439B49272B4341A55B307C9DD25386E1028B077B02366E0E8",
   "height": 10583845,
   "code": 5,
   "rawLog": "failed to execute message; message index: 0: spendable balance 1301832uqor is smaller than 10000000uqor: insufficient funds",
-  "balanceBlock": "10583900",
+  "balanceBlock": "10588047",
   "balances": [
     {
       "role": "deployer",
@@ -16,12 +16,12 @@
     {
       "role": "client",
       "address": "0x979E7B1e4548b2C8cf13158425539a720C25E0D7",
-      "publicQor": "11.349089663"
+      "publicQor": "9.267433795"
     },
     {
       "role": "business",
       "address": "0x61D3d2B524ef290C13ec8580Bf83D85b9AD332ab",
-      "publicQor": "20.803604476"
+      "publicQor": "17.836347921"
     }
   ],
   "scope": "Setup funding only; no book or payment was created by this failed M7b attempt. Existing signed checkpoint is retained and not rebroadcast."

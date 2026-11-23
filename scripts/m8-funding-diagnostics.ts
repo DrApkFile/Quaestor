@@ -11,7 +11,10 @@ const saved = z
   .parse(JSON.parse(readFileSync(new URL('.accounts/m7b-browser/funding-client.json', root), 'utf8')) as unknown);
 const native = await StargateClient.connect(config.consensusRpc);
 try {
-  const receipt = await native.getTx(saved.hash);
+  const receipt = z
+    .object({ hash: z.string(), height: z.number().int(), code: z.number().int(), rawLog: z.string() })
+    .nullable()
+    .parse(await native.getTx(saved.hash));
   if (!receipt) throw new Error('FUNDING_OUTCOME_UNKNOWN');
   const client = createPublicClient({ transport: http(config.evmRpc) });
   const block = await client.getBlockNumber({ cacheTime: 0 });
