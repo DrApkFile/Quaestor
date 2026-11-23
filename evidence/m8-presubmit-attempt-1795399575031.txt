@@ -1,0 +1,167 @@
+pnpm evidence --m8-presubmit
+Started: 2026-11-23T02:00:16.312Z
+Fresh local clone; shared machine tools/package cache, no account fixtures copied.
+
+$ node --version
+v24.19.0
+
+exit=0 signal=none
+
+$ pnpm --version
+9.15.0
+
+exit=0 signal=none
+
+$ forge --version
+forge Version: 1.10.0
+Commit SHA: 083e22994195d6a7e3ad3104d0b57f478c9b9062
+Build Timestamp: 2026-11-19T15:37:35.100584945Z (1795102655)
+Build Profile: build
+
+exit=0 signal=none
+
+$ git clone --no-hardlinks /home/kingghidorah/Documents/projects/bounties/quaestor/ /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo
+Cloning into '/home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo'...
+done.
+
+exit=0 signal=none
+
+$ git rev-parse HEAD
+19d3a7bf421749e474ce9e265bd112ec0c66e381
+
+exit=0 signal=none
+Private account fixtures and root .env absent from the fresh clone.
+
+$ pnpm install --frozen-lockfile
+Scope: all 7 workspace projects
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +386
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 386, reused 334, downloaded 0, added 0
+Progress: resolved 386, reused 380, downloaded 0, added 275
+Progress: resolved 386, reused 380, downloaded 0, added 385
+Progress: resolved 386, reused 380, downloaded 0, added 386, done
+
+dependencies:
++ cosmjs-types 0.11.0
++ zod 3.24.2
+
+devDependencies:
++ @eslint/js 9.39.1
++ @playwright/test 1.65.1
++ eslint 9.39.1
++ prettier 3.6.2
++ typescript 5.6.3
++ typescript-eslint 8.46.4
+
+Done in 6.3s
+
+exit=0 signal=none
+
+$ bash scripts/vendor-gloam.sh
+./script/KeyCheckProofs.sol: OK
+./src/GloamPayMemo.sol: OK
+./src/interfaces/IAggregatorV3.sol: OK
+./src/interfaces/IShieldPool.sol: OK
+./src/interfaces/IVerifier.sol: OK
+./src/lib/ChangeTimelock.sol: OK
+./src/lib/IncrementalMerkleTreePoseidon.sol: OK
+./src/lib/IncrementalMerkleTree.sol: OK
+./src/lib/IPoseidon.sol: OK
+./src/lib/MerkleProof.sol: OK
+./src/lib/NoteLibPoseidon.sol: OK
+./src/lib/NoteLib.sol: OK
+./src/lib/OracleRates.sol: OK
+./src/ShieldPoolCore.sol: OK
+./src/ShieldPoolPayments.sol: OK
+./src/verifiers/DualProofVerifier.sol: OK
+./src/verifiers/final/ShieldIVerifierFinal.sol: OK
+./src/verifiers/final/ShieldVerifierFinal.sol: OK
+./src/verifiers/final/TransferIVerifierFinal.sol: OK
+./src/verifiers/final/TransferVerifierFinal.sol: OK
+./src/verifiers/final/UnshieldIVerifierFinal.sol: OK
+./src/verifiers/final/UnshieldVerifierFinal.sol: OK
+vendored gloam@d8db1e6c805c5887678fa2c6c82ea617efe1659c into contracts/vendor/gloam and circuits into apps/web/public/circuits
+
+exit=0 signal=none
+
+$ pnpm -C contracts forge-std
+
+> @quaestor/contracts@ forge-std /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo/contracts
+> forge install --root "$PWD" foundry-rs/forge-std@v1.17.0 --no-git
+
+Installing forge-std in /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo/contracts/lib/forge-std (url: https://github.com/foundry-rs/forge-std, tag: v1.17.0)
+Cloning into '/home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo/contracts/lib/forge-std'...
+    Installed forge-std v1.17.0
+
+exit=0 signal=none
+
+$ git diff --exit-code -- contracts/vendor/gloam/
+
+exit=0 signal=none
+
+$ pnpm gate
+
+> quaestor@ gate /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo
+> pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test
+
+
+> quaestor@ claims:check /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo
+> pnpm -C packages/chain exec tsx ../../scripts/claims.ts
+
+T-CLAIMS PASSED: every README section maps to PROVEN claims, existing evidence/code/tests and observed hashes.
+
+> quaestor@ format:check /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo
+> prettier --check "**/*.{ts,tsx}"
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> quaestor@ typecheck /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo
+> pnpm -r --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+packages/core typecheck$ tsc --noEmit
+scripts typecheck$ tsc --noEmit
+tools/evm-window typecheck$ tsc --noEmit
+tools/evm-window typecheck: Done
+packages/core typecheck: Done
+scripts typecheck: Done
+packages/chain typecheck$ tsc --noEmit
+packages/chain typecheck: Done
+apps/web typecheck$ tsc --noEmit
+apps/web typecheck: Done
+
+> quaestor@ lint /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo
+> pnpm -r --workspace-concurrency=1 --if-present lint
+
+Scope: 6 of 7 workspace projects
+
+> @quaestor/core@0.0.0 lint /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo/packages/core
+> eslint src test
+
+
+> @quaestor/scripts@ lint /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo/scripts
+> eslint *.ts
+
+
+/home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo/scripts/m8-funding-diagnostics.ts
+  34:21  error  `rawLog` is deprecated. This field is not filled anymore in Cosmos SDK 0.50+ (https://github.com/cosmos/cosmos-sdk/pull/15845).
+Please consider using `events` instead  @typescript-eslint/no-deprecated
+
+✖ 1 problem (1 error, 0 warnings)
+
+/home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo/scripts:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @quaestor/scripts@ lint: `eslint *.ts`
+Exit status 1
+
+> @quaestor/evm-window@0.0.0 lint /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-W4PAH1/repo/tools/evm-window
+> eslint scripts
+
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.
+
+exit=1 signal=none
+Finished: 2026-11-23T02:03:54.870Z
+Result: FAILED

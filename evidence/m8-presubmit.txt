@@ -1,0 +1,337 @@
+pnpm evidence --m8-presubmit
+Started: 2026-11-23T02:06:15.034Z
+Fresh local clone; shared machine tools/package cache, no account fixtures copied.
+
+$ node --version
+v24.19.0
+
+exit=0 signal=none
+
+$ pnpm --version
+9.15.0
+
+exit=0 signal=none
+
+$ forge --version
+forge Version: 1.10.0
+Commit SHA: 083e22994195d6a7e3ad3104d0b57f478c9b9062
+Build Timestamp: 2026-11-19T15:37:35.100584945Z (1795102655)
+Build Profile: build
+
+exit=0 signal=none
+
+$ git clone --no-hardlinks /home/kingghidorah/Documents/projects/bounties/quaestor/ /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo
+Cloning into '/home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo'...
+done.
+
+exit=0 signal=none
+
+$ git rev-parse HEAD
+e3e22732a8da64c7cdf6b8eecf8bb995c51ed700
+
+exit=0 signal=none
+Private account fixtures and root .env absent from the fresh clone.
+
+$ pnpm install --frozen-lockfile
+Scope: all 7 workspace projects
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +386
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 386, reused 72, downloaded 0, added 0
+Progress: resolved 386, reused 169, downloaded 0, added 0
+Progress: resolved 386, reused 234, downloaded 0, added 0
+Progress: resolved 386, reused 315, downloaded 0, added 0
+Progress: resolved 386, reused 380, downloaded 0, added 10
+Progress: resolved 386, reused 380, downloaded 0, added 384
+Progress: resolved 386, reused 380, downloaded 0, added 386, done
+
+dependencies:
++ cosmjs-types 0.11.0
++ zod 3.24.2
+
+devDependencies:
++ @eslint/js 9.39.1
++ @playwright/test 1.65.1
++ eslint 9.39.1
++ prettier 3.6.2
++ typescript 5.6.3
++ typescript-eslint 8.46.4
+
+Done in 9s
+
+exit=0 signal=none
+
+$ bash scripts/vendor-gloam.sh
+./script/KeyCheckProofs.sol: OK
+./src/GloamPayMemo.sol: OK
+./src/interfaces/IAggregatorV3.sol: OK
+./src/interfaces/IShieldPool.sol: OK
+./src/interfaces/IVerifier.sol: OK
+./src/lib/ChangeTimelock.sol: OK
+./src/lib/IncrementalMerkleTreePoseidon.sol: OK
+./src/lib/IncrementalMerkleTree.sol: OK
+./src/lib/IPoseidon.sol: OK
+./src/lib/MerkleProof.sol: OK
+./src/lib/NoteLibPoseidon.sol: OK
+./src/lib/NoteLib.sol: OK
+./src/lib/OracleRates.sol: OK
+./src/ShieldPoolCore.sol: OK
+./src/ShieldPoolPayments.sol: OK
+./src/verifiers/DualProofVerifier.sol: OK
+./src/verifiers/final/ShieldIVerifierFinal.sol: OK
+./src/verifiers/final/ShieldVerifierFinal.sol: OK
+./src/verifiers/final/TransferIVerifierFinal.sol: OK
+./src/verifiers/final/TransferVerifierFinal.sol: OK
+./src/verifiers/final/UnshieldIVerifierFinal.sol: OK
+./src/verifiers/final/UnshieldVerifierFinal.sol: OK
+vendored gloam@d8db1e6c805c5887678fa2c6c82ea617efe1659c into contracts/vendor/gloam and circuits into apps/web/public/circuits
+
+exit=0 signal=none
+
+$ pnpm -C contracts forge-std
+
+> @quaestor/contracts@ forge-std /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/contracts
+> forge install --root "$PWD" foundry-rs/forge-std@v1.17.0 --no-git
+
+Installing forge-std in /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/contracts/lib/forge-std (url: https://github.com/foundry-rs/forge-std, tag: v1.17.0)
+Cloning into '/home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/contracts/lib/forge-std'...
+    Installed forge-std v1.17.0
+
+exit=0 signal=none
+
+$ git diff --exit-code -- contracts/vendor/gloam/
+
+exit=0 signal=none
+
+$ pnpm gate
+
+> quaestor@ gate /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo
+> pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test
+
+
+> quaestor@ claims:check /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo
+> pnpm -C packages/chain exec tsx ../../scripts/claims.ts
+
+T-CLAIMS PASSED: every README section maps to PROVEN claims, existing evidence/code/tests and observed hashes.
+
+> quaestor@ format:check /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo
+> prettier --check "**/*.{ts,tsx}"
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> quaestor@ typecheck /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo
+> pnpm -r --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+packages/core typecheck$ tsc --noEmit
+scripts typecheck$ tsc --noEmit
+tools/evm-window typecheck$ tsc --noEmit
+tools/evm-window typecheck: Done
+packages/core typecheck: Done
+scripts typecheck: Done
+packages/chain typecheck$ tsc --noEmit
+packages/chain typecheck: Done
+apps/web typecheck$ tsc --noEmit
+apps/web typecheck: Done
+
+> quaestor@ lint /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo
+> pnpm -r --workspace-concurrency=1 --if-present lint
+
+Scope: 6 of 7 workspace projects
+
+> @quaestor/core@0.0.0 lint /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/packages/core
+> eslint src test
+
+
+> @quaestor/scripts@ lint /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/scripts
+> eslint *.ts
+
+
+> @quaestor/evm-window@0.0.0 lint /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/tools/evm-window
+> eslint scripts
+
+
+> @quaestor/chain@0.0.0 lint /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/packages/chain
+> eslint src scripts test
+
+
+> @quaestor/web@0.0.0 lint /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/apps/web
+> eslint server src test e2e vite.config.ts playwright.config.ts playwright.cover.config.ts vitest.config.ts ../../api
+
+
+> quaestor@ test /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo
+> pnpm -r --if-present test
+
+Scope: 6 of 7 workspace projects
+contracts test$ forge test
+packages/core test$ vitest run --maxWorkers=1 --minWorkers=1
+contracts test: Compiling 23 files with Solc 0.8.24
+packages/core test:  RUN  v2.1.9 /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/packages/core
+contracts test: Solc 0.8.24 finished in 4.50s
+contracts test: Compiler run successful with warnings:
+contracts test: Warning (2319): This declaration shadows a builtin symbol.
+contracts test:  --> src/BlobBoard.sol:8:33:
+contracts test:   |
+contracts test: 8 |     function post(bytes32 kind, bytes32 sha3, bytes calldata data) external {
+contracts test:   |                                 ^^^^^^^^^^^^
+contracts test: Ran 4 tests for test/BlobBoard.t.sol:BlobBoardTest
+contracts test: [PASS] testAcceptsBoundaryAndAnyPosterWithoutStorage() (gas: 667261)
+contracts test: [PASS] testPostedHashIsUntrustedMetadata() (gas: 36146)
+contracts test: [PASS] testRejectsEmptyData() (gas: 30134)
+contracts test: [PASS] testRejectsMoreThan24576Bytes() (gas: 201260)
+contracts test: Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 3.05ms (2.91ms CPU time)
+contracts test: Ran 9 tests for test/Books.t.sol:BooksTest
+contracts test: [PASS] testBadSignatureRefusedAndPeriodRemainsOpen() (gas: 78047)
+contracts test: [PASS] testCloseBindsExactDomainAndLocksEntries() (gas: 382020)
+contracts test: [PASS] testCloseRejectsMisstatedCountOrLastHash() (gas: 179572)
+contracts test: [PASS] testDuplicateBookRefused() (gas: 44638)
+contracts test: [PASS] testGrantAfterCloseAllowedButCannotBeOverwritten() (gas: 208400)
+contracts test: [PASS] testOpeningHashIsRequiredAndAnchoredAtRegistration() (gas: 51914)
+contracts test: [PASS] testRegistrationRequiresProvenAlgorithmOne() (gas: 344997)
+contracts test: [PASS] testRejectsOutOfOrderAndBrokenPreviousHash() (gas: 178350)
+contracts test: [PASS] testRejectsWrongOwner() (gas: 90895)
+contracts test: Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 3.04ms (3.45ms CPU time)
+contracts test: Ran 2 test suites in 105.40ms (6.09ms CPU time): 13 tests passed, 0 failed, 0 skipped (13 total tests)
+contracts test: Done
+packages/core test:  ✓ test/verdict.test.ts (5 tests) 6124ms
+packages/core test:    ✓ T-VERDICT ceiling reaches every entry verdict and reason in precedence order 604ms
+packages/core test:    ✓ T-VERDICT root history retains an old insertion root beyond the last 100 roots 5331ms
+packages/core test:  ✓ test/books.test.ts (6 tests) 565ms
+packages/core test:  ✓ test/legacy.test.ts (2 tests) 358ms
+packages/core test:    ✓ T-LEGACY mismatched decrypted plaintext hash and non-owner mapping signature are TAMPERED 300ms
+packages/core test:  ✓ test/holdingsSelection.test.ts (1 test) 9ms
+packages/core test:  Test Files  4 passed (4)
+packages/core test:       Tests  14 passed (14)
+packages/core test:    Start at  03:12:25
+packages/core test:    Duration  22.04s (transform 529ms, setup 0ms, collect 12.73s, tests 7.06s, environment 2ms, prepare 862ms)
+packages/core test: Done
+packages/chain test$ vitest run --maxWorkers=1 --minWorkers=1
+packages/chain test:  RUN  v2.1.9 /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/packages/chain
+packages/chain test:  ✓ test/tickets.test.ts (8 tests) 3289ms
+packages/chain test:    ✓ T-NOTES the payer journal retains change without granting the payee ownership 414ms
+packages/chain test:  ✓ test/executor.test.ts (7 tests) 3075ms
+packages/chain test:    ✓ T-JOURNAL holds a throwing broadcast and refuses to rebuild that spend after restart 484ms
+packages/chain test:    ✓ T-NOTES owns a deposit only after a successful receipt and tree inclusion 548ms
+packages/chain test:    ✓ T-NOTES preserves an input until receipt and restores it when the transaction reverts 403ms
+packages/chain test:    ✓ T-JOURNAL serializes concurrent spends and persists files readable only by their owner 402ms
+packages/chain test:    ✓ T-JOURNAL refuses changed parameters under an existing operation id 515ms
+packages/chain test:    ✓ T-BOOKS holds BOOKED until a successful anchor receipt and never replays an ANCHORED payment 617ms
+packages/chain test:  ✓ test/tree.test.ts (4 tests) 2153ms
+packages/chain test:    ✓ T-TREE pages every deployment block and checks only the root at the pinned height 1459ms
+packages/chain test:    ✓ T-TREE full history includes the intermediate root of both ordered Transferred insertions 672ms
+packages/chain test:  ✓ test/kemRegistry.test.ts (5 tests) 71ms
+packages/chain test:  ✓ test/native.test.ts (4 tests) 20ms
+packages/chain test:  ✓ test/gateway.test.ts (3 tests) 121ms
+packages/chain test:  ✓ test/memoBoard.test.ts (2 tests) 2333ms
+packages/chain test:    ✓ T-JOURNAL advances LANDED to TICKET_POSTED only after the memo receipt and never resends the payment 1396ms
+packages/chain test:    ✓ T-JOURNAL keeps a payment LANDED if posting its ticket reverts 934ms
+packages/chain test:  ✓ test/blobs.test.ts (3 tests) 31ms
+packages/chain test:  ✓ test/pool.test.ts (2 tests) 19ms
+packages/chain test:  ✓ test/claims.test.ts (1 test) 14ms
+packages/chain test:  ✓ test/fusd.test.ts (1 test) 22ms
+packages/chain test:  ✓ test/prover.test.ts (1 test) 3239ms
+packages/chain test:    ✓ T-PROVER verifies a real offline single-threaded shield proof against the self-hosted checking key 3237ms
+packages/chain test:  ✓ test/m2Pay.test.ts (1 test) 27ms
+packages/chain test:  ✓ test/config.test.ts (1 test) 13ms
+packages/chain test:  Test Files  14 passed (14)
+packages/chain test:       Tests  43 passed (43)
+packages/chain test:    Start at  03:12:48
+packages/chain test:    Duration  41.64s (transform 1.09s, setup 0ms, collect 21.34s, tests 14.43s, environment 6ms, prepare 1.93s)
+packages/chain test: Done
+apps/web test$ vitest run --config vitest.config.ts
+apps/web test:  RUN  v2.1.9 /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/apps/web
+apps/web test:  ✓ test/privateJournal.test.ts (1 test) 32ms
+apps/web test:  ✓ test/vault.test.ts (1 test) 8899ms
+apps/web test:    ✓ T-VAULT wrong passphrase fails and an encrypted backup restores the same account addresses 8897ms
+apps/web test:  ✓ test/relay.test.ts (1 test) 14ms
+apps/web test:  ✓ test/relayPath.test.ts (1 test) 10ms
+apps/web test:  Test Files  4 passed (4)
+apps/web test:       Tests  4 passed (4)
+apps/web test:    Start at  03:13:30
+apps/web test:    Duration  13.34s (transform 334ms, setup 0ms, collect 2.63s, tests 8.95s, environment 2ms, prepare 598ms)
+apps/web test: Done
+
+> @quaestor/contracts@ test /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/contracts
+> forge test
+
+No files changed, compilation skipped
+
+Ran 4 tests for test/BlobBoard.t.sol:BlobBoardTest
+[PASS] testAcceptsBoundaryAndAnyPosterWithoutStorage() (gas: 667261)
+[PASS] testPostedHashIsUntrustedMetadata() (gas: 36146)
+[PASS] testRejectsEmptyData() (gas: 30134)
+[PASS] testRejectsMoreThan24576Bytes() (gas: 201260)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 1.86ms (2.01ms CPU time)
+
+Ran 9 tests for test/Books.t.sol:BooksTest
+[PASS] testBadSignatureRefusedAndPeriodRemainsOpen() (gas: 78047)
+[PASS] testCloseBindsExactDomainAndLocksEntries() (gas: 382020)
+[PASS] testCloseRejectsMisstatedCountOrLastHash() (gas: 179572)
+[PASS] testDuplicateBookRefused() (gas: 44638)
+[PASS] testGrantAfterCloseAllowedButCannotBeOverwritten() (gas: 208400)
+[PASS] testOpeningHashIsRequiredAndAnchoredAtRegistration() (gas: 51914)
+[PASS] testRegistrationRequiresProvenAlgorithmOne() (gas: 344997)
+[PASS] testRejectsOutOfOrderAndBrokenPreviousHash() (gas: 178350)
+[PASS] testRejectsWrongOwner() (gas: 90895)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 2.99ms (3.42ms CPU time)
+
+Ran 2 test suites in 16.70ms (4.86ms CPU time): 13 tests passed, 0 failed, 0 skipped (13 total tests)
+
+exit=0 signal=none
+
+$ pnpm -C apps/web build
+
+> @quaestor/web@0.0.0 build /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/apps/web
+> vite build
+
+vite v8.3.8 building client environment for production...
+transforming...
+[plugin rolldown:vite-resolve] Module "assert" has been externalized for browser compatibility, imported by "/home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/node_modules/.pnpm/circomlibjs@0.1.7/node_modules/circomlibjs/src/poseidon_reference.js". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "assert" has been externalized for browser compatibility, imported by "/home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/node_modules/.pnpm/circomlibjs@0.1.7/node_modules/circomlibjs/src/poseidon_opt.js". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:worker_threads" has been externalized for browser compatibility, imported by "/home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-j3hKz1/repo/node_modules/.pnpm/ox@0.14.67_typescript@5.6.3_zod@3.24.2/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+✓ 2241 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                      0.69 kB │ gzip:     0.35 kB
+dist/assets/App-ChGWW2KZ.css                        10.48 kB │ gzip:     3.20 kB
+dist/assets/dist-DMVmdJ8P.js                         0.05 kB │ gzip:     0.07 kB
+dist/assets/secp256k1-D5blbdoT.js                    0.05 kB │ gzip:     0.06 kB
+dist/assets/src-D9vP5xx2.js                          0.07 kB │ gzip:     0.08 kB
+dist/assets/__vite-browser-external-BwpP9LFt.js      0.09 kB │ gzip:     0.10 kB
+dist/assets/jsx-runtime-BB9-612F.js                  0.43 kB │ gzip:     0.30 kB
+dist/assets/rolldown-runtime-BCiCTKAo.js             1.30 kB │ gzip:     0.71 kB
+dist/assets/base64-js-CQoVR1vJ.js                    1.44 kB │ gzip:     0.78 kB
+dist/assets/preload-helper-7y9sWmk5.js               1.61 kB │ gzip:     0.82 kB
+dist/assets/index-C0mxh96u.js                        1.79 kB │ gzip:     0.97 kB
+dist/assets/ccip-DNfWFwsd.js                         4.38 kB │ gzip:     1.94 kB
+dist/assets/utils-BKC6GLiz.js                        4.49 kB │ gzip:     1.87 kB
+dist/assets/sha2-Bi2tP5-R.js                         7.45 kB │ gzip:     3.85 kB
+dist/assets/react-BWPDF9mI.js                        7.87 kB │ gzip:     3.00 kB
+dist/assets/buffer-B46dPiek.js                      25.55 kB │ gzip:     7.59 kB
+dist/assets/secp256k1-BeN0Y67l.js                   26.34 kB │ gzip:    10.20 kB
+dist/assets/chain-9Rm8JnXE.js                       41.24 kB │ gzip:    12.44 kB
+dist/assets/withTimeout-BQ0WxPK0.js                 62.27 kB │ gzip:    19.44 kB
+dist/assets/dist-Dq3IHLbG.js                       127.62 kB │ gzip:    46.57 kB
+dist/assets/client-DorhcNRs.js                     211.12 kB │ gzip:    65.87 kB
+dist/assets/src-BhGFWAz_.js                        458.75 kB │ gzip:   116.43 kB
+dist/assets/main-mj2bHlUk.js                     2,797.37 kB │ gzip: 1,362.86 kB
+dist/assets/App-DgKuodZF.js                      2,973.45 kB │ gzip:   592.90 kB
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 8.01s
+
+exit=0 signal=none
+
+$ git status --short
+
+exit=0 signal=none
+
+BUILD AUDIT PASSED. See docs/PRESUBMIT.md for the full checklist and unperformed external submission items.
+Finished: 2026-11-23T02:13:55.475Z
+Result: PASSED

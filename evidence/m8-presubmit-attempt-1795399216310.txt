@@ -1,0 +1,144 @@
+pnpm evidence --m8-presubmit
+Started: 2026-11-23T01:57:21.558Z
+Fresh local clone; shared machine tools/package cache, no account fixtures copied.
+
+$ node --version
+v24.19.0
+
+exit=0 signal=none
+
+$ pnpm --version
+9.15.0
+
+exit=0 signal=none
+
+$ forge --version
+forge Version: 1.10.0
+Commit SHA: 083e22994195d6a7e3ad3104d0b57f478c9b9062
+Build Timestamp: 2026-11-19T15:37:35.100584945Z (1795102655)
+Build Profile: build
+
+exit=0 signal=none
+
+$ git clone --no-hardlinks /home/kingghidorah/Documents/projects/bounties/quaestor/ /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-pmGQhb/repo
+Cloning into '/home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-pmGQhb/repo'...
+done.
+
+exit=0 signal=none
+
+$ git rev-parse HEAD
+a897db60df54576cd37e627a222867a627c6146b
+
+exit=0 signal=none
+Private account fixtures and root .env absent from the fresh clone.
+
+$ pnpm install --frozen-lockfile
+Scope: all 7 workspace projects
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +386
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 386, reused 0, downloaded 0, added 0
+Progress: resolved 386, reused 1, downloaded 0, added 0
+Progress: resolved 386, reused 2, downloaded 0, added 0
+Progress: resolved 386, reused 3, downloaded 0, added 0
+Progress: resolved 386, reused 4, downloaded 0, added 0
+Progress: resolved 386, reused 5, downloaded 0, added 0
+Progress: resolved 386, reused 6, downloaded 0, added 0
+Progress: resolved 386, reused 9, downloaded 0, added 0
+Progress: resolved 386, reused 14, downloaded 0, added 0
+Progress: resolved 386, reused 20, downloaded 0, added 0
+Progress: resolved 386, reused 27, downloaded 0, added 0
+Progress: resolved 386, reused 51, downloaded 0, added 0
+Progress: resolved 386, reused 78, downloaded 0, added 0
+Progress: resolved 386, reused 93, downloaded 0, added 0
+Progress: resolved 386, reused 101, downloaded 0, added 0
+Progress: resolved 386, reused 125, downloaded 0, added 0
+Progress: resolved 386, reused 151, downloaded 0, added 0
+Progress: resolved 386, reused 178, downloaded 0, added 0
+Progress: resolved 386, reused 205, downloaded 0, added 0
+Progress: resolved 386, reused 225, downloaded 0, added 0
+Progress: resolved 386, reused 246, downloaded 0, added 0
+Progress: resolved 386, reused 280, downloaded 0, added 0
+Progress: resolved 386, reused 323, downloaded 0, added 0
+Progress: resolved 386, reused 368, downloaded 0, added 0
+Progress: resolved 386, reused 376, downloaded 0, added 0
+Progress: resolved 386, reused 380, downloaded 0, added 9
+Progress: resolved 386, reused 380, downloaded 0, added 83
+Progress: resolved 386, reused 380, downloaded 0, added 295
+Progress: resolved 386, reused 380, downloaded 0, added 378
+Progress: resolved 386, reused 380, downloaded 0, added 385
+Progress: resolved 386, reused 380, downloaded 0, added 386
+Progress: resolved 386, reused 380, downloaded 0, added 386, done
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../esbuild@0.21.5/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.23.1/node_modules/esbuild postinstall$ node install.js
+.../node_modules/protobufjs postinstall: Done
+.../esbuild@0.23.1/node_modules/esbuild postinstall: Done
+.../esbuild@0.21.5/node_modules/esbuild postinstall: Done
+
+dependencies:
++ cosmjs-types 0.11.0
++ zod 3.24.2
+
+devDependencies:
++ @eslint/js 9.39.1
++ @playwright/test 1.65.1
++ eslint 9.39.1
++ prettier 3.6.2
++ typescript 5.6.3
++ typescript-eslint 8.46.4
+
+Done in 39.1s
+
+exit=0 signal=none
+
+$ bash scripts/vendor-gloam.sh
+vendored gloam@d8db1e6c805c5887678fa2c6c82ea617efe1659c into contracts/vendor/gloam and circuits into apps/web/public/circuits
+
+exit=0 signal=none
+
+$ pnpm -C contracts forge-std
+
+> @quaestor/contracts@ forge-std /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-pmGQhb/repo/contracts
+> forge install --root "$PWD" foundry-rs/forge-std@v1.17.0 --no-git
+
+Installing forge-std in /home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-pmGQhb/repo/contracts/lib/forge-std (url: https://github.com/foundry-rs/forge-std, tag: v1.17.0)
+Cloning into '/home/kingghidorah/.cache/quaestor-m8-tmp/quaestor-m8-pmGQhb/repo/contracts/lib/forge-std'...
+    Installed forge-std v1.17.0
+
+exit=0 signal=none
+
+$ git diff --exit-code -- contracts/vendor/gloam/
+diff --git a/contracts/vendor/gloam/SHA256SUMS b/contracts/vendor/gloam/SHA256SUMS
+index c236407..f5d134d 100644
+--- a/contracts/vendor/gloam/SHA256SUMS
++++ b/contracts/vendor/gloam/SHA256SUMS
+@@ -1,18 +1,18 @@
+ 78a20df777c6c9dc62e797c4e7050df807bdd69448d9169815d7c74d6ffc3bb7  ./script/KeyCheckProofs.sol
+ 4d0f530e02af141a16489a0666d4e9386f79b12065bbd49aceba79425ee91c20  ./src/GloamPayMemo.sol
++5934612d8fa3567399d28450bd28c854d16194d3ae8c4909043f1f7f52975a82  ./src/ShieldPoolCore.sol
++c0a9df50077e8972248ac17b5dce291fe632269165a3553eb10b553a9ce145eb  ./src/ShieldPoolPayments.sol
+ 09b2386a513a0b9f4fab2cfbaacbb8b544bfd83cf0bdd723bef2b57943598de8  ./src/interfaces/IAggregatorV3.sol
+ 341b26840c4089c0befea81ac72c8cc64f4bdfde7b6b7837c43a688d68f9b67c  ./src/interfaces/IShieldPool.sol
+ aafdd2ee263f7998fd3331326a640d48d0daad19c5267425a2dbbaa4d0c3c42c  ./src/interfaces/IVerifier.sol
+ b9017ff2b3d0b2aba37427a74a2a9a96e352d841f74ca4d3148ca8f5c225d2a3  ./src/lib/ChangeTimelock.sol
+-5f74125baf2440a2dc90467caeeeec621f4b7fd2344075f49325067003b24b8b  ./src/lib/IncrementalMerkleTreePoseidon.sol
+-80d8e8141897367dedea84442227711f6282466f29233436e52a7502eef6f82d  ./src/lib/IncrementalMerkleTree.sol
+ 8ade1388d1f38d8aa139d83755b02d21ced9cb30c51ae2eb68c5aaff7769f1b4  ./src/lib/IPoseidon.sol
++80d8e8141897367dedea84442227711f6282466f29233436e52a7502eef6f82d  ./src/lib/IncrementalMerkleTree.sol
++5f74125baf2440a2dc90467caeeeec621f4b7fd2344075f49325067003b24b8b  ./src/lib/IncrementalMerkleTreePoseidon.sol
+ 242e23cc04913eae0ad84bb9cec8fdaa8032034b8b1bbcc78b4d3e221687816d  ./src/lib/MerkleProof.sol
+-b268ec7629c3964cace429e6348cbc758e9b4b31c5eb1c167178e56424d1bd25  ./src/lib/NoteLibPoseidon.sol
+ bef2dc6210864614ba3af5e7385bb5c7b5705fc29861d05996b1e2fa6f480d0b  ./src/lib/NoteLib.sol
++b268ec7629c3964cace429e6348cbc758e9b4b31c5eb1c167178e56424d1bd25  ./src/lib/NoteLibPoseidon.sol
+ ea6c319ba211377b42f9b8c99972dc8f7da02070c61a4e8a41224a1a4294f4dc  ./src/lib/OracleRates.sol
+-5934612d8fa3567399d28450bd28c854d16194d3ae8c4909043f1f7f52975a82  ./src/ShieldPoolCore.sol
+-c0a9df50077e8972248ac17b5dce291fe632269165a3553eb10b553a9ce145eb  ./src/ShieldPoolPayments.sol
+ 4da5ac41685d9270793fb86eb3d205a8164adc467d697082731374e303a4ab0c  ./src/verifiers/DualProofVerifier.sol
+ 0fad96f3cc17e649b69d90c725f7774dd133e9b5a02fc07f4ee701aab2360d82  ./src/verifiers/final/ShieldIVerifierFinal.sol
+ 275790a6e2d99f2e2b016dd291069da4c3b8b4fd27f73326189bd6009d3ecc0c  ./src/verifiers/final/ShieldVerifierFinal.sol
+
+exit=1 signal=none
+Finished: 2026-11-23T01:59:26.123Z
+Result: FAILED

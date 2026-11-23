@@ -90,8 +90,8 @@ Current brief: docs/briefs/M8.md. The original external checks remain open below
 - [x] Judge README explains four encryption requirements and ten QoreChain features with real receipts; claims gate enforces reviewed mappings to PROVEN support.
 - [x] Final technical story is under 250 words; AI_USAGE records the review loop, concrete corrections, Claude's own mistakes and generated/human work.
 - [x] A ≤2:50 recording script identifies screens/evidence; original 1600×900 cover is under 5 MB with no third-party logos.
-- [ ] Fresh account-free clone → frozen install → circuits + pinned forge-std → gate → production build passes; exact output in evidence/m8-presubmit.txt; full audit discloses external open items.
-- [ ] CLAIMS, milestones and AI log reflect observed results; handoff written. Final delivery is the handoff commit push, then stop.
+- [x] Fresh account-free clone → frozen install → circuits + pinned forge-std → gate → production build passes; exact output in evidence/m8-presubmit.txt; full audit discloses external open items.
+- [x] CLAIMS, milestones and AI log reflect observed results; handoff written. Final delivery is the handoff commit push, then stop.
 
 Original external M8 checks, still open:
 - [ ] Two-stage QCAI audit on Books.sol, with reports and findings mapping in docs/AUDIT.md. No reports exist yet.
