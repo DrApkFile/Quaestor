@@ -53,25 +53,27 @@ export async function audit(
 ) {
   await page.goto('/app?view=auditor');
   await page.getByLabel('Audit book ID', { exact: true }).fill(bookId);
+  await page.getByText('Use your own auditor backup', { exact: true }).click();
   await page
     .getByLabel('Encrypted backup file', { exact: true })
     .setInputFiles(backup?.file ?? roleFixture(role).backup);
   await page.getByLabel('Backup passphrase', { exact: true }).fill(backup?.passphrase ?? fixture.password);
   await page.getByRole('button', { name: 'Open granted period', exact: true }).click();
   await expect(page.getByTestId('entry-verdict')).toHaveCount(matches, { timeout: 300000 });
-  for (const row of await page.getByTestId('entry-verdict').all()) await expect(row).toHaveText('MATCHED');
+  for (const row of await page.getByTestId('entry-verdict').all())
+    await expect(row).toHaveAttribute('data-code', 'MATCHED');
   if (fixture.publicDemo) {
     for (let index = 0; index < matches; index++) {
       const entry = demoEntry(index + (role === 'client' ? 3 : 0));
       const cells = page.locator('.ledger-cells').nth(index);
-      await expect(cells).toContainText(entry.name);
+      await expect(cells).toContainText(entry.name.replace(' (demo)', ''));
       await expect(cells).toContainText(entry.purpose);
       await expect(cells).toContainText(entry.category);
     }
   }
   for (const row of await page.getByTestId('period-verdict').all())
-    await expect(row).toHaveText('HOLDINGS_COVER_BOOKS');
-  await expect(page.getByText('NOT_GRANTED', { exact: true })).toHaveCount(role === 'client' ? 2 : 1);
+    await expect(row).toHaveAttribute('data-code', 'HOLDINGS_COVER_BOOKS');
+  await expect(page.locator('[data-code=NOT_GRANTED]')).toHaveCount(role === 'client' ? 2 : 1);
   await expect(page.getByText('opening balance as declared and signed by the business', { exact: true })).toBeVisible();
 }
 export async function shots(page: Page, name: string) {

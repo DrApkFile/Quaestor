@@ -129,13 +129,15 @@ test('T-NOPLAIN-WEB M6 real anonymous payments, sealed entries, close and scoped
     o = await other.newPage();
     await o.goto('/app?view=auditor');
     await o.getByLabel('Audit book ID', { exact: true }).fill(bookId);
+    await o.getByText('Use your own auditor backup', { exact: true }).click();
     await o.getByLabel('Encrypted backup file', { exact: true }).setInputFiles(roleFixture('auditor').backup);
     await o.getByLabel('Backup passphrase', { exact: true }).fill(fixture.password);
     await o.getByRole('button', { name: 'Open granted period', exact: true }).click();
     await expect(o.getByTestId('entry-verdict')).toHaveCount(3, { timeout: 240000 });
-    for (const verdict of await o.getByTestId('entry-verdict').all()) await expect(verdict).toHaveText('MATCHED');
-    await expect(o.getByTestId('period-verdict')).toHaveText('HOLDINGS_COVER_BOOKS');
-    await expect(o.getByText('NOT_GRANTED', { exact: true })).toBeVisible();
+    for (const verdict of await o.getByTestId('entry-verdict').all())
+      await expect(verdict).toHaveAttribute('data-code', 'MATCHED');
+    await expect(o.getByTestId('period-verdict')).toHaveAttribute('data-code', 'HOLDINGS_COVER_BOOKS');
+    await expect(o.locator('[data-code=NOT_GRANTED]')).toBeVisible();
     await screenshots(o, 'auditor');
     step('SCREENSHOTS');
     for (const view of ['Wallet', 'Pay', 'Receive', 'Books', 'Grants']) {
@@ -143,7 +145,7 @@ test('T-NOPLAIN-WEB M6 real anonymous payments, sealed entries, close and scoped
       await screenshots(b, view.toLowerCase());
     }
     await navigate(b, 'Public check');
-    await b.getByLabel('Book ID (demo)', { exact: true }).fill(bookId);
+    await b.getByLabel('Book ID', { exact: true }).fill(bookId);
     await b.getByRole('button', { name: 'Check chain', exact: true }).click();
     await expect(b.getByText('anchored entries', { exact: true })).toBeVisible({ timeout: 120000 });
     await screenshots(b, 'public');

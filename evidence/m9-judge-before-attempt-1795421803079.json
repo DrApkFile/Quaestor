@@ -1,0 +1,1573 @@
+{
+  "command": "pnpm evidence --m9-judge",
+  "origin": "https://use-quaestor.vercel.app",
+  "at": "2026-11-23T07:53:20.674Z",
+  "status": "FAILED",
+  "network": {
+    "requests": 333,
+    "responses": 333,
+    "leaks": 0,
+    "errors": [],
+    "pendingInspections": 0
+  },
+  "transactionRequests": 0,
+  "failures": [
+    "public",
+    "auditor",
+    "attack"
+  ],
+  "screens": [
+    {
+      "view": "landing",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "targets": [
+            "#how > .muted",
+            "#evidence > .muted",
+            ".muted > a:nth-child(1)",
+            ".muted > a:nth-child(2)",
+            ".muted > a:nth-child(3)",
+            ".muted > a:nth-child(4)",
+            "footer > span",
+            "a[href$=\"attack-lab\"]",
+            "footer > a:nth-child(3)"
+          ]
+        }
+      ]
+    },
+    {
+      "view": "landing",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "targets": [
+            "#how > .muted",
+            "#evidence > .muted",
+            ".muted > a:nth-child(1)",
+            ".muted > a:nth-child(2)",
+            ".muted > a:nth-child(3)",
+            ".muted > a:nth-child(4)",
+            "footer > span",
+            "a[href$=\"attack-lab\"]",
+            "footer > a:nth-child(3)"
+          ]
+        }
+      ]
+    },
+    {
+      "view": "public",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "public",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "auditor",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "auditor",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "attack",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "attack",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "account",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "account",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "wallet",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "wallet",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "pay",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "pay",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "receive",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "receive",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "books",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "books",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "grants",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "grants",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-C0mxh96u.js",
+          "bytes": 985
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-DgKuodZF.js",
+          "bytes": 596207
+        },
+        {
+          "name": "/assets/src-BhGFWAz_.js",
+          "bytes": 119131
+        },
+        {
+          "name": "/assets/dist-Dq3IHLbG.js",
+          "bytes": 47738
+        },
+        {
+          "name": "/assets/chain-9Rm8JnXE.js",
+          "bytes": 12939
+        },
+        {
+          "name": "/assets/utils-BKC6GLiz.js",
+          "bytes": 1961
+        },
+        {
+          "name": "/assets/sha2-Bi2tP5-R.js",
+          "bytes": 4049
+        },
+        {
+          "name": "/assets/secp256k1-BeN0Y67l.js",
+          "bytes": 10545
+        },
+        {
+          "name": "/assets/withTimeout-BQ0WxPK0.js",
+          "bytes": 19965
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": []
+    }
+  ]
+}

@@ -42,13 +42,15 @@ test('T-NOPLAIN-M5 Public check and Auditor read the live M4 book without leakin
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: '../../docs/screenshots/M5-public-mobile.png', fullPage: true });
   await page.getByRole('button', { name: 'Auditor', exact: true }).click();
+  await page.getByText('Use your own auditor backup', { exact: true }).click();
   await page.getByLabel('Encrypted backup file', { exact: true }).setInputFiles(path);
   await page.getByLabel('Backup passphrase', { exact: true }).fill(password);
   await page.getByRole('button', { name: 'Open granted period', exact: true }).click();
   await expect(page.getByTestId('entry-verdict')).toHaveCount(3, { timeout: 240000 });
-  for (const row of await page.getByTestId('entry-verdict').all()) await expect(row).toHaveText('MATCHED');
-  await expect(page.getByTestId('period-verdict')).toHaveText('HOLDINGS_COVER_BOOKS');
-  await expect(page.getByText('NOT_GRANTED', { exact: true })).toBeVisible();
+  for (const row of await page.getByTestId('entry-verdict').all())
+    await expect(row).toHaveAttribute('data-code', 'MATCHED');
+  await expect(page.getByTestId('period-verdict')).toHaveAttribute('data-code', 'HOLDINGS_COVER_BOOKS');
+  await expect(page.locator('[data-code=NOT_GRANTED]')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: '../../docs/screenshots/M5-auditor-mobile.png', fullPage: true });
   await page.setViewportSize({ width: 1440, height: 1000 });

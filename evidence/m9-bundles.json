@@ -1,0 +1,126 @@
+{
+  "before": {
+    "at": "2026-11-23T07:41:32.407Z",
+    "assets": [
+      {
+        "name": "App-ChGWW2KZ.css",
+        "bytes": 10481,
+        "gzipBytes": 3193
+      },
+      {
+        "name": "App-DgKuodZF.js",
+        "bytes": 2973454,
+        "gzipBytes": 587363
+      },
+      {
+        "name": "__vite-browser-external-BwpP9LFt.js",
+        "bytes": 94,
+        "gzipBytes": 108
+      },
+      {
+        "name": "base64-js-CQoVR1vJ.js",
+        "bytes": 1444,
+        "gzipBytes": 788
+      },
+      {
+        "name": "buffer-B46dPiek.js",
+        "bytes": 25550,
+        "gzipBytes": 7553
+      },
+      {
+        "name": "ccip-DNfWFwsd.js",
+        "bytes": 4385,
+        "gzipBytes": 1937
+      },
+      {
+        "name": "chain-9Rm8JnXE.js",
+        "bytes": 41245,
+        "gzipBytes": 12359
+      },
+      {
+        "name": "client-DorhcNRs.js",
+        "bytes": 211125,
+        "gzipBytes": 65155
+      },
+      {
+        "name": "dist-DMVmdJ8P.js",
+        "bytes": 50,
+        "gzipBytes": 70
+      },
+      {
+        "name": "dist-Dq3IHLbG.js",
+        "bytes": 127621,
+        "gzipBytes": 46183
+      },
+      {
+        "name": "index-C0mxh96u.js",
+        "bytes": 1798,
+        "gzipBytes": 971
+      },
+      {
+        "name": "jsx-runtime-BB9-612F.js",
+        "bytes": 435,
+        "gzipBytes": 304
+      },
+      {
+        "name": "main-mj2bHlUk.js",
+        "bytes": 2797375,
+        "gzipBytes": 1358637
+      },
+      {
+        "name": "preload-helper-7y9sWmk5.js",
+        "bytes": 1615,
+        "gzipBytes": 828
+      },
+      {
+        "name": "react-BWPDF9mI.js",
+        "bytes": 7876,
+        "gzipBytes": 3007
+      },
+      {
+        "name": "rolldown-runtime-BCiCTKAo.js",
+        "bytes": 1301,
+        "gzipBytes": 711
+      },
+      {
+        "name": "secp256k1-BeN0Y67l.js",
+        "bytes": 26349,
+        "gzipBytes": 10140
+      },
+      {
+        "name": "secp256k1-D5blbdoT.js",
+        "bytes": 52,
+        "gzipBytes": 65
+      },
+      {
+        "name": "sha2-Bi2tP5-R.js",
+        "bytes": 7457,
+        "gzipBytes": 3846
+      },
+      {
+        "name": "src-BhGFWAz_.js",
+        "bytes": 458757,
+        "gzipBytes": 115892
+      },
+      {
+        "name": "src-D9vP5xx2.js",
+        "bytes": 74,
+        "gzipBytes": 89
+      },
+      {
+        "name": "utils-BKC6GLiz.js",
+        "bytes": 4499,
+        "gzipBytes": 1868
+      },
+      {
+        "name": "withTimeout-BQ0WxPK0.js",
+        "bytes": 62278,
+        "gzipBytes": 19278
+      }
+    ],
+    "totalBytes": 6765315,
+    "totalGzipBytes": 2240345
+  },
+  "command": "pnpm evidence --m9-bundles before",
+  "limits": "Total output includes lazy chunks; per-page transferred JavaScript is recorded separately in m9-judge reports."
+}

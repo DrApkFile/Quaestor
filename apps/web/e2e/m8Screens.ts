@@ -11,7 +11,7 @@ export async function captureDemoScreens(b: Page, id: string, openOther: () => P
     await shots(b, name.toLowerCase());
   }
   await navigate(b, 'Public check');
-  await b.getByLabel('Book ID (demo)', { exact: true }).fill(id);
+  await b.getByLabel('Book ID', { exact: true }).fill(id);
   await b.getByRole('button', { name: 'Check chain', exact: true }).click();
   await expect(b.getByText('anchored entries', { exact: true })).toBeVisible({ timeout: 300000 });
   await shots(b, 'public');

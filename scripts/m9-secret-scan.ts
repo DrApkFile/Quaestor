@@ -1,0 +1,82 @@
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { z } from 'zod';
+import { deriveUnifiedAccount } from '@qorechain/sdk';
+import { accountSealKeys } from '../packages/chain/src/tickets/sealKeys.js';
+import { hashBytes } from '../packages/core/src/codec.js';
+import { decryptVault } from '../apps/web/src/vault.js';
+import { imageScanSecrets } from './m8Secrets.js';
+const root = new URL('../', import.meta.url),
+  directory = new URL('.accounts/m9-browser/', root);
+await imageScanSecrets();
+const secrets = new Set(
+  z
+    .array(z.string())
+    .parse(JSON.parse(readFileSync(new URL('.accounts/m7b-browser/scan-secrets.json', root), 'utf8')) as unknown),
+);
+const collect = (value: unknown, name = '') => {
+  if (
+    typeof value === 'string' &&
+    /^(mnemonic|privateKey|secretKey|secret|key|epochKey|password)$/.test(name) &&
+    value.length > 20
+  )
+    secrets.add(value);
+  if (Array.isArray(value)) for (const item of value as unknown[]) collect(item);
+  else if (typeof value === 'object' && value !== null)
+    for (const [key, item] of Object.entries(value)) collect(item, key);
+};
+if (existsSync(new URL('signup-session.json', directory)) && existsSync(new URL('signup-backup.json', directory))) {
+  const session = z
+    .object({ password: z.string() })
+    .strict()
+    .parse(JSON.parse(readFileSync(new URL('signup-session.json', directory), 'utf8')) as unknown);
+  const payload = await decryptVault(
+    JSON.parse(readFileSync(new URL('signup-backup.json', directory), 'utf8')) as unknown,
+    session.password,
+  );
+  const account = await deriveUnifiedAccount(payload.mnemonic, 0),
+    keys = accountSealKeys(account);
+  collect(session);
+  collect(payload);
+  collect(account);
+  for (const bytes of [account.pqc.secretKey, keys.seed, keys.mlkemSecretKey, keys.x25519SecretKey]) {
+    secrets.add(Buffer.from(bytes).toString('hex'));
+    secrets.add(Buffer.from(bytes).toString('base64'));
+    secrets.add(JSON.stringify(Array.from(bytes)));
+    secrets.add(JSON.stringify(bytes));
+  }
+  const material = Buffer.concat([Buffer.from('quaestor:private-store:v1'), account.pqc.secretKey]);
+  const key = await crypto.subtle.importKey(
+    'raw',
+    Uint8Array.from(Buffer.from(hashBytes(material).slice(2), 'hex')),
+    'AES-GCM',
+    false,
+    ['decrypt'],
+  );
+  for (const record of payload.journal?.records ?? []) {
+    const envelope = z.object({ nonce: z.string(), ciphertext: z.string() }).safeParse(record.value);
+    if (!envelope.success) continue;
+    const bytes = await crypto.subtle.decrypt(
+      { name: 'AES-GCM', iv: Buffer.from(envelope.data.nonce, 'base64'), additionalData: Buffer.from(record.key) },
+      key,
+      Buffer.from(envelope.data.ciphertext, 'base64'),
+    );
+    collect(JSON.parse(Buffer.from(bytes).toString('utf8')) as unknown);
+  }
+}
+for (const value of [...secrets]) {
+  secrets.add(Buffer.from(value).toString('hex'));
+  secrets.add(Buffer.from(value).toString('base64'));
+  if (/^0x[\da-f]{64}$/i.test(value)) {
+    secrets.add(value.slice(2));
+    secrets.add(BigInt(value).toString());
+    secrets.add(Buffer.from(value.slice(2), 'hex').toString('base64'));
+  }
+}
+writeFileSync(new URL('scan-secrets.json', directory), JSON.stringify([...secrets]), { mode: 0o600 });
+const result = spawnSync(
+  new URL('.accounts/m8-ocr/bin/python', root).pathname,
+  [new URL('m8-image-scan.py', import.meta.url).pathname],
+  { cwd: root, env: { ...process.env, QUAESTOR_IMAGE_RUN: 'm9' }, stdio: 'inherit' },
+);
+process.exitCode = result.status ?? 1;

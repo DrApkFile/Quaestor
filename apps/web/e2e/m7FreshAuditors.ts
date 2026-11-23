@@ -31,9 +31,9 @@ export async function freshAuditors(browser: Browser) {
           'href',
           `/app?view=public&book=${bookId}`,
         );
-        await expect(page.getByRole('link', { name: 'Auditor', exact: true })).toHaveAttribute(
+        await expect(page.getByRole('link', { name: 'Try the demo auditor', exact: true })).toHaveAttribute(
           'href',
-          `/app?view=auditor&book=${bookId}`,
+          `https://use-quaestor.vercel.app/app?view=auditor&book=${bookId}&demo=1`,
         );
         await shots(page, 'landing');
       }
@@ -48,7 +48,7 @@ export async function freshAuditors(browser: Browser) {
       await shots(page, role === 'auditor' ? 'auditor-fresh' : 'auditor-b-only-fresh');
       if (role === 'auditor') {
         await navigate(page, 'Public check');
-        await page.getByLabel('Book ID (demo)', { exact: true }).fill(bookId);
+        await page.getByLabel('Book ID', { exact: true }).fill(bookId);
         await page.getByRole('button', { name: 'Check chain', exact: true }).click();
         await expect(page.getByText('anchored entries', { exact: true })).toBeVisible({ timeout: 300000 });
         await shots(page, 'public');

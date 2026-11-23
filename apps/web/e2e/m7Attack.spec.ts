@@ -48,10 +48,10 @@ test('T-NOPLAIN-WEB M7 attack lab reads four chain cases and never broadcasts', 
     const error = page.getByRole('alert');
     if (await error.isVisible()) throw new Error(`ATTACK_READ_FAILED: ${(await error.textContent()) ?? 'UNKNOWN'}`);
     await expect(page.getByTestId('attack-duplicate')).toHaveText('UNBACKED (DUPLICATE_PAYMENT)', { timeout: 480000 });
-    await expect(page.getByTestId('attack-first')).toHaveText('MATCHED');
+    await expect(page.getByTestId('attack-first')).toHaveAttribute('data-code', 'MATCHED');
     await expect(page.getByTestId('attack-context')).toHaveText('UNBACKED (WRONG_CONTEXT)');
     await expect(page.getByTestId('attack-tampered')).toHaveText('TAMPERED');
-    await expect(page.getByTestId('attack-holdings')).toHaveText('HOLDINGS_SHORT');
+    await expect(page.getByTestId('attack-holdings')).toHaveAttribute('data-code', 'HOLDINGS_SHORT');
     await shots(page, 'attack-lab');
     const network = await monitor.finish();
     expect(mutations).toEqual([]);
