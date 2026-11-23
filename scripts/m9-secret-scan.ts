@@ -1,5 +1,7 @@
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { spawnSync } from 'node:child_process';
+import { readFileSync, writeFileSync, existsSync, readdirSync, copyFileSync } from 'node:fs';
+import { spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { mergeImageReports } from './m9-image-reports.js';
 import { z } from 'zod';
 import { deriveUnifiedAccount } from '@qorechain/sdk';
 import { accountSealKeys } from '../packages/chain/src/tickets/sealKeys.js';
@@ -74,9 +76,58 @@ for (const value of [...secrets]) {
   }
 }
 writeFileSync(new URL('scan-secrets.json', directory), JSON.stringify([...secrets]), { mode: 0o600 });
-const result = spawnSync(
-  new URL('.accounts/m8-ocr/bin/python', root).pathname,
-  [new URL('m8-image-scan.py', import.meta.url).pathname],
-  { cwd: root, env: { ...process.env, QUAESTOR_IMAGE_RUN: 'm9' }, stdio: 'inherit' },
+const target = new URL('evidence/m9-image-secret-scan.json', root);
+if (existsSync(target))
+  copyFileSync(target, new URL(`evidence/m9-image-secret-scan-attempt-${String(Date.now())}.json`, root));
+const results = await Promise.allSettled(
+  [0, 1].map(
+    (part) =>
+      new Promise<void>((resolve, reject) => {
+        const child = spawn(
+          new URL('.accounts/m8-ocr/bin/python', root).pathname,
+          [new URL('m8-image-scan.py', import.meta.url).pathname],
+          {
+            cwd: root,
+            env: { ...process.env, QUAESTOR_IMAGE_RUN: 'm9', QUAESTOR_IMAGE_PART: String(part) },
+            stdio: 'inherit',
+          },
+        );
+        child.on('error', () => {
+          reject(new Error('IMAGE_SCAN_PROCESS_FAILED'));
+        });
+        child.on('exit', (code) => {
+          if (code === 0) resolve();
+          else reject(new Error('IMAGE_SCAN_FAILED'));
+        });
+      }),
+  ),
 );
-process.exitCode = result.status ?? 1;
+if (results.some((result) => result.status === 'rejected')) {
+  writeFileSync(
+    target,
+    JSON.stringify(
+      { command: 'pnpm evidence --m9-secret-scan', status: 'FAILED', reason: 'IMAGE_SCAN_FAILED' },
+      null,
+      2,
+    ) + '\n',
+  );
+  process.exitCode = 1;
+} else {
+  const reports: unknown[] = [0, 1].map(
+    (part) =>
+      JSON.parse(
+        readFileSync(new URL(`evidence/m9-image-secret-scan-part${String(part)}.json`, root), 'utf8'),
+      ) as unknown,
+  );
+  const expected = readdirSync(new URL('evidence/m9-screens/', root))
+    .filter((name) => name.endsWith('.png'))
+    .map((name) => ({
+      file: `evidence/m9-screens/${name}`,
+      sha256: createHash('sha256')
+        .update(readFileSync(new URL(`evidence/m9-screens/${name}`, root)))
+        .digest('hex'),
+    }));
+  const report = mergeImageReports(reports, expected);
+  writeFileSync(target, JSON.stringify(report, null, 2) + '\n');
+  console.log(`M9 screenshot scan PASSED: ${String(report.images.length)} images; every current image hash checked.`);
+}
