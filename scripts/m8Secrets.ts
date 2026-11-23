@@ -47,7 +47,7 @@ export async function imageScanSecrets() {
       JSON.parse(readFileSync(new URL(`.accounts/m7b-browser/${name}-state.json`, root), 'utf8')) as unknown,
     ),
   );
-  for (const role of ['client', 'business', 'supplier1', 'supplier2', 'auditor'] as const) {
+  for (const role of ['deployer', 'client', 'business', 'supplier1', 'supplier2', 'auditor'] as const) {
     const account = await loadAccount(new URL('.accounts', root).pathname, role);
     const keys = accountSealKeys(account);
     collect(account);
