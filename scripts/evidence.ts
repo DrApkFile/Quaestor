@@ -3,6 +3,8 @@ else if (process.argv[2] === '--m9-bundles') await import('./m9-bundles.js');
 else if (process.argv[2] === '--m9-judge') await import('./m9-browser.js');
 else if (process.argv[2] === '--m9-fresh-signup') await import('./m9-browser.js');
 else if (process.argv[2] === '--m9-manual-retry') await import('./m9-browser.js');
+else if (process.argv[2] === '--m9-cost') await import('./m9-cost.js');
+else if (process.argv[2] === '--m9-wallet-readback') await import('./m9-browser.js');
 else if (process.argv[2] === '--m9-secret-scan') await import('./m9-secret-scan.js');
 else if (process.argv[2] === '--m9-checks') await import('./m9-checks.js');
 else if (process.argv[2] === '--m9-unit') await import('./m9-unit.js');

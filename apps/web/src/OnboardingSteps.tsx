@@ -2,6 +2,20 @@ import { formatEther } from 'viem';
 import type { onboardingStatus } from './onboarding.js';
 import { activationLabels, type ActivationStage } from './activation.js';
 import { Hash } from './Hash.js';
+import { z } from 'zod';
+import rawEstimate from '../public/activation-estimate.json';
+import { humanDate } from './presentation.js';
+const estimate = z
+  .object({
+    network: z.literal('qorechain-diana'),
+    measuredAt: z.string().datetime(),
+    costQor: z.string().regex(/^\d+(\.\d+)?$/),
+    estimatedSetupQor: z.string().regex(/^\d+(\.\d+)?$/),
+    cardGasUsed: z.string().regex(/^\d+$/),
+    source: z.literal('evidence/m9-activation-cost.json'),
+  })
+  .strict()
+  .parse(rawEstimate);
 interface Props {
   address: string;
   status: Awaited<ReturnType<typeof onboardingStatus>> | null;
@@ -27,10 +41,28 @@ export function OnboardingSteps({ address, status, busy, backup, stage, failed, 
           Get free test QOR
         </a>
         <p>Get free test QOR (one claim per 24 hours). This page updates when it arrives.</p>
-        <p className="muted">
-          Allow up to 1.05 QOR for setup: three native fees of 0.1 QOR plus a card transaction budget of 0.75 QOR.
-          Actual cost depends on gas used. Keep another 2 QOR for your first deposit.
+        <p className="muted" data-testid="activation-estimate">
+          Estimated setup cost: <strong>{estimate.estimatedSetupQor} QOR</strong>, based on real gas and fees with a 25%
+          buffer. Keep another 2 QOR for your first deposit.
         </p>
+        <details>
+          <summary>Fee details</summary>
+          <p>
+            Measured {humanDate(estimate.measuredAt)}: {estimate.costQor} QOR for signing-key registration,
+            encryption-key registration, the window and payment card. The card used {estimate.cardGasUsed} gas.
+          </p>
+          <p>
+            Fees can change. Allow up to 1.05 QOR for setup: three native fees of 0.1 QOR and a card transaction budget
+            of 0.75 QOR. Every transaction still checks its estimated gas against the signed window limit.
+          </p>
+          <a
+            href="https://github.com/DrApkFile/Quaestor/blob/master/evidence/m9-activation-cost.json"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Observed gas and fee evidence
+          </a>
+        </details>
         {!status?.funded && <p role="status">Checking for funding every 10 seconds…</p>}
       </section>
       <section className="panel">

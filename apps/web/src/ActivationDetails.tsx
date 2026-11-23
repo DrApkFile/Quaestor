@@ -26,7 +26,7 @@ export function ActivationDetails({ address, busy }: { address: string; busy: bo
               ? 'Signature registration'
               : record.id.startsWith('kem')
                 ? 'Encryption key registration'
-                : record.id.startsWith('window')
+                : record.id.startsWith('window') || record.id.startsWith('prepare')
                   ? 'EVM window'
                   : 'Payment card'}{' '}
             · Block {record.block}

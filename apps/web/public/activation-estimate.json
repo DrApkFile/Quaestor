@@ -1,0 +1,8 @@
+{
+  "network": "qorechain-diana",
+  "measuredAt": "2026-11-23T09:12:24.416Z",
+  "costQor": "0.319120916",
+  "estimatedSetupQor": "0.4",
+  "cardGasUsed": "189316",
+  "source": "evidence/m9-activation-cost.json"
+}

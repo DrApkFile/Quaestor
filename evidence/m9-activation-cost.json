@@ -1,0 +1,43 @@
+{
+  "command": "pnpm evidence --m9-cost",
+  "status": "PASSED",
+  "at": "2026-11-23T09:12:24.416Z",
+  "network": "qorechain-diana",
+  "native": [
+    {
+      "hash": "CBB9F6A8A1099905FA9FC1CCEF3CC3253354E0F9BA5341C4F8C1F5F8F5B2402B",
+      "block": "10605276",
+      "step": "pqc-register",
+      "gasUsed": "297147",
+      "gasWanted": "800000",
+      "feeUqor": "100000"
+    },
+    {
+      "hash": "C4BF021D0DDA3E18984EEDF466BBBC553A035FBF209AE3E3436376783EA19B75",
+      "block": "10605280",
+      "step": "kem-register",
+      "gasUsed": "267708",
+      "gasWanted": "800000",
+      "feeUqor": "100000"
+    },
+    {
+      "hash": "92C7249AA0A295E9622C6B473D649553106310E8DBC28D6B81ED37ADFC041AAF",
+      "block": "10605294",
+      "step": "window-0x4eba1123b4b0120e4469c89cbed60cef0be9a496861e9aff100d3d9d18e2b12f-10605286",
+      "gasUsed": "186742",
+      "gasWanted": "800000",
+      "feeUqor": "100000"
+    }
+  ],
+  "card": {
+    "hash": "0xe262e952a27fc26658c13aa7d476ee4cfbbb5d4b9210068eb1349cdaa9d65620",
+    "block": "10605297",
+    "gasUsed": "189316",
+    "effectiveGasPrice": "101000000000",
+    "feeQor": "0.019120916"
+  },
+  "totalQor": "0.319120916",
+  "uiBalanceDeltaQor": "0.319120916",
+  "activationMs": 44574,
+  "limits": "One observed activation, not a fixed future fee; faucet funding and screenshot/backup time excluded from activationMs."
+}
