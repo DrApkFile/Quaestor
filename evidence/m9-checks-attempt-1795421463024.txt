@@ -1,0 +1,70 @@
+Command: pnpm evidence --m9-checks
+Started: 2026-11-23T08:00:57.323Z
+
+$ pnpm gate
+
+> quaestor@ gate /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test
+
+
+> quaestor@ claims:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/claims.ts
+
+T-CLAIMS PASSED: every README section maps to PROVEN claims, existing evidence/code/tests and observed hashes.
+
+> quaestor@ format:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> prettier --check "**/*.{ts,tsx}"
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> quaestor@ typecheck /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+packages/core typecheck$ tsc --noEmit
+scripts typecheck$ tsc --noEmit
+tools/evm-window typecheck$ tsc --noEmit
+tools/evm-window typecheck: Done
+packages/core typecheck: Done
+scripts typecheck: Done
+packages/chain typecheck$ tsc --noEmit
+packages/chain typecheck: Done
+apps/web typecheck$ tsc --noEmit
+apps/web typecheck: Done
+
+> quaestor@ lint /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --workspace-concurrency=1 --if-present lint
+
+Scope: 6 of 7 workspace projects
+
+> @quaestor/core@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/packages/core
+> eslint src test
+
+
+> @quaestor/scripts@ lint /home/kingghidorah/Documents/projects/bounties/quaestor/scripts
+> eslint *.ts
+
+
+/home/kingghidorah/Documents/projects/bounties/quaestor/scripts/m9-bundles.ts
+  34:26  error  Invalid type "number" of template literal expression  @typescript-eslint/restrict-template-expressions
+  34:51  error  Invalid type "number" of template literal expression  @typescript-eslint/restrict-template-expressions
+
+/home/kingghidorah/Documents/projects/bounties/quaestor/scripts/m9-checks.ts
+   5:83  error  Invalid type "number" of template literal expression         @typescript-eslint/restrict-template-expressions
+  10:82  error  Invalid type "number | null" of template literal expression  @typescript-eslint/restrict-template-expressions
+  11:35  error  Invalid type "number | null" of template literal expression  @typescript-eslint/restrict-template-expressions
+
+✖ 5 problems (5 errors, 0 warnings)
+
+/home/kingghidorah/Documents/projects/bounties/quaestor/scripts:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @quaestor/scripts@ lint: `eslint *.ts`
+Exit status 1
+
+> @quaestor/evm-window@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/tools/evm-window
+> eslint scripts
+
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.
+
+exit=1
