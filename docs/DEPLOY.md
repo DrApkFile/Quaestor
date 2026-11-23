@@ -10,10 +10,10 @@ Run from the repository root. Root Directory must stay at the repository root: t
 6. Verify on the actual origin:
 
 ```sh
-curl -I https://YOUR-ACTUAL-DEPLOYMENT/app
-curl -I https://YOUR-ACTUAL-DEPLOYMENT/attack-lab
-curl -i https://YOUR-ACTUAL-DEPLOYMENT/api/qore/rest/qorechain/pqc/v1/kem/qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp
-curl -i https://YOUR-ACTUAL-DEPLOYMENT/api/qore/rest/not-allowlisted
+curl -I https://use-quaestor.vercel.app/app
+curl -I https://use-quaestor.vercel.app/attack-lab
+curl -i https://use-quaestor.vercel.app/api/qore/rest/qorechain/pqc/v1/kem/qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp
+curl -i https://use-quaestor.vercel.app/api/qore/rest/not-allowlisted
 ```
 
 The registry query above uses the public demo auditor address. The valid registry query must reach the relay and return the registry response, not HTML. The invalid path must be refused, not rewritten to the SPA. Confirm Public check, Auditor and Attack lab, including reload/deep links and lazy circuit downloads, on that origin at 390px and desktop.
@@ -27,3 +27,5 @@ M8 judge content uses `pnpm evidence --m7b`, after `pnpm evidence --m8-privacy` 
 `pnpm evidence --m8-cover` renders the original local cover artwork without network requests. `pnpm evidence --m8-presubmit` clones the committed local HEAD into a fresh temporary directory, installs the frozen lockfile, prepares circuits and pinned forge-std, verifies the vendor tree is unchanged, runs the gate and builds production. Its full output is `evidence/m8-presubmit.txt`. It reuses installed machine tools/package caches, but copies no private accounts. External hosting, the final recorded video and project-page actions remain the builder's submission steps; see `docs/PRESUBMIT.md`.
 
 The mutating legacy `pnpm evidence --m7` entry point is retired: it refuses with `M7_RUN_SUPERSEDED_USE_M7B_OR_M8_PRIVACY` to prevent stale canary fixtures being reused as the judge run. Historical M7 commands/results remain unchanged in the handoff. M7b requires a passing, separately labelled Privacy test run before copying its encrypted state.
+
+M9 deployment verification: https://use-quaestor.vercel.app serves the deployed app and lab. `pnpm evidence --m9-deploy` records all four curl checks and CSP/security headers; `pnpm evidence --m9-judge` with `QUAESTOR_M9_PHASE=after` exercises the live judge path. Vercel supplies both `qorePath` and wildcard `path` routing metadata on the original public URL. The relay preserves that public pathname, then applies the unchanged upstream allowlist. Rejected requests return only closed diagnostic categories, without query values or bodies. The first parsed-metadata-only fix did not repair the live rewrite; both failed deployment reports are retained. See [Vercel's rewrite parameter examples](https://vercel.com/docs/routing/rewrites).

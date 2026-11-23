@@ -12,6 +12,8 @@ Quaestor is a Vite/React web app built for Encrypted Apps. Our deployment of Glo
 2. Choose **Try the demo auditor**. The public, encrypted testnet-only backup and published passphrase load automatically. A/B show five **Matches a real payment** results and two **Holdings cover the books** results. C says **Not shared with you**. Technical codes remain in tooltips; manual backup upload remains available.
 3. Open [Attack lab](https://use-quaestor.vercel.app/attack-lab) and its evidence links: modified ciphertext, wrong receipt context, short holdings and a duplicate booking. The lab is read-only. See [M7b evidence](evidence/m7b-browser.json), [fresh auditor](evidence/m7b-fresh-auditors.json) and [unmasked screenshots](evidence/m7b-screens/).
 
+To make a payment yourself, follow [the new-user path](JUDGES.md#try-it-yourself): create account → encrypted backup → manual faucet → **Activate quantum-safe account** → prepare a window → deposit → pay the demo supplier. The exercised activation took 44.574 seconds and cost 0.319120916 test QOR. Its original new account was restored after the deployment's routing fix; [M9](evidence/m9-fresh-signup.json) preserves both the completed flow and the earlier failed attempt. [Gas/fee rereads](evidence/m9-activation-cost.json) match the UI balance change. Future costs and timings can differ.
+
 The first Northwind run is retained as **superseded: canary content** in [M7 evidence](evidence/m7-browser-initial.json). Privacy canaries now run on **Privacy test (demo)** with [separate evidence](evidence/m8-privacy-browser.json) and masked screenshots. The new fictional judge images have a [visible-text secret scan](evidence/m7b-image-secret-scan.json).
 
 ## How it works
@@ -107,6 +109,8 @@ Network: `qorechain-diana`, EVM **9800**. QOR here has no value. Current fiction
 | Area | Actual status |
 |---|---|
 | Native QOR payments, readable A/B audit, C refusal, encrypted journal restore | Proven for the scoped M7/M7b browser runs |
+| Fresh registration, activation, native-QOR deposit/pay/receive | Proven in M9 after restoring the original new account following the relay fix; [scoped evidence](evidence/m9-fresh-signup.json) |
+| Hosted routes and automated responsive accessibility checks | [M9 deployment and 20 captures](evidence/m9-judge-after.json); no independent human walkthrough is claimed |
 | fUSD conversion and shielding | Proven by script only; later fUSD payment/browser privacy flows are unproven |
 | Notes spread over more than four covering inputs | Pool cannot merge; close refuses CONSOLIDATION_UNSUPPORTED |
 | Unknown broadcasts | Notes stay held; original-hash recovery is tested. Live fault injection and universal stale-backup recovery are unproven |

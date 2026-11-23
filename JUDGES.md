@@ -19,6 +19,21 @@ The auditor opens only the granted periods. A later period uses an “opening ba
 
 The current book contains clearly fictional business entries: a single page banner identifies the demo; names have no repeated suffixes. The first completed Northwind run is retained as **superseded: canary content** in [its original evidence](evidence/m7-browser-initial.json) and [masked screenshots](evidence/m7-screens/). Traffic canaries now run only on **Privacy test (demo)**, book `0x2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291`.
 
+## Try it yourself
+
+Use [the app](https://use-quaestor.vercel.app/app?view=account) with an empty browser profile:
+
+1. Create an account with a passphrase and download its encrypted backup. Keep the backup and passphrase locally.
+2. Copy the new qor1 address and claim free test QOR at the [faucet](https://dashboard.qorechain.io/faucet). It permits one claim per 24 hours. The app polls for funding; never automate the faucet.
+3. Click **Activate quantum-safe account**. The three labels show signature registration, encryption-key registration and payment-card publication. **Details** contains algorithms and confirmed hashes/blocks. Retry resumes from chain state.
+4. In **Wallet**, choose **Prepare to transact**, then deposit **2 QOR**. Public QOR pays gas; the pool balance is private.
+5. In **Pay**, send **0.5 QOR** to the demo supplier: `qor1uz3zu3883m06vcguymnkxema9uantwxn8dmmw2`. The supplier's **Receive** scan opens and checks its anonymous ticket; this was exercised in a separate browser context.
+6. Download an updated encrypted backup after payments; it includes the private journal. The remaining private balance in this run was 1.5 QOR.
+
+Observed activation: **44.574 seconds**, **0.319120916 QOR** in fees. The measured funding estimate adds a 25% buffer, rounded up to **0.4 QOR**; keep additional public QOR for transaction fees and the 2-QOR deposit. Gas prices and timing can change. The successful automated flow took 5.9 minutes including screenshots, accessibility checks and backup work; that is not a pure transaction-time benchmark.
+
+[Fresh flow and receipts](evidence/m9-fresh-signup.json), [gas/fee rereads](evidence/m9-activation-cost.json). The first browser created and backed up this new account, but the broken relay prevented its balance poll from seeing the builder's 100-QOR faucet funding. Its failed report is retained in `evidence/m9-fresh-signup-attempt-1795424427899.json`. After the routing fix, an empty browser restored that original encrypted account and performed its first registrations and payments. No completed payment was repeated. The failed attempt had 545 requests and 544 inspected responses; it is not a complete privacy pass. The successful payer and supplier contexts inspected 351/351 and 155/155 requests/responses, with zero known-secret matches, errors or pending inspections.
+
 ## Evidence table
 
 | Check | Recorded evidence |
@@ -32,6 +47,8 @@ The current book contains clearly fictional business entries: a single page bann
 | Visible image text checked for local keys, mnemonics and note secrets | [OCR + visible-text secret scan](evidence/m7b-image-secret-scan.json) |
 | Separate Privacy test canary journey and masked captures | [Privacy evidence](evidence/m8-privacy-browser.json), [privacy screenshots](evidence/m8-privacy-screens/) |
 | First completed Northwind run, superseded: canary content | [Historical run](evidence/m7-browser-initial.json), [run index](evidence/m7-runs.json) |
+| Live deployed routes, headers and read-only judge path | [Deployment](evidence/m9-deploy.json), [M9 live judge checks](evidence/m9-judge-after.json) |
+| First registration, native payment and supplier receipt | [M9 original-account resume](evidence/m9-fresh-signup.json), [observed gas/fees](evidence/m9-activation-cost.json) |
 | Claim limits | [CLAIMS.md](CLAIMS.md), [threat model](THREAT_MODEL.md) |
 
 The final demo command is `pnpm evidence --m7b`. It needs the builder's local private test fixtures for writing and recovery. The judge path above needs only the public encrypted auditor backup, its passphrase and chain access.

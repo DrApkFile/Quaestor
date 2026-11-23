@@ -26,14 +26,15 @@
     },
     {
       "heading": "Try it in three steps",
-      "textSha256": "4f823d3d04a178b2fd0567df21ec7bb3336802156508dd10f82f0346c8144ae4",
+      "textSha256": "e4f2b1e85d3abcd5e9681931b0aac546a5374a682e0c3ceded2b8f9a5536c89d",
       "claims": [
         "C3",
         "C4",
         "C5",
         "C6",
         "M7b",
-        "C10"
+        "C10",
+        "C11"
       ],
       "evidence": [
         "evidence/m7b-browser.json",
@@ -43,13 +44,18 @@
         "evidence/m7-duplicate.json",
         "evidence/m7-attack-browser.json",
         "evidence/m7-browser-initial.json",
-        "evidence/m9-unit.json"
+        "evidence/m9-unit.json",
+        "evidence/m9-deploy.json",
+        "evidence/m9-judge-after.json",
+        "evidence/m9-fresh-signup.json",
+        "evidence/m9-activation-cost.json"
       ],
       "code": [
         "apps/web/e2e/m7.spec.ts",
         "apps/web/e2e/m7FreshAuditors.ts",
         "apps/web/src/AttackLab.tsx",
-        "apps/web/src/AuditorView.tsx"
+        "apps/web/src/AuditorView.tsx",
+        "apps/web/e2e/m9Signup.spec.ts"
       ],
       "tests": [
         {
@@ -63,6 +69,10 @@
         {
           "path": "apps/web/test/activation.test.ts",
           "name": "A11 activation resumes from chain state without repeating a completed registration"
+        },
+        {
+          "path": "apps/web/e2e/m9Signup.spec.ts",
+          "name": "T-NOPLAIN-WEB M9 fresh signup activates deposits pays and receives through the live UI"
         }
       ]
     },
@@ -228,14 +238,15 @@
     },
     {
       "heading": "What we don't claim",
-      "textSha256": "dd178d02b10bb48f27712fa36d43ef67428725fc39788252a275a7b78b083a6a",
+      "textSha256": "9af628329dd844b9113baa299f269838033cb662713aad751d0339f57e2b20ab",
       "claims": [
         "C1",
         "C5",
         "C6",
         "C8",
         "C9",
-        "M1b"
+        "M1b",
+        "C11"
       ],
       "evidence": [
         "evidence/m2b-ticket-anonymous.json",
@@ -243,13 +254,18 @@
         "evidence/m7b-browser.json",
         "docs/handoff/M7.md",
         "evidence/m8-cover.json",
-        "evidence/m1b-fusd.json"
+        "evidence/m1b-fusd.json",
+        "evidence/m9-deploy.json",
+        "evidence/m9-judge-after.json",
+        "evidence/m9-fresh-signup.json",
+        "evidence/m9-activation-cost.json"
       ],
       "code": [
         "THREAT_MODEL.md",
         "DECISIONS.md",
         "packages/core/src/holdingsSelection.ts",
-        "apps/web/src/business/close.ts"
+        "apps/web/src/business/close.ts",
+        "apps/web/e2e/m9Signup.spec.ts"
       ],
       "tests": [
         {
@@ -259,6 +275,10 @@
         {
           "path": "packages/core/test/holdingsSelection.test.ts",
           "name": "T-HOLDINGS-D16 selects the largest covering notes and refuses coverage requiring more than four"
+        },
+        {
+          "path": "apps/web/e2e/m9Signup.spec.ts",
+          "name": "T-NOPLAIN-WEB M9 fresh signup activates deposits pays and receives through the live UI"
         }
       ]
     },

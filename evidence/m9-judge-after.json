@@ -1,0 +1,4733 @@
+{
+  "command": "pnpm evidence --m9-judge",
+  "origin": "https://use-quaestor.vercel.app",
+  "at": "2026-11-23T09:04:39.131Z",
+  "status": "PASSED",
+  "network": {
+    "requests": 995,
+    "responses": 995,
+    "leaks": 0,
+    "errors": [],
+    "pendingInspections": 0
+  },
+  "transactionRequests": 0,
+  "failures": [],
+  "screens": [
+    {
+      "view": "landing",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/Landing-CgEpIg6G.js",
+          "bytes": 1981
+        },
+        {
+          "name": "/assets/m7-demo-4IWnceGU.js",
+          "bytes": 210
+        }
+      ],
+      "violations": [],
+      "initialJavascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/Landing-CgEpIg6G.js",
+          "bytes": 1981
+        },
+        {
+          "name": "/assets/m7-demo-4IWnceGU.js",
+          "bytes": 210
+        }
+      ]
+    },
+    {
+      "view": "landing",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/Landing-CgEpIg6G.js",
+          "bytes": 1981
+        },
+        {
+          "name": "/assets/m7-demo-4IWnceGU.js",
+          "bytes": 210
+        }
+      ],
+      "violations": [],
+      "initialJavascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/Landing-CgEpIg6G.js",
+          "bytes": 1981
+        },
+        {
+          "name": "/assets/m7-demo-4IWnceGU.js",
+          "bytes": 210
+        }
+      ]
+    },
+    {
+      "view": "public",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/PublicView-D5VcVaV9.js",
+          "bytes": 2263
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/m7-demo-4IWnceGU.js",
+          "bytes": 210
+        },
+        {
+          "name": "/assets/publicCheck-6lMV9pai.js",
+          "bytes": 56
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/client-1WJdw7I8.js",
+          "bytes": 98
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        }
+      ],
+      "violations": [],
+      "initialJavascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/PublicView-D5VcVaV9.js",
+          "bytes": 2263
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/m7-demo-4IWnceGU.js",
+          "bytes": 210
+        }
+      ]
+    },
+    {
+      "view": "public",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/PublicView-D5VcVaV9.js",
+          "bytes": 2263
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/m7-demo-4IWnceGU.js",
+          "bytes": 210
+        },
+        {
+          "name": "/assets/publicCheck-6lMV9pai.js",
+          "bytes": 56
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/client-1WJdw7I8.js",
+          "bytes": 98
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        }
+      ],
+      "violations": [],
+      "initialJavascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/PublicView-D5VcVaV9.js",
+          "bytes": 2263
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/m7-demo-4IWnceGU.js",
+          "bytes": 210
+        }
+      ]
+    },
+    {
+      "view": "auditor",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AuditorView-D_TRjyKm.js",
+          "bytes": 3315
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/demo-CyQGga8r.js",
+          "bytes": 93
+        },
+        {
+          "name": "/assets/m7-demo-4IWnceGU.js",
+          "bytes": 210
+        },
+        {
+          "name": "/assets/vault-LtnKI9ys.js",
+          "bytes": 111
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/dist-CaXJoYmv.js",
+          "bytes": 3458
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/dist-UT4R7zUg.js",
+          "bytes": 737
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/src-BvFrI5mj.js",
+          "bytes": 499
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/chainAudit-6D1tMzZl.js",
+          "bytes": 75
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/client-1WJdw7I8.js",
+          "bytes": 98
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-BfFJWDdg.js",
+          "bytes": 127
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/main-mj2bHlUk.js",
+          "bytes": 1324481
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": [],
+      "initialJavascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AuditorView-D_TRjyKm.js",
+          "bytes": 3315
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/demo-CyQGga8r.js",
+          "bytes": 93
+        },
+        {
+          "name": "/assets/m7-demo-4IWnceGU.js",
+          "bytes": 210
+        }
+      ]
+    },
+    {
+      "view": "auditor",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AuditorView-D_TRjyKm.js",
+          "bytes": 3315
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/demo-CyQGga8r.js",
+          "bytes": 93
+        },
+        {
+          "name": "/assets/m7-demo-4IWnceGU.js",
+          "bytes": 210
+        },
+        {
+          "name": "/assets/vault-LtnKI9ys.js",
+          "bytes": 111
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/dist-CaXJoYmv.js",
+          "bytes": 3458
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/dist-UT4R7zUg.js",
+          "bytes": 737
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/src-BvFrI5mj.js",
+          "bytes": 499
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/chainAudit-6D1tMzZl.js",
+          "bytes": 75
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/client-1WJdw7I8.js",
+          "bytes": 98
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-BfFJWDdg.js",
+          "bytes": 127
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/main-mj2bHlUk.js",
+          "bytes": 1324481
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": [],
+      "initialJavascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AuditorView-D_TRjyKm.js",
+          "bytes": 3315
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/demo-CyQGga8r.js",
+          "bytes": 93
+        },
+        {
+          "name": "/assets/m7-demo-4IWnceGU.js",
+          "bytes": 210
+        }
+      ]
+    },
+    {
+      "view": "attack",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AttackLab-DS6Y7fkA.js",
+          "bytes": 2100
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/demo-CyQGga8r.js",
+          "bytes": 93
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/main-mj2bHlUk.js",
+          "bytes": 1324481
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": [],
+      "initialJavascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AttackLab-DS6Y7fkA.js",
+          "bytes": 2100
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/demo-CyQGga8r.js",
+          "bytes": 93
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        }
+      ]
+    },
+    {
+      "view": "attack",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AttackLab-DS6Y7fkA.js",
+          "bytes": 2100
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/demo-CyQGga8r.js",
+          "bytes": 93
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/main-mj2bHlUk.js",
+          "bytes": 1324481
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        }
+      ],
+      "violations": [],
+      "initialJavascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AttackLab-DS6Y7fkA.js",
+          "bytes": 2100
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/demo-CyQGga8r.js",
+          "bytes": 93
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        }
+      ]
+    },
+    {
+      "view": "account",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        }
+      ],
+      "violations": [],
+      "initialJavascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        }
+      ]
+    },
+    {
+      "view": "account",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        }
+      ],
+      "violations": [],
+      "initialJavascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        }
+      ]
+    },
+    {
+      "view": "wallet",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/runtime-DxstNCfW.js",
+          "bytes": 85
+        },
+        {
+          "name": "/assets/runtime-BDzE0tgb.js",
+          "bytes": 10623
+        },
+        {
+          "name": "/assets/proof-CG1eXm_R.js",
+          "bytes": 441
+        },
+        {
+          "name": "/assets/privacy-BfFJWDdg.js",
+          "bytes": 127
+        },
+        {
+          "name": "/assets/Dashboard-D6q1FiQD.js",
+          "bytes": 36986
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/browserProof-C5ibeDGs.js",
+          "bytes": 875
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "wallet",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/runtime-DxstNCfW.js",
+          "bytes": 85
+        },
+        {
+          "name": "/assets/runtime-BDzE0tgb.js",
+          "bytes": 10623
+        },
+        {
+          "name": "/assets/proof-CG1eXm_R.js",
+          "bytes": 441
+        },
+        {
+          "name": "/assets/privacy-BfFJWDdg.js",
+          "bytes": 127
+        },
+        {
+          "name": "/assets/Dashboard-D6q1FiQD.js",
+          "bytes": 36986
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/browserProof-C5ibeDGs.js",
+          "bytes": 875
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "pay",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/runtime-DxstNCfW.js",
+          "bytes": 85
+        },
+        {
+          "name": "/assets/runtime-BDzE0tgb.js",
+          "bytes": 10623
+        },
+        {
+          "name": "/assets/proof-CG1eXm_R.js",
+          "bytes": 441
+        },
+        {
+          "name": "/assets/privacy-BfFJWDdg.js",
+          "bytes": 127
+        },
+        {
+          "name": "/assets/Dashboard-D6q1FiQD.js",
+          "bytes": 36986
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/browserProof-C5ibeDGs.js",
+          "bytes": 875
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "pay",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/runtime-DxstNCfW.js",
+          "bytes": 85
+        },
+        {
+          "name": "/assets/runtime-BDzE0tgb.js",
+          "bytes": 10623
+        },
+        {
+          "name": "/assets/proof-CG1eXm_R.js",
+          "bytes": 441
+        },
+        {
+          "name": "/assets/privacy-BfFJWDdg.js",
+          "bytes": 127
+        },
+        {
+          "name": "/assets/Dashboard-D6q1FiQD.js",
+          "bytes": 36986
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/browserProof-C5ibeDGs.js",
+          "bytes": 875
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "receive",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/runtime-DxstNCfW.js",
+          "bytes": 85
+        },
+        {
+          "name": "/assets/runtime-BDzE0tgb.js",
+          "bytes": 10623
+        },
+        {
+          "name": "/assets/proof-CG1eXm_R.js",
+          "bytes": 441
+        },
+        {
+          "name": "/assets/privacy-BfFJWDdg.js",
+          "bytes": 127
+        },
+        {
+          "name": "/assets/Dashboard-D6q1FiQD.js",
+          "bytes": 36986
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/browserProof-C5ibeDGs.js",
+          "bytes": 875
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "receive",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/runtime-DxstNCfW.js",
+          "bytes": 85
+        },
+        {
+          "name": "/assets/runtime-BDzE0tgb.js",
+          "bytes": 10623
+        },
+        {
+          "name": "/assets/proof-CG1eXm_R.js",
+          "bytes": 441
+        },
+        {
+          "name": "/assets/privacy-BfFJWDdg.js",
+          "bytes": 127
+        },
+        {
+          "name": "/assets/Dashboard-D6q1FiQD.js",
+          "bytes": 36986
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/browserProof-C5ibeDGs.js",
+          "bytes": 875
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "books",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/runtime-DxstNCfW.js",
+          "bytes": 85
+        },
+        {
+          "name": "/assets/runtime-BDzE0tgb.js",
+          "bytes": 10623
+        },
+        {
+          "name": "/assets/proof-CG1eXm_R.js",
+          "bytes": 441
+        },
+        {
+          "name": "/assets/privacy-BfFJWDdg.js",
+          "bytes": 127
+        },
+        {
+          "name": "/assets/Dashboard-D6q1FiQD.js",
+          "bytes": 36986
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/browserProof-C5ibeDGs.js",
+          "bytes": 875
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "books",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/runtime-DxstNCfW.js",
+          "bytes": 85
+        },
+        {
+          "name": "/assets/runtime-BDzE0tgb.js",
+          "bytes": 10623
+        },
+        {
+          "name": "/assets/proof-CG1eXm_R.js",
+          "bytes": 441
+        },
+        {
+          "name": "/assets/privacy-BfFJWDdg.js",
+          "bytes": 127
+        },
+        {
+          "name": "/assets/Dashboard-D6q1FiQD.js",
+          "bytes": 36986
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/browserProof-C5ibeDGs.js",
+          "bytes": 875
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "grants",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/runtime-DxstNCfW.js",
+          "bytes": 85
+        },
+        {
+          "name": "/assets/runtime-BDzE0tgb.js",
+          "bytes": 10623
+        },
+        {
+          "name": "/assets/proof-CG1eXm_R.js",
+          "bytes": 441
+        },
+        {
+          "name": "/assets/privacy-BfFJWDdg.js",
+          "bytes": 127
+        },
+        {
+          "name": "/assets/Dashboard-D6q1FiQD.js",
+          "bytes": 36986
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/browserProof-C5ibeDGs.js",
+          "bytes": 875
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "grants",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/assets/index-DKNs1UWN.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/rolldown-runtime-BCiCTKAo.js",
+          "bytes": 727
+        },
+        {
+          "name": "/assets/base64-js-CQoVR1vJ.js",
+          "bytes": 821
+        },
+        {
+          "name": "/assets/buffer-B46dPiek.js",
+          "bytes": 7880
+        },
+        {
+          "name": "/assets/jsx-runtime-BB9-612F.js",
+          "bytes": 435
+        },
+        {
+          "name": "/assets/preload-helper-7y9sWmk5.js",
+          "bytes": 846
+        },
+        {
+          "name": "/assets/client-DorhcNRs.js",
+          "bytes": 66791
+        },
+        {
+          "name": "/assets/react-BWPDF9mI.js",
+          "bytes": 3138
+        },
+        {
+          "name": "/assets/App-Dz3rvZyN.js",
+          "bytes": 3331
+        },
+        {
+          "name": "/assets/AccountView-Js3YMpOJ.js",
+          "bytes": 5328
+        },
+        {
+          "name": "/assets/lib-UMKb9-QE.js",
+          "bytes": 14626
+        },
+        {
+          "name": "/assets/db-VN942jto.js",
+          "bytes": 543
+        },
+        {
+          "name": "/assets/vault-CZRFCPfV.js",
+          "bytes": 2254
+        },
+        {
+          "name": "/assets/pbkdf2-DsRdySB7.js",
+          "bytes": 814
+        },
+        {
+          "name": "/assets/sha2-a0FbACea.js",
+          "bytes": 7398
+        },
+        {
+          "name": "/assets/ccip-C5s5pUuR.js",
+          "bytes": 31720
+        },
+        {
+          "name": "/assets/utils-EcRXxGUl.js",
+          "bytes": 1989
+        },
+        {
+          "name": "/assets/messages-CRnUyl1S.js",
+          "bytes": 1949
+        },
+        {
+          "name": "/assets/activationReceipts-B9bfeO33.js",
+          "bytes": 824
+        },
+        {
+          "name": "/assets/browser-BNHPcNOJ.js",
+          "bytes": 6189
+        },
+        {
+          "name": "/assets/booksReader-CLQ6-r4r.js",
+          "bytes": 7434
+        },
+        {
+          "name": "/assets/structs-D_Dg_oT7.js",
+          "bytes": 3714
+        },
+        {
+          "name": "/assets/src-NUKtayqc.js",
+          "bytes": 20434
+        },
+        {
+          "name": "/assets/src-B8VKHPaS.js",
+          "bytes": 39370
+        },
+        {
+          "name": "/assets/dist-jjBms6V-.js",
+          "bytes": 2264
+        },
+        {
+          "name": "/assets/dist-BOVU2MbI.js",
+          "bytes": 11162
+        },
+        {
+          "name": "/assets/utils-B7SU1IO6.js",
+          "bytes": 19990
+        },
+        {
+          "name": "/assets/defineChain-BkEypOdm.js",
+          "bytes": 295
+        },
+        {
+          "name": "/assets/sha2-gEUToxkQ.js",
+          "bytes": 4045
+        },
+        {
+          "name": "/assets/address-Drx0r47u.js",
+          "bytes": 120
+        },
+        {
+          "name": "/assets/browser.esm-Bp2FeqLi.js",
+          "bytes": 57815
+        },
+        {
+          "name": "/assets/dist-h0Y9HPlS.js",
+          "bytes": 512000
+        },
+        {
+          "name": "/assets/hmac-BhjyT9oh.js",
+          "bytes": 605
+        },
+        {
+          "name": "/assets/chainAudit-DTYPA_Cb.js",
+          "bytes": 7887
+        },
+        {
+          "name": "/assets/publicCheck-DExBUP5A.js",
+          "bytes": 630
+        },
+        {
+          "name": "/assets/secp256k1-D0KhDG0W.js",
+          "bytes": 10107
+        },
+        {
+          "name": "/assets/sealKeys-iOGzWsdF.js",
+          "bytes": 156
+        },
+        {
+          "name": "/assets/onboarding-BRNLFBYv.js",
+          "bytes": 2376
+        },
+        {
+          "name": "/assets/client-CAwF8PLN.js",
+          "bytes": 38628
+        },
+        {
+          "name": "/assets/formatUnits-wpbTNvE-.js",
+          "bytes": 80
+        },
+        {
+          "name": "/assets/circuits-CWz9DeaS.js",
+          "bytes": 865
+        },
+        {
+          "name": "/assets/privacy-vfea0laa.js",
+          "bytes": 761
+        },
+        {
+          "name": "/assets/runtime-DxstNCfW.js",
+          "bytes": 85
+        },
+        {
+          "name": "/assets/runtime-BDzE0tgb.js",
+          "bytes": 10623
+        },
+        {
+          "name": "/assets/proof-CG1eXm_R.js",
+          "bytes": 441
+        },
+        {
+          "name": "/assets/privacy-BfFJWDdg.js",
+          "bytes": 127
+        },
+        {
+          "name": "/assets/Dashboard-D6q1FiQD.js",
+          "bytes": 36986
+        },
+        {
+          "name": "/assets/__vite-browser-external-BwpP9LFt.js",
+          "bytes": 94
+        },
+        {
+          "name": "/assets/Status-CDTq8sz0.js",
+          "bytes": 1701
+        },
+        {
+          "name": "/assets/browserProof-C5ibeDGs.js",
+          "bytes": 875
+        },
+        {
+          "name": "/assets/Ledger-D-Hxpejj.js",
+          "bytes": 828
+        }
+      ],
+      "violations": []
+    }
+  ]
+}

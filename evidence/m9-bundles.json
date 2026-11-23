@@ -121,6 +121,388 @@
     "totalBytes": 6765315,
     "totalGzipBytes": 2240345
   },
-  "command": "pnpm evidence --m9-bundles before",
-  "limits": "Total output includes lazy chunks; per-page transferred JavaScript is recorded separately in m9-judge reports."
+  "command": "pnpm evidence --m9-bundles after",
+  "limits": "Total output includes lazy chunks; per-page transferred JavaScript is recorded separately in m9-judge reports.",
+  "after": {
+    "at": "2026-11-23T17:58:18.808Z",
+    "assets": [
+      {
+        "name": "AccountView-Ca5xoytZ.js",
+        "bytes": 15087,
+        "gzipBytes": 5551
+      },
+      {
+        "name": "App-Byyl3Dgc.js",
+        "bytes": 7905,
+        "gzipBytes": 3208
+      },
+      {
+        "name": "App-fyNI6Dsp.css",
+        "bytes": 8792,
+        "gzipBytes": 2789
+      },
+      {
+        "name": "AttackLab-O2vKHucQ.js",
+        "bytes": 4995,
+        "gzipBytes": 2010
+      },
+      {
+        "name": "AuditorView-Biy0PQv9.js",
+        "bytes": 7883,
+        "gzipBytes": 3179
+      },
+      {
+        "name": "Dashboard-h_nzCI1j.js",
+        "bytes": 119893,
+        "gzipBytes": 35066
+      },
+      {
+        "name": "Landing-Bb9THbXN.css",
+        "bytes": 2725,
+        "gzipBytes": 1056
+      },
+      {
+        "name": "Landing-CgEpIg6G.js",
+        "bytes": 5325,
+        "gzipBytes": 1861
+      },
+      {
+        "name": "Ledger-DIGo5RP9.js",
+        "bytes": 2378,
+        "gzipBytes": 805
+      },
+      {
+        "name": "PublicView-jOGY4f8E.js",
+        "bytes": 5762,
+        "gzipBytes": 2183
+      },
+      {
+        "name": "Status-CdWbqQ1D.js",
+        "bytes": 427,
+        "gzipBytes": 316
+      },
+      {
+        "name": "__vite-browser-external-BwpP9LFt.js",
+        "bytes": 94,
+        "gzipBytes": 108
+      },
+      {
+        "name": "_esm-BvRk9kiK.js",
+        "bytes": 0,
+        "gzipBytes": 20
+      },
+      {
+        "name": "_esm-DQtqp03L.js",
+        "bytes": 394,
+        "gzipBytes": 253
+      },
+      {
+        "name": "activationReceipts-Cnnu4jeS.js",
+        "bytes": 1528,
+        "gzipBytes": 800
+      },
+      {
+        "name": "activationReceipts-D18_t28R.js",
+        "bytes": 70,
+        "gzipBytes": 74
+      },
+      {
+        "name": "address-Drx0r47u.js",
+        "bytes": 120,
+        "gzipBytes": 61
+      },
+      {
+        "name": "base64-js-CQoVR1vJ.js",
+        "bytes": 1444,
+        "gzipBytes": 788
+      },
+      {
+        "name": "booksReader-DxHDUqqP.js",
+        "bytes": 20066,
+        "gzipBytes": 7219
+      },
+      {
+        "name": "browser-6BBendfl.js",
+        "bytes": 15434,
+        "gzipBytes": 5999
+      },
+      {
+        "name": "browser.esm-Bp2FeqLi.js",
+        "bytes": 275194,
+        "gzipBytes": 56591
+      },
+      {
+        "name": "browserProof-C5ibeDGs.js",
+        "bytes": 875,
+        "gzipBytes": 521
+      },
+      {
+        "name": "browserProof-QoOM27uR.js",
+        "bytes": 59,
+        "gzipBytes": 71
+      },
+      {
+        "name": "buffer-B46dPiek.js",
+        "bytes": 25550,
+        "gzipBytes": 7553
+      },
+      {
+        "name": "ccip-C5s5pUuR.js",
+        "bytes": 107520,
+        "gzipBytes": 31540
+      },
+      {
+        "name": "ccip-CQEieYHr.js",
+        "bytes": 81,
+        "gzipBytes": 85
+      },
+      {
+        "name": "chainAudit-BRGbJIU6.js",
+        "bytes": 75,
+        "gzipBytes": 88
+      },
+      {
+        "name": "chainAudit-D_TWwyp3.js",
+        "bytes": 19966,
+        "gzipBytes": 7555
+      },
+      {
+        "name": "circuits-CWz9DeaS.js",
+        "bytes": 1574,
+        "gzipBytes": 849
+      },
+      {
+        "name": "client-CJNxNuks.js",
+        "bytes": 98,
+        "gzipBytes": 105
+      },
+      {
+        "name": "client-D2EKdnfS.js",
+        "bytes": 123358,
+        "gzipBytes": 38029
+      },
+      {
+        "name": "client-DorhcNRs.js",
+        "bytes": 211125,
+        "gzipBytes": 65155
+      },
+      {
+        "name": "db-VN942jto.js",
+        "bytes": 1135,
+        "gzipBytes": 550
+      },
+      {
+        "name": "defineChain-BkEypOdm.js",
+        "bytes": 295,
+        "gzipBytes": 206
+      },
+      {
+        "name": "demo-CyQGga8r.js",
+        "bytes": 93,
+        "gzipBytes": 100
+      },
+      {
+        "name": "dist-BOVU2MbI.js",
+        "bytes": 29123,
+        "gzipBytes": 10643
+      },
+      {
+        "name": "dist-ChxY50m-.js",
+        "bytes": 50,
+        "gzipBytes": 70
+      },
+      {
+        "name": "dist-D7dXRGuu.js",
+        "bytes": 8937,
+        "gzipBytes": 3286
+      },
+      {
+        "name": "dist-DPg10qAq.js",
+        "bytes": 2690198,
+        "gzipBytes": 507423
+      },
+      {
+        "name": "dist-UT4R7zUg.js",
+        "bytes": 1463,
+        "gzipBytes": 704
+      },
+      {
+        "name": "dist-jjBms6V-.js",
+        "bytes": 4843,
+        "gzipBytes": 2177
+      },
+      {
+        "name": "formatUnits-wpbTNvE-.js",
+        "bytes": 80,
+        "gzipBytes": 94
+      },
+      {
+        "name": "hmac-BhjyT9oh.js",
+        "bytes": 1321,
+        "gzipBytes": 582
+      },
+      {
+        "name": "index-Bg-EDfm2.js",
+        "bytes": 1503,
+        "gzipBytes": 809
+      },
+      {
+        "name": "jsx-runtime-BB9-612F.js",
+        "bytes": 435,
+        "gzipBytes": 304
+      },
+      {
+        "name": "lib-UMKb9-QE.js",
+        "bytes": 59302,
+        "gzipBytes": 14049
+      },
+      {
+        "name": "m7-demo-4IWnceGU.js",
+        "bytes": 210,
+        "gzipBytes": 189
+      },
+      {
+        "name": "main-mj2bHlUk.js",
+        "bytes": 2797375,
+        "gzipBytes": 1358637
+      },
+      {
+        "name": "messages-_k7K4xqD.js",
+        "bytes": 7148,
+        "gzipBytes": 2996
+      },
+      {
+        "name": "onboarding-BA4lAQ6R.js",
+        "bytes": 5159,
+        "gzipBytes": 2286
+      },
+      {
+        "name": "onboarding-efNuMnyQ.js",
+        "bytes": 110,
+        "gzipBytes": 108
+      },
+      {
+        "name": "pbkdf2-DsRdySB7.js",
+        "bytes": 1642,
+        "gzipBytes": 813
+      },
+      {
+        "name": "preload-helper-7y9sWmk5.js",
+        "bytes": 1615,
+        "gzipBytes": 828
+      },
+      {
+        "name": "privacy-BfFJWDdg.js",
+        "bytes": 127,
+        "gzipBytes": 119
+      },
+      {
+        "name": "privacy-vfea0laa.js",
+        "bytes": 1519,
+        "gzipBytes": 745
+      },
+      {
+        "name": "proof-CG1eXm_R.js",
+        "bytes": 441,
+        "gzipBytes": 267
+      },
+      {
+        "name": "publicCheck-D0hUDNnR.js",
+        "bytes": 56,
+        "gzipBytes": 67
+      },
+      {
+        "name": "publicCheck-DwLUCikj.js",
+        "bytes": 1100,
+        "gzipBytes": 560
+      },
+      {
+        "name": "react-BWPDF9mI.js",
+        "bytes": 7876,
+        "gzipBytes": 3007
+      },
+      {
+        "name": "rolldown-runtime-BCiCTKAo.js",
+        "bytes": 1301,
+        "gzipBytes": 711
+      },
+      {
+        "name": "runtime-D5Y4y1ki.js",
+        "bytes": 85,
+        "gzipBytes": 95
+      },
+      {
+        "name": "runtime-DG990x_D.js",
+        "bytes": 38791,
+        "gzipBytes": 10126
+      },
+      {
+        "name": "sealKeys-iOGzWsdF.js",
+        "bytes": 156,
+        "gzipBytes": 157
+      },
+      {
+        "name": "secp256k1-D-KVTE_D.js",
+        "bytes": 52,
+        "gzipBytes": 65
+      },
+      {
+        "name": "secp256k1-D0KhDG0W.js",
+        "bytes": 25074,
+        "gzipBytes": 9726
+      },
+      {
+        "name": "sha2-a0FbACea.js",
+        "bytes": 16065,
+        "gzipBytes": 7043
+      },
+      {
+        "name": "sha2-gEUToxkQ.js",
+        "bytes": 7459,
+        "gzipBytes": 3843
+      },
+      {
+        "name": "src-B8VKHPaS.js",
+        "bytes": 106864,
+        "gzipBytes": 37782
+      },
+      {
+        "name": "src-BvFrI5mj.js",
+        "bytes": 1084,
+        "gzipBytes": 484
+      },
+      {
+        "name": "src-NUKtayqc.js",
+        "bytes": 60626,
+        "gzipBytes": 20001
+      },
+      {
+        "name": "structs-D_Dg_oT7.js",
+        "bytes": 12575,
+        "gzipBytes": 3575
+      },
+      {
+        "name": "utils-B7SU1IO6.js",
+        "bytes": 44251,
+        "gzipBytes": 19139
+      },
+      {
+        "name": "utils-EcRXxGUl.js",
+        "bytes": 4640,
+        "gzipBytes": 1894
+      },
+      {
+        "name": "vault-CZRFCPfV.js",
+        "bytes": 4773,
+        "gzipBytes": 2224
+      },
+      {
+        "name": "vault-LtnKI9ys.js",
+        "bytes": 111,
+        "gzipBytes": 106
+      }
+    ],
+    "totalBytes": 6932860,
+    "totalGzipBytes": 2310078
+  }
 }

@@ -1,0 +1,17 @@
+{
+  "command": "pnpm evidence --m9-manual-retry",
+  "origin": "https://use-quaestor.vercel.app",
+  "status": "PASSED",
+  "failure": null,
+  "at": "2026-11-23T09:11:16.205Z",
+  "expectedPreviousDemoEntries": 5,
+  "expectedCorrectedBook": "0xd7f14b9d8aa6f19c80c6d8fa16960c48e0a9bda42dbe5a6a3b1b4a47cadec6ac",
+  "expectedEntries": 3,
+  "network": {
+    "requests": 462,
+    "responses": 462,
+    "leaks": 0,
+    "errors": [],
+    "pendingInspections": 0
+  }
+}
