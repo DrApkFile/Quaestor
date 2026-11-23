@@ -1,3 +1,5 @@
+import { Hash } from '../Hash.js';
+import { Status } from '../Status.js';
 import { useState } from 'react';
 import { parseUnits, zeroAddress, type Hex } from 'viem';
 import { pay } from '../business/payments.js';
@@ -14,7 +16,7 @@ export function Pay({ runtime, run, busy }: ScreenProps) {
   return (
     <section>
       <div className="intro">
-        <p className="eyebrow">Pay (demo)</p>
+        <p className="eyebrow">Pay</p>
         <h1>
           A private payment.
           <br />
@@ -91,13 +93,15 @@ export function Pay({ runtime, run, busy }: ScreenProps) {
       </form>
       <div className="panel">
         <h2>Payment stages</h2>
+        {!runtime.state.payments.some((payment) => payment.direction === 'OUT') && (
+          <p>No payments yet. Deposit in Wallet, prepare a window, then enter the recipient above.</p>
+        )}
         {runtime.state.payments
           .filter((payment) => payment.direction === 'OUT')
           .map((payment) => (
-            <p key={payment.id}>
-              <span className="hash">{payment.note.commitment.slice(0, 18)}…</span> ·{' '}
-              <span className="badge">{payment.stage}</span>
-            </p>
+            <article key={payment.id}>
+              <Hash value={payment.note.commitment} /> · <Status code={payment.stage} />
+            </article>
           ))}
         {runtime.state.plans
           .filter((plan) => !runtime.state.payments.some((payment) => payment.id === plan.id && payment.memo))

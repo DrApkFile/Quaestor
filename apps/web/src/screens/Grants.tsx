@@ -1,3 +1,5 @@
+import { demoLabel, humanDate } from '../presentation.js';
+import { Hash } from '../Hash.js';
 import { useState } from 'react';
 import { anchorGrant } from '../business/books.js';
 import type { ScreenProps } from './types.js';
@@ -11,13 +13,16 @@ export function Grants({ runtime, run, busy }: ScreenProps) {
   return (
     <section>
       <div className="intro">
-        <p className="eyebrow">Grants (demo)</p>
+        <p className="eyebrow">Grants</p>
         <h1>
           Open one period.
           <br />
           Keep the rest sealed.
         </h1>
       </div>
+      {!runtime.state.books.length && (
+        <p className="notice">Create a book in Books, then choose a period to share with your auditor.</p>
+      )}
       <form
         className="panel narrow"
         onSubmit={(event) => {
@@ -40,7 +45,7 @@ export function Grants({ runtime, run, busy }: ScreenProps) {
             <option value="">Choose a book</option>
             {runtime.state.books.map((value) => (
               <option key={value.id} value={value.id}>
-                {value.name}
+                {demoLabel(value.name)}
               </option>
             ))}
           </select>
@@ -57,7 +62,7 @@ export function Grants({ runtime, run, busy }: ScreenProps) {
           >
             {book?.periods.map((value) => (
               <option key={value.id} value={value.id}>
-                {value.id} · {book.mode}
+                {humanDate(value.id)} · {demoLabel(book.mode)}
               </option>
             ))}
           </select>
@@ -91,9 +96,9 @@ export function Grants({ runtime, run, busy }: ScreenProps) {
         {runtime.state.transactions
           .filter((tx) => tx.id.startsWith('grant-') && tx.id.endsWith('-anchor'))
           .map((tx) => (
-            <p className="hash" key={tx.id}>
-              {tx.hash}
-            </p>
+            <div key={tx.id}>
+              <Hash value={tx.hash} transaction />
+            </div>
           ))}
       </div>
     </section>

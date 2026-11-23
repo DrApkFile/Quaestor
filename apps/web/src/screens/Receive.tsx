@@ -1,3 +1,6 @@
+import { Hash } from '../Hash.js';
+import { Status } from '../Status.js';
+import { errorMessage } from '../messages.js';
 import { formatUnits, zeroAddress } from 'viem';
 import { client } from '../business/runtime.js';
 import { receive } from '../business/payments.js';
@@ -6,7 +9,7 @@ export function Receive({ runtime, run, busy }: ScreenProps) {
   return (
     <section>
       <div className="intro">
-        <p className="eyebrow">Receive (demo)</p>
+        <p className="eyebrow">Receive</p>
         <h1>Find your private tickets.</h1>
         <p>
           Only your keys can open tickets addressed to you. Inclusion and unspent status are checked at one pinned
@@ -52,6 +55,9 @@ export function Receive({ runtime, run, busy }: ScreenProps) {
       </div>
       <div className="panel">
         <h2>Received payments</h2>
+        {!runtime.state.payments.some((payment) => payment.direction === 'IN') && (
+          <p>No tickets yet. Share your payment address, then scan the memo board after the sender pays.</p>
+        )}
         {runtime.state.payments
           .filter((payment) => payment.direction === 'IN')
           .map((payment) => (
@@ -60,13 +66,13 @@ export function Receive({ runtime, run, busy }: ScreenProps) {
                 {formatUnits(BigInt(payment.note.amountWei), payment.note.asset === zeroAddress ? 18 : 6)}{' '}
                 {payment.note.asset === zeroAddress ? 'QOR' : 'fUSD'}
               </h3>
-              <p className="hash">{payment.note.commitment}</p>
-              <span className="badge">{payment.stage === 'ANCHORED' ? 'ANCHORED' : 'Not booked'}</span>
+              <Hash value={payment.note.commitment} />
+              <Status code={payment.stage === 'ANCHORED' ? 'ANCHORED' : 'RECEIVED'} />
             </article>
           ))}
         {runtime.state.errors.map((error, index) => (
           <p className="error" key={`${error.commitment}-${String(index)}`}>
-            {error.code} · {error.commitment.slice(0, 18)}…
+            {errorMessage(new Error(error.code))} · {error.commitment.slice(0, 18)}…
           </p>
         ))}
       </div>

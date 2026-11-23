@@ -1,3 +1,4 @@
+import { Hash } from '../Hash.js';
 import { useState } from 'react';
 import { formatUnits, zeroAddress } from 'viem';
 import { bookPayment } from '../business/entries.js';
@@ -34,7 +35,7 @@ export function EntryForm({ runtime, run, busy, book, payment }: ScreenProps & {
         {formatUnits(BigInt(payment.note.amountWei), payment.note.asset === zeroAddress ? 18 : 6)}{' '}
         {payment.note.asset === zeroAddress ? 'QOR' : 'fUSD'}
       </h2>
-      <p className="hash">{payment.counterparty}</p>
+      <Hash value={payment.counterparty} />
       <p>
         Period {book.active} · {book.mode}
       </p>

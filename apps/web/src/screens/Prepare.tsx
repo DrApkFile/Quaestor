@@ -75,7 +75,7 @@ export function Prepare({ runtime, run, busy }: ScreenProps) {
         <p role="status">
           {window.kind === 'OPEN'
             ? `${String(window.window.remainingTxs)} transactions · ${formatUnits(window.window.remainingValue, 6)} QOR allowance · ${String(window.window.remainingBlocks)} blocks left`
-            : 'WINDOW_CLOSED — prepare a new window before continuing.'}
+            : 'Your transaction window is closed. Choose Prepare to transact before continuing.'}
         </p>
       )}
     </section>

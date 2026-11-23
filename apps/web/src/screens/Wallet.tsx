@@ -3,6 +3,8 @@ import { formatEther, formatUnits, parseEther, parseUnits, zeroAddress, type Hex
 import { balances, deposit, cashOut, convert, fusdDenom } from '../business/wallet.js';
 import { fusd } from '../business/schema.js';
 import { errorMessage } from '../messages.js';
+import { Status } from '../Status.js';
+import { Hash } from '../Hash.js';
 import { Prepare } from './Prepare.js';
 import type { ScreenProps } from './types.js';
 export function Wallet(props: ScreenProps) {
@@ -28,26 +30,30 @@ export function Wallet(props: ScreenProps) {
   return (
     <section>
       <div className="intro">
-        <p className="eyebrow">Wallet (demo)</p>
+        <p className="eyebrow">Wallet</p>
         <h1>
           Your private balance.
           <br />
           Your keys.
         </h1>
-        <p className="hash">{runtime.account.cosmos}</p>
+        <Hash value={runtime.account.cosmos} />
       </div>
       <div className="stats">
         <article className="panel tone-sage">
-          <span>Private {asset === zeroAddress ? 'QOR' : 'fUSD'}</span>
-          <strong>{formatUnits(privateBalance, asset === zeroAddress ? 18 : 6)}</strong>
+          <span>Private balance (in the pool)</span>
+          <strong>
+            {formatUnits(privateBalance, asset === zeroAddress ? 18 : 6)} {asset === zeroAddress ? 'QOR' : 'fUSD'}
+          </strong>
+          <p>Only your keys reveal these notes. Use them to pay privately.</p>
         </article>
         <article className="panel">
-          <span>Public EVM QOR</span>
-          <strong>{publicBalances ? formatEther(BigInt(publicBalances.native)) : '…'}</strong>
+          <span>Public balance</span>
+          <strong>{publicBalances ? formatEther(BigInt(publicBalances.native)) : '…'} QOR</strong>
+          <p>Visible on chain. Pays gas and funds deposits into the pool.</p>
         </article>
         <article className="panel">
           <span>Public EVM fUSD</span>
-          <strong>{publicBalances ? formatUnits(BigInt(publicBalances.token), 6) : '…'}</strong>
+          <strong>{publicBalances ? formatUnits(BigInt(publicBalances.token), 6) : '…'} fUSD</strong>
         </article>
       </div>
       <p className="muted">
@@ -57,6 +63,16 @@ export function Wallet(props: ScreenProps) {
       {error && (
         <p className="error" role="alert">
           {error}
+          <button
+            onClick={() => {
+              setError('');
+              void refresh().catch((value: unknown) => {
+                setError(errorMessage(value));
+              });
+            }}
+          >
+            Retry
+          </button>
         </p>
       )}
       <Prepare {...props} />
@@ -151,7 +167,9 @@ export function Wallet(props: ScreenProps) {
                     {formatUnits(BigInt(note.amountWei), note.asset === zeroAddress ? 18 : 6)}{' '}
                     {note.asset === zeroAddress ? 'QOR' : 'fUSD'}
                   </td>
-                  <td data-label="State">{note.state}</td>
+                  <td data-label="State">
+                    <Status code={note.state} />
+                  </td>
                   <td data-label="Own-address cash-out">
                     <button
                       disabled={busy || note.state !== 'OWNED' || BigInt(note.amountWei) === 0n}

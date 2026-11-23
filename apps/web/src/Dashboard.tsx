@@ -1,18 +1,21 @@
 import { redactNativeText, accountSecrets } from '@quaestor/chain/browser';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Wallet } from './screens/Wallet.js';
 import { Pay } from './screens/Pay.js';
 import { Receive } from './screens/Receive.js';
 import { Books } from './screens/Books.js';
 import { Grants } from './screens/Grants.js';
 import type { BusinessRuntime } from './business/runtime.js';
+import { Hash } from './Hash.js';
 import { errorMessage } from './messages.js';
 export type BusinessView = 'wallet' | 'pay' | 'receive' | 'books' | 'grants';
 export function Dashboard({ runtime, view }: { runtime: BusinessRuntime; view: BusinessView }) {
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
     [, setRevision] = useState(0);
+  const retry = useRef<(() => Promise<unknown>) | null>(null);
   const run = (work: () => Promise<unknown>) => {
+    retry.current = work;
     setBusy(true);
     setError('');
     void work()
@@ -50,22 +53,30 @@ export function Dashboard({ runtime, view }: { runtime: BusinessRuntime; view: B
       </div>
       {busy && (
         <p role="status" className="notice">
-          Working locally or waiting for the chain. Please keep this tab open.
+          <progress aria-label="Payment progress" />
+          Building proofs or waiting for chain confirmation… proofs usually take 5–15 s; confirmation can take 10–60 s.
+          Please keep this tab open.
         </p>
       )}
       {error && (
         <p role="alert" className="error" data-testid="workflow-error">
           {error}
+          <button
+            disabled={busy}
+            onClick={() => {
+              run(held.length ? () => runtime.resolve() : (retry.current ?? (() => runtime.resolve())));
+            }}
+          >
+            Retry
+          </button>
         </p>
       )}
       {held.length > 0 && (
         <aside className="panel">
-          <h2>OUTCOME_UNKNOWN — held</h2>
+          <h2>Waiting for confirmation</h2>
           <p>These operations will not be rebuilt or broadcast again. Resolve their original hashes.</p>
           {held.map((operation) => (
-            <p className="hash" key={operation.id}>
-              {operation.hash}
-            </p>
+            <div key={operation.id}>{operation.hash && <Hash value={operation.hash} transaction />}</div>
           ))}
           <button
             disabled={busy}

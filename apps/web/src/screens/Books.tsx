@@ -1,3 +1,5 @@
+import { Hash } from '../Hash.js';
+import { demoLabel, humanDate } from '../presentation.js';
 import { useState } from 'react';
 import { createBook, nextPeriod } from '../business/books.js';
 import { closePeriod } from '../business/close.js';
@@ -15,13 +17,14 @@ export function Books(props: ScreenProps) {
   return (
     <section>
       <div className="intro">
-        <p className="eyebrow">Books (demo)</p>
+        <p className="eyebrow">Books</p>
         <h1>
           Sealed by period.
           <br />
           Checked by proof.
         </h1>
       </div>
+      {!book && <p className="notice">No book yet. Create one to start recording payments.</p>}
       <form
         className="panel"
         onSubmit={(event) => {
@@ -66,7 +69,7 @@ export function Books(props: ScreenProps) {
             <label>
               Book (demo)
               <select
-                aria-label="Book (demo)"
+                aria-label="Book"
                 value={book.id}
                 onChange={(event) => {
                   setSelected(event.target.value);
@@ -74,16 +77,16 @@ export function Books(props: ScreenProps) {
               >
                 {runtime.state.books.map((value) => (
                   <option value={value.id} key={value.id}>
-                    {value.name}
+                    {demoLabel(value.name)}
                   </option>
                 ))}
               </select>
             </label>
-            <h2>{book.name}</h2>
-            <p className="hash" data-testid="book-id">
-              {book.id}
-            </p>
-            <span className="badge">{book.mode}</span>
+            <h2>{demoLabel(book.name)}</h2>
+            <div data-testid="book-id">
+              <Hash value={book.id} />
+            </div>
+            <span className="badge">{demoLabel(book.mode)}</span>
             <p>
               Opening record: ciphertext SHA3 {book.sealedOpening.sha3.slice(0, 18)}… ·{' '}
               {book.registered ? 'Anchored' : 'Not anchored'}
@@ -98,7 +101,7 @@ export function Books(props: ScreenProps) {
             {book.periods.map((period) => (
               <article className="panel" key={period.id}>
                 <h2>
-                  {period.id} · {book.mode}
+                  {humanDate(period.id)} · {demoLabel(book.mode)}
                 </h2>
                 <p>
                   {period.closed ? 'Closed' : 'Open'} · {period.entries.length}{' '}
