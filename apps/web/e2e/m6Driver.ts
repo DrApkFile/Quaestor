@@ -83,9 +83,14 @@ export async function scan(page: Page) {
   await navigate(page, 'Receive');
   await action(page, () => page.getByRole('button', { name: 'Scan memo board', exact: true }).click());
 }
-export async function bookEntries(page: Page) {
+export async function bookEntries(page: Page, refreshReadiness = false) {
   await navigate(page, 'Books');
   while (await page.getByRole('button', { name: 'Prove receipt and save entry', exact: true }).count()) {
+    if (refreshReadiness) {
+      await prepare(page);
+      await navigate(page, 'Books');
+      refreshReadiness = false;
+    }
     const form = page.getByRole('button', { name: 'Prove receipt and save entry', exact: true }).first().locator('..');
     const current = (await snapshot(page)).books.at(-1);
     const index = current?.periods.reduce((sum, period) => sum + period.count, 0) ?? 0;
