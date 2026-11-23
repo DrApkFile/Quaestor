@@ -14,7 +14,11 @@ const result = spawnSync(
     'playwright',
     'test',
     '--config=playwright.m9.config.ts',
-    signup ? 'm10Signup.spec.ts' : 'm10Readback.spec.ts',
+    signup
+      ? 'm10Signup.spec.ts'
+      : process.argv[2] === '--m10-cashout-retry'
+        ? 'm10Cashout.spec.ts'
+        : 'm10Readback.spec.ts',
   ],
   { cwd: new URL('../', import.meta.url), stdio: 'inherit', env: process.env },
 );

@@ -1,7 +1,8 @@
 if (process.argv[2] === '--m10-secret-scan') await import('./m10-secret-scan.js');
 else if (process.argv[2] === '--m10-checks') await import('./m10-checks.js');
 else if (process.argv[2] === '--m10-audit') await import('./m10-audit.js');
-else if (['--m10-screens', '--m10-fresh-signup'].includes(process.argv[2] ?? '')) await import('./m10-browser.js');
+else if (['--m10-screens', '--m10-fresh-signup', '--m10-cashout-retry'].includes(process.argv[2] ?? ''))
+  await import('./m10-browser.js');
 else if (process.argv[2] === '--m9-deploy') await import('./m9-deploy.js');
 else if (process.argv[2] === '--m9-bundles') await import('./m9-bundles.js');
 else if (process.argv[2] === '--m9-judge') await import('./m9-browser.js');

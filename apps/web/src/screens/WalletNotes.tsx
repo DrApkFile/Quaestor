@@ -45,18 +45,43 @@ export function WalletNotes({ runtime, run, busy, refresh }: ScreenProps & { ref
                     Cash out
                   </button>
                 ) : (
-                  journal.operations
-                    .filter(
-                      (operation) =>
-                        operation.receipt &&
-                        (operation.input === note.commitment ||
-                          operation.prepared?.outputs.some((output) => output.commitment === note.commitment)),
-                    )
-                    .map((operation) => (
-                      <p key={operation.id}>
-                        <Hash value={operation.receipt?.hash ?? ''} />
-                      </p>
-                    ))
+                  <>
+                    {journal.operations
+                      .filter(
+                        (operation) =>
+                          operation.receipt &&
+                          (operation.input === note.commitment ||
+                            operation.prepared?.outputs.some((output) => output.commitment === note.commitment)),
+                      )
+                      .map((operation) => (
+                        <p key={operation.id}>
+                          <Hash value={operation.receipt?.hash ?? ''} />
+                        </p>
+                      ))}
+                    {journal.operations
+                      .filter(
+                        (operation) =>
+                          note.state === 'SPENDING' &&
+                          BigInt(note.amountWei) > 0n &&
+                          operation.input === note.commitment &&
+                          operation.id.startsWith('cashout-') &&
+                          ['PLANNED', 'PROVED'].includes(operation.stage),
+                      )
+                      .map((operation) => (
+                        <button
+                          key={operation.id}
+                          disabled={busy}
+                          onClick={() => {
+                            run(async () => {
+                              await cashOut(runtime, note.commitment, operation.id);
+                              await refresh();
+                            });
+                          }}
+                        >
+                          Resume prepared transaction
+                        </button>
+                      ))}
+                  </>
                 )}
               </td>
             </tr>
