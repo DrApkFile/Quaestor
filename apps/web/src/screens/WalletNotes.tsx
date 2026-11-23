@@ -35,8 +35,9 @@ export function WalletNotes({ runtime, run, busy, refresh }: ScreenProps & { ref
                   <button
                     disabled={busy}
                     onClick={() => {
+                      const id = `cashout-${crypto.randomUUID()}`;
                       run(async () => {
-                        await cashOut(runtime, note.commitment, `cashout-${crypto.randomUUID()}`);
+                        await cashOut(runtime, note.commitment, id);
                         await refresh();
                       });
                     }}
