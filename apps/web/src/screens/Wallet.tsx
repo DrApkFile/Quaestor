@@ -5,6 +5,7 @@ import { fusd } from '../business/schema.js';
 import { errorMessage } from '../messages.js';
 import { WalletNotes } from './WalletNotes.js';
 import { Hash } from '../Hash.js';
+import { depositRequestId } from '../business/requests.js';
 import { Prepare } from './Prepare.js';
 import type { ScreenProps } from './types.js';
 export function Wallet(props: ScreenProps) {
@@ -104,18 +105,9 @@ export function Wallet(props: ScreenProps) {
           <button
             disabled={busy}
             onClick={() => {
+              const id = depositRequestId(runtime.journal.read().operations, `deposit-${crypto.randomUUID()}`);
               run(async () => {
-                await deposit(
-                  runtime,
-                  asset,
-                  asset === zeroAddress ? parseEther(amount) : parseUnits(amount, 6),
-                  runtime.journal
-                    .read()
-                    .operations.find(
-                      (operation) =>
-                        operation.id.startsWith('deposit-') && ['PLANNED', 'PROVED'].includes(operation.stage),
-                    )?.id ?? `deposit-${crypto.randomUUID()}`,
-                );
+                await deposit(runtime, asset, asset === zeroAddress ? parseEther(amount) : parseUnits(amount, 6), id);
                 await refresh();
               });
             }}
