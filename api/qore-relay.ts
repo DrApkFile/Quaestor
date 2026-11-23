@@ -23,7 +23,8 @@ export default async function handler(request: IncomingMessage, response: Server
   try {
     const method = request.method ?? '';
     const body = method === 'POST' ? await requestBody(request) : undefined;
-    const plan = relayPlan(relayRequestPath(request.url ?? ''), method, body);
+    const routed = request as IncomingMessage & { query?: Record<string, unknown> };
+    const plan = relayPlan(relayRequestPath(request.url ?? '', routed.query?.qorePath), method, body);
     const headers: Record<string, string> = {};
     const height = request.headers['x-cosmos-block-height'];
     if (height !== undefined) {
