@@ -17,6 +17,7 @@ else if (process.argv[2] === '--m5-native-spike') await import('./m5-native-spik
 else if (process.argv[2] === '--m5-publish') await import('./m5-publish.js');
 else if (process.argv[2] === '--m5-blobs') await import('./m5-blobs.js');
 else if (process.argv[2] === '--m5-web') await import('./m5-web.js');
+else if (process.argv[2] === '--m8-funding-diagnostics') await import('./m8-funding-diagnostics.js');
 else if (process.argv[2] === '--m8-repo') await import('./m8-repo.js');
 else if (process.argv[2] === '--m8-secret-scan') await import('./m8-secret-scan.js');
 else if (process.argv[2] === '--m8-presubmit') await import('./m8-presubmit.js');

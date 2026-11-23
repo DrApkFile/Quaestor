@@ -3,6 +3,7 @@ import { spawnSync } from 'node:child_process';
 import { z } from 'zod';
 import { m7Command } from './m7-command.js';
 import { imageScanSecrets } from './m8Secrets.js';
+import { requireM7bGas } from './m8Gas.js';
 import { fundM7 } from './m7-funding.js';
 const run = z.enum(['m7b', 'm8-privacy']).parse(process.argv[2]?.slice(2));
 process.env.QUAESTOR_DEMO_RUN = run;
@@ -41,8 +42,11 @@ const fixture = z
   .passthrough()
   .parse(JSON.parse(readFileSync(path, 'utf8')) as unknown);
 const secrets = [fixture.password, ...fixture.canaries];
-await fundM7('client', '10000000', run);
-await fundM7('business', '15000000', run);
+if (run === 'm7b') await requireM7bGas();
+else {
+  await fundM7('client', '10000000', run);
+  await fundM7('business', '15000000', run);
+}
 if (m7Command(`${run}-build`, ['-C', 'apps/web', 'build'], path.pathname, secrets) !== 0) process.exit(1);
 if (!existsSync(new URL(`evidence/${run}-browser.json`, root))) {
   for (const spec of ['m8Prepare.spec.ts', 'm7.spec.ts'])
