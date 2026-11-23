@@ -70,9 +70,9 @@ export async function deposit(runtime: BusinessRuntime, asset: Hex, amount: bigi
       asset,
       encodeFunctionData({ abi: erc20Abi, functionName: 'approve', args: [browserChain.pool, amount] }),
     );
-  await runtime.requireResult(id, await runtime.pool().shield(id, asset, amount));
+  await runtime.requireResult(id, await (await runtime.pool()).shield(id, asset, amount));
 }
 export async function cashOut(runtime: BusinessRuntime, commitment: Hex, id: string) {
   await requireWindow(runtime, 1);
-  await runtime.requireResult(id, await runtime.pool().unshield(id, commitment, runtime.account.evm as Hex));
+  await runtime.requireResult(id, await (await runtime.pool()).unshield(id, commitment, runtime.account.evm as Hex));
 }

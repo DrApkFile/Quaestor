@@ -40,6 +40,7 @@ export function Landing() {
         </a>
       </header>
       <main>
+        <aside className="notice demo-banner">Testnet (demo) · Fictional books, real testnet transactions.</aside>
         <section className="hero">
           <div className="hero-copy">
             <p className="eyebrow">Private to the world. Open to your auditor.</p>
@@ -56,8 +57,11 @@ export function Landing() {
               <a className="button outline" href={`/app?view=public&book=${demo.honest}`}>
                 Public check
               </a>
-              <a className="button outline" href={`/app?view=auditor&book=${demo.honest}`}>
-                Auditor
+              <a
+                className="button outline"
+                href={`https://use-quaestor.vercel.app/app?view=auditor&book=${demo.honest}&demo=1`}
+              >
+                Try the demo auditor
               </a>
             </div>
             <p className="muted">QoreChain Diana · Private payments, sealed books, scoped access.</p>
@@ -122,7 +126,7 @@ export function Landing() {
             ))}
           </div>
           <p className="muted">
-            Northwind Studio (demo): fictional entries, real testnet transactions.{' '}
+            Northwind Studio: fictional entries, real testnet transactions.{' '}
             <a href={`${evidence}m7b-browser.json`}>Current judge run</a>
             {' · '}
             <a href={`${evidence}m7b-fresh-auditors.json`}>Fresh auditor</a>
@@ -139,7 +143,7 @@ export function Landing() {
       </main>
       <footer>
         <span>Quaestor · QoreChain Diana</span>
-        <a href="/attack-lab">Attack lab (demo)</a>
+        <a href="/attack-lab">Attack lab</a>
         <a href="https://github.com/DrApkFile/Quaestor/blob/master/THREAT_MODEL.md">Threat model ↗</a>
       </footer>
     </div>

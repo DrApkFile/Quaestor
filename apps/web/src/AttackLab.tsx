@@ -1,3 +1,4 @@
+import { Hash } from './Hash.js';
 import { useState } from 'react';
 import { z } from 'zod';
 import { hex32 } from '@quaestor/core';
@@ -54,20 +55,30 @@ export function AttackLab() {
         <a href="/app?view=public">Public check</a>
       </header>
       <main className="shell">
-        <p className="eyebrow">attack lab (demo)</p>
+        <aside className="notice demo-banner">Testnet (demo) · Public fictional attack cases.</aside>
+        <p className="eyebrow">Attack lab</p>
         <h1>See what the checks catch.</h1>
         <p>
           Read-only checks of the M4 attack book and the M7 duplicate-payment demo book. The demo auditor account is
           intentionally public and holds no real value. No transactions are sent.
         </p>
-        <p className="hash">{deployment.demo.attack}</p>
+        <Hash value={deployment.demo.attack} />
         <button disabled={busy} onClick={() => void run()}>
           {busy ? 'Reading and verifying…' : 'Read attack book from chain'}
         </button>
         {error && (
           <p className="error" role="alert">
             {error}
+            <button disabled={busy} onClick={() => void run()}>
+              Retry check
+            </button>
           </p>
+        )}
+        {busy && (
+          <div role="status">
+            <progress aria-label="Checking attack cases" />
+            <p>Reading attack records and verifying proofs… usually 1–5 minutes on testnet.</p>
+          </div>
         )}
         {period && duplicate && <AttackCards original={period} duplicate={duplicate} />}
         {result && (

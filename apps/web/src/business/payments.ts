@@ -51,7 +51,10 @@ export async function pay(runtime: BusinessRuntime, address: string, asset: Hex,
       .sort((a, b) => (BigInt(a.amountWei) < BigInt(b.amountWei) ? -1 : 1))[0]?.commitment;
   if (!input) throw new Error('INSUFFICIENT_PRIVATE_BALANCE');
   runtime.progress('Proving transfer');
-  const operation = await runtime.requireResult(id, await runtime.pool().privateSend(id, input, amount, 'supplier1'));
+  const operation = await runtime.requireResult(
+    id,
+    await (await runtime.pool()).privateSend(id, input, amount, 'supplier1'),
+  );
   const note = operation.prepared?.outputs.find((output) => output.owner !== runtime.journal.owner);
   if (!note) throw new Error('PAYMENT_NOTE_MISSING');
   const payment = existing ?? {

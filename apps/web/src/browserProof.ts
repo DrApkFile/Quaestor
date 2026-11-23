@@ -15,7 +15,11 @@ export async function browserProof(
   const wasm = new Uint8Array(await required(`${name}.wasm`).arrayBuffer());
   const zkey = new Uint8Array(await required(`${name}_final.zkey`).arrayBuffer());
   const vkey: unknown = await required(`${name}_vkey.json`).json();
-  progress(`Proving ${name} locally…`);
+  progress(
+    name === 'transfer'
+      ? 'Building your private payment proof… usually 5–15 s'
+      : 'Building your private proof… usually 5–15 s',
+  );
   await new Promise((resolve) => setTimeout(resolve, 30));
   const result = await groth16.fullProve(input, wasm, zkey, undefined, undefined, { singleThread: true });
   if (!(await groth16.verify(vkey, result.publicSignals, result.proof, undefined, { singleThread: true })))

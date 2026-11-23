@@ -1,10 +1,13 @@
-import { useState, type FormEvent } from 'react';
-import { hex32 } from '@quaestor/core';
-import { publicCheck } from '@quaestor/chain/browser';
-import { deployment, readerConfig } from './client.js';
+import { Status } from './Status.js';
+import { Hash } from './Hash.js';
+import { useRef, useState, type FormEvent } from 'react';
+import { z } from 'zod';
+import type { publicCheck } from '@quaestor/chain/browser';
+import demo from '../public/m7-demo.json';
 import { errorMessage } from './messages.js';
 export function PublicView() {
-  const [book, setBook] = useState(new URLSearchParams(location.search).get('book') ?? deployment.demo.honest);
+  const form = useRef<HTMLFormElement>(null);
+  const [book, setBook] = useState(new URLSearchParams(location.search).get('book') ?? demo.honest);
   const [value, setValue] = useState<Awaited<ReturnType<typeof publicCheck>> | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
@@ -14,7 +17,14 @@ export function PublicView() {
     setError('');
     setValue(null);
     try {
-      const id = hex32.parse(book.trim().toLowerCase());
+      const id = z
+        .string()
+        .regex(/^0x[0-9a-f]{64}$/)
+        .parse(book.trim().toLowerCase()) as `0x${string}`;
+      const [{ publicCheck }, { readerConfig }] = await Promise.all([
+        import('@quaestor/chain/public'),
+        import('./client.js'),
+      ]);
       setValue(
         await publicCheck(
           readerConfig(() => undefined),
@@ -34,8 +44,8 @@ export function PublicView() {
         <h1>Check the public record.</h1>
         <p>See on-chain anchors and verify ciphertext hashes. No records are decrypted in this view.</p>
       </div>
-      <form className="panel search" onSubmit={(event) => void load(event)}>
-        <label htmlFor="book-id">Book ID (demo)</label>
+      <form ref={form} className="panel search" onSubmit={(event) => void load(event)}>
+        <label htmlFor="book-id">Book ID</label>
         <div className="input-action">
           <input
             id="book-id"
@@ -52,25 +62,35 @@ export function PublicView() {
       {error && (
         <p className="error" role="alert">
           {error}
+          <button disabled={busy} onClick={() => form.current?.requestSubmit()}>
+            Retry check
+          </button>
         </p>
       )}
-      {busy && <p role="status">Reading Books and BlobBoard at one pinned height…</p>}
+      {busy && (
+        <div role="status">
+          <progress aria-label="Reading public records" />
+          <p>Reading Books and BlobBoard at one pinned height… usually 1–3 minutes on testnet.</p>
+        </div>
+      )}
       {value && (
         <div className="results">
           <div className="section-heading">
-            <h2>Book (demo)</h2>
+            <h2>Book</h2>
             <span className="muted">Block {value.readBlock}</span>
           </div>
           <dl className="panel addresses">
-            <dt>Owner (demo)</dt>
-            <dd>{value.owner}</dd>
-            <dt>Book ID (demo)</dt>
-            <dd>{value.book}</dd>
+            <dt>Owner</dt>
+            <dd>
+              <Hash value={value.owner} />
+            </dd>
+            <dt>Book ID</dt>
+            <dd>
+              <Hash value={value.book} />
+            </dd>
             <dt>Opening ciphertext</dt>
             <dd>
-              <span className={`badge ${value.opening.status === 'VERIFIED' ? 'good' : 'unknown'}`}>
-                {value.opening.status}
-              </span>
+              <Status code={value.opening.status} />
             </dd>
           </dl>
           {value.opening.legacy && (
@@ -98,18 +118,15 @@ export function PublicView() {
           <div className="grid">
             {value.periods.map((period) => (
               <article className="panel" key={period.id}>
-                <h3>Period {value.periods.indexOf(period) + 1} (demo)</h3>
-                <p className="hash">{period.id}</p>
+                <h3>Period {value.periods.indexOf(period) + 1}</h3>
+                <Hash value={period.id} />
                 <p>
                   {period.count} {period.count === 1 ? 'entry' : 'entries'} · {period.closed ? 'Closed' : 'Open'}
                 </p>
                 {period.closeBlob && (
-                  <p>
-                    Close blob:{' '}
-                    <span className={`badge ${period.closeBlob.status === 'VERIFIED' ? 'good' : 'unknown'}`}>
-                      {period.closeBlob.status}
-                    </span>
-                  </p>
+                  <div>
+                    Close blob: <Status code={period.closeBlob.status} />
+                  </div>
                 )}
               </article>
             ))}
@@ -118,9 +135,9 @@ export function PublicView() {
           <div className="grid">
             {value.entries.map((entry) => (
               <article className="panel" key={`${entry.period}-${String(entry.index)}`}>
-                <h3>Entry {entry.index + 1} (demo)</h3>
-                <p className="hash">{entry.blobSha3}</p>
-                <span className={`badge ${entry.status === 'VERIFIED' ? 'good' : 'unknown'}`}>{entry.status}</span>
+                <h3>Entry {entry.index + 1}</h3>
+                <Hash value={entry.blobSha3} />
+                <Status code={entry.status} />
                 <p className="muted">SHA3-256 of on-chain ciphertext</p>
               </article>
             ))}
@@ -129,11 +146,12 @@ export function PublicView() {
           {value.grants.map((grant) => (
             <article className="panel grant-row" key={`${grant.period}-${grant.auditor}`}>
               <div>
-                <h3>Recipient (demo)</h3>
-                <p className="hash">{grant.auditor}</p>
-                <p className="hash">Period {grant.period}</p>
+                <h3>Recipient</h3>
+                <Hash value={grant.auditor} />
+                <p>Period</p>
+                <Hash value={grant.period} />
               </div>
-              <span className={`badge ${grant.status === 'VERIFIED' ? 'good' : 'unknown'}`}>{grant.status}</span>
+              <Status code={grant.status} />
             </article>
           ))}
         </div>

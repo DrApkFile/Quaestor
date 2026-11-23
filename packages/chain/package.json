@@ -7,7 +7,9 @@
     ".": "./src/index.ts",
     "./browser": "./src/browser.ts",
     "./journal": "./src/journalSchema.ts",
-    "./executor": "./src/executor.ts"
+    "./executor": "./src/executor.ts",
+    "./public": "./src/publicCheck.ts",
+    "./audit": "./src/chainAudit.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",

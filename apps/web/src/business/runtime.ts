@@ -13,7 +13,7 @@ import type { SigningKeys } from '@quaestor/core';
 import { PrivateJournal } from '../privateJournal.js';
 import { privateStorage, type PrivateStorage } from '../privateStore.js';
 import { browserChain, client, deployment } from '../client.js';
-import { browserProver } from '../browserProof.js';
+
 import type { DownloadProgress } from '../circuits.js';
 import { emptyState, stateSchema, type BusinessState } from './schema.js';
 import poolArtifact from '../abi/pool.json';
@@ -92,7 +92,8 @@ export class BusinessRuntime {
     return result;
   }
 
-  pool() {
+  async pool() {
+    const { browserProver } = await import('../browserProof.js');
     return createPool({
       config: browserChain,
       reader: client,
