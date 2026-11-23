@@ -26,7 +26,7 @@ Use [the app](https://use-quaestor.vercel.app/app?view=account) with an empty br
 1. Create an account with a passphrase and download its encrypted backup. Keep the backup and passphrase locally.
 2. Copy the new qor1 address and claim free test QOR at the [faucet](https://dashboard.qorechain.io/faucet). It permits one claim per 24 hours. The app polls for funding; never automate the faucet.
 3. Click **Activate quantum-safe account**. The three labels show signature registration, encryption-key registration and payment-card publication. **Details** contains algorithms and confirmed hashes/blocks. Retry resumes from chain state.
-4. In **Wallet**, choose **Prepare to transact**, then deposit **2 QOR**. Public QOR pays gas; the pool balance is private.
+4. In **Wallet**, deposit **2 QOR** and confirm the transaction window if prompted. Public QOR pays gas; the pool balance is private.
 5. In **Pay**, send **0.5 QOR** to the demo supplier: `qor1uz3zu3883m06vcguymnkxema9uantwxn8dmmw2`. The supplier's **Receive** scan opens and checks its anonymous ticket; this was exercised in a separate browser context.
 6. Download an updated encrypted backup after payments; it includes the private journal. The remaining private balance in this run was 1.5 QOR.
 

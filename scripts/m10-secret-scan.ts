@@ -10,6 +10,10 @@ import { decryptVault } from '../apps/web/src/vault.js';
 import { imageScanSecrets } from './m8Secrets.js';
 const root = new URL('../', import.meta.url),
   directory = new URL('.accounts/m10-browser/', root);
+if (process.argv.includes('--merge-completed')) {
+  await import('./m10-merge-scan.js');
+  process.exit(0);
+}
 await imageScanSecrets();
 const secrets = new Set(
   z
@@ -128,7 +132,7 @@ if (results.some((result) => result.status === 'rejected')) {
         .update(readFileSync(new URL(`evidence/m10-screens/${name}`, root)))
         .digest('hex'),
     }));
-  const report = mergeImageReports(reports, expected);
+  const report = { ...mergeImageReports(reports, expected), command: 'pnpm evidence --m10-secret-scan' };
   writeFileSync(target, JSON.stringify(report, null, 2) + '\n');
   console.log(`M10 screenshot scan PASSED: ${String(report.images.length)} images; every current image hash checked.`);
 }
