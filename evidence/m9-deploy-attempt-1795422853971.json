@@ -1,0 +1,47 @@
+{
+  "command": "pnpm evidence --m9-deploy",
+  "at": "2026-11-23T07:26:58.913Z",
+  "status": "FAILED",
+  "checks": [
+    {
+      "command": "curl -I --max-time 45 https://use-quaestor.vercel.app/app",
+      "exit": 0,
+      "output": "HTTP/2 200 \r\naccept-ranges: bytes\r\naccess-control-allow-origin: *\r\nage: 770\r\ncache-control: public, max-age=0, must-revalidate\r\ncontent-disposition: inline; filename=\"index.html\"\r\ncontent-security-policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self' https://api-testnet.qore.host https://rpc-testnet.qore.host https://evm-testnet.qore.host; worker-src 'self' blob:; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'\r\ncontent-type: text/html; charset=utf-8\r\ndate: Mon, 23 Nov 2026 07:26:56 GMT\r\netag: \"dacb238c08cd15529c237fd04e9c4c50\"\r\nlast-modified: Mon, 23 Nov 2026 07:14:06 GMT\r\npermissions-policy: camera=(), microphone=(), geolocation=()\r\nreferrer-policy: no-referrer\r\nserver: Vercel\r\nstrict-transport-security: max-age=63072000; includeSubDomains; preload\r\nx-content-type-options: nosniff\r\nx-vercel-cache: HIT\r\nx-vercel-id: fra1::6z56z-1795418816741-5bec1fc877d7\r\ncontent-length: 699\r\n\r\n",
+      "stderr": "  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current\n                                 Dload  Upload  Total   Spent   Left   Speed\n\r  0      0   0      0   0      0      0      0                              0\r  0    699   0      0   0      0      0      0                              0\r  0    699   0      0   0      0      0      0                              0\r  0    699   0      0   0      0      0      0                              0\n",
+      "status": 200,
+      "expected": 200,
+      "missingHeaders": [],
+      "valid": true
+    },
+    {
+      "command": "curl -I --max-time 45 https://use-quaestor.vercel.app/attack-lab",
+      "exit": 0,
+      "output": "HTTP/2 200 \r\naccept-ranges: bytes\r\naccess-control-allow-origin: *\r\nage: 770\r\ncache-control: public, max-age=0, must-revalidate\r\ncontent-disposition: inline; filename=\"index.html\"\r\ncontent-security-policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self' https://api-testnet.qore.host https://rpc-testnet.qore.host https://evm-testnet.qore.host; worker-src 'self' blob:; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'\r\ncontent-type: text/html; charset=utf-8\r\ndate: Mon, 23 Nov 2026 07:26:57 GMT\r\netag: \"dacb238c08cd15529c237fd04e9c4c50\"\r\nlast-modified: Mon, 23 Nov 2026 07:14:06 GMT\r\npermissions-policy: camera=(), microphone=(), geolocation=()\r\nreferrer-policy: no-referrer\r\nserver: Vercel\r\nstrict-transport-security: max-age=63072000; includeSubDomains; preload\r\nx-content-type-options: nosniff\r\nx-vercel-cache: HIT\r\nx-vercel-id: fra1::pw68b-1795418817227-a9c42e6621f5\r\ncontent-length: 699\r\n\r\n",
+      "stderr": "  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current\n                                 Dload  Upload  Total   Spent   Left   Speed\n\r  0      0   0      0   0      0      0      0                              0\r  0    699   0      0   0      0      0      0                              0\r  0    699   0      0   0      0      0      0                              0\r  0    699   0      0   0      0      0      0                              0\n",
+      "status": 200,
+      "expected": 200,
+      "missingHeaders": [],
+      "valid": true
+    },
+    {
+      "command": "curl -i --max-time 45 https://use-quaestor.vercel.app/api/qore/rest/qorechain/pqc/v1/kem/qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp",
+      "exit": 0,
+      "output": "HTTP/2 400 \r\nage: 0\r\ncache-control: public, max-age=0, must-revalidate\r\ncontent-security-policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self' https://api-testnet.qore.host https://rpc-testnet.qore.host https://evm-testnet.qore.host; worker-src 'self' blob:; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'\r\ncontent-type: application/json\r\ndate: Mon, 23 Nov 2026 07:26:58 GMT\r\npermissions-policy: camera=(), microphone=(), geolocation=()\r\nreferrer-policy: no-referrer\r\nserver: Vercel\r\nstrict-transport-security: max-age=63072000; includeSubDomains; preload\r\nx-content-type-options: nosniff\r\nx-vercel-cache: MISS\r\nx-vercel-id: fra1::iad1::rhnvq-1795418817694-e6d89a782546\r\ncontent-length: 30\r\n\r\n{\"error\":\"QORE_RELAY_REFUSED\"}",
+      "stderr": "  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current\n                                 Dload  Upload  Total   Spent   Left   Speed\n\r  0      0   0      0   0      0      0      0                              0\r100     30 100     30   0      0     29      0   00:01   00:01              0\r100     30 100     30   0      0     29      0   00:01   00:01              0\r100     30 100     30   0      0     29      0   00:01   00:01              0\n",
+      "status": 400,
+      "expected": 200,
+      "missingHeaders": [],
+      "valid": false
+    },
+    {
+      "command": "curl -i --max-time 45 https://use-quaestor.vercel.app/api/qore/rest/not-allowlisted",
+      "exit": 0,
+      "output": "HTTP/2 400 \r\nage: 0\r\ncache-control: public, max-age=0, must-revalidate\r\ncontent-security-policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self' https://api-testnet.qore.host https://rpc-testnet.qore.host https://evm-testnet.qore.host; worker-src 'self' blob:; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'\r\ncontent-type: application/json\r\ndate: Mon, 23 Nov 2026 07:26:58 GMT\r\npermissions-policy: camera=(), microphone=(), geolocation=()\r\nreferrer-policy: no-referrer\r\nserver: Vercel\r\nstrict-transport-security: max-age=63072000; includeSubDomains; preload\r\nx-content-type-options: nosniff\r\nx-vercel-cache: MISS\r\nx-vercel-id: fra1::iad1::d686d-1795418818725-784ca45fc3b1\r\ncontent-length: 30\r\n\r\n{\"error\":\"QORE_RELAY_REFUSED\"}",
+      "stderr": "  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current\n                                 Dload  Upload  Total   Spent   Left   Speed\n\r  0      0   0      0   0      0      0      0                              0\r100     30 100     30   0      0     55      0                              0\r100     30 100     30   0      0     55      0                              0\r100     30 100     30   0      0     55      0                              0\n",
+      "status": 400,
+      "expected": 400,
+      "missingHeaders": [],
+      "valid": true
+    }
+  ]
+}
