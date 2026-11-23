@@ -26,7 +26,10 @@ for n in shield transfer unshield receipt payroll_total funds; do
 done
 ( cd "$V" && find . -type f -name '*.sol' | LC_ALL=C sort ) > "$WORK/paths"
 cut -c67- "$WORK/SHA256SUMS" | LC_ALL=C sort > "$WORK/expected-paths"
-cmp "$WORK/paths" "$WORK/expected-paths"
+if [ "$(< "$WORK/paths")" != "$(< "$WORK/expected-paths")" ]; then
+  echo "vendored gloam file list does not match SHA256SUMS" >&2
+  exit 1
+fi
 ( cd "$V" && sha256sum --check "$WORK/SHA256SUMS" )
 cp "$WORK/SHA256SUMS" "$V/SHA256SUMS"
 echo "vendored gloam@$GLOAM_COMMIT into contracts/vendor/gloam and circuits into apps/web/public/circuits"
