@@ -16,6 +16,7 @@ it('T-JOURNAL an unknown deposit reuses its request and never builds signs or br
   };
   const save = vi.fn();
   const journal: Parameters<typeof executeOperation>[0] = {
+    path: 'test-deposit-journal',
     read: () => ({ v: 1, notes: [], operations: [operation] }),
     save,
     exclusive: (work) => work(),
