@@ -26,13 +26,14 @@
     },
     {
       "heading": "Try it in three steps",
-      "textSha256": "f9917ae9cafab770533fd794d57bb8c7baf6eecd8437368b7068baaf56eafd9e",
+      "textSha256": "4f823d3d04a178b2fd0567df21ec7bb3336802156508dd10f82f0346c8144ae4",
       "claims": [
         "C3",
         "C4",
         "C5",
         "C6",
-        "M7b"
+        "M7b",
+        "C10"
       ],
       "evidence": [
         "evidence/m7b-browser.json",
@@ -41,12 +42,14 @@
         "evidence/m8-privacy-browser.json",
         "evidence/m7-duplicate.json",
         "evidence/m7-attack-browser.json",
-        "evidence/m7-browser-initial.json"
+        "evidence/m7-browser-initial.json",
+        "evidence/m9-unit.json"
       ],
       "code": [
         "apps/web/e2e/m7.spec.ts",
         "apps/web/e2e/m7FreshAuditors.ts",
-        "apps/web/src/AttackLab.tsx"
+        "apps/web/src/AttackLab.tsx",
+        "apps/web/src/AuditorView.tsx"
       ],
       "tests": [
         {
@@ -56,6 +59,10 @@
         {
           "path": "packages/core/test/verdict.test.ts",
           "name": "T-HOLDINGS derives declared balances and checks every proof/nullifier before coverage"
+        },
+        {
+          "path": "apps/web/test/activation.test.ts",
+          "name": "A11 activation resumes from chain state without repeating a completed registration"
         }
       ]
     },
@@ -163,7 +170,7 @@
     },
     {
       "heading": "Architecture and verification",
-      "textSha256": "cd07ea12dbebd74061536ef6736ed7be9f16f8c10e42f1d112b7aa6969df39a7",
+      "textSha256": "80ec7421167a809fb51d175f05140b0b263cf846538f168486ee4d0f45cf6c6b",
       "claims": [
         "C8",
         "C9"
@@ -221,7 +228,7 @@
     },
     {
       "heading": "What we don't claim",
-      "textSha256": "3bc074664c204d3cf7c6913662b22783a9a0afd188289fa0af77465f72111bc0",
+      "textSha256": "dd178d02b10bb48f27712fa36d43ef67428725fc39788252a275a7b78b083a6a",
       "claims": [
         "C1",
         "C5",
@@ -257,7 +264,7 @@
     },
     {
       "heading": "Credits and licence",
-      "textSha256": "f3581d08abd0f9d6ef6377f56952cc5ae05bd6f45c6b36e5dd1be4995502b0b3",
+      "textSha256": "a24f9dc1740791fcea10bdf1aa3e19a302663246785e201915e4076a2ee95cd1",
       "claims": [
         "C9",
         "C7"

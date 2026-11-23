@@ -48,3 +48,5 @@ Concrete changes from that loop:
 ## Verification limits
 
 AI-generated code is checked by tests and live receipts, not trusted because another model agrees. Browser interception is scoped to exercised flows and known encodings. Claim mappings enforce recorded support and reviewed text, not semantic truth automatically. The pool's Groth16 proofs are not post-quantum. No QCAI audit, independent human judge walkthrough, hosted deployment, recorded final video or submitted project-page verification is claimed here.
+
+M9: the builder specified the deployed judge journey and UX brief; Codex implemented readable verdicts, one-click demo auditing, lazy route loading, resumable activation, accessibility checks and a manually funded fresh-signup evidence runner. Live outcomes are recorded in the M9 handoff, without extending C5 on a failed run.
