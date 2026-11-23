@@ -4,6 +4,7 @@ GLOAM_COMMIT=d8db1e6c805c5887678fa2c6c82ea617efe1659c
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
+cp "$ROOT/contracts/vendor/gloam/SHA256SUMS" "$WORK/SHA256SUMS"
 git clone --quiet https://github.com/gloamtrade/gloam.git "$WORK/gloam"
 git -C "$WORK/gloam" checkout --quiet "$GLOAM_COMMIT"
 G="$WORK/gloam"
@@ -23,5 +24,9 @@ for n in shield transfer unshield receipt payroll_total funds; do
   cp "$G/app/public/circuits/$n.wasm" "$C/"
   cp "$G/app/public/circuits/final/${n}_final.zkey" "$G/app/public/circuits/final/${n}_vkey.json" "$C/"
 done
-( cd "$V" && find . -type f -name '*.sol' | sort | xargs sha256sum ) > "$V/SHA256SUMS"
+( cd "$V" && find . -type f -name '*.sol' | LC_ALL=C sort ) > "$WORK/paths"
+cut -c67- "$WORK/SHA256SUMS" | LC_ALL=C sort > "$WORK/expected-paths"
+cmp "$WORK/paths" "$WORK/expected-paths"
+( cd "$V" && sha256sum --check "$WORK/SHA256SUMS" )
+cp "$WORK/SHA256SUMS" "$V/SHA256SUMS"
 echo "vendored gloam@$GLOAM_COMMIT into contracts/vendor/gloam and circuits into apps/web/public/circuits"
