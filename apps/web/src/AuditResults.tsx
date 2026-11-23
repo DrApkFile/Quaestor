@@ -2,6 +2,7 @@ import type { auditFromChain } from '@quaestor/chain/browser';
 import { Ledger } from './Ledger.js';
 import { Status } from './Status.js';
 import { demoLabel, humanDate } from './presentation.js';
+import { Hash } from './Hash.js';
 export function AuditResults({
   value,
   busy,
@@ -12,10 +13,13 @@ export function AuditResults({
   onRetry: () => void;
 }) {
   return (
-    <div className="results">
+    <div className="results" data-testid="audit-results" data-book={value.book}>
       <div className="section-heading">
         <h2>Audit results</h2>
         <span className="muted">Read block {value.readBlock}</span>
+      </div>
+      <div>
+        Book: <Hash value={value.book} />
       </div>
       <p className="notice">Only periods shared with this auditor can be opened. Every other period stays sealed.</p>
       <div className="stats" aria-label="Period access at a glance">

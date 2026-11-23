@@ -78,7 +78,7 @@ test('T-NOPLAIN-M5 Public check and Auditor read the live M4 book without leakin
   await page.getByLabel('Passphrase', { exact: true }).fill(password);
   await page.getByLabel('Restore encrypted backup', { exact: true }).setInputFiles(path);
   await expect(page.getByText(account.cosmos, { exact: true })).toBeVisible({ timeout: 60000 });
-  await expect(page.getByText('Verified card found on BlobBoard.', { exact: true })).toBeVisible({ timeout: 60000 });
+  await expect(page.getByText('Ready for private payments', { exact: true })).toBeVisible({ timeout: 60000 });
   await expect(page.getByRole('heading', { name: 'Set up your account.', exact: true })).toBeVisible();
   const restoredDownload = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Download encrypted backup', exact: true }).click();

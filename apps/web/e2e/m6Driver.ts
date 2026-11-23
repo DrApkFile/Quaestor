@@ -28,7 +28,7 @@ export async function unlock(page: Page, name: string) {
   await page.getByRole('button', { name: 'Download backup', exact: true }).click();
   await download;
   await page.waitForFunction(() => !!window.quaestorM6, {}, { timeout: 60000 });
-  await expect(page.getByText('Verified card found on BlobBoard.', { exact: true })).toBeVisible({ timeout: 60000 });
+  await expect(page.getByText('Ready for private payments', { exact: true })).toBeVisible({ timeout: 60000 });
   await expect(page.getByRole('button', { name: 'Refresh chain state', exact: true })).toBeEnabled({ timeout: 60000 });
   if (
     (await snapshot(page)).operations.some((value) => value.stage === 'BROADCAST' || value.stage === 'OUTCOME_UNKNOWN')

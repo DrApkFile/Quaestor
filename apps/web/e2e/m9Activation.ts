@@ -34,17 +34,19 @@ export async function m9Fund(page: Page, address: string | null) {
 }
 export async function m9Activate(page: Page) {
   const ready = page.getByRole('heading', { name: 'Account ready.', exact: true }).first();
-  if (await ready.isVisible()) return { activation: await m9ActivationReceipts(page), cost: null };
+  if (await ready.isVisible()) return { activation: await m9ActivationReceipts(page), cost: null, ms: null };
   const button = page.getByRole('button', { name: /Activate quantum-safe account|Retry activation/, exact: true });
   await expect(button).toBeEnabled({ timeout: 60000 });
   const before = await page.getByTestId('funding-balance').textContent();
+  const started = Date.now();
   await button.click();
   await expect(ready.or(page.getByRole('alert').filter({ visible: true }))).toBeVisible({ timeout: 300000 });
   await expect(ready).toBeVisible();
+  const ms = Date.now() - started;
   await expect(page.getByTestId('activation-receipt')).toHaveCount(4, { timeout: 30000 });
   const activation = await m9ActivationReceipts(page),
     after = await page.getByTestId('funding-balance').textContent();
   const amount = (text: string | null) =>
     parseEther(z.string().parse(text?.match(/Public balance: ([\d.]+) QOR/)?.[1]));
-  return { activation, cost: formatEther(amount(before) - amount(after)) };
+  return { activation, cost: formatEther(amount(before) - amount(after)), ms };
 }

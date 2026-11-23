@@ -14,6 +14,9 @@ export function AuditorView() {
   const [value, setValue] = useState<Awaited<ReturnType<typeof auditFromChain>> | null>(null);
   const [progress, setProgress] = useState<DownloadProgress | null>(null);
   const retry = useRef<(() => Promise<void>) | null>(null);
+  const manual = useRef(false),
+    identityReady = useRef(false),
+    form = useRef<HTMLFormElement>(null);
   const started = useRef(false);
   const verify = async (input: unknown, phrase: string, book: string) => {
     const [
@@ -39,6 +42,7 @@ export function AuditorView() {
     const keys = deriveSealKeys({ mnemonic: payload.mnemonic, index: 0 });
     installAuditPrivacy(account, keys);
     const id = hex32.parse(book.trim().toLowerCase());
+    identityReady.current = true;
     const check = async () => {
       setValue(await auditFromChain(readerConfig(setProgress), id, { address: account.cosmos, keys }));
     };
@@ -46,6 +50,7 @@ export function AuditorView() {
     await check();
   };
   const task = async (work: () => Promise<void>) => {
+    retry.current = work;
     setBusy(true);
     setError('');
     setValue(null);
@@ -57,14 +62,17 @@ export function AuditorView() {
       setBusy(false);
     }
   };
-  const runDemo = () =>
-    task(async () => {
+  const runDemo = () => {
+    manual.current = false;
+    identityReady.current = false;
+    return task(async () => {
       const response = await fetch(demoAuditorBackup);
       if (!response.ok) throw new Error('NETWORK_UNAVAILABLE');
       const input: unknown = await response.json();
       setBookId(demo.honest);
       await verify(input, demoAuditorPassphrase, demo.honest);
     });
+  };
   useEffect(() => {
     if (!started.current && new URLSearchParams(location.search).get('demo') === '1') {
       started.current = true;
@@ -95,8 +103,11 @@ export function AuditorView() {
       <details className="panel">
         <summary>Use your own auditor backup</summary>
         <form
+          ref={form}
           onSubmit={(event) => {
             event.preventDefault();
+            manual.current = true;
+            identityReady.current = false;
             if (file)
               void task(async () => {
                 const input: unknown = JSON.parse(await file.text());
@@ -142,7 +153,13 @@ export function AuditorView() {
       {error && (
         <div className="error" role="alert">
           <p>{error}</p>
-          <button disabled={busy} onClick={() => void task(retry.current ?? (() => runDemo()))}>
+          <button
+            disabled={busy}
+            onClick={() => {
+              if (manual.current && !identityReady.current) form.current?.requestSubmit();
+              else void task(retry.current ?? (() => runDemo()));
+            }}
+          >
             Retry check
           </button>
         </div>

@@ -3,6 +3,15 @@ import { relayRequestPath } from '../server/relayPath.js';
 import { relayPlan } from '../server/qorePolicy.js';
 it('T-RELAY Vercel wildcard routing preserves the allowlist and refuses ambiguous paths', () => {
   const publicPath = 'rest/qorechain/pqc/v1/protocol_features';
+  expect(relayRequestPath(`/api/qore/${publicPath}?qorePath=${publicPath}&path=${publicPath}`)).toBe(
+    `/api/qore/${publicPath}`,
+  );
+  expect(() =>
+    relayPlan(relayRequestPath(`/api/qore/rest/not-allowlisted?qorePath=${publicPath}`), 'GET', undefined),
+  ).toThrow();
+  expect(relayRequestPath(`/api/qore-relay?path=${publicPath}`, publicPath)).toBe(`/api/qore/${publicPath}`);
+  expect(relayRequestPath(`/api/qore-relay?path=${publicPath}&qorePath=${publicPath}`)).toBe(`/api/qore/${publicPath}`);
+  expect(() => relayRequestPath(`/api/qore-relay?path=rpc&qorePath=${publicPath}`)).toThrow('RELAY_PATH_REFUSED');
   expect(relayRequestPath('/api/qore-relay', publicPath)).toBe(`/api/qore/${publicPath}`);
   expect(() => relayRequestPath('/api/qore-relay?extra=1', publicPath)).toThrow('RELAY_PATH_REFUSED');
   expect(() => relayRequestPath('/api/qore-relay', ['rpc', 'rest'])).toThrow('RELAY_PATH_REFUSED');

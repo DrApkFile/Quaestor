@@ -43,6 +43,7 @@ test('T-NOPLAIN-WEB M9 fresh signup activates deposits pays and receives through
     address: string | null = null,
     status = 'FAILED',
     failure: string | null = null;
+  let activationMs: number | null = null;
   let failureMessage: string | null = null;
   let activation: Awaited<ReturnType<typeof m9ActivationReceipts>> = [],
     activationCostQor: string | null = null;
@@ -76,6 +77,7 @@ test('T-NOPLAIN-WEB M9 fresh signup activates deposits pays and receives through
       const result = await m9Activate(page);
       activation = result.activation;
       activationCostQor = result.cost;
+      activationMs = result.ms;
       screens.push(...(await m9Screens(page, 'after', 'signup-activated')));
       await m9SaveBackup(page, `${directory}/signup-backup.json`, session.password);
     });
@@ -179,6 +181,7 @@ test('T-NOPLAIN-WEB M9 fresh signup activates deposits pays and receives through
         steps,
         activation,
         activationCostQor,
+        activationMs,
         snapshot,
         received,
         network,

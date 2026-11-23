@@ -3,7 +3,7 @@ export function Hash({ value, transaction = false }: { value: string; transactio
   const [copied, setCopied] = useState(false);
   const [failed, setFailed] = useState(false);
   return (
-    <span className="hash-tools">
+    <div className="hash-tools">
       <span className="hash" title={value}>
         {value.length > 24 ? `${value.slice(0, 12)}…${value.slice(-8)}` : value}
       </span>
@@ -33,6 +33,6 @@ export function Hash({ value, transaction = false }: { value: string; transactio
         <summary>Details</summary>
         <span className="hash">{value}</span>
       </details>
-    </span>
+    </div>
   );
 }
