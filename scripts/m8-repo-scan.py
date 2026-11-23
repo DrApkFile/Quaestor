@@ -46,7 +46,8 @@ for raw in paths:
     path = root / raw.decode()
     if not path.is_file():
         continue
-    if any(secret.encode() in path.read_bytes() for secret in secrets):
+    body = path.read_bytes()
+    if any(secret.encode() in body for secret in secrets):
         raise SystemExit('REPOSITORY_SECRET_SCAN_FAILED: ' + raw.decode())
     count += 1
 history = subprocess.check_output(['git', 'log', '-p', '2aea6bd..HEAD'], cwd=root)

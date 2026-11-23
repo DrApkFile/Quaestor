@@ -82,9 +82,17 @@ export async function shots(page: Page, name: string) {
     await page.setViewportSize({ width, height: width === 390 ? 844 : 1000 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     if (fixture.publicDemo) {
-      const containsSecret = await page.evaluate(() => window.quaestorPrivateCheck?.(document.body.innerText) ?? false);
+      const visible = await page.evaluate(() =>
+        [
+          document.body.innerText,
+          ...Array.from(document.querySelectorAll('input:not([type=password]), textarea')).map((element) =>
+            element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement ? element.value : '',
+          ),
+        ].join('\n'),
+      );
+      const containsSecret = await page.evaluate((input) => window.quaestorPrivateCheck?.(input) ?? false, visible);
       expect(containsSecret).toBe(false);
-      writeFileSync(`${folder}/${name}-${String(width)}-visible.txt`, await page.locator('body').innerText());
+      writeFileSync(`${folder}/${name}-${String(width)}-visible.txt`, visible);
     }
     await page.screenshot({
       path: `../../evidence/${process.env.QUAESTOR_DEMO_RUN ?? 'm7'}-screens/${name}-${String(width)}.png`,

@@ -22,6 +22,8 @@ for path in images:
     for top in range(0, image.height, 900):
         result, _ = engine(np.array(image.crop((0, top, image.width, min(top + 1050, image.height)))))
         texts.extend(item[1] for item in result or [])
+    if not texts:
+        raise SystemExit('OCR_TEXT_REQUIRED: ' + path.name)
     dom = private / (path.stem + '-visible.txt')
     if not dom.exists():
         raise SystemExit('VISIBLE_TEXT_REQUIRED: ' + path.name)
