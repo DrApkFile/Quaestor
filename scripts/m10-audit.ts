@@ -15,7 +15,7 @@ const results = [];
 for (const [name, address] of [
   ['Books', deployment.books.address],
   ['BlobBoard', deployment.board.address],
-]) {
+] as const) {
   const command = ['flatten', `src/${name}.sol`];
   const flattened = spawnSync('forge', command, { cwd: new URL('contracts/', root), encoding: 'utf8' });
   if (flattened.status !== 0) throw new Error('FLATTEN_FAILED');

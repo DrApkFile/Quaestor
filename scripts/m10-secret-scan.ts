@@ -30,7 +30,7 @@ const collect = (value: unknown, name = '') => {
 for (const [sessionPath, backupPath] of [
   [new URL('signup-session.json', directory), new URL('signup-backup.json', directory)],
   [new URL('.accounts/m9-browser/signup-session.json', root), new URL('readback-backup.json', directory)],
-]) {
+] as const) {
   if (!existsSync(sessionPath) || !existsSync(backupPath)) continue;
   const session = z
     .object({ password: z.string() })
