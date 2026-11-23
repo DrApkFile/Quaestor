@@ -1,0 +1,11 @@
+{
+  "command": "pnpm evidence --m8-privacy",
+  "at": "2026-11-22T12:35:43.984Z",
+  "purpose": "public demo setup funding; browser payments remain separate",
+  "role": "client",
+  "amountUqor": "10000000",
+  "hash": "292038730018FC68B2E0CD7480EE09D02BACFC3501F6BBDE4C27CAEB07CCA6C5",
+  "height": 10554026,
+  "gasUsed": "187160",
+  "code": 0
+}
