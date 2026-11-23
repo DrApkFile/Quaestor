@@ -16,3 +16,6 @@ contracts/lib/
 
 **/test-results/
 **/playwright-report/
+
+__pycache__/
+*.pyc
