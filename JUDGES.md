@@ -7,7 +7,7 @@ Open the deployed testnet app below. This is a 60-second click path; initial cha
 3. Open [Try the demo auditor](https://use-quaestor.vercel.app/app?view=auditor&book=0xb878a86609f1492d103847d8625177cb64b800f0b6c25ee2115766be35a02a16&demo=1). The intentionally public encrypted backup and published passphrase load automatically. A/B show five **Matches a real payment** results and two **Holdings cover the books** results; C says **Not shared with you**. Hover a badge for its technical code. Expand **Proof details** for receipt and anchor evidence. The **Use your own auditor backup** panel keeps the manual upload path.
 
 4. Open [attack lab (demo)](https://use-quaestor.vercel.app/attack-lab), then **Read attack book from chain**. It reads the preserved M4 cases and the separately anchored M7 duplicate. This page sends no transactions.
-5. Inspect the [evidence table](#evidence-table) and [screenshots](evidence/m7b-screens/).
+5. Inspect the [evidence table](#evidence-table) and [screenshots](evidence/m9-screens/).
 
 The backup belongs to an intentionally public **testnet-only demo auditor**, holding only valueless faucet tokens. Its native address is `qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp`. The published passphrase is intentional:
 
@@ -43,12 +43,13 @@ Observed activation: **44.574 seconds**, **0.319120916 QOR** in fees. The measur
 | One real payment, two fresh correctly bound receipt proofs and anchors | [M7 duplicate](evidence/m7-duplicate.json) |
 | TAMPERED, WRONG_CONTEXT and HOLDINGS_SHORT, historical M4 | [M4 verdicts](evidence/m4-verdicts.json) |
 | Live browser attack checks, zero broadcasts, relay and CSP | [M7b attack browser](evidence/m7b-attack-browser.json) |
-| Responsive views; fictional judge ledger shown without masking | [390px and 1440px screenshots](evidence/m7b-screens/) |
-| Visible image text checked for local keys, mnemonics and note secrets | [OCR + visible-text secret scan](evidence/m7b-image-secret-scan.json) |
+| Responsive views; fictional judge ledger shown without masking | [M9 before/after screenshots](evidence/m9-screens/) |
+| Visible image text checked for local keys, mnemonics and note secrets | [M9 OCR + visible-text secret scan](evidence/m9-image-secret-scan.json), [historical M7b scan](evidence/m7b-image-secret-scan.json) |
 | Separate Privacy test canary journey and masked captures | [Privacy evidence](evidence/m8-privacy-browser.json), [privacy screenshots](evidence/m8-privacy-screens/) |
 | First completed Northwind run, superseded: canary content | [Historical run](evidence/m7-browser-initial.json), [run index](evidence/m7-runs.json) |
 | Live deployed routes, headers and read-only judge path | [Deployment](evidence/m9-deploy.json), [M9 live judge checks](evidence/m9-judge-after.json) |
 | First registration, native payment and supplier receipt | [M9 original-account resume](evidence/m9-fresh-signup.json), [observed gas/fees](evidence/m9-activation-cost.json) |
+| Corrected manual auditor retry; restored 1.5 QOR without transactions | [Manual retry](evidence/m9-manual-retry.json), [latest-build backup readback](evidence/m9-readback.json) |
 | Claim limits | [CLAIMS.md](CLAIMS.md), [threat model](THREAT_MODEL.md) |
 
 The final demo command is `pnpm evidence --m7b`. It needs the builder's local private test fixtures for writing and recovery. The judge path above needs only the public encrypted auditor backup, its passphrase and chain access.

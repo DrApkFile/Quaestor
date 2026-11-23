@@ -95,18 +95,18 @@ Current brief: docs/briefs/M8.md. The original external checks remain open below
 
 Original external M8 checks, still open:
 - [ ] Two-stage QCAI audit on Books.sol, with reports and findings mapping in docs/AUDIT.md. No reports exist yet.
-- [ ] Final recorded video, public hosting, independent human judge walkthrough and external project-page/eligibility/submission actions. The recording script and deploy instructions are supplied; these actions are unperformed.
+- [ ] Final recorded video, independent human judge walkthrough and external project-page/eligibility/submission actions remain unperformed. Public hosting was subsequently verified in M9.
 
 ## M9 — Live deployment, readable UX and one-step activation
 
 Builder brief: [docs/briefs/M9.md](briefs/M9.md). Prior milestones through M8 are approved by Claude per the builder.
 - [x] Save the entire builder message before implementation, in its own commit.
 - [x] Record deployed curl/header checks and run the live judge path; preserve initial failures.
-- [ ] Fix routing and verify the allowed registry query and refused path on the deployed origin.
-- [ ] Readable verdicts, one-click demo auditor, navigation, empty/wait/error states, balance clarity and responsive accessibility pass on the live site.
-- [ ] Report route/bundle sizes before and after; lazy circuits/crypto remain scoped to need.
-- [ ] One-button chain-driven activation, manual faucet instructions, polling, receipt details and resumable failures.
-- [ ] Run `pnpm evidence --m9-fresh-signup` on the deployed site with two empty contexts and manual funding; record the actual outcome without inventing receipts or costs.
-- [ ] Intercept all exercised requests/responses and scan all 390/1440 screenshots for known secrets.
-- [ ] Update scoped claims only if the full fresh flow passes; update judge/readme/story/video/AI docs.
-- [ ] Gate, behavioural commits and M9 handoff; push final delivery and stop.
+- [x] Fix routing and verify the allowed registry query and refused path on the deployed origin.
+- [x] Readable verdicts, one-click demo auditor, navigation, empty/wait/error states, balance clarity and responsive accessibility pass on the live site.
+- [x] Report route/bundle sizes before and after; lazy circuits/crypto remain scoped to need.
+- [x] One-button chain-driven activation, manual faucet instructions, polling, receipt details and resumable failures.
+- [x] Run `pnpm evidence --m9-fresh-signup` on the deployed site with two empty contexts and manual funding; record the actual outcome without inventing receipts or costs.
+- [x] Intercept all exercised requests/responses and scan all 390/1440 screenshots for known secrets.
+- [x] Update scoped claims only if the full fresh flow passes; update judge/readme/story/video/AI docs.
+- [x] Gate, behavioural commits and M9 handoff; push final delivery and stop.
