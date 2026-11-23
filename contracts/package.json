@@ -3,7 +3,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "forge-std": "forge install --root . foundry-rs/forge-std@v1.17.0 --no-git",
+    "forge-std": "forge install --root \"$PWD\" foundry-rs/forge-std@v1.17.0 --no-git",
     "build": "forge build",
     "test": "forge test",
     "deploy:pool": "forge script script/DeployQuaestorPool.s.sol:DeployQuaestorPool --rpc-url qorechain_testnet --broadcast --slow"
