@@ -18,6 +18,12 @@ it('T-CLAIMS refuses unproven, unmapped, drifted, missing and unobserved submiss
   const read = (path: string) => (path === 'test.ts' ? 'A12 test' : '{}');
   expect(checkClaims(readme, ledger, manifest, read)).toEqual([]);
   expect(checkClaims(readme, ledger.replace('PROVEN (test)', 'NOT PROVEN'), manifest, read)).toContain('UNPROVEN:C1');
+  expect(checkClaims(readme, ledger.replace('evidence.json', 'unrelated.json'), manifest, read)).toContain(
+    'UNLINKED_EVIDENCE:C1',
+  );
+  expect(checkClaims(readme, ledger.replace('evidence.json', 'not_evidence.json'), manifest, read)).toContain(
+    'UNLINKED_EVIDENCE:C1',
+  );
   expect(checkClaims(readme + '## New\nUnsupported\n', ledger, manifest, read)).toContain('UNMAPPED_SECTION');
   expect(checkClaims(readme + 'Extra claim\n', ledger, manifest, read)).toContain('UNREVIEWED_TEXT');
   expect(checkClaims(readme, ledger, manifest, () => undefined)).toContain('MISSING_FILE:evidence.json');

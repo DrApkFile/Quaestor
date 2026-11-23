@@ -39,7 +39,8 @@ export function checkClaims(readme: string, ledger: string, raw: unknown, read: 
     for (const id of item.claims) {
       const row = rows.find((value) => value[1] === id);
       if (!row || !/^PROVEN(?: \(|$)/.test(row[3] ?? '')) errors.push(`UNPROVEN:${id}`);
-      if (!item.evidence.some((path) => row?.[4]?.includes(path))) errors.push(`UNLINKED_EVIDENCE:${id}`);
+      const citations = new Set((row?.[4] ?? '').split(/[\s;,()[\]]+/));
+      if (!item.evidence.some((path) => citations.has(path))) errors.push(`UNLINKED_EVIDENCE:${id}`);
     }
     const bodies = item.evidence.map((path) => read(path));
     for (const path of [...item.evidence, ...item.code])
