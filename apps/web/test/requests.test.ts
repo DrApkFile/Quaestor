@@ -14,9 +14,10 @@ it('T-JOURNAL an unknown deposit reuses its request and never builds signs or br
     plannedAt: '2026-11-23T00:00:00Z',
     updatedAt: '2026-11-23T00:00:00Z',
   };
+  const save = vi.fn();
   const journal: Parameters<typeof executeOperation>[0] = {
     read: () => ({ v: 1, notes: [], operations: [operation] }),
-    save: vi.fn(),
+    save,
     exclusive: (work) => work(),
   };
   const gateway = {
@@ -32,7 +33,7 @@ it('T-JOURNAL an unknown deposit reuses its request and never builds signs or br
   await expect(executeOperation(journal, { id, input: null, requestKey: 'deposit', build }, gateway)).resolves.toEqual({
     kind: 'OUTCOME_UNKNOWN',
   });
-  for (const action of [build, gateway.windowOpen, gateway.sign, gateway.broadcast, journal.save])
+  for (const action of [build, gateway.windowOpen, gateway.sign, gateway.broadcast, save])
     expect(action).not.toHaveBeenCalled();
 });
 it('T-JOURNAL retrying a prepared token approval preserves the original deposit namespace', () => {
