@@ -13,7 +13,7 @@ export function VaultForm({ stored, busy, passphrase, error, onPassphrase, onCre
   return (
     <section>
       <div className="intro">
-        <p className="eyebrow">Account (demo)</p>
+        <p className="eyebrow">Account</p>
         <h1>Keep the keys with you.</h1>
         <p>Create an account or restore an encrypted backup. Transactions stay locked until you download a backup.</p>
       </div>
@@ -55,6 +55,12 @@ export function VaultForm({ stored, busy, passphrase, error, onPassphrase, onCre
           }}
         />
         <p className="muted">Use at least 12 characters. Your passphrase is not sent to a server.</p>
+        {busy && (
+          <div role="status">
+            <progress aria-label="Preparing encrypted account" />
+            <p>Preparing your encrypted account locally… usually 5–15 s. Keep this tab open.</p>
+          </div>
+        )}
         {error && (
           <p role="alert" className="error">
             {error}

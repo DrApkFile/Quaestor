@@ -27,6 +27,7 @@ import { browserChain, client, deployment, readerConfig } from './client.js';
 import { nativeAction } from './nativeClient.js';
 import { BrowserJournal } from './browserJournal.js';
 import { dbGet, dbPut } from './db.js';
+import { activationReceipts } from './activationReceipts.js';
 export async function onboardingStatus(account: UnifiedAccount) {
   const block = await client.getBlockNumber({ cacheTime: 0 });
   const options = { rest: browserChain.rest, address: account.cosmos, fetch: registryFetch(browserChain, block) };
@@ -112,12 +113,13 @@ export async function publishCard(account: UnifiedAccount, backup: boolean) {
       : cardSchema.parse(saved);
   await dbPut('journal', key, card);
   const window = await checkWindow(browserChain, account.cosmos);
-  if (window.kind !== 'OPEN') {
+  if (window.kind !== 'OPEN' || window.window.remainingTxs < 1n || window.window.remainingValue < 750000n) {
     await nativeAction(account, backup, `window-${hashBytes(publicRecordBytes(card))}-${status.block}`, 'hybrid', [
-      openEvmWindowMsg({ sender: account.cosmos, blocks: 600n, maxTxs: 1n, maxValue: 500000n }),
+      openEvmWindowMsg({ sender: account.cosmos, blocks: 600n, maxTxs: 1n, maxValue: 750000n }),
     ]);
   }
   const journal = await BrowserJournal.open(account.cosmos);
+  await activationReceipts(account.cosmos);
   const gateway = createGateway(browserChain, account, client, [], deployment.board.address);
   const safeGateway = {
     ...gateway,

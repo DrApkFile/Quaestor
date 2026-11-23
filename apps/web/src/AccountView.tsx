@@ -1,11 +1,14 @@
 import { exportBackup, restoreJournal } from './backup.js';
 import { VaultForm } from './VaultForm.js';
-import { OnboardingSteps } from './OnboardingSteps.js';
+import { AccountSetup } from './AccountSetup.js';
 import { useEffect, useState, type FormEvent } from 'react';
 import { generateMnemonic, deriveUnifiedAccount, type UnifiedAccount } from '@qorechain/sdk';
 import { encryptVault, decryptVault, vaultSchema, type VaultEnvelope } from './vault.js';
 import { saveVault, loadVault } from './db.js';
-import { onboardingStatus, registerPQ, registerKEM, publishCard } from './onboarding.js';
+import { onboardingStatus } from './onboarding.js';
+import { activateAccount, type ActivationStage } from './activation.js';
+import { installAuditPrivacy } from './privacy.js';
+import { accountSealKeys } from '@quaestor/chain/browser';
 import { errorMessage } from './messages.js';
 export function AccountView({
   onReady,
@@ -14,6 +17,8 @@ export function AccountView({
   onReady?: (account: UnifiedAccount) => Promise<void>;
   onLock?: () => void;
 }) {
+  const [stage, setStage] = useState<ActivationStage | null>(null);
+  const [failedStage, setFailedStage] = useState<ActivationStage | null>(null);
   const [account, setAccount] = useState<UnifiedAccount | null>(null);
   const [envelope, setEnvelope] = useState<VaultEnvelope | null>(null);
   const [backup, setBackup] = useState(false);
@@ -52,6 +57,7 @@ export function AccountView({
       const mnemonic = generateMnemonic();
       const sealed = await encryptVault(mnemonic, passphrase);
       const derived = await deriveUnifiedAccount(mnemonic, 0);
+      installAuditPrivacy(derived, accountSealKeys(derived));
       setBackupPassphrase(passphrase);
       await saveVault(sealed);
       setEnvelope(sealed);
@@ -67,6 +73,7 @@ export function AccountView({
       const payload = await decryptVault(input, passphrase);
       const sealed = vaultSchema.parse(input);
       const derived = await deriveUnifiedAccount(payload.mnemonic, 0);
+      installAuditPrivacy(derived, accountSealKeys(derived));
       await restoreJournal(derived.cosmos, payload.journal);
       setBackupPassphrase(passphrase);
       await saveVault(sealed);
@@ -83,6 +90,7 @@ export function AccountView({
       if (!saved) throw new Error('INVALID_PASSPHRASE_OR_BACKUP');
       const payload = await decryptVault(saved.envelope, passphrase);
       const derived = await deriveUnifiedAccount(payload.mnemonic, 0);
+      installAuditPrivacy(derived, accountSealKeys(derived));
       setBackupPassphrase(passphrase);
       setAccount(derived);
       setEnvelope(saved.envelope);
@@ -109,13 +117,40 @@ export function AccountView({
       await refresh(account);
     });
   };
-  const act = (kind: 'pq' | 'kem' | 'card') =>
+  useEffect(() => {
+    if (!account || busy || status?.cardPublished) return;
+    let cancelled = false;
+    const poll = setInterval(() => {
+      void onboardingStatus(account)
+        .then((value) => {
+          if (!cancelled) setStatus(value);
+        })
+        .catch(() => {
+          if (!cancelled) setError(errorMessage(new Error('NETWORK_UNAVAILABLE')));
+        });
+    }, 10000);
+    return () => {
+      cancelled = true;
+      clearInterval(poll);
+    };
+  }, [account, busy, status?.cardPublished]);
+  const activate = () =>
     task(async () => {
       if (!account || !backup) throw new Error('BACKUP_REQUIRED');
-      if (kind === 'pq') await registerPQ(account, backup);
-      if (kind === 'kem') await registerKEM(account, backup);
-      if (kind === 'card') await publishCard(account, backup);
-      await refresh(account);
+      setFailedStage(null);
+      let current: ActivationStage = 0;
+      try {
+        setStatus(
+          await activateAccount(account, backup, (next, value) => {
+            current = next;
+            setStage(next);
+            setStatus(value);
+          }),
+        );
+      } catch (error: unknown) {
+        setFailedStage(current);
+        throw error;
+      }
     });
   if (!account)
     return (
@@ -130,76 +165,26 @@ export function AccountView({
         onRestore={(file) => void restore(file)}
       />
     );
-  const ready =
-    backup &&
-    !!status?.funded &&
-    status.pqRegistered &&
-    status.kemRegistered &&
-    status.cardPublished &&
-    status.keysMatch;
   return (
-    <section>
-      <div className="intro">
-        <p className="eyebrow">Account (demo)</p>
-        <h1>{ready ? 'Account ready.' : 'Set up your account.'}</h1>
-        <p>Each step below is checked against Diana. Refresh to see a funding or registration change.</p>
-      </div>
-      <div className="panel">
-        <h2>Encrypted backup</h2>
-        <p>
-          {backup ? 'Backup download completed.' : 'Download an encrypted backup before any transaction is enabled.'}
-        </p>
-        <label>
-          Backup passphrase
-          <input
-            type="password"
-            autoComplete="off"
-            value={backupPassphrase}
-            onChange={(event) => {
-              setBackupPassphrase(event.target.value);
-            }}
-          />
-        </label>
-        <p>Includes account keys and the encrypted private journal. Download again after payments or booking.</p>
-        <button disabled={busy || backupPassphrase.length < 12} onClick={download}>
-          Download backup
-        </button>
-        <dl className="addresses">
-          <dt>Native address (demo)</dt>
-          <dd>{account.cosmos}</dd>
-          <dt>EVM address (demo)</dt>
-          <dd>{account.evm}</dd>
-        </dl>
-        <div className="actions">
-          <button className="secondary" disabled={busy} onClick={() => void task(() => refresh())}>
-            Refresh chain state
-          </button>
-          <button
-            className="secondary"
-            disabled={busy}
-            onClick={() => {
-              onLock?.();
-              setAccount(null);
-              setStatus(null);
-              setStored(true);
-            }}
-          >
-            Lock account
-          </button>
-        </div>
-      </div>
-      <OnboardingSteps status={status} busy={busy} backup={backup} onAction={(kind) => void act(kind)} />
-      {status && !status.keysMatch && (
-        <p role="alert" className="error">
-          The registered keys do not match this backup. Nothing will be overwritten.
-        </p>
-      )}
-      {error && (
-        <p role="alert" className="error">
-          {error}
-        </p>
-      )}
-      {busy && <p role="status">Waiting for the chain…</p>}
-    </section>
+    <AccountSetup
+      account={account}
+      backup={backup}
+      backupPassphrase={backupPassphrase}
+      busy={busy}
+      error={error}
+      status={status}
+      stage={stage}
+      failedStage={failedStage}
+      onBackupPassphrase={setBackupPassphrase}
+      onDownload={download}
+      onRefresh={() => void task(() => refresh())}
+      onActivate={() => void activate()}
+      onLock={() => {
+        onLock?.();
+        setAccount(null);
+        setStatus(null);
+        setStored(true);
+      }}
+    />
   );
 }
