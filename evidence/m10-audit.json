@@ -1,0 +1,29 @@
+{
+  "command": "pnpm evidence --m10-audit",
+  "results": [
+    {
+      "file": "docs/audit/Books.flat.sol",
+      "address": "0x9775c1d0dc814e41fb1b38d26fa17f60d24faf64",
+      "sourceCommit": "c380d9f71774a2b5a066c4f3e2a827bb8a2668b8",
+      "normalizedSha256": "19224f8a006edcc7e635a8da83445214aa954be2961fe4ff02bf03159f06b4e4",
+      "sha256": "dfca386aec7e4ff9886f95f9030a400492a108e0414431be50f723ac6776954a",
+      "flattenCommand": "forge flatten src/Books.sol",
+      "compileCommand": "forge build --root /tmp/quaestor-audit-8ZX3B7 --use 0.8.24 --evm-version shanghai --optimize --optimizer-runs 200",
+      "stdout": "Compiling 1 files with Solc 0.8.24\nSolc 0.8.24 finished in 509.44ms\nCompiler run successful!\n",
+      "stderr": "",
+      "exit": 0
+    },
+    {
+      "file": "docs/audit/BlobBoard.flat.sol",
+      "address": "0xe79e5a3108d8e856aa7ac770c97ac7af308c1d67",
+      "sourceCommit": "c380d9f71774a2b5a066c4f3e2a827bb8a2668b8",
+      "normalizedSha256": "32058111885e2031ad1440eebcd13f148dd2803e9e819582fea9bb8726eea095",
+      "sha256": "68bc0d9cda3f9b4430152f3b3186755cb4861883d5c05c17b2f15fbd32000a18",
+      "flattenCommand": "forge flatten src/BlobBoard.sol",
+      "compileCommand": "forge build --root /tmp/quaestor-audit-zGPFcU --use 0.8.24 --evm-version shanghai --optimize --optimizer-runs 200",
+      "stdout": "Compiling 1 files with Solc 0.8.24\nSolc 0.8.24 finished in 50.79ms\nCompiler run successful with warnings:\nWarning (2319): This declaration shadows a builtin symbol.\n  --> src/BlobBoard.sol:13:33:\n   |\n13 |     function post(bytes32 kind, bytes32 sha3, bytes calldata data) external {\n   |                                 ^^^^^^^^^^^^\n\n",
+      "stderr": "",
+      "exit": 0
+    }
+  ]
+}
