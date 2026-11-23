@@ -66,7 +66,7 @@ export function OnboardingSteps({ address, status, busy, backup, stage, failed, 
         {!status?.funded && <p role="status">Checking for funding every 10 seconds…</p>}
       </section>
       <section className="panel">
-        <h2>{ready ? 'Account ready.' : 'Activate your account'}</h2>
+        <h2>{ready ? 'Ready for private payments' : 'Activate your account'}</h2>
         <p>
           One-time setup. It lets people pay you privately, and keeps your account safe even from future quantum
           computers.
@@ -90,7 +90,6 @@ export function OnboardingSteps({ address, status, busy, backup, stage, failed, 
             </p>
           </div>
         )}
-        {ready && <p className="badge good">Ready for private payments</p>}
         <details>
           <summary>Details</summary>
           <p>ML-DSA-87 signature: {status?.pqRegistered ? 'registered with possession proven' : 'pending'}.</p>

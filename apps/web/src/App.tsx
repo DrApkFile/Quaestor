@@ -91,7 +91,7 @@ function AppContent() {
           <span className="nav-group">Business</span>
           {views.map((item, index) => (
             <span className="nav-entry" key={item}>
-              {item === 'auditor' && <span className="nav-group">Auditor</span>}
+              {item === 'auditor' && <span className="nav-group">Review access</span>}
               {item === 'public' && <span className="nav-group">Verify</span>}
               <button
                 className={item === view ? 'nav-active' : 'nav-item'}

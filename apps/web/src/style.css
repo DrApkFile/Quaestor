@@ -582,3 +582,11 @@ button:disabled {
     display: none;
   }
 }
+
+.nav-group {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-left: 1px solid var(--muted);
+  margin-left: 10px;
+}

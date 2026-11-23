@@ -1,3 +1,5 @@
+import { automaticWindow, type WindowPlan } from '../automaticWindow.js';
+import { prepareWindow } from './windows.js';
 import type { UnifiedAccount } from '@qorechain/sdk';
 import { hexToBytes, toHex, type Abi, type Hex } from 'viem';
 import {
@@ -31,6 +33,7 @@ export const poolAbi = abi(poolArtifact),
   booksAbi = abi(booksArtifact),
   boardAbi = abi(boardArtifact);
 export class BusinessRuntime {
+  windowPlan: WindowPlan = { operations: 1, valueWei: 0n };
   state: BusinessState = emptyState();
   private queue = Promise.resolve();
   private readonly witnessSecrets = new Set<string>();
@@ -87,7 +90,16 @@ export class BusinessRuntime {
     const cached = this.gateways.get(to);
     if (cached) return cached;
     const gateway = createGateway(browserChain, this.account, client, poolAbi, to);
-    const result = this.journal.protectGateway(gateway, () => this.save());
+    const result = this.journal.protectGateway(
+      automaticWindow(
+        gateway,
+        this.account,
+        to,
+        () => this.windowPlan,
+        (operations, budget) => prepareWindow(this, operations, 0n, budget),
+      ),
+      () => this.save(),
+    );
     this.gateways.set(to, result);
     return result;
   }

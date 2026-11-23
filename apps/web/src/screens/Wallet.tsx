@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { formatEther, formatUnits, parseEther, parseUnits, zeroAddress, type Hex } from 'viem';
-import { balances, deposit, cashOut, convert, fusdDenom } from '../business/wallet.js';
+import { balances, deposit, convert, fusdDenom } from '../business/wallet.js';
 import { fusd } from '../business/schema.js';
 import { errorMessage } from '../messages.js';
-import { Status } from '../Status.js';
+import { WalletNotes } from './WalletNotes.js';
 import { Hash } from '../Hash.js';
 import { Prepare } from './Prepare.js';
 import type { ScreenProps } from './types.js';
@@ -147,52 +147,7 @@ export function Wallet(props: ScreenProps) {
           </button>
         </div>
       </div>
-      <div className="panel">
-        <h2>Private notes</h2>
-        <div className="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Note</th>
-                <th>Amount</th>
-                <th>State</th>
-                <th>Own-address cash-out</th>
-              </tr>
-            </thead>
-            <tbody>
-              {notes.map((note) => (
-                <tr key={note.commitment}>
-                  <td data-label="Note">{note.commitment.slice(0, 14)}…</td>
-                  <td data-label="Amount">
-                    {formatUnits(BigInt(note.amountWei), note.asset === zeroAddress ? 18 : 6)}{' '}
-                    {note.asset === zeroAddress ? 'QOR' : 'fUSD'}
-                  </td>
-                  <td data-label="State">
-                    <Status code={note.state} />
-                  </td>
-                  <td data-label="Own-address cash-out">
-                    <button
-                      disabled={busy || note.state !== 'OWNED' || BigInt(note.amountWei) === 0n}
-                      onClick={() => {
-                        run(async () => {
-                          await cashOut(runtime, note.commitment, `cashout-${crypto.randomUUID()}`);
-                          await refresh();
-                        });
-                      }}
-                    >
-                      Cash out
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {!notes.length && <p>Deposit or receive an anonymous ticket to own a private note.</p>}
-        <p className="muted">
-          Cash-out destination: your own EVM address {runtime.account.evm}. Deposits and cash-outs are public.
-        </p>
-      </div>
+      <WalletNotes {...props} refresh={refresh} />
     </section>
   );
 }

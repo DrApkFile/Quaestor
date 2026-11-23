@@ -23,3 +23,4 @@ export * from './tickets/ticket.js';
 export * from './tickets/memoBoard.js';
 export * from './tickets/receive.js';
 export * from './roles.js';
+export * from './gas.js';

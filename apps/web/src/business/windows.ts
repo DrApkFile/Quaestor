@@ -7,12 +7,12 @@ import { weiToUqorCeil } from '@qorechain/evm';
 import { nativeAction } from '../nativeClient.js';
 import { BusinessRuntime, browserChain } from './runtime.js';
 const maxGasCost = 3000000n * 250000000000n;
-export async function prepareWindow(runtime: BusinessRuntime, operations: number, valueWei: bigint) {
+export async function prepareWindow(runtime: BusinessRuntime, operations: number, valueWei: bigint, budget?: bigint) {
   if (!Number.isSafeInteger(operations) || operations < 1 || operations > 100) throw new Error('INVALID_WINDOW_PLAN');
   const status = await onboardingStatus(runtime.account);
   if (!status.pqRegistered || !status.kemRegistered || !status.cardPublished || !status.keysMatch)
     throw new Error('REGISTRY_NOT_READY');
-  const maxValue = weiToUqorCeil(valueWei + BigInt(operations) * maxGasCost);
+  const maxValue = budget ?? weiToUqorCeil(valueWei + BigInt(operations) * maxGasCost);
   await nativeAction(runtime.account, true, `prepare-${crypto.randomUUID()}`, 'hybrid', [
     openEvmWindowMsg({ sender: runtime.account.cosmos, blocks: 600n, maxTxs: BigInt(operations), maxValue }),
   ]);
@@ -25,13 +25,8 @@ export async function prepareWindow(runtime: BusinessRuntime, operations: number
   await runtime.save();
   return checkWindow(browserChain, runtime.account.cosmos);
 }
-export async function requireWindow(runtime: BusinessRuntime, operations: number, valueWei = 0n) {
-  const result = await checkWindow(browserChain, runtime.account.cosmos);
-  if (
-    result.kind !== 'OPEN' ||
-    result.window.remainingTxs < BigInt(operations) ||
-    result.window.remainingValue < weiToUqorCeil(valueWei + BigInt(operations) * maxGasCost)
-  )
-    throw new Error('WINDOW_CLOSED');
-  return result.window;
+export function requireWindow(runtime: BusinessRuntime, operations: number, valueWei = 0n) {
+  if (!Number.isSafeInteger(operations) || operations < 1 || operations > 100 || valueWei < 0n)
+    throw new Error('INVALID_WINDOW_PLAN');
+  runtime.windowPlan = { operations, valueWei };
 }

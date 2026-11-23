@@ -87,8 +87,8 @@ export function Pay({ runtime, run, busy }: ScreenProps) {
         </label>
         <button disabled={busy}>Prove and pay</button>
         <p className="muted">
-          Prepare a window in Wallet first. After posting the ticket, the payment stays Not booked until you save its
-          book entry.
+          A transaction window opens when needed. After posting the ticket, the payment stays Not booked until you save
+          its book entry.
         </p>
       </form>
       <div className="panel">

@@ -1,3 +1,4 @@
+import { automaticWindow } from './automaticWindow.js';
 import {
   buildRegisterPqcKeyMsg,
   signProofOfPossession,
@@ -17,7 +18,6 @@ import {
   registryFetch,
   postBlob,
   createGateway,
-  checkWindow,
   resolveOperation,
   publicRecordBytes,
   discoverJSON,
@@ -112,17 +112,21 @@ export async function publishCard(account: UnifiedAccount, backup: boolean) {
       ? createCard(account, keys, new Date().toISOString().replace(/\.\d{3}Z$/, 'Z'))
       : cardSchema.parse(saved);
   await dbPut('journal', key, card);
-  const window = await checkWindow(browserChain, account.cosmos);
-  if (window.kind !== 'OPEN' || window.window.remainingTxs < 1n || window.window.remainingValue < 750000n) {
-    await nativeAction(account, backup, `window-${hashBytes(publicRecordBytes(card))}-${status.block}`, 'hybrid', [
-      openEvmWindowMsg({ sender: account.cosmos, blocks: 600n, maxTxs: 1n, maxValue: 750000n }),
-    ]);
-  }
   const journal = await BrowserJournal.open(account.cosmos);
   await activationReceipts(account.cosmos);
   const gateway = createGateway(browserChain, account, client, [], deployment.board.address);
   const safeGateway = {
-    ...gateway,
+    ...automaticWindow(
+      gateway,
+      account,
+      deployment.board.address,
+      () => ({ operations: 1, valueWei: 0n }),
+      async (operations, maxValue) => {
+        await nativeAction(account, backup, `window-${hashBytes(publicRecordBytes(card))}-${status.block}`, 'hybrid', [
+          openEvmWindowMsg({ sender: account.cosmos, blocks: 600n, maxTxs: BigInt(operations), maxValue }),
+        ]);
+      },
+    ),
     broadcast: async (serialized: `0x${string}`) => {
       await journal.flush();
       return gateway.broadcast(serialized);

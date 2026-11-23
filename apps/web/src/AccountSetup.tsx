@@ -33,18 +33,11 @@ export function AccountSetup({
   onLock,
   onActivate,
 }: Props) {
-  const ready =
-    backup &&
-    !!status?.funded &&
-    status.pqRegistered &&
-    status.kemRegistered &&
-    status.cardPublished &&
-    status.keysMatch;
   return (
     <section>
       <div className="intro">
         <p className="eyebrow">Account</p>
-        <h1>{ready ? 'Account ready.' : 'Set up your account.'}</h1>
+        <h1>Account</h1>
         <p>
           Save your encrypted backup, get test QOR, then activate once. Setup resumes from the chain if interrupted.
         </p>

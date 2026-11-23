@@ -1,6 +1,5 @@
 export const errorMessages = {
-  WINDOW_CLOSED:
-    'Your transaction window has expired or lacks budget. Open Wallet, choose Prepare to transact, then retry.',
+  WINDOW_CLOSED: 'Your transaction window has expired or lacks budget. Retry the action to open a new window.',
   NO_PQ_KEY: 'The signing key is not registered. Activate your account, then retry.',
   PQ_POSSESSION_NOT_PROVEN: 'The signing key has not proved ownership. Retry activation with the original backup.',
   NO_KEM_KEY: 'This address has no encryption key. Ask the recipient to activate their account, then retry.',
