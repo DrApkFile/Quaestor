@@ -80,8 +80,8 @@ it('A11 sufficient signed window continues without another confirmation', async 
   expect(globalThis.confirm).not.toHaveBeenCalled();
 });
 it('T-JOURNAL unknown window broadcast stops before signing', async () => {
-  const { gateway } = setup();
-  mocks.window.mockRejectedValue(new Error('OUTCOME_UNKNOWN'));
+  const { gateway, open } = setup();
+  open.mockRejectedValueOnce(new Error('OUTCOME_UNKNOWN'));
   await expect(gateway.sign(prepared)).rejects.toThrow('OUTCOME_UNKNOWN');
   expect(mocks.events).toEqual([]);
 });

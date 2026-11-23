@@ -11,9 +11,9 @@ from m8_scan_values import local_secrets
 
 root = pathlib.Path(__file__).resolve().parent.parent
 run = os.environ.get('QUAESTOR_IMAGE_RUN', 'm7b')
-if run not in {'m7b', 'm9'}:
+if run not in {'m7b', 'm9', 'm10'}:
     raise SystemExit('INVALID_IMAGE_RUN')
-private = root / ('.accounts/' + ('m9' if run == 'm9' else 'm7b') + '-browser')
+private = root / ('.accounts/' + (run if run in {'m9', 'm10'} else 'm7b') + '-browser')
 secrets = local_secrets(root)
 normalize = lambda value: re.sub(r'[^a-z0-9]', '', value.lower())
 checks = [normalize(value) for value in secrets if len(normalize(value)) > 20]
@@ -22,7 +22,7 @@ results = []
 images = sorted((root / ('evidence/' + run + '-screens')).glob('*.png'))
 part = os.environ.get('QUAESTOR_IMAGE_PART')
 if part is not None:
-    if run != 'm9' or part not in {'0', '1'}:
+    if run not in {'m9', 'm10'} or part not in {'0', '1'}:
         raise SystemExit('INVALID_IMAGE_PART')
     images = images[int(part)::2]
 if not images:
@@ -44,5 +44,5 @@ for path in images:
         raise SystemExit('IMAGE_SECRET_SCAN_FAILED: ' + path.name)
     results.append({'file': str(path.relative_to(root)), 'sha256': hashlib.sha256(image_bytes).hexdigest(), 'width': image.width, 'height': image.height, 'ocrFragments': len(texts), 'secretMatches': 0})
     print('IMAGE_SECRET_SCAN_PASSED: ' + path.name, flush=True)
-report = {'command': 'pnpm evidence --m9-secret-scan' if run == 'm9' else 'pnpm evidence --m7b', 'status': 'PASSED', 'method': 'RapidOCR 1.4.4 plus captured visible DOM text, normalized against locally derived account/seal keys, mnemonics, journal note secrets, period keys, historical private job keys, private passphrases and canaries; values excluded', 'images': results, 'limits': 'OCR can misread glyphs; exact local values and visible DOM are checked, not arbitrary unknown secrets or hidden/steganographic data.'}
+report = {'command': 'pnpm evidence --' + run + '-secret-scan' if run in {'m9', 'm10'} else 'pnpm evidence --m7b', 'status': 'PASSED', 'method': 'RapidOCR 1.4.4 plus captured visible DOM text, normalized against locally derived account/seal keys, mnemonics, journal note secrets, period keys, historical private job keys, private passphrases and canaries; values excluded', 'images': results, 'limits': 'OCR can misread glyphs; exact local values and visible DOM are checked, not arbitrary unknown secrets or hidden/steganographic data.'}
 (root / ('evidence/' + run + '-image-secret-scan' + ('-part' + part if part is not None else '') + '.json')).write_text(json.dumps(report, indent=2) + '\n')
