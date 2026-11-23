@@ -5,16 +5,17 @@
   "license": "MIT",
   "packageManager": "pnpm@9.15.0",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.12.0"
   },
   "scripts": {
     "typecheck": "pnpm -r --if-present typecheck",
     "lint": "pnpm -r --workspace-concurrency=1 --if-present lint",
     "test": "pnpm -r --if-present test",
-    "gate": "pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test",
+    "gate": "pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test",
     "evidence": "pnpm -C packages/chain exec tsx ../../scripts/evidence.ts",
     "format:check": "prettier --check \"**/*.{ts,tsx}\"",
-    "format": "prettier --write \"**/*.{ts,tsx}\""
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "claims:check": "pnpm -C packages/chain exec tsx ../../scripts/claims.ts"
   },
   "devDependencies": {
     "@eslint/js": "9.39.1",

@@ -1,0 +1,293 @@
+{
+  "sections": [
+    {
+      "heading": "Quaestor",
+      "textSha256": "dbcaf3bf317d6b704d4c84c8b4b11935a8e37a5b31b56810032b66430830dbd9",
+      "claims": [
+        "C1",
+        "C7",
+        "C8"
+      ],
+      "evidence": [
+        "evidence/m2b-ticket-anonymous.json",
+        "evidence/m8-kits.json",
+        "docs/handoff/M7.md"
+      ],
+      "code": [
+        "apps/web/package.json",
+        "packages/chain/src/tickets/ticket.ts"
+      ],
+      "tests": [
+        {
+          "path": "packages/chain/test/tickets.test.ts",
+          "name": "T-TICKET seals a real two-recipient hybrid envelope within 8192 bytes and opens for both recipients"
+        }
+      ]
+    },
+    {
+      "heading": "Try it in three steps",
+      "textSha256": "f9917ae9cafab770533fd794d57bb8c7baf6eecd8437368b7068baaf56eafd9e",
+      "claims": [
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "M7b"
+      ],
+      "evidence": [
+        "evidence/m7b-browser.json",
+        "evidence/m7b-fresh-auditors.json",
+        "evidence/m7b-image-secret-scan.json",
+        "evidence/m8-privacy-browser.json",
+        "evidence/m7-duplicate.json",
+        "evidence/m7-attack-browser.json",
+        "evidence/m7-browser-initial.json"
+      ],
+      "code": [
+        "apps/web/e2e/m7.spec.ts",
+        "apps/web/e2e/m7FreshAuditors.ts",
+        "apps/web/src/AttackLab.tsx"
+      ],
+      "tests": [
+        {
+          "path": "apps/web/e2e/m7.spec.ts",
+          "name": "T-NOPLAIN-WEB daily A/B closed, C private, complete backup and B-only grant"
+        },
+        {
+          "path": "packages/core/test/verdict.test.ts",
+          "name": "T-HOLDINGS derives declared balances and checks every proof/nullifier before coverage"
+        }
+      ]
+    },
+    {
+      "heading": "How it works",
+      "textSha256": "cd2e4ff61d93643cf10e7154a4e7cf853226100539c5cb71628dde5a754b6bdf",
+      "claims": [
+        "C1",
+        "C2",
+        "C6",
+        "C8"
+      ],
+      "evidence": [
+        "evidence/m2b-ticket-anonymous.json",
+        "evidence/m3-books.json",
+        "evidence/m7b-browser.json",
+        "docs/handoff/M7.md"
+      ],
+      "code": [
+        "packages/core/src/period.ts",
+        "packages/core/src/entry.ts",
+        "packages/chain/src/chainAudit.ts"
+      ],
+      "tests": [
+        {
+          "path": "packages/core/test/verdict.test.ts",
+          "name": "T-HOLDINGS derives declared balances and checks every proof/nullifier before coverage"
+        },
+        {
+          "path": "packages/chain/test/tickets.test.ts",
+          "name": "T-TICKET seals a real two-recipient hybrid envelope within 8192 bytes and opens for both recipients"
+        }
+      ]
+    },
+    {
+      "heading": "Encrypted Apps requirements, with evidence",
+      "textSha256": "992039cb3287f788e067ce28780941ebda55e3be54ad7bebc84782c1cf50bc3e",
+      "claims": [
+        "C1",
+        "C5",
+        "C7",
+        "C8"
+      ],
+      "evidence": [
+        "evidence/m2b-ticket-anonymous.json",
+        "evidence/m2-ticket.json",
+        "evidence/m3-precompiles.json",
+        "evidence/m3-books.json",
+        "evidence/m8-privacy-browser.json",
+        "evidence/m7b-fresh-auditors.json",
+        "evidence/m8-kits.json",
+        "docs/handoff/M7.md"
+      ],
+      "code": [
+        "packages/chain/src/tickets/cardCodec.ts",
+        "packages/chain/src/tickets/kemRegistry.ts",
+        "packages/core/src/signing.ts",
+        "apps/web/src/business/runtime.ts"
+      ],
+      "tests": [
+        {
+          "path": "packages/chain/test/tickets.test.ts",
+          "name": "T-TICKET seals a real two-recipient hybrid envelope within 8192 bytes and opens for both recipients"
+        },
+        {
+          "path": "apps/web/e2e/m7.spec.ts",
+          "name": "T-NOPLAIN-WEB daily A/B closed, C private, complete backup and B-only grant"
+        },
+        {
+          "path": "packages/chain/test/tickets.test.ts",
+          "name": "T-CARD refuses another signing identity, stale KEM registration and unproven possession"
+        },
+        {
+          "path": "packages/core/test/books.test.ts",
+          "name": "T-BIND edited ciphertext fails the anchor SHA3 and signature even if its stated digest is replaced"
+        }
+      ]
+    },
+    {
+      "heading": "QoreChain features used",
+      "textSha256": "9ef3500c35a2c8d298ea207f7a1ad27826eec58c98673e4ba032793cdfb72cd1",
+      "claims": [
+        "C7"
+      ],
+      "evidence": [
+        "evidence/m8-kits.json",
+        "evidence/m3-precompiles.json",
+        "evidence/m2-ticket.json",
+        "evidence/m3-books.json",
+        "evidence/m2b-ticket-anonymous.json"
+      ],
+      "code": [
+        "contracts/src/Books.sol",
+        "packages/chain/src/window.ts",
+        "tools/evm-window/package.json",
+        "tools/evm-window/scripts/window.ts",
+        "packages/core/src/signing.ts"
+      ],
+      "tests": [
+        {
+          "path": "packages/chain/test/tickets.test.ts",
+          "name": "T-TICKET seals a real two-recipient hybrid envelope within 8192 bytes and opens for both recipients"
+        }
+      ]
+    },
+    {
+      "heading": "Architecture and verification",
+      "textSha256": "cd07ea12dbebd74061536ef6736ed7be9f16f8c10e42f1d112b7aa6969df39a7",
+      "claims": [
+        "C8",
+        "C9"
+      ],
+      "evidence": [
+        "docs/handoff/M7.md",
+        "evidence/m7-attack-browser.json",
+        "evidence/m8-cover.json"
+      ],
+      "code": [
+        "scripts/vendor-gloam.sh",
+        "scripts/m8-presubmit.ts",
+        "scripts/checkClaims.ts",
+        "packages/core/src/verdict.ts",
+        "api/qore-relay.ts"
+      ],
+      "tests": [
+        {
+          "path": "packages/chain/test/claims.test.ts",
+          "name": "T-CLAIMS refuses unproven, unmapped, drifted, missing and unobserved submission claims"
+        },
+        {
+          "path": "apps/web/test/relay.test.ts",
+          "name": "T-RELAY rejects arbitrary hosts, private-key fields, non-public methods and unsigned bodies"
+        }
+      ]
+    },
+    {
+      "heading": "On-chain testnet addresses",
+      "textSha256": "97f81e70c99db7de523786a2f042668dea3b7b804b5d48d19d890f2d85bf1158",
+      "claims": [
+        "M0",
+        "M5",
+        "C7"
+      ],
+      "evidence": [
+        "evidence/m0-deploy.json",
+        "evidence/m5-blobs.json",
+        "evidence/m5-blob-deploy.json",
+        "evidence/m4-books-v2.json",
+        "evidence/m4-verdicts.json",
+        "evidence/m2-ticket.json",
+        "evidence/m8-kits.json"
+      ],
+      "code": [
+        "config/diana.json",
+        "config/m5.json"
+      ],
+      "tests": [
+        {
+          "path": "packages/chain/test/tickets.test.ts",
+          "name": "T-TICKET seals a real two-recipient hybrid envelope within 8192 bytes and opens for both recipients"
+        }
+      ]
+    },
+    {
+      "heading": "What we don't claim",
+      "textSha256": "3bc074664c204d3cf7c6913662b22783a9a0afd188289fa0af77465f72111bc0",
+      "claims": [
+        "C1",
+        "C5",
+        "C6",
+        "C8",
+        "C9",
+        "M1b"
+      ],
+      "evidence": [
+        "evidence/m2b-ticket-anonymous.json",
+        "evidence/m8-privacy-browser.json",
+        "evidence/m7b-browser.json",
+        "docs/handoff/M7.md",
+        "evidence/m8-cover.json",
+        "evidence/m1b-fusd.json"
+      ],
+      "code": [
+        "THREAT_MODEL.md",
+        "DECISIONS.md",
+        "packages/core/src/holdingsSelection.ts",
+        "apps/web/src/business/close.ts"
+      ],
+      "tests": [
+        {
+          "path": "packages/core/test/verdict.test.ts",
+          "name": "T-HOLDINGS derives declared balances and checks every proof/nullifier before coverage"
+        },
+        {
+          "path": "packages/core/test/holdingsSelection.test.ts",
+          "name": "T-HOLDINGS-D16 selects the largest covering notes and refuses coverage requiring more than four"
+        }
+      ]
+    },
+    {
+      "heading": "Credits and licence",
+      "textSha256": "f3581d08abd0f9d6ef6377f56952cc5ae05bd6f45c6b36e5dd1be4995502b0b3",
+      "claims": [
+        "C9",
+        "C7"
+      ],
+      "evidence": [
+        "NOTICE",
+        "LICENSE",
+        "evidence/m8-cover.json",
+        "evidence/m8-repo.json",
+        "evidence/m8-kits.json",
+        "docs/design/muuve-style.md"
+      ],
+      "code": [
+        "apps/web/package.json",
+        "scripts/package.json",
+        "tools/evm-window/package.json",
+        "docs/design/cover.html",
+        "scripts/ocr-requirements.txt",
+        "AI_USAGE.md"
+      ],
+      "tests": [
+        {
+          "path": "apps/web/e2e/m8Cover.spec.ts",
+          "name": "A05 cover is 1600 by 900, below 5 MB and uses only local original artwork"
+        },
+        {
+          "path": "packages/chain/test/claims.test.ts",
+          "name": "T-CLAIMS refuses unproven, unmapped, drifted, missing and unobserved submission claims"
+        }
+      ]
+    }
+  ]
+}

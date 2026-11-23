@@ -1,46 +1,50 @@
-# AI_USAGE
+# AI usage
 
-How AI was used to build Quaestor, what it generated, and what the human builder decided and did. Kept as the work happened; the daily record is in [docs/ai-log/](docs/ai-log/). Nothing here is written after the fact from memory.
+Claude planned and reviewed; Codex built and exercised the implementation; the builder chose the product, resolved design questions and relayed reviews. The contemporaneous record is in [docs/ai-log/](docs/ai-log/), [briefs](docs/briefs/) and [handoffs](docs/handoff/). Only M1 and M2 have separate committed review files; later approvals and required corrections are preserved in the builder's milestone briefs. We do not claim that an unavailable review artifact exists.
 
-## Tools
-| Tool | Used for |
-|---|---|
-| Claude (Anthropic) — planner and reviewer | research on the fest, QoreChain kits and Gloam's code; offline spikes; the briefing pack (PRD, plan, threat and failure analysis); the scaffold and M0 scripts; a review of every milestone handoff (`docs/reviews/`) |
-| Codex (OpenAI) — coding agent | builds milestones M1–M7 under `AGENTS.md`, ending each with a handoff in `docs/handoff/` |
-| QCAI smart contract auditor (QoreChain) | two-stage audit of `contracts/Books.sol` (docs/audit/, docs/AUDIT.md) |
+## The build and review loop
 
-## Workflow
-1. **Research before code.** The agent read the fest rules and every Encrypted Apps entry, then primary sources (QoreSeal, QoreSign, QoreChain core docs, QoreX types, Gloam's contracts and SDK) and wrote notes to `briefing/knowledge/`.
-2. **Ideas proposed, human chose.** The agent proposed ideas; the builder rejected several and set the constraints (Encrypted Apps only, not region-specific, a payment app, a normal web app, Gloam's open-source pool as a mandatory private rail, no claims on Gloam's behalf).
-3. **Spikes before building.** Claims from docs were tested offline first (`spikes/`), and live testnet checks run by the builder on their own machine.
-4. **A contract for the coding agent.** `AGENTS.md` and `briefing/BUILD_CONTRACT.md` fix the invariants, honesty rules and the code bar Codex must follow; `pnpm gate` enforces them.
-5. **Two agents, one human in between.** Codex finishes a milestone and writes a handoff with real command output → the builder sends it to Claude → Claude reviews it against the PRD and the code bar and writes must-fix / should-fix notes → the builder decides what goes back to Codex. Neither agent's output is accepted without the other's check and the builder's decision.
-6. **Human review on the critical path.** Every change to the verdict engine, ticket sealing, Books.sol and the pool wrapper is reviewed by the builder before merge.
-7. **AI security review.** QCAI stage 1 → fixes → stage 2, findings mapped to commits.
+The builder required a normal web app, Encrypted Apps scope and our deployment of Gloam's open-source pool. Claude researched the installed kits, wrote the briefing pack and milestone briefs, and reviewed Codex's handoffs. Codex read those requirements and installed source, made small behavioral commits, ran unit/browser/chain checks and wrote exact results. The builder passed the resulting corrections back into the next authorized milestone. Neither an AI's proposed design nor its successful compilation counted as live evidence.
 
-## Generated work vs. human contribution
-Filled in as the build goes. One row per meaningful piece of work.
+Concrete changes from that loop:
 
-| Area | AI generated | Human decided / changed / verified | Evidence |
-|---|---|---|---|
-| Idea and scope | 4 rounds of idea proposals; stakeholder research | chose Quaestor; made the private rail mandatory; dropped region focus; chose a normal web app; set the "not affiliated with Gloam" wording | docs/ai-log/2026-11-20.md |
-| Briefing pack | EVENT, LANDSCAPE, IDEA_CHECK, PRD, spikes, plan | reviewed the pitch; answered organiser questions; added prize targets | briefing/ |
-| M1 private rail | Codex implemented chain wrappers, durable note journal, tests and evidence runners; executed the native-QOR Diana round trip and log replay | builder supplied the M1 brief; Claude review is pending | docs/handoff/M1.md; evidence/m1-roundtrip.json; evidence/m1-logrange.json |
-| M1 review fixes | Codex preserved native diagnostics, estimated gas, funded and ran fUSD conversion plus a 50-fUSD shield, and corrected docs | builder supplied Claude’s approval and three required fixes; deferred two should-fixes to M3 | docs/reviews/M1-review.md; docs/handoff/M1-fixes.md; evidence/m1b-fusd.json; evidence/m1-gas.json; evidence/m1-gas-policy.json |
-| M2 post-quantum tickets | Codex implemented verified registry-bound cards, hybrid tickets, journal ownership isolation and separate-process memo discovery/spending; ran the live Diana flow | builder supplied Claude’s approved scope and offline S15 result; M2 review pending | docs/briefs/M2.md; docs/handoff/M2.md; evidence/m2-ticket.json; cards/ |
-| M5 chain storage and browser foundations | Codex built BlobBoard, legacy compatibility checks, browser vault/onboarding and read-only audit; ran live chain and Chromium evidence | builder chose on-chain storage/Vercel, authorized the legacy owner-signed mapping design and required ciphertext anchors going forward | docs/briefs/M5.md; DECISIONS D14/D15; evidence/m5-blobs.json; evidence/m5-web.json |
-| M6 browser business workflows | Codex adapted the builder’s Muuve style, implemented browser journal/payment/book services and Playwright evidence | builder approved M5, specified browser scope and corrected the impossible note-consolidation assumption (D16) | docs/briefs/M6.md; docs/design/muuve-style.md; DECISIONS D16 |
+| Finding | What changed | Record |
+|---|---|---|
+| Public-key hints in Claude's original ticket brief identified recipients | Codex switched to two-recipient anonymous hybrid envelopes, rejected non-anonymous inputs and tested zero hints against every demo registry key | [M2 review](docs/reviews/M2-review.md), [anonymous run](evidence/m2b-ticket-anonymous.json) |
+| M4's plaintext-hash opening anchors allowed guesses of small demo balances | The builder required ciphertext anchors for all new records; legacy mappings verify both hashes and explicitly treat old openings as disclosed | [M5 brief](docs/briefs/M5.md), [D15](DECISIONS.md), [legacy test](packages/core/test/legacy.test.ts) |
+| A valid receipt can still describe an already booked payment | Verdicts track payment commitments across openable periods; M7 anchored two fresh, correctly bound receipts for one payment and refused the second | [M5 brief](docs/briefs/M5.md), [M7 duplicate](evidence/m7-duplicate.json) |
+| The first Northwind screenshots showed privacy canaries instead of a believable ledger | The builder required a separate Privacy test (demo) book, a fresh fictional Northwind run and unmasked judge screenshots with a secret scan | [M8 brief](docs/briefs/M8.md) |
+| Receive errors were collapsed into network errors | Non-network refusals retain their original codes, including JOURNAL_LOCKED; outsider anonymous opening reports DECRYPTION_FAILED | [M2 review](docs/reviews/M2-review.md), [ticket receive source](packages/chain/src/tickets/receive.ts) |
+| A fixed 3M gas limit overpaid under Diana's 50% floor | Gas uses ceil(estimate × 1.25), a cap and checks against the signed window budget; the live fee-market query confirmed 0.5 | [M1 review](docs/reviews/M1-review.md), [gas evidence](evidence/m1-gas.json), [policy](evidence/m1-gas-policy.json) |
 
-## What the AI got wrong, and how it was caught
-Kept honestly; an empty table here would not be believable.
+## What the AI got wrong
 
-| Date | What went wrong | How it was caught | Fix |
-|---|---|---|---|
-| 2026-11-20 | first idea (a paid members channel) didn't fit what the builder wanted | builder rejected it | re-scoped around payments + Gloam |
-| 2026-11-20 | Gloam SDK proof spike hung for 10 minutes | process at 0% CPU | snarkjs `singleThread: true`; recorded in REALITY_SPIKES S02 |
-| 2026-11-21 | M4 opening/close anchors hashed plaintext; guessable demo opening balances could be brute-forced | M5 storage integration exposed the mismatch and builder specified the remedy | owner-signed legacy mappings, disclosed-demo labels and ciphertext anchors for all new records (D15) |
-| 2026-11-21 | Initial browser relay policy omitted the SDK’s hash-only tx_search used to read receipts | extended Chromium cache/SDK receipt spike failed | allow only tx.hash-specific search; corrected spike passed, failed evidence retained |
-| 2026-11-22 | M6 brief suggested consolidating notes by sending to self; the pinned pool spends one note into two and cannot merge | installed SDK/pool inspection during browser implementation | builder chose at most four covering notes or CONSOLIDATION_UNSUPPORTED, withdrew self-send consolidation and added multi-proof coverage to ROADMAP (D16) |
+| Author / stage | Error | How it was caught and corrected |
+|---|---|---|
+| Claude, initial ideas | A paid members channel did not fit the builder's intended payment product | Builder rejected the idea and set the scope; [day 1 log](docs/ai-log/2026-11-20.md) |
+| Claude, ticket brief | Required non-anonymous envelopes despite recipient-linkable hints | Claude's own M2 review acknowledged the error; anonymous correction and old evidence both retained |
+| Claude, M6 brief | Suggested consolidation by self-send | Codex inspected the pinned pool: one input becomes two outputs, so it cannot merge notes. Builder withdrew that instruction and chose the four-note cap/refusal; [D16](DECISIONS.md) |
+| Claude, scaffold | Named a pnpm script `env`, a pnpm built-in | Builder's first live command failed; renamed to `write-env`; [day 1 log](docs/ai-log/2026-11-20.md) |
+| Codex, M1 | Used a fixed oversized gas limit; the unfunded fUSD attempt discarded useful diagnostics | Review required estimated gas, structured native errors and a funded conversion/shield run; original failed evidence remains |
+| Codex, M2 | Mapped non-network receive failures to NETWORK_UNAVAILABLE | Review required original closed error codes; receive handling and tests changed |
+| Codex, M4 | Anchored guessable opening plaintext hashes | M5 replaced new anchors with ciphertext hashes and documented the irrecoverable legacy disclosure |
+| Codex, initial browser relay | Omitted the SDK's hash-only tx_search receipt query | Browser spike failed; allowlisted only the specific public hash query; [failed attempt and correction](docs/handoff/M5.md) |
+| Codex, M8 setup | Repeated optional top-ups without first checking already-funded demo accounts; the deployer could not cover another transfer | A confirmed code-5 receipt was retained in evidence/m7b-funding-attempt.json. The runner now checks pinned public balances and uses existing client/business gas funds |
+| Codex, M7 evidence | Left canary content in the judge book and masked the ledger | M8 separates privacy testing from the new fictional judge book; the first run is labelled superseded, not deleted |
+| Codex, M7 browser test | Did not consume health-response bodies; traffic inspection remained unfinished | Bounded inspection reported the failure; consumed all response bodies and reran; [M7 handoff](docs/handoff/M7.md) |
+| Claude/Codex, earlier AI_USAGE draft | Described a planned QCAI audit as completed | M8 removed the unsupported statement. No QCAI report exists; the two-stage external audit remains unperformed |
 
-## Limits
-AI output is never treated as verified until a test, spike or chain transaction confirms it. Claims in the README come only from CLAIMS.md entries marked PROVEN.
+## Generated vs human
+
+| Area | AI generated / executed | Human contribution evidenced in the record |
+|---|---|---|
+| Product and scope | Claude researched competitors, proposed ideas and wrote PRD/threat/failure analysis | Builder chose Quaestor, its name, private rail, normal web app, category and honest Gloam wording |
+| Initial infrastructure | Claude scaffolded contracts/scripts and ran offline spikes | Builder generated/funded test accounts and performed the first live deployment; [day 1 log](docs/ai-log/2026-11-20.md) |
+| Payments and cryptography | Codex implemented wrappers, journals, tickets, registries, books, verdicts and live evidence runners | Builder supplied approved briefs and relayed corrections; Claude reviewed milestone handoffs |
+| Storage and recovery | Codex built BlobBoard integration, legacy checks, encrypted browser vault/journal backup and original-hash recovery | Builder chose chain storage/Vercel, ciphertext anchors and the declared-opening boundary |
+| UI and demonstration | Codex implemented the React screens, Muuve style adaptation, attack lab, browser journeys and responsive captures | Builder supplied Muuve as the style reference, specified demo amounts and required realistic fictional content |
+| Submission materials | Codex wrote judge docs, claims gate, short script, original cover artwork and clean-clone checks | Builder specified fields and decides what to submit, host, record and publish |
+
+## Verification limits
+
+AI-generated code is checked by tests and live receipts, not trusted because another model agrees. Browser interception is scoped to exercised flows and known encodings. Claim mappings enforce recorded support and reviewed text, not semantic truth automatically. The pool's Groth16 proofs are not post-quantum. No QCAI audit, independent human judge walkthrough, hosted deployment, recorded final video or submitted project-page verification is claimed here.

@@ -1,17 +1,9 @@
 # How it's made
 
-Copy of the project page field. Update at every milestone, then paste into the form.
+Quaestor combines private payments with books an auditor can open one period at a time. A Vite/React browser holds the account vault, notes and period keys locally. Our deployment of Gloam's MIT-licensed shielded pool runs on QoreChain Diana. Ownerless BlobBoard events store encrypted records; Books contracts anchor their ciphertext hashes. An allowlisted Vercel relay carries public queries and signed transactions around Diana's REST/consensus CORS restrictions.
 
----
+QoreSeal seals anonymous ML-KEM-1024 + X25519 tickets and period grants to registry-verified recipients. QoreSign signs entries and closes with ML-DSA-87 binding. The QoreChain SDK handles hybrid native transactions, KEM/ML-DSA registration and EVM windows; contracts use possession-proven pqcKeyStatus and pqcVerify. The window helper came from create-qorechain-dapp's Foundry template.
 
-Quaestor is a web app for private business payments on QoreChain testnet, with books sealed by post-quantum encryption.
+The hard parts changed the design. A third-party Groth16 pool needed careful EVM-window budgeting and nonce ordering. Diana's 50% minimum gas charge made fixed oversized limits expensive. Audits rebuild insertion history beyond the pool's last 100 roots. Review exposed recipient-linkable ticket hints, so envelopes became anonymous. Guessable plaintext-hash anchors became ciphertext anchors; historical disclosure remains documented. Notes cannot be merged: closes select at most four covering notes or refuse. Browser interception checks secrets and plaintext canaries on a separate Privacy test (demo) book; the Northwind judge book contains readable fictional entries.
 
-**Plan:**
-- **Private rail.** We deploy Gloam's open-source shielded pool (MIT) ourselves on qorechain-diana and drive it with its SDK.
-- **Post-quantum tickets.** The note a payee needs to claim a payment is sealed with QoreSeal (ML-KEM-1024) to their key in QoreChain's registry, replacing Gloam's classical P-256 encryption.
-- **Sealed books.** Every payment writes a book entry, encrypted in the browser under that quarter's key, signed with ML-DSA-87 (QoreSign) and anchored on QoreChain.
-- **Audit by quarter.** The business grants its auditor one quarter's key. The auditor checks each entry against the pool using zero-knowledge receipts.
-
-**Expected hard parts:** running a third-party Groth16 pool under QoreChain's EVM windows, proving receipts against the pool's history, and keeping every secret in the browser.
-
-Built with Claude (planning and review) and Codex (coding). Not affiliated with Gloam. Updated at each milestone.
+Holdings checks establish a scoped lower bound, not complete income. Groth16 remains classical. Claude planned/reviewed, Codex built, and the builder decided scope and corrections.
