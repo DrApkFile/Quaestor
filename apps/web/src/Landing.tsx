@@ -1,4 +1,5 @@
 import './landing.css';
+import demo from '../public/m7-demo.json';
 const evidence = 'https://github.com/DrApkFile/Quaestor/blob/master/evidence/';
 const steps: readonly (readonly [string, string, string, string])[] = [
   [
@@ -17,10 +18,14 @@ const steps: readonly (readonly [string, string, string, string])[] = [
   ],
 ];
 const requirements: readonly (readonly [string, string, string])[] = [
-  ['ML-KEM-1024 encryption', 'Anonymous hybrid tickets opened by the intended recipient.', 'm2b-ticket-anonymous.json'],
-  ['Registered recipient keys', 'Recipient cards checked against the QoreChain registries.', 'm2-ticket.json'],
-  ['ML-DSA key binding', 'Signatures and possession-proven on-chain signing keys.', 'm3-precompiles.json'],
-  ['Client-side encryption & decryption', 'The M5 browser auditor opens on-chain ciphertexts locally.', 'm5-web.json'],
+  ['ML-KEM-1024 encryption', 'Anonymous hybrid tickets opened by the intended recipient.', 'm7b-browser.json'],
+  ['Registered recipient keys', 'Recipient cards checked against the QoreChain registries.', 'm7b-browser.json'],
+  ['ML-DSA key binding', 'Signatures and possession-proven on-chain signing keys.', 'm7b-fresh-auditors.json'],
+  [
+    'Client-side encryption & decryption',
+    'A fresh auditor opens the fictional Northwind A/B records locally.',
+    'm7b-fresh-auditors.json',
+  ],
 ];
 export function Landing() {
   return (
@@ -48,10 +53,10 @@ export function Landing() {
               <a className="button" href="/app">
                 Open app ↗
               </a>
-              <a className="button outline" href="/app?view=public">
+              <a className="button outline" href={`/app?view=public&book=${demo.honest}`}>
                 Public check
               </a>
-              <a className="button outline" href="/app?view=auditor">
+              <a className="button outline" href={`/app?view=auditor&book=${demo.honest}`}>
                 Auditor
               </a>
             </div>
@@ -116,6 +121,16 @@ export function Landing() {
               </a>
             ))}
           </div>
+          <p className="muted">
+            Northwind Studio (demo): fictional entries, real testnet transactions.{' '}
+            <a href={`${evidence}m7b-browser.json`}>Current judge run</a>
+            {' · '}
+            <a href={`${evidence}m7b-fresh-auditors.json`}>Fresh auditor</a>
+            {' · '}
+            <a href={`${evidence}m7b-image-secret-scan.json`}>Screenshot secret scan</a>
+            {' · '}
+            <a href={`${evidence}m8-kits.json`}>Registry and kit receipts</a>
+          </p>
           <aside className="notice">
             Testnet only. Not affiliated with Gloam. The pool’s Groth16/BN254 proofs are not post-quantum. Holdings
             checks do not detect hidden income or payments from unbooked funds.

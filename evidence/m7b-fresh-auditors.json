@@ -1,0 +1,50 @@
+{
+  "command": "pnpm evidence --m7b",
+  "at": "2026-11-23T01:01:48.224Z",
+  "status": "PASSED",
+  "bookId": "0xb878a86609f1492d103847d8625177cb64b800f0b6c25ee2115766be35a02a16",
+  "results": [
+    {
+      "role": "auditor",
+      "freshContext": true,
+      "granted": [
+        "A",
+        "B"
+      ],
+      "matched": 5,
+      "holdings": "HOLDINGS_COVER_BOOKS",
+      "refused": [
+        "C"
+      ],
+      "transactionRequests": 0,
+      "network": {
+        "requests": 416,
+        "responses": 416,
+        "leaks": 0,
+        "errors": [],
+        "pendingInspections": []
+      }
+    },
+    {
+      "role": "client",
+      "freshContext": true,
+      "granted": [
+        "B"
+      ],
+      "matched": 2,
+      "holdings": "HOLDINGS_COVER_BOOKS",
+      "refused": [
+        "A",
+        "C"
+      ],
+      "transactionRequests": 0,
+      "network": {
+        "requests": 169,
+        "responses": 169,
+        "leaks": 0,
+        "errors": [],
+        "pendingInspections": []
+      }
+    }
+  ]
+}

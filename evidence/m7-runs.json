@@ -1,0 +1,17 @@
+{
+  "command": "pnpm evidence --m7b",
+  "runs": [
+    {
+      "run": "m7",
+      "label": "superseded: canary content",
+      "book": "0x745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1",
+      "evidence": "evidence/m7-browser-initial.json"
+    },
+    {
+      "run": "m7b",
+      "label": "Northwind Studio (demo)",
+      "book": "0xb878a86609f1492d103847d8625177cb64b800f0b6c25ee2115766be35a02a16",
+      "evidence": "evidence/m7b-browser.json"
+    }
+  ]
+}

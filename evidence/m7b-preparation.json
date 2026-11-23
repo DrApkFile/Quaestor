@@ -1,0 +1,4054 @@
+{
+  "command": "pnpm evidence --m7b",
+  "purpose": "Own-address testnet cash-outs reduce note count before registering a fresh book; the pool cannot merge notes.",
+  "status": "PASSED",
+  "business": {
+    "address": "qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf",
+    "transactions": [
+      {
+        "id": "deposit-5a59b82c-4cb0-45e5-8852-9d61ebb30a3a",
+        "hash": "0x163bf9c985b8ccac43a3eb35620e3bfd56a89a2ad743d1f38d3810427b172414",
+        "block": "10527003"
+      },
+      {
+        "id": "opening-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51",
+        "hash": "0xd4c83df7d0a37cb34220837e9895f3cefda276a57e3f0c188a77e47922b0e829",
+        "block": "10528893"
+      },
+      {
+        "id": "register-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51",
+        "hash": "0x200190901616c490a9e507afaa311371b0dbee315aae0d552419a9e3a9b39119",
+        "block": "10528895"
+      },
+      {
+        "id": "grant-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "hash": "0xc6f3c164e9e43f3c3aa124a6ccbd8a51e7cf272d5e3fa30db32439bcdbb0cf3b",
+        "block": "10528901"
+      },
+      {
+        "id": "grant-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "hash": "0x022db0e41840cad78addddba761877151622d44423b7a592ed44e1e3bec5aa87",
+        "block": "10528903"
+      },
+      {
+        "id": "invoice-received-0ee96c333ef4079428a782eb4874c71e430c59ae1b01208caeac850c75bc5f09",
+        "hash": "0xef7f84336586a7cb137c7d617fe88ebef2535d3ee00145cd46bf73cda83a71f9",
+        "block": "10528974"
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-0-blob",
+        "hash": "0xf40fdfe2fdc6302adba66aababf1aea8264778a01b480b7db1435931906e18ac",
+        "block": "10528976"
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-0-signature",
+        "hash": "0x4ddca5517de59e7d220084c625092a976a3a9e67bc81d66232fa43afa1b91fb2",
+        "block": "10528978"
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-0-anchor",
+        "hash": "0x0479d3dfdf0fb740eaec92eaa3fbdceab595efb6003ea7088a44749878ea3941",
+        "block": "10528980"
+      },
+      {
+        "id": "pay-eace6428-4c5e-41a6-820a-e55ab6b783d1",
+        "hash": "0x2471d20bcb1bdc36025c1c0e8bd74bde52c744d57b69bd19ef74e134e6a3e187",
+        "block": "10529015"
+      },
+      {
+        "id": "pay-eace6428-4c5e-41a6-820a-e55ab6b783d1-memo",
+        "hash": "0x7d23eff21fc2da1c3d72c8a30836817e556198c8dc6fc8bdbe705f73e2463e71",
+        "block": "10529021"
+      },
+      {
+        "id": "invoice-pay-eace6428-4c5e-41a6-820a-e55ab6b783d1",
+        "hash": "0x1b71af75dd771f44a3ca5629d4a1151aab82c5a3ad82731f5fed398c9e581b40",
+        "block": "10529031"
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-1-blob",
+        "hash": "0x3a346f28d87d4531951a7675b695f428195ef5e1ee1157c5b193ed042a35ae37",
+        "block": "10529033"
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-1-signature",
+        "hash": "0xd9d378cf5a5cb7336c48b5795f45e0f9b6a2048bd082f9420e3a7b77928b81f4",
+        "block": "10529036"
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-1-anchor",
+        "hash": "0xbef3f026a9ca5bbb02e216401f6dccc1231d6c038ea30144adadb4372b66c946",
+        "block": "10529038"
+      },
+      {
+        "id": "pay-d87aed58-7736-4dbb-ab3f-c2e7609e12b2",
+        "hash": "0x3633cfd6d2be8022f5251438067c9dd417868419a244e2e3ff08403e6a608215",
+        "block": "10529076"
+      },
+      {
+        "id": "pay-d87aed58-7736-4dbb-ab3f-c2e7609e12b2-memo",
+        "hash": "0xd7c2e8a7fc86558db24be47efd2e2b9ee55aa929a0412e338768d64696671e9e",
+        "block": "10529079"
+      },
+      {
+        "id": "invoice-pay-d87aed58-7736-4dbb-ab3f-c2e7609e12b2",
+        "hash": "0x8d8e3e280a2d1f5cf525a431f7dcb97c7baf119c80f797ad5e7b5954e844f700",
+        "block": "10529089"
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-2-blob",
+        "hash": "0xb780ae1efdcb151cd6eac42b50b9307b3a2e7b226b9225a2e2eea48662065997",
+        "block": "10529091"
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-2-signature",
+        "hash": "0x424177bad2e1692a906501d91db564da1ed6fd3144591cc9d6fab99652beaae6",
+        "block": "10529094"
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-2-anchor",
+        "hash": "0xa5a6473fc95acfecd901ea2f3f4ee2091cf1c8abdaeb532243ec2eb5acab8585",
+        "block": "10529096"
+      },
+      {
+        "id": "close-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-blob",
+        "hash": "0x9a02106a6ca2cd81c602dbdf826dda593c3861b7eb99f33410470898548984e7",
+        "block": "10529190"
+      },
+      {
+        "id": "close-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-anchor",
+        "hash": "0x8996fe12e1f65f4193aba2a60cabf6b05726e6e9e5edba700b81418db38645dd",
+        "block": "10529192"
+      },
+      {
+        "id": "grant-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-blob",
+        "hash": "0x3661115a8d2ecef683a229a2513757af6131556417fa6094f61650170421418e",
+        "block": "10529199"
+      },
+      {
+        "id": "grant-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-anchor",
+        "hash": "0x587d123a120400a50fa1539b8424cffcfc288d3ffb69900b7dcf1ed515e64fd0",
+        "block": "10529201"
+      },
+      {
+        "id": "grant-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-23-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "hash": "0x96fd42f56506f9690fd40845312d3a67a1ef2a3cba4d5a737aae301b5e811026",
+        "block": "10529209"
+      },
+      {
+        "id": "grant-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-23-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "hash": "0xd8126c0adbd2dee6980cd34f0aa23c4937f28033e20ac0a42a89a150d80b08ee",
+        "block": "10529211"
+      },
+      {
+        "id": "invoice-received-2f60753135b09758b60d7bbb5874ab3e4e4640744daa30f9b90ef22e7a992539",
+        "hash": "0x109beaa3e3fdde724f6b680496c74dd659415afdbd61592690710504076de834",
+        "block": "10529253"
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-23-0-blob",
+        "hash": "0x81afda16ba57305aa1d110a2c9b2aed77c21822730b610ad9d11886d2f598242",
+        "block": "10529255"
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-23-0-signature",
+        "hash": "0xbac7a884b996684e87a726ce61801db8bf9ca0be75bc6bd64e60971ba45546c6",
+        "block": "10529258"
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-23-0-anchor",
+        "hash": "0x3757e2961b3fb15d1640a43e1fc1dd2459f8ed93de31581b625d64ea54a7b355",
+        "block": "10529260"
+      },
+      {
+        "id": "opening-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6",
+        "hash": "0xb2968ae207db2e53a99e6f9ae6dd28d0682e4ba0ebf5e468252fd4205a2f9c5b",
+        "block": "10541738"
+      },
+      {
+        "id": "register-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6",
+        "hash": "0x0ebaba76c2c153ecbf3eb2caa08413394f2f9c76cb248ce6edd2695a99031448",
+        "block": "10541743"
+      },
+      {
+        "id": "grant-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "hash": "0x37d2985b6adf2a036f6b123071dba21d344eed7c05f169563fe147d242aa886a",
+        "block": "10541750"
+      },
+      {
+        "id": "grant-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "hash": "0x5444dcbfd306559b6876e9c2a255144faf82b430f68c1f881f0022bb11c6d7c3",
+        "block": "10541753"
+      },
+      {
+        "id": "invoice-received-2c21f0a07f76c90367c5e32db7b7f778cf94091063d7efbca043b34496b13988",
+        "hash": "0xecc1102173573a5ef14ae89298a450f28373d52a4f776b2cc265e1ad62abffd2",
+        "block": "10541847"
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-0-blob",
+        "hash": "0x7586657476595b08ebcc1985d752bc98825c2abb9a4c51b161891b3be91958fe",
+        "block": "10541851"
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-0-signature",
+        "hash": "0x64cadcbe85a10cf1af57708678593e9d1ec78d96834257ab456b51979a066f3f",
+        "block": "10541854"
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-0-anchor",
+        "hash": "0xd4e4e74350ab18118715a1fd0e982828d5ad18f3bfb589fb66d53cc992b2ea89",
+        "block": "10541856"
+      },
+      {
+        "id": "pay-f1ff9e49-b9e2-4e46-898a-a4a5e5908e8f",
+        "hash": "0x95ace3d1ad6477188fad83d3c9406804c225387b4e518ef68d8e2f14e98a04b3",
+        "block": "10541922"
+      },
+      {
+        "id": "pay-f1ff9e49-b9e2-4e46-898a-a4a5e5908e8f-memo",
+        "hash": "0xad918d9aadac74055ac515084caacfddd862754676338db898144a1ece4fa9cf",
+        "block": "10541933"
+      },
+      {
+        "id": "invoice-pay-f1ff9e49-b9e2-4e46-898a-a4a5e5908e8f",
+        "hash": "0xa208ee8a4ff147b205dacb81a6022de248618048b8c33a8294c328d3b3d9b8f9",
+        "block": "10541955"
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-1-blob",
+        "hash": "0xac6b57c8dd37c23b90681c0c9ae2e08e3ae8bc4224e44d97b96ae838e4ae5f10",
+        "block": "10541960"
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-1-signature",
+        "hash": "0xf58077756a7d000812d9b84c5fd16a636a7b5cc97e9e026a772549874cb16a5d",
+        "block": "10541963"
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-1-anchor",
+        "hash": "0xfd7fcae350f13e5492d09ba6ef6538844741a305ac828a746d24efe27af5f76b",
+        "block": "10541966"
+      },
+      {
+        "id": "pay-3a5b7653-6b3f-4a3e-aa6f-48fc2ec2d827",
+        "hash": "0x4ba31188a86e5c9e658bc1471d42f536537bf85fbf67a7c1453d382798aad85e",
+        "block": "10542012"
+      },
+      {
+        "id": "pay-3a5b7653-6b3f-4a3e-aa6f-48fc2ec2d827-memo",
+        "hash": "0x3e84efa9cc2ecbb5f61cf5fdd966364511ad41e21cdb51250dc863d5532d9399",
+        "block": "10542016"
+      },
+      {
+        "id": "invoice-pay-3a5b7653-6b3f-4a3e-aa6f-48fc2ec2d827",
+        "hash": "0xc51ed74e638136de277254eb167c5e9e31fef04a8547e7f9ad51ef07019fa501",
+        "block": "10546850"
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-2-blob",
+        "hash": "0xc19d545d7781200ad7fb8800717c1664a9ff3653dd35d2931994677dee58d9c4",
+        "block": "10546855"
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-2-signature",
+        "hash": "0x125514c2e816bf9729054b294a33ba29d4cbb1325b831cca78e6a127cd90f915",
+        "block": "10546858"
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-2-anchor",
+        "hash": "0x267f2f056570d6610495067062afd3d446f4d1f392f017748f05d6d8e34aa344",
+        "block": "10546862"
+      },
+      {
+        "id": "opening-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1",
+        "hash": "0xac63e58220c9061431251c310a9576d2c23c20077512087500547af0e00fc7ed",
+        "block": "10546867"
+      },
+      {
+        "id": "register-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1",
+        "hash": "0xc8e77b80ded761045ccbe0bd2f4c34ec705126232e7b607f2ef2f5dcaa661376",
+        "block": "10546871"
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "hash": "0xda9993f3a67c5f8d783af896179379af2f2d02c0dbc1ebdd0233bcabfa28a867",
+        "block": "10546878"
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "hash": "0x6110d3047a232f8a3b1168117d1f97107300f0321e33dbf2388eccf71b901334",
+        "block": "10546881"
+      },
+      {
+        "id": "invoice-received-065625b46543554c8c793353fcb4246f6838eaddf0a3a686988e529b1f3da698",
+        "hash": "0x6da85df6f76d2f901e237e8e74b008327c5eea6786b570b9890972a6cac27440",
+        "block": "10546934"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-0-blob",
+        "hash": "0xf5d1f90359be647e39665fba9dacfd6ef4ae53d6fd2bd15a346a397d9049bce9",
+        "block": "10546937"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-0-signature",
+        "hash": "0xe83bdc699dae088e38d4d5ed81a9511cdc0a471fc7d791b14f70ddf7dd0c1c01",
+        "block": "10546940"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-0-anchor",
+        "hash": "0x109d2878ab71894ea290dd54df3f1731379059df2c39d6b20c0d9d4c7a759223",
+        "block": "10546943"
+      },
+      {
+        "id": "pay-0943afcc-ed18-4c09-8024-e0210d1042fb",
+        "hash": "0x1ca454051605c6cbc0bcd7a061b70a46c3a324392f35112858514c52c29c312d",
+        "block": "10546984"
+      },
+      {
+        "id": "pay-0943afcc-ed18-4c09-8024-e0210d1042fb-memo",
+        "hash": "0xdaafc0c4d00bc293a139fa8414b99a4cf92a9258dabe2f06c162ad89b3aedfc2",
+        "block": "10546992"
+      },
+      {
+        "id": "invoice-pay-0943afcc-ed18-4c09-8024-e0210d1042fb",
+        "hash": "0xfe3938e7984949492a7c3b79c08d7d2b84340c6fae4a865c4acc803e89281bdb",
+        "block": "10547012"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-1-blob",
+        "hash": "0x65ae61736f428f8ce8c75214b3ffb381d52e9231be4b1d9a98e1be6192e3c079",
+        "block": "10547016"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-1-signature",
+        "hash": "0x6a86f2c58bda7876ab3323f9de5d462a2c7355f44685181f11d89311040705fa",
+        "block": "10547019"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-1-anchor",
+        "hash": "0x904e4db28af54a97b387e13b2b6414db2f2db0883ff0676dafca005f19019dfa",
+        "block": "10547022"
+      },
+      {
+        "id": "pay-192a536d-e711-4b8d-914d-f620e0f22c64",
+        "hash": "0xd1573c2f55d3f7690e863962fb583bbd512171bcf51a051870f22bec04b822cb",
+        "block": "10547065"
+      },
+      {
+        "id": "pay-192a536d-e711-4b8d-914d-f620e0f22c64-memo",
+        "hash": "0x49bd1d1ef0c7c2e09a01553ced88d09288217430a8810b82643a0ec5f6c4cb69",
+        "block": "10547069"
+      },
+      {
+        "id": "invoice-pay-192a536d-e711-4b8d-914d-f620e0f22c64",
+        "hash": "0x07868e0e69cd04777ba8883befa92fcdf8045cc8cb3b6bf2b55682c0fc054e4f",
+        "block": "10547089"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-2-blob",
+        "hash": "0xd5111c8bd76fa16fe4ae4dbc3f1f2b07afd83c3730b9d3485bda59c91837ff73",
+        "block": "10547093"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-2-signature",
+        "hash": "0x700a48a59ba5aedc980448e9b9e3d651f48da27453864457cadb233eb8cde0bf",
+        "block": "10547096"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-2-anchor",
+        "hash": "0x3f795ab892366e7d95cee7b6b8d2106ebc3866c7c16bbbffad4c44d3d2b57745",
+        "block": "10547099"
+      },
+      {
+        "id": "close-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-blob",
+        "hash": "0x500506e2e9a5db777dc2c695d4553af9ef4059b94aebd5871b407ebf577f0d3c",
+        "block": "10547146"
+      },
+      {
+        "id": "close-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-anchor",
+        "hash": "0x9a1065a91a165ba032bf37364a96e848c627cfa23a35b1b9ca9f77c5962bec0b",
+        "block": "10547149"
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-blob",
+        "hash": "0xce5344ad6918ca2b58ced33323d4ad6beee229ee688af6a049fd5d20ec562b71",
+        "block": "10547166"
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-anchor",
+        "hash": "0x8c52b708d84fa754edd1b7f33baec47dd782fbac1fbaadd47b0e0fec6d6533e7",
+        "block": "10547169"
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "hash": "0x803b88970bd7a2d22f871aa839467f1f0062909398e4576eec690b790f7c3035",
+        "block": "10547185"
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "hash": "0xcdf39401a1629e8201e5a56ee2d5cffd64fc86feb8d1a743b618ec2f7456fcac",
+        "block": "10547188"
+      },
+      {
+        "id": "invoice-received-20395904532a7217af3991f444ebf74d0e4e13e7465550c8f2fe5124a3d56e0b",
+        "hash": "0x89a765eae6f6b7f23d78ca82d2d5ebf02019f8ce9299dd9281d9cfea4ba3e437",
+        "block": "10547236"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-0-blob",
+        "hash": "0x7dbff38e71a96a7464f9bdab64a889fed546b6aa1e5abbab8949c55ca1ca9de6",
+        "block": "10547239"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-0-signature",
+        "hash": "0x5b7e9835833b3e19d7b2ec4a867e26faf28d1e904b30a106f44bc3bbdde41641",
+        "block": "10547242"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-0-anchor",
+        "hash": "0xfa8ddbbcc20aec02f5f7796f8e4415ba8c2e2b0e83cffa74368cd60325d844b2",
+        "block": "10547245"
+      },
+      {
+        "id": "pay-2b834d0d-f324-47b0-b00c-6a1c50cf52aa",
+        "hash": "0x42c458fa65ab4ad279e7c8d79eff07c8004812a7c6092bd582067d687d2f3445",
+        "block": "10547284"
+      },
+      {
+        "id": "pay-2b834d0d-f324-47b0-b00c-6a1c50cf52aa-memo",
+        "hash": "0x2787b83c3b955c2283307da176d8dfa51b6fee3a955697c58ebd125e5285bd4c",
+        "block": "10547287"
+      },
+      {
+        "id": "invoice-pay-2b834d0d-f324-47b0-b00c-6a1c50cf52aa",
+        "hash": "0xf721af0d22706501e4b51477a27747f7b9c1add58abec42b784f7bdb221baddc",
+        "block": "10547308"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-1-blob",
+        "hash": "0xf5daa1fda582a723471e5c08181f691b9551efe4a9bf9dd8c9f0cba7d80c9272",
+        "block": "10547312"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-1-signature",
+        "hash": "0xa9a80d7b67fb6ed2a5f4b51fe918a549fb826f603afa9d19758202e5c57a0b8e",
+        "block": "10547315"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-1-anchor",
+        "hash": "0x068052f29fb52ad7d271ac32057d8f191999507e085c3b44fc4174bb67115f3d",
+        "block": "10547318"
+      },
+      {
+        "id": "close-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-blob",
+        "hash": "0x9a4eeaac73b79bb26eaab05beaa072a31c626b5fcb0bb778363e172ada08cfcc",
+        "block": "10547347"
+      },
+      {
+        "id": "close-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-anchor",
+        "hash": "0x452029dfb080fa3bd3e48d7369e20bde469710cb324319ed49489f7a44cdfdd5",
+        "block": "10547350"
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-blob",
+        "hash": "0x9f7c4bad358a668965cab520b14de3579c465468277f0d598a36d8d747406a97",
+        "block": "10547364"
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-anchor",
+        "hash": "0xcfab98eeabda93e4b34ee623aa8305f4c57f81c93639118ef0a9e949a86d640d",
+        "block": "10547367"
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-qor1j708k8j9fzev3ncnzkzz25u6wgxztcxhzewd9g-blob",
+        "hash": "0xf5be9fc2842b6caa842b17634961265366e8f515db683d2dbcdc63e04bd389ce",
+        "block": "10547380"
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-qor1j708k8j9fzev3ncnzkzz25u6wgxztcxhzewd9g-anchor",
+        "hash": "0x012b9bd1991d8b13d946fb7d326f2bad9ffa934dced1dbc04237399e63fe2bb3",
+        "block": "10547383"
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-24-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "hash": "0x77c4e64c158a479f025b9724b9342d618ae60641b5ba4fae188d4a8fe3e89b11",
+        "block": "10547397"
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-24-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "hash": "0xa572837cdfa6e986e1eec4927e51e08434bab4875e24b4206a270583762019df",
+        "block": "10547400"
+      },
+      {
+        "id": "invoice-received-13581ede1d9fd842bd52d3b4243a8ef4f51642eb14db81241c1a0fe92e873325",
+        "hash": "0x25c595ad89504209f499bd62f4cd721f8975d655cf62b997444fc3a1f02ab0c4",
+        "block": "10547452"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-24-0-blob",
+        "hash": "0x6370a5db8c6b8d95925c3fec7881f2771f6e5eab6c710e19a37ee1af88a69146",
+        "block": "10547457"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-24-0-signature",
+        "hash": "0x9b20add108da6e40b9c8b5314fad93e55e64618ca5e9d5be6b23bf930dd61e88",
+        "block": "10547461"
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-24-0-anchor",
+        "hash": "0x40f52ae9bed7fe0f5f210d8c9eb505e60c01c1b72f19afec885512ec5ef587c6",
+        "block": "10547464"
+      },
+      {
+        "id": "cashout-dfdd20ff-5990-4b0f-9f69-4bb56f75ffac",
+        "hash": "0xfac41170fc63bb187f0a8525dca4a6323d249ffd5746226c6709bf85250fd293",
+        "block": "10554121"
+      },
+      {
+        "id": "cashout-65b0499b-4c3b-4bb3-9ed9-e538aa4fb3ec",
+        "hash": "0xd9bc15ab66f6a5d55e62d40ddd4e0f78f0d2a64020b1d194840943f6b5d2aa16",
+        "block": "10554138"
+      },
+      {
+        "id": "cashout-1e98b29e-d839-4062-9fa9-1c4643fb98eb",
+        "hash": "0xa3b166bbd070aa612a5408ae2c805a4b65463d5330abb0d9f6954e7039199a6a",
+        "block": "10554153"
+      },
+      {
+        "id": "opening-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291",
+        "hash": "0x1f16c529b7838f1bdd98a1f063232e4fb21fc7a83f48c1054997d912d95bbe18",
+        "block": "10554265"
+      },
+      {
+        "id": "register-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291",
+        "hash": "0x1696eb4704836e025f411a8c0a7a79c2bf7c6ef145ab80c95c872667e4c3b20c",
+        "block": "10554268"
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "hash": "0xed5f509350855f8fa0f4f3f4ee972b3af7adb917d3a7235e55839f82351d4c88",
+        "block": "10554276"
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "hash": "0x34c53fbc99bf3a95450a9ad8002eac7bba4fedd09b5521b3e610eab68d4873b5",
+        "block": "10554279"
+      },
+      {
+        "id": "invoice-received-1e51a83fd2993d6bb964aa4c19013633051ef6e5f8516f796daffa0ec17c5a50",
+        "hash": "0xc24b479fbe8e739b2b0671a911888ae85039821bec33d193becee572a3a92a4d",
+        "block": "10554354"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-0-blob",
+        "hash": "0xd9a402b67a72fd1061b77276590a7a46f0f7769669e484568c9c5d4195efd81f",
+        "block": "10554358"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-0-signature",
+        "hash": "0x7b4b7872940d0ef5490d393907de6119c8a369dd96045e54f2980c0642379739",
+        "block": "10554361"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-0-anchor",
+        "hash": "0x8300d3c4ce8aa2422f2ae24f0b6d723d6fb66f41d77ae26983254a910bdc5178",
+        "block": "10554364"
+      },
+      {
+        "id": "pay-fbfc8d81-8b55-4cdf-b4ed-53948344efea",
+        "hash": "0xda8e8f3aab19b30ec203cae48efd8f44c50212c40c281ba29459d9592a4fb2a8",
+        "block": "10554407"
+      },
+      {
+        "id": "pay-fbfc8d81-8b55-4cdf-b4ed-53948344efea-memo",
+        "hash": "0xead4d63223670ae52a43b211d31f93d6424544d0226de9265e8cbcc9ae44d91e",
+        "block": "10554415"
+      },
+      {
+        "id": "invoice-pay-fbfc8d81-8b55-4cdf-b4ed-53948344efea",
+        "hash": "0x68099efe72ede3e9a9515d8de19230a68da05775e803a5e6b52303ab944b73ae",
+        "block": "10554436"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-1-blob",
+        "hash": "0x2f21a7fe7bc175d8d1186533e8be4fe8fcb01ed92988715ecf6bc703049c3d61",
+        "block": "10554440"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-1-signature",
+        "hash": "0x89fe36db4991c9a06df435df366538f3e7ac964b7cfcc1c338599327ae6f0c0d",
+        "block": "10554443"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-1-anchor",
+        "hash": "0xe4ac4ca3ec050123a5638a0e8c6c3e4f047f7fd71ad11d9aec71b703d8250025",
+        "block": "10554446"
+      },
+      {
+        "id": "pay-d366c919-da6f-4c51-ae9f-7ae78ad82063",
+        "hash": "0x7cafd62a9cac4acfa0fdaa2a8c06dd14a010b59135f79859e5def4c5f349e701",
+        "block": "10554491"
+      },
+      {
+        "id": "pay-d366c919-da6f-4c51-ae9f-7ae78ad82063-memo",
+        "hash": "0x3ae9d98138130ad8ae47d61901564be08546a0fc61e31210f8741d4baff3a175",
+        "block": "10554495"
+      },
+      {
+        "id": "invoice-pay-d366c919-da6f-4c51-ae9f-7ae78ad82063",
+        "hash": "0x44dda3e49ba3dab916e5929b8df1b4be11ed9b702f8f16606cf64b782b1baba6",
+        "block": "10582313"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-2-blob",
+        "hash": "0x5b5317bd321e6dd6a3b03e127f7b7c62f4ff9379391b07574e0be9b102806351",
+        "block": "10582318"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-2-signature",
+        "hash": "0xc1501475831d4e9b256a2b212f425be3a8ecbff97e0d77c7f54589c2062fc23d",
+        "block": "10582321"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-2-anchor",
+        "hash": "0x6f557966b8a6d47b322966418e4ba1748b8b872bfc9e97d3d344b055b89bfae3",
+        "block": "10582324"
+      },
+      {
+        "id": "close-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-blob",
+        "hash": "0x6ae81e9e9b1a107e8f1a96c6f0c69f7c1b8787d51e3ee93c14422fe49f60585d",
+        "block": "10582452"
+      },
+      {
+        "id": "close-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-anchor",
+        "hash": "0xc32c8301d2003a4e8f0e690670b0acd4bfec775314767cd600555b7fdc03974f",
+        "block": "10582456"
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-blob",
+        "hash": "0x18b4124fb6f8bfe4b3dac7fdf063ae500f3defa52a4f53eed94d943caf6aa67b",
+        "block": "10582477"
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-anchor",
+        "hash": "0x5f95f721033b26ce420bc36b059286ca1470d8dfe263870a1d13bc04824f6a6e",
+        "block": "10582480"
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "hash": "0xc45e8765254bc6553a009fd7bde2c2eade9f0545ff16efb9df05e9ad78f1bbe2",
+        "block": "10582498"
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "hash": "0x73ae1e145a5536a29b0dd43e27183cbe3e6ea68c57858010382e18ce3e3877bd",
+        "block": "10582501"
+      },
+      {
+        "id": "invoice-received-25ad63b8d9f24ecc320f36ae3f445e85b5cf12202395503b16897282e97707b8",
+        "hash": "0x11eb52bcfdb52ea79a1dcdcd4da42d3992bd58f3af5d9aa84401b20dee726bf2",
+        "block": "10582602"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-0-blob",
+        "hash": "0xf8d0efd14ffdc552237c56dfa808354d5d798c58bf8f38ca618adc2a827f0af2",
+        "block": "10582607"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-0-signature",
+        "hash": "0x6a329b9fa564431eaf40c51464df352cab843aaa6151b73762d3019836222801",
+        "block": "10582611"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-0-anchor",
+        "hash": "0x5c616dd2bcc994436618e0cede5ad22ae2913139447038d48176455c52833d3a",
+        "block": "10582614"
+      },
+      {
+        "id": "pay-5f58d990-a838-49cf-b7e3-2c53b30607c1",
+        "hash": "0x6dfcea3421930abf77ca1ca70b71ae79cb32f05494f74748bbdaf2008e39cd07",
+        "block": "10582677"
+      },
+      {
+        "id": "pay-5f58d990-a838-49cf-b7e3-2c53b30607c1-memo",
+        "hash": "0x07345ef1e110278f0b9f3316e383bf60fee206c3af6b8c578d5318fc1e1275fd",
+        "block": "10582691"
+      },
+      {
+        "id": "invoice-pay-5f58d990-a838-49cf-b7e3-2c53b30607c1",
+        "hash": "0x7770d6523057627cf6dd1f644a01469db99f3191698027dbaeda95dc08272a99",
+        "block": "10582735"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-1-blob",
+        "hash": "0x11f812eb4bfc842ffb51973a2baaf4c627402520f990e679bf6fba9b05b0f08a",
+        "block": "10582742"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-1-signature",
+        "hash": "0x255cf3e886fd75eff9e7a1f61b0b8ea98a2cee95c07de03300aae05801d4be19",
+        "block": "10582747"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-1-anchor",
+        "hash": "0x68eec0ba74f98123e820ee5a13e59a63c689c633001597dfb9c6e7eb8828eb2f",
+        "block": "10582752"
+      },
+      {
+        "id": "close-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-blob",
+        "hash": "0x89c274ffa8f914a029ea7559e2a3d4a55b26c40778f4b2e7fa33769a036224a9",
+        "block": "10582794"
+      },
+      {
+        "id": "close-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-anchor",
+        "hash": "0x9500b25f9bb03496c3da43e87f7c1024ff6f269bedd3b948f44c9bd110446c20",
+        "block": "10582798"
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-blob",
+        "hash": "0xa1b0521ae99375067c9e2ed0edcf46357f42b93af493ceedde2dbf6de90ce53b",
+        "block": "10582816"
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-anchor",
+        "hash": "0x3fe02d366661b7d1ce41921934fe145bac63ec6ffbf8ba26201acfd1602fce23",
+        "block": "10582819"
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-qor1j708k8j9fzev3ncnzkzz25u6wgxztcxhzewd9g-blob",
+        "hash": "0x4db0fc6633c6f66a4d07701285b44b645d36878a64db0e61d26f606387af4b85",
+        "block": "10582836"
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-qor1j708k8j9fzev3ncnzkzz25u6wgxztcxhzewd9g-anchor",
+        "hash": "0xa5da982e0b2ae66109b3ec4b4f9ae3743661d10baa6efe181b47056fde17b6df",
+        "block": "10582839"
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-24-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "hash": "0xe06c79aebcb2a3da838162660f32bb10eb3134bcc8bb8b4f34309bab811b65aa",
+        "block": "10582857"
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-24-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "hash": "0x000afd0e6813a9d81348f6352cfcdc6aca8292a2ca570b5f80412498664ba5ef",
+        "block": "10582861"
+      },
+      {
+        "id": "invoice-received-11f4b923fd283dff92e2bd929f1c089c5a9151ef0012a4af3ee13e287b2a7e59",
+        "hash": "0x4ee694f19518240a5460418a70f52b31e2a965fbef05bdb68a8a1b293ec00267",
+        "block": "10582931"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-24-0-blob",
+        "hash": "0x3b534d0bd62fa60d86a827604f54c3d352df1d0ae68b897b81c3270db1628b14",
+        "block": "10582936"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-24-0-signature",
+        "hash": "0x840b5f93261ac1053e7373335f1e18774d473af07f2f11e5c65e3b81502f88c9",
+        "block": "10582940"
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-24-0-anchor",
+        "hash": "0x5bf4a76adf58373eb53878699660f6e02a3b0926bac31bdf9d6f288d5bc9a897",
+        "block": "10582946"
+      },
+      {
+        "id": "cashout-dafcf9e2-5b3f-465a-b09d-4aeaf9fde033",
+        "hash": "0x20da5ae5f73d133d785dc64d98493d18afa7574c54006dd3ad1162915c8f81b1",
+        "block": "10584021"
+      },
+      {
+        "id": "cashout-548c47f2-0174-4688-bc3d-5e5c72cf2277",
+        "hash": "0x78b35b71306438bce52f258bb145b088a2482640e882c8d9cbf3e10faba807df",
+        "block": "10584036"
+      }
+    ],
+    "nativeTransactions": [
+      {
+        "id": "prepare-0a41e3f6-8380-4f06-9577-82b347877c87",
+        "hash": "FF1B8B629115D9335FDBDC8B2367670954A4F15D6F5EC8568E01684EE94142CA",
+        "height": 10526594
+      },
+      {
+        "id": "prepare-b806874b-5004-4bdb-bcc7-15bb64486d85",
+        "hash": "487F7CFDCC5C6D92BA1FA2241CFB6586C879A75360070F22E4ECAB92AD854A5D",
+        "height": 10526872
+      },
+      {
+        "id": "prepare-6b7e3e96-28a2-4e0f-937f-95471edd6de5",
+        "hash": "E731BEDD991FA01D9C183A768EEE1EDD2EE2381248C34DF1C03C19052E4CDD12",
+        "height": 10527000
+      },
+      {
+        "id": "prepare-d4d85eee-47d6-481b-aa7a-d3fb1071dbec",
+        "hash": "28CA914E98B38D7E86E4C73774F9928B9A3FE60A57CD96E71B1545A3D30916C1",
+        "height": 10528618
+      },
+      {
+        "id": "prepare-6923e732-9f66-4afb-9296-4dd1e1c97af7",
+        "hash": "CEE381A2BB9700C8F171A25672A3C28715D9655E197F86B8EFC6D479656DC9B6",
+        "height": 10528890
+      },
+      {
+        "id": "prepare-8d62ad95-c001-4553-98f8-99511d99f1f2",
+        "hash": "22E267D7A15FF0AA8A0991BDE3CDA54685E59C40866BB723F3D17DC8883E6253",
+        "height": 10528987
+      },
+      {
+        "id": "prepare-9b740084-7cf0-47de-9d2f-c415fc4d74b3",
+        "hash": "6A1DDAF0811CF753E735E13876F5482AA5BA946481554EFC7A26AA92E93954A7",
+        "height": 10529520
+      },
+      {
+        "id": "prepare-7d6bec12-c957-4c28-9df5-61198b598a55",
+        "hash": "F1CC34E0035DDEBDA9C14CA254231D3ABB113610C82AC787C3FD8875A84FA422",
+        "height": 10541732
+      },
+      {
+        "id": "prepare-3b50944c-8d50-4b71-bb60-b70cdd7bea66",
+        "hash": "5A7EAECCF57547C0CB5F750F0167E1EF4993968AE01336B7D1EFF61A63E3E03E",
+        "height": 10541887
+      },
+      {
+        "id": "prepare-199abb2d-2b88-4166-a82e-9cbfdc564da6",
+        "hash": "E4E44477B6EE46C91799E8AED95361BF4535C4B93D162669D38017A62B2A7DB9",
+        "height": 10541995
+      },
+      {
+        "id": "prepare-f58f7663-4c1b-4e71-a286-c96a69fac781",
+        "hash": "5BCE6167483EE17411B5CAA1145C16A99ADD3E7284ECE8BF0877A5E0340E1089",
+        "height": 10546824
+      },
+      {
+        "id": "prepare-57ba0e67-a95c-4d9e-9f52-5027add02d16",
+        "hash": "3F1EEF6146299E06C81D56DB941310C0C25240D6C17B4B37EEC4BC19EEFCFCFA",
+        "height": 10546962
+      },
+      {
+        "id": "prepare-57728e97-fec1-4415-bbf4-6fd7e7bef4ed",
+        "hash": "96C100E91C8FF23256D6A9C2AEF1AFB45B848CDDA35B66C301C1AC1E2B7B92A8",
+        "height": 10547046
+      },
+      {
+        "id": "prepare-73c91f9f-1b91-40ed-929a-e3e4ab3da07d",
+        "hash": "4AF7C87F01CDB3EC5E62E7101D501A1C0A113FABDFC8662C33482CEC82377506",
+        "height": 10547106
+      },
+      {
+        "id": "prepare-e94fb1d5-8c46-487f-a55c-ef6000503c76",
+        "hash": "11284B19D206CC1AA223B7B5C11D030D45EC63A914538F9B80D4E6FFF2E0D288",
+        "height": 10547158
+      },
+      {
+        "id": "prepare-178445c0-ff21-41cd-bde2-116ec0725416",
+        "hash": "C975852C3EEB59D09EAB99CF219D49590B7C506F51377C2367BFB9BEE4016BBE",
+        "height": 10547175
+      },
+      {
+        "id": "prepare-441bd4ea-1473-404c-83a4-07bfe82c4490",
+        "hash": "055021085DF699B126EF63ACC539CC77D60F436F1B115EA040C81F6E5999D9A9",
+        "height": 10547267
+      },
+      {
+        "id": "prepare-35858183-db20-460c-8737-de31a7b6ea70",
+        "hash": "76254DC33459F8BEEBB96C22BA4A7AD57E43674FF07FD8443567743C5DF51E9E",
+        "height": 10547325
+      },
+      {
+        "id": "prepare-a6879c23-b891-42fa-8c1f-91d4baa6b268",
+        "hash": "770A64A7496FCE58E6972403DACB846F9E79AD534A3355E5C0CE024C372F764A",
+        "height": 10547356
+      },
+      {
+        "id": "prepare-b89a991b-1d3c-453f-9145-dbf4747bf0ca",
+        "hash": "E82CA4A5C350AB0AE8B5310718B923290F19D3452BD3634AFB8EF8EF5643A68C",
+        "height": 10547373
+      },
+      {
+        "id": "prepare-0cadc6e5-dd1c-49e4-b0c5-d9ee7f6cd988",
+        "hash": "7E9FCD3949CAFA3B3AE2228269F0797CB3D87F2D5DC0D0DF28B9C22691959230",
+        "height": 10547390
+      },
+      {
+        "id": "prepare-5fe6ea72-9eae-4fda-81f1-1504f29d27e3",
+        "hash": "79FBB4257FED818189CF98FA974964C5AA9D5C6FA44FAE0C0234A9A1FD37E630",
+        "height": 10554098
+      },
+      {
+        "id": "prepare-4a5ab651-0ea2-4b20-a810-2d83ea2840d8",
+        "hash": "38D9D995BA19BF1676B383B9EDD70403688F3FE80EBE0ACFAC6B7A3652B65517",
+        "height": 10554258
+      },
+      {
+        "id": "prepare-181f8922-e06d-4562-b31a-127ebd0c8713",
+        "hash": "55E89786B4C750694B3581013D1DEC92F72157194BB4C62AE06BD63447156FC4",
+        "height": 10554383
+      },
+      {
+        "id": "prepare-e392bbcc-1a43-4a36-a797-2d814f694b99",
+        "hash": "64B1AB43032B2D974DA1ADCD6286785217C8D6E44785978C8E13A6B293E2ACEE",
+        "height": 10554471
+      },
+      {
+        "id": "prepare-8517ec3e-8d0f-4ee3-9803-48c9cc1a85bb",
+        "hash": "DB73E5E0623E8D3B90E5609970561F6793256DB6713F1D2E4FB8A0BCDED8949E",
+        "height": 10582290
+      },
+      {
+        "id": "prepare-3a33f8f4-2ede-4832-a463-84a34ede7df5",
+        "hash": "31DE6DE19218F3889F03AE26A8158D8A62FEC1B5B053B544BAD63BAA9A6575A9",
+        "height": 10582358
+      },
+      {
+        "id": "prepare-2e0cdaec-1cd6-4a64-aad2-0e1181025a0b",
+        "hash": "170DD4E40157D1584D29A71C6085EC669354FFAAD80200CE253E82083EFB597C",
+        "height": 10582396
+      },
+      {
+        "id": "prepare-1a228b4d-eb58-4c34-9c39-8423f97f9d1b",
+        "hash": "D308EAA5EB48B2006E99B4AFA990316365ABDE6AB4BDCCF317008C6745C1909F",
+        "height": 10582405
+      },
+      {
+        "id": "prepare-e4952844-7893-4d7d-809f-aa893c340213",
+        "hash": "D2067EE614B3DC468A6B088A2B76327FD2F909CC09A30B9173875F8183AF1BA4",
+        "height": 10582467
+      },
+      {
+        "id": "prepare-25e73090-f1d1-4aab-913e-5adf53eef37e",
+        "hash": "54915E9BD6385E32FBA977B039447A14AA8783FABB183D409C0D052065AA7EA3",
+        "height": 10582488
+      },
+      {
+        "id": "prepare-215ecc38-5a00-41de-9c06-9e85bfe368ca",
+        "hash": "DFBB126FAFF15FA4358F7CEF7F6762656043C866E666263B5E00DCC2D00903EF",
+        "height": 10582580
+      },
+      {
+        "id": "prepare-4ed3443e-001a-431d-aa16-2d6537faafad",
+        "hash": "3CD769F20DCBB1161DD8F35914CCACB45F7FE40959331950BE422EA6F7AB9D4B",
+        "height": 10582642
+      },
+      {
+        "id": "prepare-0866ec5f-dd8a-4638-be90-9cc32dad155c",
+        "hash": "D0B6769A5DB7FBFBB4287138AD13B43191F8A4478E7B57439DA736DB4C67CE23",
+        "height": 10582715
+      },
+      {
+        "id": "prepare-9786ca07-2aea-424e-a74d-d5c028d0a713",
+        "hash": "995BCE1E546BF837A55B40C1064451B1BC2F5F0BF3FA993E4BAB626AD06E0CBD",
+        "height": 10582767
+      },
+      {
+        "id": "prepare-55bc5f1f-f8fb-421e-9942-3b077d14308b",
+        "hash": "4FFABBCCC4D2607458AC6C125D051F6601D09E1E757454F2C494C2CCB9BE4ECF",
+        "height": 10582806
+      },
+      {
+        "id": "prepare-90a9b901-97af-411c-b6f3-a68bc0017b9e",
+        "hash": "9EA0E289B44224EFABC8425BB44BBAF30A116C39FDE98CBF5FE5549E32EE7DAD",
+        "height": 10582827
+      },
+      {
+        "id": "prepare-d7f68288-805c-40b3-bfb3-2a13dcb7cd77",
+        "hash": "29B40E1771C0E4B9114812F512E88E9C67BB6F831C0A143B659EAF44E8AEDF3A",
+        "height": 10582847
+      },
+      {
+        "id": "prepare-423869c4-2e4e-4fe3-86a5-fa98345eaacd",
+        "hash": "72E70C3544881EB62C725664AC72D890C7BCE2EBCFA62E65E62EBF19C3C0EFAA",
+        "height": 10582915
+      },
+      {
+        "id": "prepare-fa5b86d9-64d9-4f44-bc69-9784906a5c5e",
+        "hash": "9CE385A64CA9ABE7A282439EA24B72E5953C3EE895AE6863CD9E7DA0CBFDAAED",
+        "height": 10584004
+      }
+    ],
+    "operations": [
+      {
+        "id": "deposit-5a59b82c-4cb0-45e5-8852-9d61ebb30a3a",
+        "stage": "LANDED",
+        "hash": "0x163bf9c985b8ccac43a3eb35620e3bfd56a89a2ad743d1f38d3810427b172414",
+        "gas": {
+          "estimatedGas": "1097525",
+          "gasLimit": "1371907",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10527001"
+        },
+        "receipt": {
+          "hash": "0x163bf9c985b8ccac43a3eb35620e3bfd56a89a2ad743d1f38d3810427b172414",
+          "blockNumber": "10527003",
+          "blockHash": "0x699a1df5a62dcc687db626fbc845e4790d86fec02002a6af0f89722a029c4f93",
+          "gasUsed": "1075441",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "opening-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51",
+        "stage": "LANDED",
+        "hash": "0xd4c83df7d0a37cb34220837e9895f3cefda276a57e3f0c188a77e47922b0e829",
+        "gas": {
+          "estimatedGas": "298240",
+          "gasLimit": "372800",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10528891"
+        },
+        "receipt": {
+          "hash": "0xd4c83df7d0a37cb34220837e9895f3cefda276a57e3f0c188a77e47922b0e829",
+          "blockNumber": "10528893",
+          "blockHash": "0x272f1d99fa9f9fb831844225cf77a725861c466978e928fb382f06703269955c",
+          "gasUsed": "191389",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "register-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51",
+        "stage": "LANDED",
+        "hash": "0x200190901616c490a9e507afaa311371b0dbee315aae0d552419a9e3a9b39119",
+        "gas": {
+          "estimatedGas": "82702",
+          "gasLimit": "103378",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10528893"
+        },
+        "receipt": {
+          "hash": "0x200190901616c490a9e507afaa311371b0dbee315aae0d552419a9e3a9b39119",
+          "blockNumber": "10528895",
+          "blockHash": "0x532e03e0f9686af39e572b5362a20d5a820be22593c3469032ad5b6cf53892ab",
+          "gasUsed": "82702",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "stage": "LANDED",
+        "hash": "0xc6f3c164e9e43f3c3aa124a6ccbd8a51e7cf272d5e3fa30db32439bcdbb0cf3b",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10528899"
+        },
+        "receipt": {
+          "hash": "0xc6f3c164e9e43f3c3aa124a6ccbd8a51e7cf272d5e3fa30db32439bcdbb0cf3b",
+          "blockNumber": "10528901",
+          "blockHash": "0xab5cbff463c471f00e83c91ff5e133f5e79280c6794ac280f2b28818867978c2",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "stage": "LANDED",
+        "hash": "0x022db0e41840cad78addddba761877151622d44423b7a592ed44e1e3bec5aa87",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10528901"
+        },
+        "receipt": {
+          "hash": "0x022db0e41840cad78addddba761877151622d44423b7a592ed44e1e3bec5aa87",
+          "blockNumber": "10528903",
+          "blockHash": "0xe34998f7e0f88b208612aa572cd0d9c14e022c08eec1086b01e285d4167ead9d",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-received-0ee96c333ef4079428a782eb4874c71e430c59ae1b01208caeac850c75bc5f09",
+        "stage": "LANDED",
+        "hash": "0xef7f84336586a7cb137c7d617fe88ebef2535d3ee00145cd46bf73cda83a71f9",
+        "gas": {
+          "estimatedGas": "29740",
+          "gasLimit": "37175",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10528972"
+        },
+        "receipt": {
+          "hash": "0xef7f84336586a7cb137c7d617fe88ebef2535d3ee00145cd46bf73cda83a71f9",
+          "blockNumber": "10528974",
+          "blockHash": "0x10e355cd67e61da3b3e85d83656cc935f49c9e2a2ead3ef4eeae38d0b59a9e99",
+          "gasUsed": "28873",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-0-blob",
+        "stage": "LANDED",
+        "hash": "0xf40fdfe2fdc6302adba66aababf1aea8264778a01b480b7db1435931906e18ac",
+        "gas": {
+          "estimatedGas": "102610",
+          "gasLimit": "128263",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10528974"
+        },
+        "receipt": {
+          "hash": "0xf40fdfe2fdc6302adba66aababf1aea8264778a01b480b7db1435931906e18ac",
+          "blockNumber": "10528976",
+          "blockHash": "0x2582d061ae6f02a216703877583c67724139fd273e89183f268a2926bce6b3b8",
+          "gasUsed": "72964",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-0-signature",
+        "stage": "LANDED",
+        "hash": "0x4ddca5517de59e7d220084c625092a976a3a9e67bc81d66232fa43afa1b91fb2",
+        "gas": {
+          "estimatedGas": "451700",
+          "gasLimit": "564625",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10528976"
+        },
+        "receipt": {
+          "hash": "0x4ddca5517de59e7d220084c625092a976a3a9e67bc81d66232fa43afa1b91fb2",
+          "blockNumber": "10528978",
+          "blockHash": "0x00ed9e4abca22cd85732ca8b041d76a2900e3edfa252e00dcf42106a94380ade",
+          "gasUsed": "284082",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-0-anchor",
+        "stage": "LANDED",
+        "hash": "0x0479d3dfdf0fb740eaec92eaa3fbdceab595efb6003ea7088a44749878ea3941",
+        "gas": {
+          "estimatedGas": "99307",
+          "gasLimit": "124134",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10528978"
+        },
+        "receipt": {
+          "hash": "0x0479d3dfdf0fb740eaec92eaa3fbdceab595efb6003ea7088a44749878ea3941",
+          "blockNumber": "10528980",
+          "blockHash": "0x94a2f125086306566acd97aa27322d424b0ed18aeb868a45169fe609445ab4d9",
+          "gasUsed": "99307",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-eace6428-4c5e-41a6-820a-e55ab6b783d1",
+        "stage": "ANCHORED",
+        "hash": "0x2471d20bcb1bdc36025c1c0e8bd74bde52c744d57b69bd19ef74e134e6a3e187",
+        "gas": {
+          "estimatedGas": "1804449",
+          "gasLimit": "2255562",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529013"
+        },
+        "receipt": {
+          "hash": "0x2471d20bcb1bdc36025c1c0e8bd74bde52c744d57b69bd19ef74e134e6a3e187",
+          "blockNumber": "10529015",
+          "blockHash": "0x66c5d26789f5aa973640f74a8186c6d97c5c9959fb7341598dbe77b56e373872",
+          "gasUsed": "1782363",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-eace6428-4c5e-41a6-820a-e55ab6b783d1-memo",
+        "stage": "LANDED",
+        "hash": "0x7d23eff21fc2da1c3d72c8a30836817e556198c8dc6fc8bdbe705f73e2463e71",
+        "gas": {
+          "estimatedGas": "173540",
+          "gasLimit": "216925",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529019"
+        },
+        "receipt": {
+          "hash": "0x7d23eff21fc2da1c3d72c8a30836817e556198c8dc6fc8bdbe705f73e2463e71",
+          "blockNumber": "10529021",
+          "blockHash": "0x47fd3f88aad7e9f9e36a1a8d1cb934e159717565b48ba141f409009f854a0c7f",
+          "gasUsed": "115524",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-pay-eace6428-4c5e-41a6-820a-e55ab6b783d1",
+        "stage": "LANDED",
+        "hash": "0x1b71af75dd771f44a3ca5629d4a1151aab82c5a3ad82731f5fed398c9e581b40",
+        "gas": {
+          "estimatedGas": "29740",
+          "gasLimit": "37175",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529029"
+        },
+        "receipt": {
+          "hash": "0x1b71af75dd771f44a3ca5629d4a1151aab82c5a3ad82731f5fed398c9e581b40",
+          "blockNumber": "10529031",
+          "blockHash": "0x25546622a45a638551d19aafc4a583bc363c0184c46b5fa28210f6fee61d162e",
+          "gasUsed": "28873",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-1-blob",
+        "stage": "LANDED",
+        "hash": "0x3a346f28d87d4531951a7675b695f428195ef5e1ee1157c5b193ed042a35ae37",
+        "gas": {
+          "estimatedGas": "102700",
+          "gasLimit": "128375",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529031"
+        },
+        "receipt": {
+          "hash": "0x3a346f28d87d4531951a7675b695f428195ef5e1ee1157c5b193ed042a35ae37",
+          "blockNumber": "10529033",
+          "blockHash": "0xc7f3fb8885c9b3325ff7c84340c1f06648f11d918565c0314fed66328c9884e7",
+          "gasUsed": "73000",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-1-signature",
+        "stage": "LANDED",
+        "hash": "0xd9d378cf5a5cb7336c48b5795f45e0f9b6a2048bd082f9420e3a7b77928b81f4",
+        "gas": {
+          "estimatedGas": "451760",
+          "gasLimit": "564700",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529033"
+        },
+        "receipt": {
+          "hash": "0xd9d378cf5a5cb7336c48b5795f45e0f9b6a2048bd082f9420e3a7b77928b81f4",
+          "blockNumber": "10529036",
+          "blockHash": "0x8d3b0aba3edcce0b350a75684ddb4255f45a51c33670b7606c2ebc47f4c116df",
+          "gasUsed": "284106",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-1-anchor",
+        "stage": "LANDED",
+        "hash": "0xbef3f026a9ca5bbb02e216401f6dccc1231d6c038ea30144adadb4372b66c946",
+        "gas": {
+          "estimatedGas": "85391",
+          "gasLimit": "106739",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529036"
+        },
+        "receipt": {
+          "hash": "0xbef3f026a9ca5bbb02e216401f6dccc1231d6c038ea30144adadb4372b66c946",
+          "blockNumber": "10529038",
+          "blockHash": "0xcaaa258b3c8b2f7c35f3dc3af0d57cc9d2b2d119cd860f12e88008250fa0731b",
+          "gasUsed": "85391",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-d87aed58-7736-4dbb-ab3f-c2e7609e12b2",
+        "stage": "ANCHORED",
+        "hash": "0x3633cfd6d2be8022f5251438067c9dd417868419a244e2e3ff08403e6a608215",
+        "gas": {
+          "estimatedGas": "1804198",
+          "gasLimit": "2255248",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529074"
+        },
+        "receipt": {
+          "hash": "0x3633cfd6d2be8022f5251438067c9dd417868419a244e2e3ff08403e6a608215",
+          "blockNumber": "10529076",
+          "blockHash": "0xfaa9dfb8accf596063d2a4c684c7ee710935cda98d7a13c7d7193a0d4ad731de",
+          "gasUsed": "1782112",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-d87aed58-7736-4dbb-ab3f-c2e7609e12b2-memo",
+        "stage": "LANDED",
+        "hash": "0xd7c2e8a7fc86558db24be47efd2e2b9ee55aa929a0412e338768d64696671e9e",
+        "gas": {
+          "estimatedGas": "173330",
+          "gasLimit": "216663",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529077"
+        },
+        "receipt": {
+          "hash": "0xd7c2e8a7fc86558db24be47efd2e2b9ee55aa929a0412e338768d64696671e9e",
+          "blockNumber": "10529079",
+          "blockHash": "0x3cc9f81d3f11dfdd68f8657e27f5404c70a722d9ce6cf5b2095097faa03b5436",
+          "gasUsed": "115440",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-pay-d87aed58-7736-4dbb-ab3f-c2e7609e12b2",
+        "stage": "LANDED",
+        "hash": "0x8d8e3e280a2d1f5cf525a431f7dcb97c7baf119c80f797ad5e7b5954e844f700",
+        "gas": {
+          "estimatedGas": "29770",
+          "gasLimit": "37213",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529087"
+        },
+        "receipt": {
+          "hash": "0x8d8e3e280a2d1f5cf525a431f7dcb97c7baf119c80f797ad5e7b5954e844f700",
+          "blockNumber": "10529089",
+          "blockHash": "0x562a38dce007cf396ba94043bc305053adbf54eab11725a24d7f73d471ddd394",
+          "gasUsed": "28885",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-2-blob",
+        "stage": "LANDED",
+        "hash": "0xb780ae1efdcb151cd6eac42b50b9307b3a2e7b226b9225a2e2eea48662065997",
+        "gas": {
+          "estimatedGas": "102520",
+          "gasLimit": "128150",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529089"
+        },
+        "receipt": {
+          "hash": "0xb780ae1efdcb151cd6eac42b50b9307b3a2e7b226b9225a2e2eea48662065997",
+          "blockNumber": "10529091",
+          "blockHash": "0x38985d54f3d449de8c3617a332d543f6f9ffc8016deddd3af6036d584bf41140",
+          "gasUsed": "72928",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-2-signature",
+        "stage": "LANDED",
+        "hash": "0x424177bad2e1692a906501d91db564da1ed6fd3144591cc9d6fab99652beaae6",
+        "gas": {
+          "estimatedGas": "451460",
+          "gasLimit": "564325",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529091"
+        },
+        "receipt": {
+          "hash": "0x424177bad2e1692a906501d91db564da1ed6fd3144591cc9d6fab99652beaae6",
+          "blockNumber": "10529094",
+          "blockHash": "0x763afeff67119851031020d7ea924bc0f3721c72bd7cdf469905ebfab96079cf",
+          "gasUsed": "283986",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-2-anchor",
+        "stage": "LANDED",
+        "hash": "0xa5a6473fc95acfecd901ea2f3f4ee2091cf1c8abdaeb532243ec2eb5acab8585",
+        "gas": {
+          "estimatedGas": "85379",
+          "gasLimit": "106724",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529094"
+        },
+        "receipt": {
+          "hash": "0xa5a6473fc95acfecd901ea2f3f4ee2091cf1c8abdaeb532243ec2eb5acab8585",
+          "blockNumber": "10529096",
+          "blockHash": "0x3011fefcd210fc91513286ef1f516954c014351070cbf2e6e3cb75029043a096",
+          "gasUsed": "85379",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "close-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-blob",
+        "stage": "LANDED",
+        "hash": "0x9a02106a6ca2cd81c602dbdf826dda593c3861b7eb99f33410470898548984e7",
+        "gas": {
+          "estimatedGas": "350630",
+          "gasLimit": "438288",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529188"
+        },
+        "receipt": {
+          "hash": "0x9a02106a6ca2cd81c602dbdf826dda593c3861b7eb99f33410470898548984e7",
+          "blockNumber": "10529190",
+          "blockHash": "0x9a73291ff7f0652c3ffbdf3d18d73a731b2c187cf0cf0eb7149676ecd234f01e",
+          "gasUsed": "223126",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "close-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-anchor",
+        "stage": "LANDED",
+        "hash": "0x8996fe12e1f65f4193aba2a60cabf6b05726e6e9e5edba700b81418db38645dd",
+        "gas": {
+          "estimatedGas": "259440",
+          "gasLimit": "324300",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529190"
+        },
+        "receipt": {
+          "hash": "0x8996fe12e1f65f4193aba2a60cabf6b05726e6e9e5edba700b81418db38645dd",
+          "blockNumber": "10529192",
+          "blockHash": "0x315986ae00a9ca0b0bcde643c83bab040c68798a99f3cd708d683a05fa91e06e",
+          "gasUsed": "259440",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-blob",
+        "stage": "LANDED",
+        "hash": "0x3661115a8d2ecef683a229a2513757af6131556417fa6094f61650170421418e",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529197"
+        },
+        "receipt": {
+          "hash": "0x3661115a8d2ecef683a229a2513757af6131556417fa6094f61650170421418e",
+          "blockNumber": "10529199",
+          "blockHash": "0x07f43993ef549cd0aefa0f581665ed77c65c1af984c8065c9875b8643ba0ce83",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-22-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-anchor",
+        "stage": "LANDED",
+        "hash": "0x587d123a120400a50fa1539b8424cffcfc288d3ffb69900b7dcf1ed515e64fd0",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529199"
+        },
+        "receipt": {
+          "hash": "0x587d123a120400a50fa1539b8424cffcfc288d3ffb69900b7dcf1ed515e64fd0",
+          "blockNumber": "10529201",
+          "blockHash": "0xc4c7be1f14fc5fe57b5ee84c08dc889477b5c9246b77ae69dea5f22254595bfd",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-23-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "stage": "LANDED",
+        "hash": "0x96fd42f56506f9690fd40845312d3a67a1ef2a3cba4d5a737aae301b5e811026",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529206"
+        },
+        "receipt": {
+          "hash": "0x96fd42f56506f9690fd40845312d3a67a1ef2a3cba4d5a737aae301b5e811026",
+          "blockNumber": "10529209",
+          "blockHash": "0xed10cd710f7f565c70507819ddfa9bcd0f99d73eaa9bb559102360759a81f74e",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-23-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "stage": "LANDED",
+        "hash": "0xd8126c0adbd2dee6980cd34f0aa23c4937f28033e20ac0a42a89a150d80b08ee",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529209"
+        },
+        "receipt": {
+          "hash": "0xd8126c0adbd2dee6980cd34f0aa23c4937f28033e20ac0a42a89a150d80b08ee",
+          "blockNumber": "10529211",
+          "blockHash": "0xd3209bd038e04e63b87ade8ba7597bbd883ad064a380752e2eef4aefc7bd08df",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-received-2f60753135b09758b60d7bbb5874ab3e4e4640744daa30f9b90ef22e7a992539",
+        "stage": "LANDED",
+        "hash": "0x109beaa3e3fdde724f6b680496c74dd659415afdbd61592690710504076de834",
+        "gas": {
+          "estimatedGas": "29680",
+          "gasLimit": "37100",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529251"
+        },
+        "receipt": {
+          "hash": "0x109beaa3e3fdde724f6b680496c74dd659415afdbd61592690710504076de834",
+          "blockNumber": "10529253",
+          "blockHash": "0x340ed04a8fa827ea979a2f6529c378f154e057453590a6d7365a629e45c3995d",
+          "gasUsed": "28849",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-23-0-blob",
+        "stage": "LANDED",
+        "hash": "0x81afda16ba57305aa1d110a2c9b2aed77c21822730b610ad9d11886d2f598242",
+        "gas": {
+          "estimatedGas": "102370",
+          "gasLimit": "127963",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529253"
+        },
+        "receipt": {
+          "hash": "0x81afda16ba57305aa1d110a2c9b2aed77c21822730b610ad9d11886d2f598242",
+          "blockNumber": "10529255",
+          "blockHash": "0x3192f69a0b343d2373a4638883cc61ad609c5715b93091572cbc85577026099a",
+          "gasUsed": "72868",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-23-0-signature",
+        "stage": "LANDED",
+        "hash": "0xbac7a884b996684e87a726ce61801db8bf9ca0be75bc6bd64e60971ba45546c6",
+        "gas": {
+          "estimatedGas": "451340",
+          "gasLimit": "564175",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529256"
+        },
+        "receipt": {
+          "hash": "0xbac7a884b996684e87a726ce61801db8bf9ca0be75bc6bd64e60971ba45546c6",
+          "blockNumber": "10529258",
+          "blockHash": "0xa8cef46fc77d614f6b26ae477fe66f686c3401961b4ef5f109a64b79fa7062a7",
+          "gasUsed": "283938",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51-2026-11-23-0-anchor",
+        "stage": "LANDED",
+        "hash": "0x3757e2961b3fb15d1640a43e1fc1dd2459f8ed93de31581b625d64ea54a7b355",
+        "gas": {
+          "estimatedGas": "99307",
+          "gasLimit": "124134",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10529258"
+        },
+        "receipt": {
+          "hash": "0x3757e2961b3fb15d1640a43e1fc1dd2459f8ed93de31581b625d64ea54a7b355",
+          "blockNumber": "10529260",
+          "blockHash": "0x9ea963c959ef55d611db850eea40ef596b4a96b2167e442a7529b2469dbb583a",
+          "gasUsed": "99307",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "opening-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6",
+        "stage": "LANDED",
+        "hash": "0xb2968ae207db2e53a99e6f9ae6dd28d0682e4ba0ebf5e468252fd4205a2f9c5b",
+        "gas": {
+          "estimatedGas": "298270",
+          "gasLimit": "372838",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541736"
+        },
+        "receipt": {
+          "hash": "0xb2968ae207db2e53a99e6f9ae6dd28d0682e4ba0ebf5e468252fd4205a2f9c5b",
+          "blockNumber": "10541738",
+          "blockHash": "0x4908136cb063f4076f631a14e8c8cc20f9d7049dfa8d9e596037049f37fe2c63",
+          "gasUsed": "191401",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "register-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6",
+        "stage": "LANDED",
+        "hash": "0x0ebaba76c2c153ecbf3eb2caa08413394f2f9c76cb248ce6edd2695a99031448",
+        "gas": {
+          "estimatedGas": "82714",
+          "gasLimit": "103393",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541740"
+        },
+        "receipt": {
+          "hash": "0x0ebaba76c2c153ecbf3eb2caa08413394f2f9c76cb248ce6edd2695a99031448",
+          "blockNumber": "10541743",
+          "blockHash": "0x34e2924ad86a17d2d4948941bab0236f0e2fb80f4e2f37fb2dda530e27ea9043",
+          "gasUsed": "82714",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "stage": "LANDED",
+        "hash": "0x37d2985b6adf2a036f6b123071dba21d344eed7c05f169563fe147d242aa886a",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541748"
+        },
+        "receipt": {
+          "hash": "0x37d2985b6adf2a036f6b123071dba21d344eed7c05f169563fe147d242aa886a",
+          "blockNumber": "10541750",
+          "blockHash": "0x06a45ed3d177729956d38fed8d177c4a9e76634320b80cd5b6a0f17f0149ef5d",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "stage": "LANDED",
+        "hash": "0x5444dcbfd306559b6876e9c2a255144faf82b430f68c1f881f0022bb11c6d7c3",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541751"
+        },
+        "receipt": {
+          "hash": "0x5444dcbfd306559b6876e9c2a255144faf82b430f68c1f881f0022bb11c6d7c3",
+          "blockNumber": "10541753",
+          "blockHash": "0x3836d6aaab4a73504795731879f46668210001cf53a35a93c29332ae1a17f3d6",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-received-2c21f0a07f76c90367c5e32db7b7f778cf94091063d7efbca043b34496b13988",
+        "stage": "LANDED",
+        "hash": "0xecc1102173573a5ef14ae89298a450f28373d52a4f776b2cc265e1ad62abffd2",
+        "gas": {
+          "estimatedGas": "29710",
+          "gasLimit": "37138",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541845"
+        },
+        "receipt": {
+          "hash": "0xecc1102173573a5ef14ae89298a450f28373d52a4f776b2cc265e1ad62abffd2",
+          "blockNumber": "10541847",
+          "blockHash": "0x453c839ad949e34e0bb0a0e101a937fdd31895229ad61c449a967fda12eaf19f",
+          "gasUsed": "28861",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-0-blob",
+        "stage": "LANDED",
+        "hash": "0x7586657476595b08ebcc1985d752bc98825c2abb9a4c51b161891b3be91958fe",
+        "gas": {
+          "estimatedGas": "104010",
+          "gasLimit": "130013",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541848"
+        },
+        "receipt": {
+          "hash": "0x7586657476595b08ebcc1985d752bc98825c2abb9a4c51b161891b3be91958fe",
+          "blockNumber": "10541851",
+          "blockHash": "0x63c89865b79a13f2881fcc28b7c84c7109be7cdddc744816342a346233b2029c",
+          "gasUsed": "73786",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-0-signature",
+        "stage": "LANDED",
+        "hash": "0x64cadcbe85a10cf1af57708678593e9d1ec78d96834257ab456b51979a066f3f",
+        "gas": {
+          "estimatedGas": "454940",
+          "gasLimit": "568675",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541851"
+        },
+        "receipt": {
+          "hash": "0x64cadcbe85a10cf1af57708678593e9d1ec78d96834257ab456b51979a066f3f",
+          "blockNumber": "10541854",
+          "blockHash": "0x088e38f1754056f030522d93fc03b055af620d8ca0a156538aaa3023af0d2eb8",
+          "gasUsed": "286168",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-0-anchor",
+        "stage": "LANDED",
+        "hash": "0xd4e4e74350ab18118715a1fd0e982828d5ad18f3bfb589fb66d53cc992b2ea89",
+        "gas": {
+          "estimatedGas": "99319",
+          "gasLimit": "124149",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541854"
+        },
+        "receipt": {
+          "hash": "0xd4e4e74350ab18118715a1fd0e982828d5ad18f3bfb589fb66d53cc992b2ea89",
+          "blockNumber": "10541856",
+          "blockHash": "0x8a561550ddabcbf0959a6e4bdc7f2fa625dc1ff32b2a71fe5701dbb97af9ecca",
+          "gasUsed": "99319",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-f1ff9e49-b9e2-4e46-898a-a4a5e5908e8f",
+        "stage": "ANCHORED",
+        "hash": "0x95ace3d1ad6477188fad83d3c9406804c225387b4e518ef68d8e2f14e98a04b3",
+        "gas": {
+          "estimatedGas": "1809615",
+          "gasLimit": "2262019",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541919"
+        },
+        "receipt": {
+          "hash": "0x95ace3d1ad6477188fad83d3c9406804c225387b4e518ef68d8e2f14e98a04b3",
+          "blockNumber": "10541922",
+          "blockHash": "0x71c4f2b6c778ca4424c92230c36fd94e987529ec4c252edcc4d885c83c098c1f",
+          "gasUsed": "1787529",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-f1ff9e49-b9e2-4e46-898a-a4a5e5908e8f-memo",
+        "stage": "LANDED",
+        "hash": "0xad918d9aadac74055ac515084caacfddd862754676338db898144a1ece4fa9cf",
+        "gas": {
+          "estimatedGas": "173330",
+          "gasLimit": "216663",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541931"
+        },
+        "receipt": {
+          "hash": "0xad918d9aadac74055ac515084caacfddd862754676338db898144a1ece4fa9cf",
+          "blockNumber": "10541933",
+          "blockHash": "0x776d6e8527192d198fb3d3677b9fdebdfb24ded0bf4e6039862a158f3d6e4257",
+          "gasUsed": "115440",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-pay-f1ff9e49-b9e2-4e46-898a-a4a5e5908e8f",
+        "stage": "LANDED",
+        "hash": "0xa208ee8a4ff147b205dacb81a6022de248618048b8c33a8294c328d3b3d9b8f9",
+        "gas": {
+          "estimatedGas": "29770",
+          "gasLimit": "37213",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541953"
+        },
+        "receipt": {
+          "hash": "0xa208ee8a4ff147b205dacb81a6022de248618048b8c33a8294c328d3b3d9b8f9",
+          "blockNumber": "10541955",
+          "blockHash": "0xa012451f30410a43f78b1467d444be6b7d2fbae530c8afaa3f539a29fe687e10",
+          "gasUsed": "28885",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-1-blob",
+        "stage": "LANDED",
+        "hash": "0xac6b57c8dd37c23b90681c0c9ae2e08e3ae8bc4224e44d97b96ae838e4ae5f10",
+        "gas": {
+          "estimatedGas": "103830",
+          "gasLimit": "129788",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541957"
+        },
+        "receipt": {
+          "hash": "0xac6b57c8dd37c23b90681c0c9ae2e08e3ae8bc4224e44d97b96ae838e4ae5f10",
+          "blockNumber": "10541960",
+          "blockHash": "0xd6fd3c1a02764592d2f846c0df1e0dd14db2734d9a4507314a6dc1d60c8dd50d",
+          "gasUsed": "73714",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-1-signature",
+        "stage": "LANDED",
+        "hash": "0xf58077756a7d000812d9b84c5fd16a636a7b5cc97e9e026a772549874cb16a5d",
+        "gas": {
+          "estimatedGas": "453960",
+          "gasLimit": "567450",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541961"
+        },
+        "receipt": {
+          "hash": "0xf58077756a7d000812d9b84c5fd16a636a7b5cc97e9e026a772549874cb16a5d",
+          "blockNumber": "10541963",
+          "blockHash": "0x4a853ab450342accc50b221a53777521f4b9405837bc606d39a207bb5aa093a8",
+          "gasUsed": "285512",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-1-anchor",
+        "stage": "LANDED",
+        "hash": "0xfd7fcae350f13e5492d09ba6ef6538844741a305ac828a746d24efe27af5f76b",
+        "gas": {
+          "estimatedGas": "85415",
+          "gasLimit": "106769",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10541964"
+        },
+        "receipt": {
+          "hash": "0xfd7fcae350f13e5492d09ba6ef6538844741a305ac828a746d24efe27af5f76b",
+          "blockNumber": "10541966",
+          "blockHash": "0xf86ed0618be26b4cead8afd54e84a29d867ebc006e1bd50d80a875bb06ff7b6d",
+          "gasUsed": "85415",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-3a5b7653-6b3f-4a3e-aa6f-48fc2ec2d827",
+        "stage": "ANCHORED",
+        "hash": "0x4ba31188a86e5c9e658bc1471d42f536537bf85fbf67a7c1453d382798aad85e",
+        "gas": {
+          "estimatedGas": "1809352",
+          "gasLimit": "2261690",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10542010"
+        },
+        "receipt": {
+          "hash": "0x4ba31188a86e5c9e658bc1471d42f536537bf85fbf67a7c1453d382798aad85e",
+          "blockNumber": "10542012",
+          "blockHash": "0xc14eabc2db60c56d78cb2cefed1c9ab6020635373b25c9a4d1c132ab80fe8a9a",
+          "gasUsed": "1787266",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-3a5b7653-6b3f-4a3e-aa6f-48fc2ec2d827-memo",
+        "stage": "LANDED",
+        "hash": "0x3e84efa9cc2ecbb5f61cf5fdd966364511ad41e21cdb51250dc863d5532d9399",
+        "gas": {
+          "estimatedGas": "173270",
+          "gasLimit": "216588",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10542013"
+        },
+        "receipt": {
+          "hash": "0x3e84efa9cc2ecbb5f61cf5fdd966364511ad41e21cdb51250dc863d5532d9399",
+          "blockNumber": "10542016",
+          "blockHash": "0x15bce34c717852a0c2c2cc350d006eb3ab1ff520a4dd0beab75e4c256b4c967f",
+          "gasUsed": "115416",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-pay-3a5b7653-6b3f-4a3e-aa6f-48fc2ec2d827",
+        "stage": "LANDED",
+        "hash": "0xc51ed74e638136de277254eb167c5e9e31fef04a8547e7f9ad51ef07019fa501",
+        "gas": {
+          "estimatedGas": "29740",
+          "gasLimit": "37175",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546848"
+        },
+        "receipt": {
+          "hash": "0xc51ed74e638136de277254eb167c5e9e31fef04a8547e7f9ad51ef07019fa501",
+          "blockNumber": "10546850",
+          "blockHash": "0x04a2bbf7530dd8407784f74f4a815f3ea062fe805a2a0f7cb023e1468288bcf2",
+          "gasUsed": "28873",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-2-blob",
+        "stage": "LANDED",
+        "hash": "0xc19d545d7781200ad7fb8800717c1664a9ff3653dd35d2931994677dee58d9c4",
+        "gas": {
+          "estimatedGas": "103860",
+          "gasLimit": "129825",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546852"
+        },
+        "receipt": {
+          "hash": "0xc19d545d7781200ad7fb8800717c1664a9ff3653dd35d2931994677dee58d9c4",
+          "blockNumber": "10546855",
+          "blockHash": "0xe5b272ca9dabdd0bd9f05aad5107c83de4d50ed51002aecffeeaa6bd8ca8e3b4",
+          "gasUsed": "73726",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-2-signature",
+        "stage": "LANDED",
+        "hash": "0x125514c2e816bf9729054b294a33ba29d4cbb1325b831cca78e6a127cd90f915",
+        "gas": {
+          "estimatedGas": "454200",
+          "gasLimit": "567750",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546855"
+        },
+        "receipt": {
+          "hash": "0x125514c2e816bf9729054b294a33ba29d4cbb1325b831cca78e6a127cd90f915",
+          "blockNumber": "10546858",
+          "blockHash": "0xf4a353ce7e8c4d00d277c1503bd4613cba60dee731b04d3cd6ade5db4c5e6f56",
+          "gasUsed": "285608",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-c677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6-2026-11-22-2-anchor",
+        "stage": "LANDED",
+        "hash": "0x267f2f056570d6610495067062afd3d446f4d1f392f017748f05d6d8e34aa344",
+        "gas": {
+          "estimatedGas": "85415",
+          "gasLimit": "106769",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546859"
+        },
+        "receipt": {
+          "hash": "0x267f2f056570d6610495067062afd3d446f4d1f392f017748f05d6d8e34aa344",
+          "blockNumber": "10546862",
+          "blockHash": "0xf49f1ff23fd9d9df23a3c47dd5cca3ef49d6bc305d721c848e2761e7138a8618",
+          "gasUsed": "85415",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "opening-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1",
+        "stage": "LANDED",
+        "hash": "0xac63e58220c9061431251c310a9576d2c23c20077512087500547af0e00fc7ed",
+        "gas": {
+          "estimatedGas": "297970",
+          "gasLimit": "372463",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546865"
+        },
+        "receipt": {
+          "hash": "0xac63e58220c9061431251c310a9576d2c23c20077512087500547af0e00fc7ed",
+          "blockNumber": "10546867",
+          "blockHash": "0x961c4e14fa60a2e8d7d5eb9fdacbffcffe876f0f365c39fe68253d91cb5f4954",
+          "gasUsed": "191281",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "register-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1",
+        "stage": "LANDED",
+        "hash": "0xc8e77b80ded761045ccbe0bd2f4c34ec705126232e7b607f2ef2f5dcaa661376",
+        "gas": {
+          "estimatedGas": "82702",
+          "gasLimit": "103378",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546868"
+        },
+        "receipt": {
+          "hash": "0xc8e77b80ded761045ccbe0bd2f4c34ec705126232e7b607f2ef2f5dcaa661376",
+          "blockNumber": "10546871",
+          "blockHash": "0xed82362cff876a6d721f015e656aee232f8fed3c1fae6cd8018054e84735697d",
+          "gasUsed": "82702",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "stage": "LANDED",
+        "hash": "0xda9993f3a67c5f8d783af896179379af2f2d02c0dbc1ebdd0233bcabfa28a867",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546876"
+        },
+        "receipt": {
+          "hash": "0xda9993f3a67c5f8d783af896179379af2f2d02c0dbc1ebdd0233bcabfa28a867",
+          "blockNumber": "10546878",
+          "blockHash": "0xeb4f96bce59578681283219c665a613051793d0067df4039c8ca5aa26f267423",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "stage": "LANDED",
+        "hash": "0x6110d3047a232f8a3b1168117d1f97107300f0321e33dbf2388eccf71b901334",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546879"
+        },
+        "receipt": {
+          "hash": "0x6110d3047a232f8a3b1168117d1f97107300f0321e33dbf2388eccf71b901334",
+          "blockNumber": "10546881",
+          "blockHash": "0x158e0846fe6de6dfc9b01ecd58b5b65ce0c9a853e3395bb9cfa30a73d865a5e7",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-received-065625b46543554c8c793353fcb4246f6838eaddf0a3a686988e529b1f3da698",
+        "stage": "LANDED",
+        "hash": "0x6da85df6f76d2f901e237e8e74b008327c5eea6786b570b9890972a6cac27440",
+        "gas": {
+          "estimatedGas": "29710",
+          "gasLimit": "37138",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546931"
+        },
+        "receipt": {
+          "hash": "0x6da85df6f76d2f901e237e8e74b008327c5eea6786b570b9890972a6cac27440",
+          "blockNumber": "10546934",
+          "blockHash": "0x8d534733aec27f7bff8466d586b5b018f0449dad9cd9091852b6184bfff77317",
+          "gasUsed": "28861",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-0-blob",
+        "stage": "LANDED",
+        "hash": "0xf5d1f90359be647e39665fba9dacfd6ef4ae53d6fd2bd15a346a397d9049bce9",
+        "gas": {
+          "estimatedGas": "104040",
+          "gasLimit": "130050",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546935"
+        },
+        "receipt": {
+          "hash": "0xf5d1f90359be647e39665fba9dacfd6ef4ae53d6fd2bd15a346a397d9049bce9",
+          "blockNumber": "10546937",
+          "blockHash": "0xe95f9d08e3ca99f2e973e6c2ce5cbf1b467fffd3cde6610625d187e0a891dc9f",
+          "gasUsed": "73798",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-0-signature",
+        "stage": "LANDED",
+        "hash": "0xe83bdc699dae088e38d4d5ed81a9511cdc0a471fc7d791b14f70ddf7dd0c1c01",
+        "gas": {
+          "estimatedGas": "454380",
+          "gasLimit": "567975",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546937"
+        },
+        "receipt": {
+          "hash": "0xe83bdc699dae088e38d4d5ed81a9511cdc0a471fc7d791b14f70ddf7dd0c1c01",
+          "blockNumber": "10546940",
+          "blockHash": "0xd7f9d0a504bc486cc4fbcde413cacd6d903848c8d03c065fa00267f959ed69ca",
+          "gasUsed": "285680",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-0-anchor",
+        "stage": "LANDED",
+        "hash": "0x109d2878ab71894ea290dd54df3f1731379059df2c39d6b20c0d9d4c7a759223",
+        "gas": {
+          "estimatedGas": "99319",
+          "gasLimit": "124149",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546941"
+        },
+        "receipt": {
+          "hash": "0x109d2878ab71894ea290dd54df3f1731379059df2c39d6b20c0d9d4c7a759223",
+          "blockNumber": "10546943",
+          "blockHash": "0x9d6c236e0840a0d8ddae2f3a6d37e2d251533592d2ecc45d3b91064e5dfad47e",
+          "gasUsed": "99319",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-0943afcc-ed18-4c09-8024-e0210d1042fb",
+        "stage": "ANCHORED",
+        "hash": "0x1ca454051605c6cbc0bcd7a061b70a46c3a324392f35112858514c52c29c312d",
+        "gas": {
+          "estimatedGas": "1804688",
+          "gasLimit": "2255860",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546981"
+        },
+        "receipt": {
+          "hash": "0x1ca454051605c6cbc0bcd7a061b70a46c3a324392f35112858514c52c29c312d",
+          "blockNumber": "10546984",
+          "blockHash": "0x0405a18f0aaf40833f4320fb3d8dc144f391fc0fbcbe95bb763b0368e62b950b",
+          "gasUsed": "1782602",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-0943afcc-ed18-4c09-8024-e0210d1042fb-memo",
+        "stage": "LANDED",
+        "hash": "0xdaafc0c4d00bc293a139fa8414b99a4cf92a9258dabe2f06c162ad89b3aedfc2",
+        "gas": {
+          "estimatedGas": "173420",
+          "gasLimit": "216775",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10546990"
+        },
+        "receipt": {
+          "hash": "0xdaafc0c4d00bc293a139fa8414b99a4cf92a9258dabe2f06c162ad89b3aedfc2",
+          "blockNumber": "10546992",
+          "blockHash": "0x4b785a6001f5d7af530f2c22924f954059b1ecc3f1d7d18be91512721b5cb75c",
+          "gasUsed": "115476",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-pay-0943afcc-ed18-4c09-8024-e0210d1042fb",
+        "stage": "LANDED",
+        "hash": "0xfe3938e7984949492a7c3b79c08d7d2b84340c6fae4a865c4acc803e89281bdb",
+        "gas": {
+          "estimatedGas": "29770",
+          "gasLimit": "37213",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547010"
+        },
+        "receipt": {
+          "hash": "0xfe3938e7984949492a7c3b79c08d7d2b84340c6fae4a865c4acc803e89281bdb",
+          "blockNumber": "10547012",
+          "blockHash": "0xf09ac7525c1a82d3f4a7a15dae17fd5be22d1fed30e0e76b34362d9affe68259",
+          "gasUsed": "28885",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-1-blob",
+        "stage": "LANDED",
+        "hash": "0x65ae61736f428f8ce8c75214b3ffb381d52e9231be4b1d9a98e1be6192e3c079",
+        "gas": {
+          "estimatedGas": "103800",
+          "gasLimit": "129750",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547013"
+        },
+        "receipt": {
+          "hash": "0x65ae61736f428f8ce8c75214b3ffb381d52e9231be4b1d9a98e1be6192e3c079",
+          "blockNumber": "10547016",
+          "blockHash": "0xe11beccd0732372d36447c6eb8f0d9b8619d8d5f22c90d3505dcc29565a0ba2b",
+          "gasUsed": "73702",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-1-signature",
+        "stage": "LANDED",
+        "hash": "0x6a86f2c58bda7876ab3323f9de5d462a2c7355f44685181f11d89311040705fa",
+        "gas": {
+          "estimatedGas": "454200",
+          "gasLimit": "567750",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547016"
+        },
+        "receipt": {
+          "hash": "0x6a86f2c58bda7876ab3323f9de5d462a2c7355f44685181f11d89311040705fa",
+          "blockNumber": "10547019",
+          "blockHash": "0x2e10b17288f57f1c4b264269f2d0b48f060262d43c1bcedbf1ca73ef4db058e7",
+          "gasUsed": "285608",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-1-anchor",
+        "stage": "LANDED",
+        "hash": "0x904e4db28af54a97b387e13b2b6414db2f2db0883ff0676dafca005f19019dfa",
+        "gas": {
+          "estimatedGas": "85415",
+          "gasLimit": "106769",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547020"
+        },
+        "receipt": {
+          "hash": "0x904e4db28af54a97b387e13b2b6414db2f2db0883ff0676dafca005f19019dfa",
+          "blockNumber": "10547022",
+          "blockHash": "0xf41ef339f90008c19c0b13eacc4ba7e378fa3a9e4f6f23d73127cba1b710d370",
+          "gasUsed": "85415",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-192a536d-e711-4b8d-914d-f620e0f22c64",
+        "stage": "ANCHORED",
+        "hash": "0xd1573c2f55d3f7690e863962fb583bbd512171bcf51a051870f22bec04b822cb",
+        "gas": {
+          "estimatedGas": "1799498",
+          "gasLimit": "2249373",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547062"
+        },
+        "receipt": {
+          "hash": "0xd1573c2f55d3f7690e863962fb583bbd512171bcf51a051870f22bec04b822cb",
+          "blockNumber": "10547065",
+          "blockHash": "0x9253c68f5770f75e93567ee028fe653ecaa210a58fe411685f066b9fd593684d",
+          "gasUsed": "1777412",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-192a536d-e711-4b8d-914d-f620e0f22c64-memo",
+        "stage": "LANDED",
+        "hash": "0x49bd1d1ef0c7c2e09a01553ced88d09288217430a8810b82643a0ec5f6c4cb69",
+        "gas": {
+          "estimatedGas": "173120",
+          "gasLimit": "216400",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547066"
+        },
+        "receipt": {
+          "hash": "0x49bd1d1ef0c7c2e09a01553ced88d09288217430a8810b82643a0ec5f6c4cb69",
+          "blockNumber": "10547069",
+          "blockHash": "0x3fa96491375372026f2cc170b2dc30b1248a9b94e5a75120c4eb78360342af1e",
+          "gasUsed": "115356",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-pay-192a536d-e711-4b8d-914d-f620e0f22c64",
+        "stage": "LANDED",
+        "hash": "0x07868e0e69cd04777ba8883befa92fcdf8045cc8cb3b6bf2b55682c0fc054e4f",
+        "gas": {
+          "estimatedGas": "29770",
+          "gasLimit": "37213",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547087"
+        },
+        "receipt": {
+          "hash": "0x07868e0e69cd04777ba8883befa92fcdf8045cc8cb3b6bf2b55682c0fc054e4f",
+          "blockNumber": "10547089",
+          "blockHash": "0x052a12f9f9533a302972b022ef611c3f9555eff4a974ccf6320a2b09e4ffa47b",
+          "gasUsed": "28885",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-2-blob",
+        "stage": "LANDED",
+        "hash": "0xd5111c8bd76fa16fe4ae4dbc3f1f2b07afd83c3730b9d3485bda59c91837ff73",
+        "gas": {
+          "estimatedGas": "103890",
+          "gasLimit": "129863",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547090"
+        },
+        "receipt": {
+          "hash": "0xd5111c8bd76fa16fe4ae4dbc3f1f2b07afd83c3730b9d3485bda59c91837ff73",
+          "blockNumber": "10547093",
+          "blockHash": "0x1c2a73b4323c909452176004c5fd24f1f93333da48545a13953bc082bb5fc6b7",
+          "gasUsed": "73738",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-2-signature",
+        "stage": "LANDED",
+        "hash": "0x700a48a59ba5aedc980448e9b9e3d651f48da27453864457cadb233eb8cde0bf",
+        "gas": {
+          "estimatedGas": "454200",
+          "gasLimit": "567750",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547094"
+        },
+        "receipt": {
+          "hash": "0x700a48a59ba5aedc980448e9b9e3d651f48da27453864457cadb233eb8cde0bf",
+          "blockNumber": "10547096",
+          "blockHash": "0x66001f904fa348ff00d96143744a2af41cf5405e7d60bddbc3c140b0380b40a3",
+          "gasUsed": "285608",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-2-anchor",
+        "stage": "LANDED",
+        "hash": "0x3f795ab892366e7d95cee7b6b8d2106ebc3866c7c16bbbffad4c44d3d2b57745",
+        "gas": {
+          "estimatedGas": "85415",
+          "gasLimit": "106769",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547097"
+        },
+        "receipt": {
+          "hash": "0x3f795ab892366e7d95cee7b6b8d2106ebc3866c7c16bbbffad4c44d3d2b57745",
+          "blockNumber": "10547099",
+          "blockHash": "0xd2b7414367ba97c4d1e415164027a965a5b25fd75fdfbd382255a3f463b11f30",
+          "gasUsed": "85415",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "close-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-blob",
+        "stage": "LANDED",
+        "hash": "0x500506e2e9a5db777dc2c695d4553af9ef4059b94aebd5871b407ebf577f0d3c",
+        "gas": {
+          "estimatedGas": "357800",
+          "gasLimit": "447250",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547138"
+        },
+        "receipt": {
+          "hash": "0x500506e2e9a5db777dc2c695d4553af9ef4059b94aebd5871b407ebf577f0d3c",
+          "blockNumber": "10547146",
+          "blockHash": "0x6dfd3acc4dcad26bd18cb8f8aeb320a82a21de02b52cb88ca12ba5c22483c452",
+          "gasUsed": "227572",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "close-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-anchor",
+        "stage": "LANDED",
+        "hash": "0x9a1065a91a165ba032bf37364a96e848c627cfa23a35b1b9ca9f77c5962bec0b",
+        "gas": {
+          "estimatedGas": "259392",
+          "gasLimit": "324240",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547147"
+        },
+        "receipt": {
+          "hash": "0x9a1065a91a165ba032bf37364a96e848c627cfa23a35b1b9ca9f77c5962bec0b",
+          "blockNumber": "10547149",
+          "blockHash": "0xf048bbe769477add139f0efd2be932cb7a5acc6c129e4a881529b73a57f0914d",
+          "gasUsed": "259392",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-blob",
+        "stage": "LANDED",
+        "hash": "0xce5344ad6918ca2b58ced33323d4ad6beee229ee688af6a049fd5d20ec562b71",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547163"
+        },
+        "receipt": {
+          "hash": "0xce5344ad6918ca2b58ced33323d4ad6beee229ee688af6a049fd5d20ec562b71",
+          "blockNumber": "10547166",
+          "blockHash": "0x9cfb8087eb7c5e46e65d7c94020f9d17931ca3b6f572b69c7832d01905a88744",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-22-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-anchor",
+        "stage": "LANDED",
+        "hash": "0x8c52b708d84fa754edd1b7f33baec47dd782fbac1fbaadd47b0e0fec6d6533e7",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547167"
+        },
+        "receipt": {
+          "hash": "0x8c52b708d84fa754edd1b7f33baec47dd782fbac1fbaadd47b0e0fec6d6533e7",
+          "blockNumber": "10547169",
+          "blockHash": "0x38fe106208d79e3bd24dc1fec121a37849386d93dbe909e12d371e48893eed90",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "stage": "LANDED",
+        "hash": "0x803b88970bd7a2d22f871aa839467f1f0062909398e4576eec690b790f7c3035",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547182"
+        },
+        "receipt": {
+          "hash": "0x803b88970bd7a2d22f871aa839467f1f0062909398e4576eec690b790f7c3035",
+          "blockNumber": "10547185",
+          "blockHash": "0x8910c5700ed20091de53c9eb7f32dd977cebf873df12acee92dad756b98f5e62",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "stage": "LANDED",
+        "hash": "0xcdf39401a1629e8201e5a56ee2d5cffd64fc86feb8d1a743b618ec2f7456fcac",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547186"
+        },
+        "receipt": {
+          "hash": "0xcdf39401a1629e8201e5a56ee2d5cffd64fc86feb8d1a743b618ec2f7456fcac",
+          "blockNumber": "10547188",
+          "blockHash": "0xd6f465232f0009a99240f056ede0f2b7a67dd382ea26ef41d4b8a4a28d986707",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-received-20395904532a7217af3991f444ebf74d0e4e13e7465550c8f2fe5124a3d56e0b",
+        "stage": "LANDED",
+        "hash": "0x89a765eae6f6b7f23d78ca82d2d5ebf02019f8ce9299dd9281d9cfea4ba3e437",
+        "gas": {
+          "estimatedGas": "29740",
+          "gasLimit": "37175",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547233"
+        },
+        "receipt": {
+          "hash": "0x89a765eae6f6b7f23d78ca82d2d5ebf02019f8ce9299dd9281d9cfea4ba3e437",
+          "blockNumber": "10547236",
+          "blockHash": "0x3bcdf46ad3fc72a43aa78a61671fe7fd54cfa659ee214bca7e35948047f357d1",
+          "gasUsed": "28873",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-0-blob",
+        "stage": "LANDED",
+        "hash": "0x7dbff38e71a96a7464f9bdab64a889fed546b6aa1e5abbab8949c55ca1ca9de6",
+        "gas": {
+          "estimatedGas": "103800",
+          "gasLimit": "129750",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547237"
+        },
+        "receipt": {
+          "hash": "0x7dbff38e71a96a7464f9bdab64a889fed546b6aa1e5abbab8949c55ca1ca9de6",
+          "blockNumber": "10547239",
+          "blockHash": "0xe59100abbecd081be23d0a81ad4c989697716362c277f1b2d88aed38c0f9c5e3",
+          "gasUsed": "73702",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-0-signature",
+        "stage": "LANDED",
+        "hash": "0x5b7e9835833b3e19d7b2ec4a867e26faf28d1e904b30a106f44bc3bbdde41641",
+        "gas": {
+          "estimatedGas": "454140",
+          "gasLimit": "567675",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547239"
+        },
+        "receipt": {
+          "hash": "0x5b7e9835833b3e19d7b2ec4a867e26faf28d1e904b30a106f44bc3bbdde41641",
+          "blockNumber": "10547242",
+          "blockHash": "0xbe5b82132e6c33e1dd9ba86995939427fb04609f5d5aab8fb707942aeec6b9a6",
+          "gasUsed": "285584",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-0-anchor",
+        "stage": "LANDED",
+        "hash": "0xfa8ddbbcc20aec02f5f7796f8e4415ba8c2e2b0e83cffa74368cd60325d844b2",
+        "gas": {
+          "estimatedGas": "99307",
+          "gasLimit": "124134",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547243"
+        },
+        "receipt": {
+          "hash": "0xfa8ddbbcc20aec02f5f7796f8e4415ba8c2e2b0e83cffa74368cd60325d844b2",
+          "blockNumber": "10547245",
+          "blockHash": "0xaa2aa52a604e91a5150fac2843c0f8c4f3e01a0a5195fc175a7da0a58de96798",
+          "gasUsed": "99307",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-2b834d0d-f324-47b0-b00c-6a1c50cf52aa",
+        "stage": "ANCHORED",
+        "hash": "0x42c458fa65ab4ad279e7c8d79eff07c8004812a7c6092bd582067d687d2f3445",
+        "gas": {
+          "estimatedGas": "1794296",
+          "gasLimit": "2242870",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547281"
+        },
+        "receipt": {
+          "hash": "0x42c458fa65ab4ad279e7c8d79eff07c8004812a7c6092bd582067d687d2f3445",
+          "blockNumber": "10547284",
+          "blockHash": "0xbfd7a62b89b5376e639974ec02116f777e63c27799b9b18acae573567fb9994c",
+          "gasUsed": "1772210",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-2b834d0d-f324-47b0-b00c-6a1c50cf52aa-memo",
+        "stage": "LANDED",
+        "hash": "0x2787b83c3b955c2283307da176d8dfa51b6fee3a955697c58ebd125e5285bd4c",
+        "gas": {
+          "estimatedGas": "173450",
+          "gasLimit": "216813",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547285"
+        },
+        "receipt": {
+          "hash": "0x2787b83c3b955c2283307da176d8dfa51b6fee3a955697c58ebd125e5285bd4c",
+          "blockNumber": "10547287",
+          "blockHash": "0x5da72118521ee5542733530ab5d15906b20a2629c6992c852514adff0a6c389d",
+          "gasUsed": "115488",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-pay-2b834d0d-f324-47b0-b00c-6a1c50cf52aa",
+        "stage": "LANDED",
+        "hash": "0xf721af0d22706501e4b51477a27747f7b9c1add58abec42b784f7bdb221baddc",
+        "gas": {
+          "estimatedGas": "29710",
+          "gasLimit": "37138",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547306"
+        },
+        "receipt": {
+          "hash": "0xf721af0d22706501e4b51477a27747f7b9c1add58abec42b784f7bdb221baddc",
+          "blockNumber": "10547308",
+          "blockHash": "0x2dc7a68d59136d192834b9d411d655dd6e60a7a62bdabf069785f380d200f992",
+          "gasUsed": "28861",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-1-blob",
+        "stage": "LANDED",
+        "hash": "0xf5daa1fda582a723471e5c08181f691b9551efe4a9bf9dd8c9f0cba7d80c9272",
+        "gas": {
+          "estimatedGas": "103890",
+          "gasLimit": "129863",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547309"
+        },
+        "receipt": {
+          "hash": "0xf5daa1fda582a723471e5c08181f691b9551efe4a9bf9dd8c9f0cba7d80c9272",
+          "blockNumber": "10547312",
+          "blockHash": "0x866134b64fafac198cf5eb3f82a5b6de61f9a38e2f04c55ed03f1e603636a25c",
+          "gasUsed": "73738",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-1-signature",
+        "stage": "LANDED",
+        "hash": "0xa9a80d7b67fb6ed2a5f4b51fe918a549fb826f603afa9d19758202e5c57a0b8e",
+        "gas": {
+          "estimatedGas": "454080",
+          "gasLimit": "567600",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547313"
+        },
+        "receipt": {
+          "hash": "0xa9a80d7b67fb6ed2a5f4b51fe918a549fb826f603afa9d19758202e5c57a0b8e",
+          "blockNumber": "10547315",
+          "blockHash": "0xc79b3c9b5e9edd1e1b539ef591f07dde25a22c546dca0abffe2177e96d65edea",
+          "gasUsed": "285560",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-1-anchor",
+        "stage": "LANDED",
+        "hash": "0x068052f29fb52ad7d271ac32057d8f191999507e085c3b44fc4174bb67115f3d",
+        "gas": {
+          "estimatedGas": "85403",
+          "gasLimit": "106754",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547316"
+        },
+        "receipt": {
+          "hash": "0x068052f29fb52ad7d271ac32057d8f191999507e085c3b44fc4174bb67115f3d",
+          "blockNumber": "10547318",
+          "blockHash": "0x7a3506d9eb6c865df2ebcbfbba6fc5b359b7f2159b96f9d9ed3107acda3a8416",
+          "gasUsed": "85403",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "close-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-blob",
+        "stage": "LANDED",
+        "hash": "0x9a4eeaac73b79bb26eaab05beaa072a31c626b5fcb0bb778363e172ada08cfcc",
+        "gas": {
+          "estimatedGas": "361460",
+          "gasLimit": "451825",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547344"
+        },
+        "receipt": {
+          "hash": "0x9a4eeaac73b79bb26eaab05beaa072a31c626b5fcb0bb778363e172ada08cfcc",
+          "blockNumber": "10547347",
+          "blockHash": "0x0acdb50c386adeb9ed00ffbf5282dbe9f486b97f5583bc20637cf999cafc549e",
+          "gasUsed": "229825",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "close-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-anchor",
+        "stage": "LANDED",
+        "hash": "0x452029dfb080fa3bd3e48d7369e20bde469710cb324319ed49489f7a44cdfdd5",
+        "gas": {
+          "estimatedGas": "259368",
+          "gasLimit": "324210",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547348"
+        },
+        "receipt": {
+          "hash": "0x452029dfb080fa3bd3e48d7369e20bde469710cb324319ed49489f7a44cdfdd5",
+          "blockNumber": "10547350",
+          "blockHash": "0x1bec8031595e2234ef9427ac795213bf3591f470e17826ad20a1d1d5e419e815",
+          "gasUsed": "259368",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-blob",
+        "stage": "LANDED",
+        "hash": "0x9f7c4bad358a668965cab520b14de3579c465468277f0d598a36d8d747406a97",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547361"
+        },
+        "receipt": {
+          "hash": "0x9f7c4bad358a668965cab520b14de3579c465468277f0d598a36d8d747406a97",
+          "blockNumber": "10547364",
+          "blockHash": "0xb9b53d1eb3f36f4f03352891f129c491ae9c80154e6b574fc12206f84f70f7c5",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-anchor",
+        "stage": "LANDED",
+        "hash": "0xcfab98eeabda93e4b34ee623aa8305f4c57f81c93639118ef0a9e949a86d640d",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547365"
+        },
+        "receipt": {
+          "hash": "0xcfab98eeabda93e4b34ee623aa8305f4c57f81c93639118ef0a9e949a86d640d",
+          "blockNumber": "10547367",
+          "blockHash": "0x97775b1d947e291071ac1affca5a372511b04f1aed191c8b3da03d0ed228ed31",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-qor1j708k8j9fzev3ncnzkzz25u6wgxztcxhzewd9g-blob",
+        "stage": "LANDED",
+        "hash": "0xf5be9fc2842b6caa842b17634961265366e8f515db683d2dbcdc63e04bd389ce",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547378"
+        },
+        "receipt": {
+          "hash": "0xf5be9fc2842b6caa842b17634961265366e8f515db683d2dbcdc63e04bd389ce",
+          "blockNumber": "10547380",
+          "blockHash": "0x384faec31615632631ac09b3454f3f8faf2c6d6859dae97c6dcce914620014d4",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-23-qor1j708k8j9fzev3ncnzkzz25u6wgxztcxhzewd9g-anchor",
+        "stage": "LANDED",
+        "hash": "0x012b9bd1991d8b13d946fb7d326f2bad9ffa934dced1dbc04237399e63fe2bb3",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547381"
+        },
+        "receipt": {
+          "hash": "0x012b9bd1991d8b13d946fb7d326f2bad9ffa934dced1dbc04237399e63fe2bb3",
+          "blockNumber": "10547383",
+          "blockHash": "0x74d5660b02567078f9882bb60963f9ce0c0b7d3bf1529971d1d05aa2753152fb",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-24-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "stage": "LANDED",
+        "hash": "0x77c4e64c158a479f025b9724b9342d618ae60641b5ba4fae188d4a8fe3e89b11",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547394"
+        },
+        "receipt": {
+          "hash": "0x77c4e64c158a479f025b9724b9342d618ae60641b5ba4fae188d4a8fe3e89b11",
+          "blockNumber": "10547397",
+          "blockHash": "0x9a64108407e11d163921e37a9a16c48111e27311f05d5123b8e84397b8d24d9c",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-24-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "stage": "LANDED",
+        "hash": "0xa572837cdfa6e986e1eec4927e51e08434bab4875e24b4206a270583762019df",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547398"
+        },
+        "receipt": {
+          "hash": "0xa572837cdfa6e986e1eec4927e51e08434bab4875e24b4206a270583762019df",
+          "blockNumber": "10547400",
+          "blockHash": "0x1437b6597b835153385a34c299571160154906dacb911d94de9033731f38a498",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-received-13581ede1d9fd842bd52d3b4243a8ef4f51642eb14db81241c1a0fe92e873325",
+        "stage": "LANDED",
+        "hash": "0x25c595ad89504209f499bd62f4cd721f8975d655cf62b997444fc3a1f02ab0c4",
+        "gas": {
+          "estimatedGas": "29710",
+          "gasLimit": "37138",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547450"
+        },
+        "receipt": {
+          "hash": "0x25c595ad89504209f499bd62f4cd721f8975d655cf62b997444fc3a1f02ab0c4",
+          "blockNumber": "10547452",
+          "blockHash": "0x68f85fb316d879b1848c4612a19167e1b8577c2e6e42799c5e9652f8a6b6f6a7",
+          "gasUsed": "28861",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-24-0-blob",
+        "stage": "LANDED",
+        "hash": "0x6370a5db8c6b8d95925c3fec7881f2771f6e5eab6c710e19a37ee1af88a69146",
+        "gas": {
+          "estimatedGas": "103740",
+          "gasLimit": "129675",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547454"
+        },
+        "receipt": {
+          "hash": "0x6370a5db8c6b8d95925c3fec7881f2771f6e5eab6c710e19a37ee1af88a69146",
+          "blockNumber": "10547457",
+          "blockHash": "0x0c238955b7ca2f5c2b11782daa1e065e01378e1f8fe516936d0dbfce9415f6ad",
+          "gasUsed": "73678",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-24-0-signature",
+        "stage": "LANDED",
+        "hash": "0x9b20add108da6e40b9c8b5314fad93e55e64618ca5e9d5be6b23bf930dd61e88",
+        "gas": {
+          "estimatedGas": "454020",
+          "gasLimit": "567525",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547458"
+        },
+        "receipt": {
+          "hash": "0x9b20add108da6e40b9c8b5314fad93e55e64618ca5e9d5be6b23bf930dd61e88",
+          "blockNumber": "10547461",
+          "blockHash": "0xb86816d57953357ce4d0d69cc72f89597407eef25633657d0e435303dd6a8f5a",
+          "gasUsed": "285536",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1-2026-11-24-0-anchor",
+        "stage": "LANDED",
+        "hash": "0x40f52ae9bed7fe0f5f210d8c9eb505e60c01c1b72f19afec885512ec5ef587c6",
+        "gas": {
+          "estimatedGas": "99319",
+          "gasLimit": "124149",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10547462"
+        },
+        "receipt": {
+          "hash": "0x40f52ae9bed7fe0f5f210d8c9eb505e60c01c1b72f19afec885512ec5ef587c6",
+          "blockNumber": "10547464",
+          "blockHash": "0xd2a02851e2398ce69fd02ddce026ba0eed50613e359c51423a78b75cadb4725d",
+          "gasUsed": "99319",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "cashout-dfdd20ff-5990-4b0f-9f69-4bb56f75ffac",
+        "stage": "LANDED",
+        "hash": "0xfac41170fc63bb187f0a8525dca4a6323d249ffd5746226c6709bf85250fd293",
+        "gas": {
+          "estimatedGas": "328283",
+          "gasLimit": "410354",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554118"
+        },
+        "receipt": {
+          "hash": "0xfac41170fc63bb187f0a8525dca4a6323d249ffd5746226c6709bf85250fd293",
+          "blockNumber": "10554121",
+          "blockHash": "0x1cc3b8c54521920ba2c71eea5a03c557cf9f1d98cc75bd82bd8d5b4e7142905a",
+          "gasUsed": "306203",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "cashout-65b0499b-4c3b-4bb3-9ed9-e538aa4fb3ec",
+        "stage": "LANDED",
+        "hash": "0xd9bc15ab66f6a5d55e62d40ddd4e0f78f0d2a64020b1d194840943f6b5d2aa16",
+        "gas": {
+          "estimatedGas": "328283",
+          "gasLimit": "410354",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554135"
+        },
+        "receipt": {
+          "hash": "0xd9bc15ab66f6a5d55e62d40ddd4e0f78f0d2a64020b1d194840943f6b5d2aa16",
+          "blockNumber": "10554138",
+          "blockHash": "0xbd071efdcfc67fcce2d58ff71aabcd0641ffe5e49e322dd3be80ac087d04e6e1",
+          "gasUsed": "306203",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "cashout-1e98b29e-d839-4062-9fa9-1c4643fb98eb",
+        "stage": "LANDED",
+        "hash": "0xa3b166bbd070aa612a5408ae2c805a4b65463d5330abb0d9f6954e7039199a6a",
+        "gas": {
+          "estimatedGas": "328283",
+          "gasLimit": "410354",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554150"
+        },
+        "receipt": {
+          "hash": "0xa3b166bbd070aa612a5408ae2c805a4b65463d5330abb0d9f6954e7039199a6a",
+          "blockNumber": "10554153",
+          "blockHash": "0x8a85df53f1b74f02a7fcf0cb76db8ed449f7493bcc651ebf1980b19c1532732c",
+          "gasUsed": "306203",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "opening-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291",
+        "stage": "LANDED",
+        "hash": "0x1f16c529b7838f1bdd98a1f063232e4fb21fc7a83f48c1054997d912d95bbe18",
+        "gas": {
+          "estimatedGas": "298120",
+          "gasLimit": "372650",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554263"
+        },
+        "receipt": {
+          "hash": "0x1f16c529b7838f1bdd98a1f063232e4fb21fc7a83f48c1054997d912d95bbe18",
+          "blockNumber": "10554265",
+          "blockHash": "0x67d2ba05fc7881d145e26e165e0f58cac05926bf1d74e98df99c08e86f1dc19c",
+          "gasUsed": "191341",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "register-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291",
+        "stage": "LANDED",
+        "hash": "0x1696eb4704836e025f411a8c0a7a79c2bf7c6ef145ab80c95c872667e4c3b20c",
+        "gas": {
+          "estimatedGas": "82714",
+          "gasLimit": "103393",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554266"
+        },
+        "receipt": {
+          "hash": "0x1696eb4704836e025f411a8c0a7a79c2bf7c6ef145ab80c95c872667e4c3b20c",
+          "blockNumber": "10554268",
+          "blockHash": "0xe2e5452de9b5b61bc109f69b7b42189132aa3deaf06144e7b1335c67738733fe",
+          "gasUsed": "82714",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "stage": "LANDED",
+        "hash": "0xed5f509350855f8fa0f4f3f4ee972b3af7adb917d3a7235e55839f82351d4c88",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554273"
+        },
+        "receipt": {
+          "hash": "0xed5f509350855f8fa0f4f3f4ee972b3af7adb917d3a7235e55839f82351d4c88",
+          "blockNumber": "10554276",
+          "blockHash": "0x8d65d70f07838a858d48a590a2a1dc568c1331b8db8e8d6e0ac13124a089ab3d",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "stage": "LANDED",
+        "hash": "0x34c53fbc99bf3a95450a9ad8002eac7bba4fedd09b5521b3e610eab68d4873b5",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554277"
+        },
+        "receipt": {
+          "hash": "0x34c53fbc99bf3a95450a9ad8002eac7bba4fedd09b5521b3e610eab68d4873b5",
+          "blockNumber": "10554279",
+          "blockHash": "0x906371c9a8aac3709c1b11c41a610c33d787c4366804fd12b0a6f7fd88e88dcc",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-received-1e51a83fd2993d6bb964aa4c19013633051ef6e5f8516f796daffa0ec17c5a50",
+        "stage": "LANDED",
+        "hash": "0xc24b479fbe8e739b2b0671a911888ae85039821bec33d193becee572a3a92a4d",
+        "gas": {
+          "estimatedGas": "29740",
+          "gasLimit": "37175",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554352"
+        },
+        "receipt": {
+          "hash": "0xc24b479fbe8e739b2b0671a911888ae85039821bec33d193becee572a3a92a4d",
+          "blockNumber": "10554354",
+          "blockHash": "0xb907521ef62a94a5ab905b2a6324152fb04d1ecfec0dbddf8e56975b84992c3b",
+          "gasUsed": "28873",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-0-blob",
+        "stage": "LANDED",
+        "hash": "0xd9a402b67a72fd1061b77276590a7a46f0f7769669e484568c9c5d4195efd81f",
+        "gas": {
+          "estimatedGas": "103980",
+          "gasLimit": "129975",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554355"
+        },
+        "receipt": {
+          "hash": "0xd9a402b67a72fd1061b77276590a7a46f0f7769669e484568c9c5d4195efd81f",
+          "blockNumber": "10554358",
+          "blockHash": "0xb039f98fd53d7b761f6ffb4e5340d6123ec8732f1ecf366aea930d7a0d5bae0c",
+          "gasUsed": "73774",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-0-signature",
+        "stage": "LANDED",
+        "hash": "0x7b4b7872940d0ef5490d393907de6119c8a369dd96045e54f2980c0642379739",
+        "gas": {
+          "estimatedGas": "454380",
+          "gasLimit": "567975",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554359"
+        },
+        "receipt": {
+          "hash": "0x7b4b7872940d0ef5490d393907de6119c8a369dd96045e54f2980c0642379739",
+          "blockNumber": "10554361",
+          "blockHash": "0xf40c19b1a47f7d9783ae62d0320993c8290eb54516809a26d3acb84165049bd1",
+          "gasUsed": "285680",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-0-anchor",
+        "stage": "LANDED",
+        "hash": "0x8300d3c4ce8aa2422f2ae24f0b6d723d6fb66f41d77ae26983254a910bdc5178",
+        "gas": {
+          "estimatedGas": "99319",
+          "gasLimit": "124149",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554362"
+        },
+        "receipt": {
+          "hash": "0x8300d3c4ce8aa2422f2ae24f0b6d723d6fb66f41d77ae26983254a910bdc5178",
+          "blockNumber": "10554364",
+          "blockHash": "0xa5024d8eca8857bda817800c1648a1c3d12b7a1bc2c5466bfe3cdcf0bf79bd38",
+          "gasUsed": "99319",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-fbfc8d81-8b55-4cdf-b4ed-53948344efea",
+        "stage": "ANCHORED",
+        "hash": "0xda8e8f3aab19b30ec203cae48efd8f44c50212c40c281ba29459d9592a4fb2a8",
+        "gas": {
+          "estimatedGas": "1799235",
+          "gasLimit": "2249044",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554404"
+        },
+        "receipt": {
+          "hash": "0xda8e8f3aab19b30ec203cae48efd8f44c50212c40c281ba29459d9592a4fb2a8",
+          "blockNumber": "10554407",
+          "blockHash": "0x5172aaa15a17bd6ef654ad4846df517fca57b5ca8fb2bb7ad9c7ada98e63bf68",
+          "gasUsed": "1777149",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-fbfc8d81-8b55-4cdf-b4ed-53948344efea-memo",
+        "stage": "LANDED",
+        "hash": "0xead4d63223670ae52a43b211d31f93d6424544d0226de9265e8cbcc9ae44d91e",
+        "gas": {
+          "estimatedGas": "173480",
+          "gasLimit": "216850",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554413"
+        },
+        "receipt": {
+          "hash": "0xead4d63223670ae52a43b211d31f93d6424544d0226de9265e8cbcc9ae44d91e",
+          "blockNumber": "10554415",
+          "blockHash": "0x98eb6320e2432855eedcb11cec21067c812696575ddf053db9b802f2cbff7622",
+          "gasUsed": "115500",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-pay-fbfc8d81-8b55-4cdf-b4ed-53948344efea",
+        "stage": "LANDED",
+        "hash": "0x68099efe72ede3e9a9515d8de19230a68da05775e803a5e6b52303ab944b73ae",
+        "gas": {
+          "estimatedGas": "29770",
+          "gasLimit": "37213",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554434"
+        },
+        "receipt": {
+          "hash": "0x68099efe72ede3e9a9515d8de19230a68da05775e803a5e6b52303ab944b73ae",
+          "blockNumber": "10554436",
+          "blockHash": "0xc0462f922daf43ad0f8177402dc253496a5ecfc79a0cbf5e30a97c149f596c53",
+          "gasUsed": "28885",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-1-blob",
+        "stage": "LANDED",
+        "hash": "0x2f21a7fe7bc175d8d1186533e8be4fe8fcb01ed92988715ecf6bc703049c3d61",
+        "gas": {
+          "estimatedGas": "103920",
+          "gasLimit": "129900",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554438"
+        },
+        "receipt": {
+          "hash": "0x2f21a7fe7bc175d8d1186533e8be4fe8fcb01ed92988715ecf6bc703049c3d61",
+          "blockNumber": "10554440",
+          "blockHash": "0x731562165afcc110a3c0960f90f6a2e14a6d75bb2d1b7193c7d7d9225bb52b0c",
+          "gasUsed": "73750",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-1-signature",
+        "stage": "LANDED",
+        "hash": "0x89fe36db4991c9a06df435df366538f3e7ac964b7cfcc1c338599327ae6f0c0d",
+        "gas": {
+          "estimatedGas": "454020",
+          "gasLimit": "567525",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554441"
+        },
+        "receipt": {
+          "hash": "0x89fe36db4991c9a06df435df366538f3e7ac964b7cfcc1c338599327ae6f0c0d",
+          "blockNumber": "10554443",
+          "blockHash": "0x4c5f6897d6a1e0559faf6e99d2ec6415e679cbeed03cc4008912ec7bd51d0abb",
+          "gasUsed": "285536",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-1-anchor",
+        "stage": "LANDED",
+        "hash": "0xe4ac4ca3ec050123a5638a0e8c6c3e4f047f7fd71ad11d9aec71b703d8250025",
+        "gas": {
+          "estimatedGas": "85415",
+          "gasLimit": "106769",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554444"
+        },
+        "receipt": {
+          "hash": "0xe4ac4ca3ec050123a5638a0e8c6c3e4f047f7fd71ad11d9aec71b703d8250025",
+          "blockNumber": "10554446",
+          "blockHash": "0x5f6bef9b2dc2ec8ec141372105027dc66a51ea358a044ceab4a30621747d2b16",
+          "gasUsed": "85415",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-d366c919-da6f-4c51-ae9f-7ae78ad82063",
+        "stage": "ANCHORED",
+        "hash": "0x7cafd62a9cac4acfa0fdaa2a8c06dd14a010b59135f79859e5def4c5f349e701",
+        "gas": {
+          "estimatedGas": "1803923",
+          "gasLimit": "2254904",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554489"
+        },
+        "receipt": {
+          "hash": "0x7cafd62a9cac4acfa0fdaa2a8c06dd14a010b59135f79859e5def4c5f349e701",
+          "blockNumber": "10554491",
+          "blockHash": "0xae4dd291afcc6edb3c05cdb86967adc8e9facd7814f93e116ec5b6dc779d26ed",
+          "gasUsed": "1781837",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-d366c919-da6f-4c51-ae9f-7ae78ad82063-memo",
+        "stage": "LANDED",
+        "hash": "0x3ae9d98138130ad8ae47d61901564be08546a0fc61e31210f8741d4baff3a175",
+        "gas": {
+          "estimatedGas": "173450",
+          "gasLimit": "216813",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10554492"
+        },
+        "receipt": {
+          "hash": "0x3ae9d98138130ad8ae47d61901564be08546a0fc61e31210f8741d4baff3a175",
+          "blockNumber": "10554495",
+          "blockHash": "0x5a450e779b1fb7102e59ff4251d7e2e118d167fabf5167125706a9da901c45c5",
+          "gasUsed": "115488",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-pay-d366c919-da6f-4c51-ae9f-7ae78ad82063",
+        "stage": "LANDED",
+        "hash": "0x44dda3e49ba3dab916e5929b8df1b4be11ed9b702f8f16606cf64b782b1baba6",
+        "gas": {
+          "estimatedGas": "29770",
+          "gasLimit": "37213",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582311"
+        },
+        "receipt": {
+          "hash": "0x44dda3e49ba3dab916e5929b8df1b4be11ed9b702f8f16606cf64b782b1baba6",
+          "blockNumber": "10582313",
+          "blockHash": "0xbe551e130f7aa07647da2e9a8e2bf6e159d34307240708fc01ae3b3b87e88b81",
+          "gasUsed": "28885",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-2-blob",
+        "stage": "LANDED",
+        "hash": "0x5b5317bd321e6dd6a3b03e127f7b7c62f4ff9379391b07574e0be9b102806351",
+        "gas": {
+          "estimatedGas": "104070",
+          "gasLimit": "130088",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582315"
+        },
+        "receipt": {
+          "hash": "0x5b5317bd321e6dd6a3b03e127f7b7c62f4ff9379391b07574e0be9b102806351",
+          "blockNumber": "10582318",
+          "blockHash": "0x83b6c4b146ac72778166236bb246aa58ad8f0a04ff3a76dd4c2bc7ab7c6e2734",
+          "gasUsed": "73810",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-2-signature",
+        "stage": "LANDED",
+        "hash": "0xc1501475831d4e9b256a2b212f425be3a8ecbff97e0d77c7f54589c2062fc23d",
+        "gas": {
+          "estimatedGas": "454320",
+          "gasLimit": "567900",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582319"
+        },
+        "receipt": {
+          "hash": "0xc1501475831d4e9b256a2b212f425be3a8ecbff97e0d77c7f54589c2062fc23d",
+          "blockNumber": "10582321",
+          "blockHash": "0xf585a20788a843ea99f64f9eaf480dfed6e72b7991ac5582d54bee3208350209",
+          "gasUsed": "285656",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-2-anchor",
+        "stage": "LANDED",
+        "hash": "0x6f557966b8a6d47b322966418e4ba1748b8b872bfc9e97d3d344b055b89bfae3",
+        "gas": {
+          "estimatedGas": "85415",
+          "gasLimit": "106769",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582322"
+        },
+        "receipt": {
+          "hash": "0x6f557966b8a6d47b322966418e4ba1748b8b872bfc9e97d3d344b055b89bfae3",
+          "blockNumber": "10582324",
+          "blockHash": "0xaa3dee36b412a939b6b879464fc9eeb8c0414beb63a64231b8f132d3e5455ec7",
+          "gasUsed": "85415",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "close-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-blob",
+        "stage": "LANDED",
+        "hash": "0x6ae81e9e9b1a107e8f1a96c6f0c69f7c1b8787d51e3ee93c14422fe49f60585d",
+        "gas": {
+          "estimatedGas": "355420",
+          "gasLimit": "444275",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582444"
+        },
+        "receipt": {
+          "hash": "0x6ae81e9e9b1a107e8f1a96c6f0c69f7c1b8787d51e3ee93c14422fe49f60585d",
+          "blockNumber": "10582452",
+          "blockHash": "0x7fcc8b5b948cd2b37c0e48a882fce3a327a2668973763fdb2dc268a3dbfec699",
+          "gasUsed": "226094",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "close-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-anchor",
+        "stage": "LANDED",
+        "hash": "0xc32c8301d2003a4e8f0e690670b0acd4bfec775314767cd600555b7fdc03974f",
+        "gas": {
+          "estimatedGas": "259536",
+          "gasLimit": "324420",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582453"
+        },
+        "receipt": {
+          "hash": "0xc32c8301d2003a4e8f0e690670b0acd4bfec775314767cd600555b7fdc03974f",
+          "blockNumber": "10582456",
+          "blockHash": "0xee5f9a0cbd569dab9ce64ff98cbf75e6a1b816bc8f5d75b6b79ccb5e30a87eda",
+          "gasUsed": "259536",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-blob",
+        "stage": "LANDED",
+        "hash": "0x18b4124fb6f8bfe4b3dac7fdf063ae500f3defa52a4f53eed94d943caf6aa67b",
+        "gas": {
+          "estimatedGas": "436460",
+          "gasLimit": "545575",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582475"
+        },
+        "receipt": {
+          "hash": "0x18b4124fb6f8bfe4b3dac7fdf063ae500f3defa52a4f53eed94d943caf6aa67b",
+          "blockNumber": "10582477",
+          "blockHash": "0x71d1641f57d44f7b95db1dbb84b43cd8cb78cf289e6e9b46656f1088ced0ca3d",
+          "gasUsed": "274826",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-22-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-anchor",
+        "stage": "LANDED",
+        "hash": "0x5f95f721033b26ce420bc36b059286ca1470d8dfe263870a1d13bc04824f6a6e",
+        "gas": {
+          "estimatedGas": "50384",
+          "gasLimit": "62980",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582478"
+        },
+        "receipt": {
+          "hash": "0x5f95f721033b26ce420bc36b059286ca1470d8dfe263870a1d13bc04824f6a6e",
+          "blockNumber": "10582480",
+          "blockHash": "0xa5a0eb27c8d306ebf4200180b309e167d88fbd36d735db387cb433bce5d0291d",
+          "gasUsed": "50384",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "stage": "LANDED",
+        "hash": "0xc45e8765254bc6553a009fd7bde2c2eade9f0545ff16efb9df05e9ad78f1bbe2",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582495"
+        },
+        "receipt": {
+          "hash": "0xc45e8765254bc6553a009fd7bde2c2eade9f0545ff16efb9df05e9ad78f1bbe2",
+          "blockNumber": "10582498",
+          "blockHash": "0x29610b261da3678fac7d51ff73644969b0b08d5801b7fe6bd2c7352ecbd57aac",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "stage": "LANDED",
+        "hash": "0x73ae1e145a5536a29b0dd43e27183cbe3e6ea68c57858010382e18ce3e3877bd",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582499"
+        },
+        "receipt": {
+          "hash": "0x73ae1e145a5536a29b0dd43e27183cbe3e6ea68c57858010382e18ce3e3877bd",
+          "blockNumber": "10582501",
+          "blockHash": "0x4554e75011195b390b057e92bf27d62cff7e2d0a4a1df76bd30cf67b58118a3c",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-received-25ad63b8d9f24ecc320f36ae3f445e85b5cf12202395503b16897282e97707b8",
+        "stage": "LANDED",
+        "hash": "0x11eb52bcfdb52ea79a1dcdcd4da42d3992bd58f3af5d9aa84401b20dee726bf2",
+        "gas": {
+          "estimatedGas": "29740",
+          "gasLimit": "37175",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582599"
+        },
+        "receipt": {
+          "hash": "0x11eb52bcfdb52ea79a1dcdcd4da42d3992bd58f3af5d9aa84401b20dee726bf2",
+          "blockNumber": "10582602",
+          "blockHash": "0xee01033ef21534f35e38080f631e6a3b42fb4ef7d4e1f66d78e06e2ad0d63fdf",
+          "gasUsed": "28873",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-0-blob",
+        "stage": "LANDED",
+        "hash": "0xf8d0efd14ffdc552237c56dfa808354d5d798c58bf8f38ca618adc2a827f0af2",
+        "gas": {
+          "estimatedGas": "103740",
+          "gasLimit": "129675",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582605"
+        },
+        "receipt": {
+          "hash": "0xf8d0efd14ffdc552237c56dfa808354d5d798c58bf8f38ca618adc2a827f0af2",
+          "blockNumber": "10582607",
+          "blockHash": "0x2d5c27c1083385f84a768163efc5b06661642338d846596863fa44492b988740",
+          "gasUsed": "73678",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-0-signature",
+        "stage": "LANDED",
+        "hash": "0x6a329b9fa564431eaf40c51464df352cab843aaa6151b73762d3019836222801",
+        "gas": {
+          "estimatedGas": "453900",
+          "gasLimit": "567375",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582608"
+        },
+        "receipt": {
+          "hash": "0x6a329b9fa564431eaf40c51464df352cab843aaa6151b73762d3019836222801",
+          "blockNumber": "10582611",
+          "blockHash": "0xd3b8d422de5a4ad675a04946f056038adf3cb53d4b3cfcabbc0017088a54dbe2",
+          "gasUsed": "285488",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-0-anchor",
+        "stage": "LANDED",
+        "hash": "0x5c616dd2bcc994436618e0cede5ad22ae2913139447038d48176455c52833d3a",
+        "gas": {
+          "estimatedGas": "99319",
+          "gasLimit": "124149",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582612"
+        },
+        "receipt": {
+          "hash": "0x5c616dd2bcc994436618e0cede5ad22ae2913139447038d48176455c52833d3a",
+          "blockNumber": "10582614",
+          "blockHash": "0x3b3cc0d16bdf8b5182041f2aced8f0cd6dc46254fb668d543b01b01350ae80c8",
+          "gasUsed": "99319",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-5f58d990-a838-49cf-b7e3-2c53b30607c1",
+        "stage": "ANCHORED",
+        "hash": "0x6dfcea3421930abf77ca1ca70b71ae79cb32f05494f74748bbdaf2008e39cd07",
+        "gas": {
+          "estimatedGas": "1798972",
+          "gasLimit": "2248715",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582670"
+        },
+        "receipt": {
+          "hash": "0x6dfcea3421930abf77ca1ca70b71ae79cb32f05494f74748bbdaf2008e39cd07",
+          "blockNumber": "10582677",
+          "blockHash": "0xcc5d9e5c279265be4a33116a4a89d22ecd3d9a009b274b6deaeca71e6d6da4fe",
+          "gasUsed": "1776886",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "pay-5f58d990-a838-49cf-b7e3-2c53b30607c1-memo",
+        "stage": "LANDED",
+        "hash": "0x07345ef1e110278f0b9f3316e383bf60fee206c3af6b8c578d5318fc1e1275fd",
+        "gas": {
+          "estimatedGas": "173150",
+          "gasLimit": "216438",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582689"
+        },
+        "receipt": {
+          "hash": "0x07345ef1e110278f0b9f3316e383bf60fee206c3af6b8c578d5318fc1e1275fd",
+          "blockNumber": "10582691",
+          "blockHash": "0x96df8dcf8337188e7dafa43ecadc1ae2db29a372ffe6e1837a932662529908b8",
+          "gasUsed": "115368",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-pay-5f58d990-a838-49cf-b7e3-2c53b30607c1",
+        "stage": "LANDED",
+        "hash": "0x7770d6523057627cf6dd1f644a01469db99f3191698027dbaeda95dc08272a99",
+        "gas": {
+          "estimatedGas": "29770",
+          "gasLimit": "37213",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582732"
+        },
+        "receipt": {
+          "hash": "0x7770d6523057627cf6dd1f644a01469db99f3191698027dbaeda95dc08272a99",
+          "blockNumber": "10582735",
+          "blockHash": "0xd72687710329912c2670f57f7656a23367762d86b5b3b909bee17906935dd19c",
+          "gasUsed": "28885",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-1-blob",
+        "stage": "LANDED",
+        "hash": "0x11f812eb4bfc842ffb51973a2baaf4c627402520f990e679bf6fba9b05b0f08a",
+        "gas": {
+          "estimatedGas": "103770",
+          "gasLimit": "129713",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582739"
+        },
+        "receipt": {
+          "hash": "0x11f812eb4bfc842ffb51973a2baaf4c627402520f990e679bf6fba9b05b0f08a",
+          "blockNumber": "10582742",
+          "blockHash": "0xdb886a34f29b3421acdff65a9bb22f45c95dfa51d255fd93137527aeddb3d26f",
+          "gasUsed": "73690",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-1-signature",
+        "stage": "LANDED",
+        "hash": "0x255cf3e886fd75eff9e7a1f61b0b8ea98a2cee95c07de03300aae05801d4be19",
+        "gas": {
+          "estimatedGas": "453960",
+          "gasLimit": "567450",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582744"
+        },
+        "receipt": {
+          "hash": "0x255cf3e886fd75eff9e7a1f61b0b8ea98a2cee95c07de03300aae05801d4be19",
+          "blockNumber": "10582747",
+          "blockHash": "0x8995b6a623c6fbe4761e3cd80d4000d1dc300b9d87dd244dd64f2ee3cbfac038",
+          "gasUsed": "285512",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-1-anchor",
+        "stage": "LANDED",
+        "hash": "0x68eec0ba74f98123e820ee5a13e59a63c689c633001597dfb9c6e7eb8828eb2f",
+        "gas": {
+          "estimatedGas": "85415",
+          "gasLimit": "106769",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582750"
+        },
+        "receipt": {
+          "hash": "0x68eec0ba74f98123e820ee5a13e59a63c689c633001597dfb9c6e7eb8828eb2f",
+          "blockNumber": "10582752",
+          "blockHash": "0x5d175799f97f7316fd4630ca946cca234421af412168923847da837c0bbac8e6",
+          "gasUsed": "85415",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "close-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-blob",
+        "stage": "LANDED",
+        "hash": "0x89c274ffa8f914a029ea7559e2a3d4a55b26c40778f4b2e7fa33769a036224a9",
+        "gas": {
+          "estimatedGas": "358750",
+          "gasLimit": "448438",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582791"
+        },
+        "receipt": {
+          "hash": "0x89c274ffa8f914a029ea7559e2a3d4a55b26c40778f4b2e7fa33769a036224a9",
+          "blockNumber": "10582794",
+          "blockHash": "0x98a8cada73f34af51155644b2bb6780d0897011e3a43d42b797cd19b0c14da3f",
+          "gasUsed": "228215",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "close-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-anchor",
+        "stage": "LANDED",
+        "hash": "0x9500b25f9bb03496c3da43e87f7c1024ff6f269bedd3b948f44c9bd110446c20",
+        "gas": {
+          "estimatedGas": "259332",
+          "gasLimit": "324165",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582795"
+        },
+        "receipt": {
+          "hash": "0x9500b25f9bb03496c3da43e87f7c1024ff6f269bedd3b948f44c9bd110446c20",
+          "blockNumber": "10582798",
+          "blockHash": "0xde197e082c9f3ff26f3724adf7b9042d4a409c43a84447939ab0eb500dd5cdbf",
+          "gasUsed": "259332",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-blob",
+        "stage": "LANDED",
+        "hash": "0xa1b0521ae99375067c9e2ed0edcf46357f42b93af493ceedde2dbf6de90ce53b",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582813"
+        },
+        "receipt": {
+          "hash": "0xa1b0521ae99375067c9e2ed0edcf46357f42b93af493ceedde2dbf6de90ce53b",
+          "blockNumber": "10582816",
+          "blockHash": "0x376f96c5915707905b30f347b425827d2b31f44b1fb0a585c9822e6a0209d27f",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-qor1u5lhadlcp5wqf2h3yds2jclqc4q4dyacqugkqp-anchor",
+        "stage": "LANDED",
+        "hash": "0x3fe02d366661b7d1ce41921934fe145bac63ec6ffbf8ba26201acfd1602fce23",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582817"
+        },
+        "receipt": {
+          "hash": "0x3fe02d366661b7d1ce41921934fe145bac63ec6ffbf8ba26201acfd1602fce23",
+          "blockNumber": "10582819",
+          "blockHash": "0x8bbcefdc0bf16e98adf2085f327123917be415bb13c86c2f347d5891de3932c7",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-qor1j708k8j9fzev3ncnzkzz25u6wgxztcxhzewd9g-blob",
+        "stage": "LANDED",
+        "hash": "0x4db0fc6633c6f66a4d07701285b44b645d36878a64db0e61d26f606387af4b85",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582834"
+        },
+        "receipt": {
+          "hash": "0x4db0fc6633c6f66a4d07701285b44b645d36878a64db0e61d26f606387af4b85",
+          "blockNumber": "10582836",
+          "blockHash": "0x1e833ce5eb4ec0b00145c23eed4ba53baf059fcff2449a7393298c8f929b6387",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-23-qor1j708k8j9fzev3ncnzkzz25u6wgxztcxhzewd9g-anchor",
+        "stage": "LANDED",
+        "hash": "0xa5da982e0b2ae66109b3ec4b4f9ae3743661d10baa6efe181b47056fde17b6df",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582837"
+        },
+        "receipt": {
+          "hash": "0xa5da982e0b2ae66109b3ec4b4f9ae3743661d10baa6efe181b47056fde17b6df",
+          "blockNumber": "10582839",
+          "blockHash": "0xafcdffbaa06064d7e92ed2e99ac78308ed6edb62c9a93761ddb6beb220ca4b6f",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-24-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-blob",
+        "stage": "LANDED",
+        "hash": "0xe06c79aebcb2a3da838162660f32bb10eb3134bcc8bb8b4f34309bab811b65aa",
+        "gas": {
+          "estimatedGas": "436490",
+          "gasLimit": "545613",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582854"
+        },
+        "receipt": {
+          "hash": "0xe06c79aebcb2a3da838162660f32bb10eb3134bcc8bb8b4f34309bab811b65aa",
+          "blockNumber": "10582857",
+          "blockHash": "0x7731715aace3b6504e1b18894602e81a5e6f12289ef3448b3ab4902af64d29bf",
+          "gasUsed": "274838",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "grant-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-24-qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf-anchor",
+        "stage": "LANDED",
+        "hash": "0x000afd0e6813a9d81348f6352cfcdc6aca8292a2ca570b5f80412498664ba5ef",
+        "gas": {
+          "estimatedGas": "50396",
+          "gasLimit": "62995",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582858"
+        },
+        "receipt": {
+          "hash": "0x000afd0e6813a9d81348f6352cfcdc6aca8292a2ca570b5f80412498664ba5ef",
+          "blockNumber": "10582861",
+          "blockHash": "0x7122edc6332228395446cad0eb41097fccef7ae8554448d3aba8dd64ebd07309",
+          "gasUsed": "50396",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "invoice-received-11f4b923fd283dff92e2bd929f1c089c5a9151ef0012a4af3ee13e287b2a7e59",
+        "stage": "LANDED",
+        "hash": "0x4ee694f19518240a5460418a70f52b31e2a965fbef05bdb68a8a1b293ec00267",
+        "gas": {
+          "estimatedGas": "29740",
+          "gasLimit": "37175",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582929"
+        },
+        "receipt": {
+          "hash": "0x4ee694f19518240a5460418a70f52b31e2a965fbef05bdb68a8a1b293ec00267",
+          "blockNumber": "10582931",
+          "blockHash": "0x3a22a405ffa5ae8f3bf5e7d219534145f37db3e08c85f2a2a2582af0561d9739",
+          "gasUsed": "28873",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-24-0-blob",
+        "stage": "LANDED",
+        "hash": "0x3b534d0bd62fa60d86a827604f54c3d352df1d0ae68b897b81c3270db1628b14",
+        "gas": {
+          "estimatedGas": "103620",
+          "gasLimit": "129525",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582933"
+        },
+        "receipt": {
+          "hash": "0x3b534d0bd62fa60d86a827604f54c3d352df1d0ae68b897b81c3270db1628b14",
+          "blockNumber": "10582936",
+          "blockHash": "0x85b2eb47114e201ad1e437f7a24fc07e2b633214b4304a375d16dfc70191a0eb",
+          "gasUsed": "73630",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-24-0-signature",
+        "stage": "LANDED",
+        "hash": "0x840b5f93261ac1053e7373335f1e18774d473af07f2f11e5c65e3b81502f88c9",
+        "gas": {
+          "estimatedGas": "453780",
+          "gasLimit": "567225",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582937"
+        },
+        "receipt": {
+          "hash": "0x840b5f93261ac1053e7373335f1e18774d473af07f2f11e5c65e3b81502f88c9",
+          "blockNumber": "10582940",
+          "blockHash": "0x15c4e2999961fab6ed06ef245bffef9c662c6dc56f2d567ee2d122e0f7b77646",
+          "gasUsed": "285440",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "entry-2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291-2026-11-24-0-anchor",
+        "stage": "LANDED",
+        "hash": "0x5bf4a76adf58373eb53878699660f6e02a3b0926bac31bdf9d6f288d5bc9a897",
+        "gas": {
+          "estimatedGas": "99319",
+          "gasLimit": "124149",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10582943"
+        },
+        "receipt": {
+          "hash": "0x5bf4a76adf58373eb53878699660f6e02a3b0926bac31bdf9d6f288d5bc9a897",
+          "blockNumber": "10582946",
+          "blockHash": "0x7539f173a37185db00d9274020f98c687f4dbc183a531cd07e4f7a02ea9ecda8",
+          "gasUsed": "99319",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "cashout-dafcf9e2-5b3f-465a-b09d-4aeaf9fde033",
+        "stage": "LANDED",
+        "hash": "0x20da5ae5f73d133d785dc64d98493d18afa7574c54006dd3ad1162915c8f81b1",
+        "gas": {
+          "estimatedGas": "328295",
+          "gasLimit": "410369",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10584018"
+        },
+        "receipt": {
+          "hash": "0x20da5ae5f73d133d785dc64d98493d18afa7574c54006dd3ad1162915c8f81b1",
+          "blockNumber": "10584021",
+          "blockHash": "0x19eb7c4286af41dff75f3c3c74b9097ec078eb32ad4349d0f02712943bdf0655",
+          "gasUsed": "306215",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      },
+      {
+        "id": "cashout-548c47f2-0174-4688-bc3d-5e5c72cf2277",
+        "stage": "LANDED",
+        "hash": "0x78b35b71306438bce52f258bb145b088a2482640e882c8d9cbf3e10faba807df",
+        "gas": {
+          "estimatedGas": "328283",
+          "gasLimit": "410354",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10584033"
+        },
+        "receipt": {
+          "hash": "0x78b35b71306438bce52f258bb145b088a2482640e882c8d9cbf3e10faba807df",
+          "blockNumber": "10584036",
+          "blockHash": "0xd7e8f9767dac12fcd424e4fcada01aecde59c0d4745768be81db0edfe2e4865c",
+          "gasUsed": "306203",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        }
+      }
+    ],
+    "payments": [
+      {
+        "id": "received-0ee96c333ef4079428a782eb4874c71e430c59ae1b01208caeac850c75bc5f09",
+        "direction": "IN",
+        "stage": "ANCHORED",
+        "commitment": "0x0ee96c333ef4079428a782eb4874c71e430c59ae1b01208caeac850c75bc5f09"
+      },
+      {
+        "id": "pay-eace6428-4c5e-41a6-820a-e55ab6b783d1",
+        "direction": "OUT",
+        "stage": "ANCHORED",
+        "commitment": "0x2d702a9566b216a01975e6d135ba7e8bda4dda32f95a2fbba06a2c19b8d92f5c"
+      },
+      {
+        "id": "pay-d87aed58-7736-4dbb-ab3f-c2e7609e12b2",
+        "direction": "OUT",
+        "stage": "ANCHORED",
+        "commitment": "0x0805f2e41318ee905d0cd2de8c485906b1770344134f0ba1695fc33eec0a6b21"
+      },
+      {
+        "id": "received-2f60753135b09758b60d7bbb5874ab3e4e4640744daa30f9b90ef22e7a992539",
+        "direction": "IN",
+        "stage": "ANCHORED",
+        "commitment": "0x2f60753135b09758b60d7bbb5874ab3e4e4640744daa30f9b90ef22e7a992539"
+      },
+      {
+        "id": "received-2c21f0a07f76c90367c5e32db7b7f778cf94091063d7efbca043b34496b13988",
+        "direction": "IN",
+        "stage": "ANCHORED",
+        "commitment": "0x2c21f0a07f76c90367c5e32db7b7f778cf94091063d7efbca043b34496b13988"
+      },
+      {
+        "id": "pay-f1ff9e49-b9e2-4e46-898a-a4a5e5908e8f",
+        "direction": "OUT",
+        "stage": "ANCHORED",
+        "commitment": "0x20b66d22845e0959e646df5cc87bad33099a1a3bb80a47c6b4786c88d97f6f6e"
+      },
+      {
+        "id": "pay-3a5b7653-6b3f-4a3e-aa6f-48fc2ec2d827",
+        "direction": "OUT",
+        "stage": "ANCHORED",
+        "commitment": "0x0a40391ea47c1e4a08eaae4761193db3172c30ef9a7475c04437ba39ca608d73"
+      },
+      {
+        "id": "received-065625b46543554c8c793353fcb4246f6838eaddf0a3a686988e529b1f3da698",
+        "direction": "IN",
+        "stage": "ANCHORED",
+        "commitment": "0x065625b46543554c8c793353fcb4246f6838eaddf0a3a686988e529b1f3da698"
+      },
+      {
+        "id": "pay-0943afcc-ed18-4c09-8024-e0210d1042fb",
+        "direction": "OUT",
+        "stage": "ANCHORED",
+        "commitment": "0x2b520f5970013d868fcde1ad81701bcf7c7e191d8ac56be50b58ed63c04b6d88"
+      },
+      {
+        "id": "pay-192a536d-e711-4b8d-914d-f620e0f22c64",
+        "direction": "OUT",
+        "stage": "ANCHORED",
+        "commitment": "0x275efe5cb86115f18616f7d6b764be689ac9d7ae02dbab24eba133c5cdcc7ff2"
+      },
+      {
+        "id": "received-20395904532a7217af3991f444ebf74d0e4e13e7465550c8f2fe5124a3d56e0b",
+        "direction": "IN",
+        "stage": "ANCHORED",
+        "commitment": "0x20395904532a7217af3991f444ebf74d0e4e13e7465550c8f2fe5124a3d56e0b"
+      },
+      {
+        "id": "pay-2b834d0d-f324-47b0-b00c-6a1c50cf52aa",
+        "direction": "OUT",
+        "stage": "ANCHORED",
+        "commitment": "0x1c123533503a161fd80f88b5db3219b1d59ace165abb2549702a63b7b533c9ff"
+      },
+      {
+        "id": "received-13581ede1d9fd842bd52d3b4243a8ef4f51642eb14db81241c1a0fe92e873325",
+        "direction": "IN",
+        "stage": "ANCHORED",
+        "commitment": "0x13581ede1d9fd842bd52d3b4243a8ef4f51642eb14db81241c1a0fe92e873325"
+      },
+      {
+        "id": "received-1e51a83fd2993d6bb964aa4c19013633051ef6e5f8516f796daffa0ec17c5a50",
+        "direction": "IN",
+        "stage": "ANCHORED",
+        "commitment": "0x1e51a83fd2993d6bb964aa4c19013633051ef6e5f8516f796daffa0ec17c5a50"
+      },
+      {
+        "id": "pay-fbfc8d81-8b55-4cdf-b4ed-53948344efea",
+        "direction": "OUT",
+        "stage": "ANCHORED",
+        "commitment": "0x10023b2fe1eed06f0d8ca7214d10c6a697e408b98adbb71550a4329a514dbdf1"
+      },
+      {
+        "id": "pay-d366c919-da6f-4c51-ae9f-7ae78ad82063",
+        "direction": "OUT",
+        "stage": "ANCHORED",
+        "commitment": "0x2bb11cc1827ef4ff9c1addd34a02b2fd917506ab5f7748dc71a1009089569f79"
+      },
+      {
+        "id": "received-25ad63b8d9f24ecc320f36ae3f445e85b5cf12202395503b16897282e97707b8",
+        "direction": "IN",
+        "stage": "ANCHORED",
+        "commitment": "0x25ad63b8d9f24ecc320f36ae3f445e85b5cf12202395503b16897282e97707b8"
+      },
+      {
+        "id": "pay-5f58d990-a838-49cf-b7e3-2c53b30607c1",
+        "direction": "OUT",
+        "stage": "ANCHORED",
+        "commitment": "0x0a272f63740adee20df8a2d6ea4f5d17d99e9163b70b02fd8e39e1632213a56e"
+      },
+      {
+        "id": "received-11f4b923fd283dff92e2bd929f1c089c5a9151ef0012a4af3ee13e287b2a7e59",
+        "direction": "IN",
+        "stage": "ANCHORED",
+        "commitment": "0x11f4b923fd283dff92e2bd929f1c089c5a9151ef0012a4af3ee13e287b2a7e59"
+      }
+    ],
+    "books": [
+      {
+        "id": "0x6bcf6efec5d02aacbf9604de7b7b056b15f8b9714c411aadce50a8a6ad86ae51",
+        "mode": "Daily (demo-scale)",
+        "active": "2026-11-23",
+        "periods": [
+          {
+            "id": "2026-11-22",
+            "closed": true,
+            "count": 3
+          },
+          {
+            "id": "2026-11-23",
+            "closed": false,
+            "count": 1
+          }
+        ]
+      },
+      {
+        "id": "0xc677c8ccde1711acb4a229480f820a13f995f262b92a9f73e6bc03b7a29ad9f6",
+        "mode": "Daily (demo-scale)",
+        "active": "2026-11-22",
+        "periods": [
+          {
+            "id": "2026-11-22",
+            "closed": false,
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": "0x745c77ad45cf784d7a16e7ea12461f23ab9ea2d88a0f50bf6678262f76d6afc1",
+        "mode": "Daily (demo-scale)",
+        "active": "2026-11-24",
+        "periods": [
+          {
+            "id": "2026-11-22",
+            "closed": true,
+            "count": 3
+          },
+          {
+            "id": "2026-11-23",
+            "closed": true,
+            "count": 2
+          },
+          {
+            "id": "2026-11-24",
+            "closed": false,
+            "count": 1
+          }
+        ]
+      },
+      {
+        "id": "0x2c0643bc8509426830f0c685470be8640af69129f84497b650e7968b0f12c291",
+        "mode": "Daily (demo-scale)",
+        "active": "2026-11-24",
+        "periods": [
+          {
+            "id": "2026-11-22",
+            "closed": true,
+            "count": 3
+          },
+          {
+            "id": "2026-11-23",
+            "closed": true,
+            "count": 2
+          },
+          {
+            "id": "2026-11-24",
+            "closed": false,
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "scanBlock": "10583480"
+  }
+}

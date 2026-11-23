@@ -1,0 +1,22 @@
+{
+  "command": "pnpm evidence --m7b",
+  "at": "2026-11-23T00:27:36.439Z",
+  "status": "READY",
+  "block": "10583941",
+  "balances": [
+    {
+      "role": "client",
+      "address": "0x979E7B1e4548b2C8cf13158425539a720C25E0D7",
+      "publicQor": "11.349089663",
+      "minimumDemoGasQor": "3"
+    },
+    {
+      "role": "business",
+      "address": "0x61D3d2B524ef290C13ec8580Bf83D85b9AD332ab",
+      "publicQor": "20.803604476",
+      "minimumDemoGasQor": "6"
+    }
+  ],
+  "funding": "Existing public testnet balances; no additional funding transaction. The earlier reverted optional funding attempt remains separately recorded.",
+  "scope": "Setup readiness against demo gas allowances, not a guarantee about future fees or private holdings."
+}
