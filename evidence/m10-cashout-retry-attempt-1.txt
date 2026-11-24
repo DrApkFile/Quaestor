@@ -1,0 +1,32 @@
+
+> quaestor@ evidence /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/evidence.ts "--m10-cashout-retry"
+
+
+Running 1 test using 1 worker
+
+(node:383951) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/m10Cashout.spec.ts:7:1 › T-JOURNAL M10 cancelled cash-out resumes the same prepared request from History without broadcasting (1.2m)
+
+
+  1) e2e/m10Cashout.spec.ts:7:1 › T-JOURNAL M10 cancelled cash-out resumes the same prepared request from History without broadcasting 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "PASSED"
+    Received: "FAILED"
+
+      88 |   );
+      89 |   await context.close();
+    > 90 |   expect(status).toBe('PASSED');
+         |                  ^
+      91 | });
+      92 |
+        at /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web/e2e/m10Cashout.spec.ts:90:18
+
+    Error Context: test-results/m10Cashout-T-JOURNAL-M10-c-37b43-istory-without-broadcasting/error-context.md
+
+  1 failed
+    e2e/m10Cashout.spec.ts:7:1 › T-JOURNAL M10 cancelled cash-out resumes the same prepared request from History without broadcasting 
+ ELIFECYCLE  Command failed with exit code 1.

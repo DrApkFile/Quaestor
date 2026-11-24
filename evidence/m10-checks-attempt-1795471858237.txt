@@ -1,0 +1,62 @@
+Command: pnpm evidence --m10-checks
+Started: 2026-11-23T21:40:18.184Z
+
+$ pnpm gate
+
+> quaestor@ gate /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test
+
+
+> quaestor@ claims:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/claims.ts
+
+T-CLAIMS PASSED: every README section maps to PROVEN claims, existing evidence/code/tests and observed hashes.
+
+> quaestor@ format:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> prettier --check "**/*.{ts,tsx}"
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> quaestor@ typecheck /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+packages/core typecheck$ tsc --noEmit
+scripts typecheck$ tsc --noEmit
+tools/evm-window typecheck$ tsc --noEmit
+tools/evm-window typecheck: Done
+packages/core typecheck: Done
+scripts typecheck: Done
+packages/chain typecheck$ tsc --noEmit
+packages/chain typecheck: Done
+apps/web typecheck$ tsc --noEmit
+apps/web typecheck: Done
+
+> quaestor@ lint /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --workspace-concurrency=1 --if-present lint
+
+Scope: 6 of 7 workspace projects
+
+> @quaestor/core@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/packages/core
+> eslint src test
+
+
+> @quaestor/scripts@ lint /home/kingghidorah/Documents/projects/bounties/quaestor/scripts
+> eslint *.ts
+
+
+> @quaestor/evm-window@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/tools/evm-window
+> eslint scripts
+
+
+> @quaestor/chain@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/packages/chain
+> eslint src scripts test
+
+
+> @quaestor/web@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web
+> eslint server src test e2e vite.config.ts playwright.config.ts playwright.cover.config.ts playwright.m9.config.ts vitest.config.ts ../../api
+
+ ELIFECYCLE  Command failed.
+
+exit=null

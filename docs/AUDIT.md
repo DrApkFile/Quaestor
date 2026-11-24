@@ -8,7 +8,7 @@ The builder runs the audit at https://dashboard.qorechain.io. Select Blockchain:
 2. Triage every finding below. Fix accepted findings in separate behavioural commits, add relevant tests, and explain any finding not changed. No contract behaviour fixes are authorized by M10; bring such findings to the builder before changing deployed behaviour.
 3. Regenerate and independently compile inputs after fixes. Run gate, then stage 2 with identical dashboard settings. Retain both reports and map every original finding to its fix or explanation and regression test. Do not claim completion until stage 2 reports are reviewed.
 
-| ID | severity | title | our response (fixed in <commit> / explained) | test |
+| ID | severity | title | our response (fixed in `<commit>` / explained) | test |
 |---|---|---|---|---|
 
 No QCAI audit has been run by Codex. No findings or reports are implied by the empty table.

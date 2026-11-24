@@ -1,0 +1,42 @@
+Command: pnpm evidence --m10-checks
+Started: 2026-11-23T22:20:20.640Z
+
+$ pnpm gate
+
+> quaestor@ gate /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test
+
+
+> quaestor@ claims:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/claims.ts
+
+T-CLAIMS PASSED: every README section maps to PROVEN claims, existing evidence/code/tests and observed hashes.
+
+> quaestor@ format:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> prettier --check "**/*.{ts,tsx}"
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> quaestor@ typecheck /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+packages/core typecheck$ tsc --noEmit
+scripts typecheck$ tsc --noEmit
+tools/evm-window typecheck$ tsc --noEmit
+tools/evm-window typecheck: Done
+packages/core typecheck: Done
+scripts typecheck: Done
+packages/chain typecheck$ tsc --noEmit
+packages/chain typecheck: Done
+apps/web typecheck$ tsc --noEmit
+apps/web typecheck: test/requests.test.ts(17,9): error TS2741: Property 'path' is missing in type '{ read: () => { v: 1; notes: never[]; operations: { receipt: { status: "success" | "reverted"; hash: `0x${string}`; blockNumber: string; blockHash: `0x${string}`; gasUsed: string; effectiveGasPrice: string; } | null; ... 10 more ...; gas?: { ...; } | undefined; }[]; }; save: Mock<...>; exclusive: <T>(work: () => Pro...' but required in type 'Journal'.
+apps/web typecheck: Failed
+/home/kingghidorah/Documents/projects/bounties/quaestor/apps/web:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @quaestor/web@0.0.0 typecheck: `tsc --noEmit`
+Exit status 2
+ ELIFECYCLE  Command failed with exit code 2.
+ ELIFECYCLE  Command failed with exit code 2.
+
+exit=2

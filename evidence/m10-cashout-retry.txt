@@ -1,0 +1,12 @@
+
+> quaestor@ evidence /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/evidence.ts "--m10-cashout-retry"
+
+
+Running 1 test using 1 worker
+
+(node:384685) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/m10Cashout.spec.ts:7:1 › T-JOURNAL M10 cancelled cash-out resumes the same prepared request from History without broadcasting (58.5s)
+
+  1 passed (1.0m)

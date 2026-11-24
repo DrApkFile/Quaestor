@@ -1,0 +1,13 @@
+
+> quaestor@ evidence /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/evidence.ts "--m10-screens"
+
+
+Running 2 tests using 1 worker
+
+(node:363394) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/m10Readback.spec.ts:7:1 › T-NOPLAIN-WEB M10 measured setup fees and the 1.5 QOR private change restore without a transaction (1.8m)
+  ✓  2 e2e/m10Readback.spec.ts:105:1 › T-NOPLAIN-WEB M10 populated business notes and books remain private at both widths (1.3m)
+
+  2 passed (3.3m)

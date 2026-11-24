@@ -1,0 +1,5 @@
+
+> quaestor@ evidence /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/evidence.ts "--m10-secret-scan" "--merge-completed"
+
+M10 screenshot scan PASSED: 42 images; every current image hash checked.

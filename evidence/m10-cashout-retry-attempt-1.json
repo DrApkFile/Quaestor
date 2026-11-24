@@ -1,0 +1,23 @@
+{
+  "command": "pnpm evidence --m10-cashout-retry",
+  "origin": "http://127.0.0.1:4173",
+  "status": "FAILED",
+  "blockedBroadcasts": 0,
+  "confirmations": [
+    "This needs a transaction window: about 1 transactions, up to 0.202585 QOR including fees",
+    "This needs a transaction window: about 1 transactions, up to 0.202585 QOR including fees"
+  ],
+  "preparedOperationCount": 1,
+  "originalRequestReused": true,
+  "fits390": true,
+  "network": {
+    "requests": 129,
+    "responses": 128,
+    "leaks": 0,
+    "errors": [
+      "REQUEST_FAILED"
+    ],
+    "pendingInspections": 0
+  },
+  "axeViolations": []
+}

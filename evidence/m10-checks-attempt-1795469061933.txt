@@ -1,0 +1,2 @@
+Command: pnpm evidence --m10-checks
+Started: 2026-11-23T21:16:48.727Z

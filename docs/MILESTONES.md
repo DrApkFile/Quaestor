@@ -115,11 +115,11 @@ Builder brief: [docs/briefs/M9.md](briefs/M9.md). Prior milestones through M8 ar
 
 Builder brief: [docs/briefs/M10.md](briefs/M10.md). M9 approved by Claude per builder.
 - [x] Preserve the entire builder brief in its own commit.
-- [ ] Spendable positive-value wallet notes, totals, collapsed History with receipts/zero-value labels, cash-out only on spendable notes.
-- [ ] Automatic estimated transaction windows for every EVM action, one confirmation, advanced manual panel, existing signing/journal/unknown-outcome invariants retained.
-- [ ] Account/nav copy, 390px axe and T-NOPLAIN-WEB checks; before/after screenshots and secret scan.
-- [ ] Flatten Books v2 and BlobBoard, compile each alone with solc 0.8.24, commit/address/hash headers and audit process document with empty findings table.
-- [ ] Prepare `pnpm evidence --m10-fresh-signup`; do not start before builder faucet-ready signal after 09:40 Lagos on 24 Nov.
+- [x] Spendable positive-value wallet notes, totals, collapsed History with receipts/zero-value labels, cash-out only on spendable notes.
+- [x] Automatic estimated transaction windows for every EVM action, one confirmation, advanced manual panel, existing signing/journal/unknown-outcome invariants retained.
+- [x] Account/nav copy, 390px axe and T-NOPLAIN-WEB checks; before/after screenshots and secret scan.
+- [x] Flatten Books v2 and BlobBoard, compile each alone with solc 0.8.24, commit/address/hash headers and audit process document with empty findings table.
+- [x] Prepare `pnpm evidence --m10-fresh-signup`; do not start before builder faucet-ready signal after 09:40 Lagos on 24 Nov.
 - [ ] Run uninterrupted deployed empty-profile create/backup/manual faucet/activate/deposit 2/pay 0.5/supplier1 receive; stop on faucet refusal, no deployer funding.
 - [ ] Only after success, update C5/C11 and JUDGES with measured fresh-run time/cost; retain M9 resumed evidence.
-- [ ] Gate, separate behavioural commits, handoff, push and stop.
+- [x] Gate, separate behavioural commits, handoff, push and stop.
