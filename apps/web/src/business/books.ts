@@ -23,7 +23,7 @@ export async function anchorGrant(
   period: Book['periods'][number],
   auditor: string,
 ) {
-  await requireWindow(runtime, 2);
+  requireWindow(runtime, 2);
   const recipient = await resolveRecipient(auditor, await client.getBlockNumber({ cacheTime: 0 }));
   const id = `grant-${book.id.slice(2)}-${period.id}-${auditor}`;
   const prior = await runtime.storage.get(id);
@@ -53,7 +53,7 @@ export async function anchorGrant(
   );
 }
 export async function createBook(runtime: BusinessRuntime, name: string, mode: Book['mode']) {
-  await requireWindow(runtime, 4);
+  requireWindow(runtime, 4);
   const label = `${name.replace(/\s*\(demo\)$/, '')} (demo)`;
   let book = runtime.state.books.find((value) => !value.registered && value.name === label);
   if (!book) {

@@ -28,7 +28,7 @@ export async function closePeriod(runtime: BusinessRuntime, book: Book) {
   )
     throw new Error('UNANCHORED');
   if (runtime.state.payments.some((payment) => !payment.book)) throw new Error('UNBOOKED_PAYMENTS');
-  await requireWindow(runtime, 2);
+  requireWindow(runtime, 2);
   if (!period.close || !period.sealedClose) {
     const summary = closeRecord(
       book.id,

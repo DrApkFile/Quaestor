@@ -27,7 +27,7 @@ const memoConfig = z
   .parse(raw).memo;
 export async function pay(runtime: BusinessRuntime, address: string, asset: Hex, amount: bigint, id: string) {
   if (amount <= 0n || address === runtime.account.cosmos) throw new Error('INVALID_PAYMENT');
-  await requireWindow(runtime, 2);
+  requireWindow(runtime, 2);
   const recipients = await resolvePair(runtime.account.cosmos, address);
   const plan = runtime.state.plans.find((value) => value.id === id);
   if (plan && (plan.payee !== address || plan.asset !== asset || plan.amount !== amount.toString()))

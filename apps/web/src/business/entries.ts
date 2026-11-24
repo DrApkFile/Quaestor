@@ -21,7 +21,7 @@ export async function bookPayment(runtime: BusinessRuntime, book: Book, payment:
   const period = book.periods.find((value) => value.id === book.active);
   if (!period || period.closed) throw new Error('PERIOD_CLOSED');
   if (payment.book && payment.book !== book.id) throw new Error('PAYMENT_ALREADY_BOOKED');
-  await requireWindow(runtime, fields.invoice ? 4 : 3);
+  requireWindow(runtime, fields.invoice ? 4 : 3);
   let saved = period.entries.find((value) => value.entry.paymentCommitment === payment.note.commitment);
   if (!saved) {
     if (period.entries.some((value) => !value.anchored)) throw new Error('UNANCHORED');

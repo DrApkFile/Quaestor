@@ -63,7 +63,7 @@ export async function convert(runtime: BusinessRuntime, amount: bigint) {
 }
 export async function deposit(runtime: BusinessRuntime, asset: Hex, amount: bigint, id: string) {
   if (amount <= 0n) throw new Error('INVALID_AMOUNT');
-  await requireWindow(runtime, asset === zeroAddress ? 1 : 2, asset === zeroAddress ? amount : 0n);
+  requireWindow(runtime, asset === zeroAddress ? 1 : 2, asset === zeroAddress ? amount : 0n);
   if (asset !== zeroAddress)
     await runtime.call(
       `${id}-approve`,
@@ -73,6 +73,6 @@ export async function deposit(runtime: BusinessRuntime, asset: Hex, amount: bigi
   await runtime.requireResult(id, await (await runtime.pool()).shield(id, asset, amount));
 }
 export async function cashOut(runtime: BusinessRuntime, commitment: Hex, id: string) {
-  await requireWindow(runtime, 1);
+  requireWindow(runtime, 1);
   await runtime.requireResult(id, await (await runtime.pool()).unshield(id, commitment, runtime.account.evm as Hex));
 }
