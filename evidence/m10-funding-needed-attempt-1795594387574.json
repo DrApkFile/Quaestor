@@ -1,0 +1,7 @@
+{
+  "command": "pnpm evidence --m10-fresh-signup",
+  "address": "qor1xgr2a0vpq56hcw6puspf5pqf3axd5mxftk76gp",
+  "stage": "WAITING_FOR_BUILDER_FAUCET",
+  "timeoutSeconds": 1200,
+  "at": "2026-11-25T03:52:33.986Z"
+}

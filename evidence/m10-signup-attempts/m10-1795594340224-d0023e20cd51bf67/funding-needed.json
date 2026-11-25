@@ -1,0 +1,12 @@
+{
+  "command": "pnpm evidence --m10-fresh-signup",
+  "attemptId": "m10-1795594340224-d0023e20cd51bf67",
+  "sourceCommit": "921ea7e93f89ffd3ccc1f978943c0819b75d3826",
+  "address": "qor1xfkjs6nf57z2azdkx65ntq7ttj5mhxwp3kup02",
+  "stage": "WAITING_FOR_BUILDER_FAUCET",
+  "timeoutSeconds": 3600,
+  "reminderSeconds": 120,
+  "at": "2026-11-25T08:13:07.574Z",
+  "deadlineAt": "2026-11-25T09:13:07.574Z",
+  "refusalMarker": ".accounts/m10-browser/attempts/m10-1795594340224-d0023e20cd51bf67/faucet-refused"
+}
