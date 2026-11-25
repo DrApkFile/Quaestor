@@ -3,6 +3,7 @@ import type { onboardingStatus } from './onboarding.js';
 import { activationLabels, type ActivationStage } from './activation.js';
 import { OnboardingSteps } from './OnboardingSteps.js';
 import { ActivationDetails } from './ActivationDetails.js';
+import { errorMessages } from './messages.js';
 interface Props {
   account: UnifiedAccount;
   backup: boolean;
@@ -99,7 +100,10 @@ export function AccountSetup({
         </p>
       )}
       {error && (
-        <p role="alert" className="error">
+        <p
+          role={error === errorMessages.WINDOW_DECLINED ? 'status' : 'alert'}
+          className={error === errorMessages.WINDOW_DECLINED ? 'notice' : 'error'}
+        >
           {failedStage !== null && <strong>{activationLabels[failedStage]} failed. </strong>}
           {error}
         </p>

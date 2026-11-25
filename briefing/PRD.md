@@ -35,7 +35,7 @@ Every user (business, client, supplier, auditor) gets an **in-app QoreChain acco
 - **Grant:** the period key sealed to the auditor's registered key + a signed grant record anchored on chain.
 - **Entry verdicts (closed):** `MATCHED`, `UNBACKED`, `TAMPERED`, `UNKNOWN`.
 - **Period verdicts (closed):** `HOLDINGS_COVER_BOOKS`, `HOLDINGS_SHORT`, `UNKNOWN` (D5 holdings coverage, not complete reconciliation).
-- **UI error codes (closed):** `WINDOW_CLOSED`, `NO_PQ_KEY`, `PQ_POSSESSION_NOT_PROVEN`, `NO_KEM_KEY`, `CARD_INVALID`, `NOT_GRANTED`, `WRONG_CONTEXT`, `NOTE_SPENT`, `OUTCOME_UNKNOWN`, `NETWORK_UNAVAILABLE`, `CONSOLIDATION_UNSUPPORTED`.
+- **UI error codes (closed):** `WINDOW_DECLINED` (builder M10b: user cancelled before sending), `WINDOW_CLOSED`, `NO_PQ_KEY`, `PQ_POSSESSION_NOT_PROVEN`, `NO_KEM_KEY`, `CARD_INVALID`, `NOT_GRANTED`, `WRONG_CONTEXT`, `NOTE_SPENT`, `OUTCOME_UNKNOWN`, `NETWORK_UNAVAILABLE`, `CONSOLIDATION_UNSUPPORTED`.
 
 ## 6. Flows and wire formats
 **Pay (private send)**

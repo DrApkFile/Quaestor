@@ -148,7 +148,7 @@ export function AccountView({
           }),
         );
       } catch (error: unknown) {
-        setFailedStage(current);
+        setFailedStage(error instanceof Error && error.message === 'WINDOW_DECLINED' ? null : current);
         throw error;
       }
     });

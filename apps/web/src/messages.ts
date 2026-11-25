@@ -1,4 +1,5 @@
 export const errorMessages = {
+  WINDOW_DECLINED: 'Cancelled. Nothing was sent.',
   WINDOW_CLOSED: 'Your transaction window has expired or lacks budget. Retry the action to open a new window.',
   NO_PQ_KEY: 'The signing key is not registered. Activate your account, then retry.',
   PQ_POSSESSION_NOT_PROVEN: 'The signing key has not proved ownership. Retry activation with the original backup.',

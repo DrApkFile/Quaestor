@@ -1,4 +1,4 @@
-import { formatUnits } from 'viem';
+import { confirmWindow } from './confirmWindow.js';
 import { weiToUqorCeil } from '@qorechain/evm';
 import { checkWindow } from '@quaestor/chain/browser';
 import { browserChain, client } from './client.js';
@@ -47,12 +47,7 @@ export function automaticWindow(
         (window.window.allowedTargets.length > 0 &&
           !window.window.allowedTargets.some((target) => target.toLowerCase() === destination.toLowerCase()))
       ) {
-        if (
-          !globalThis.confirm(
-            `This needs a transaction window: about ${String(operations)} transactions, up to ${formatUnits(maxValue + 100000n, 6)} QOR including fees`,
-          )
-        )
-          throw new Error('WINDOW_CLOSED');
+        if (!(await confirmWindow(operations, maxValue))) throw new Error('WINDOW_DECLINED');
         await open(operations, maxValue);
       }
       const signed = await gateway.sign(prepared);

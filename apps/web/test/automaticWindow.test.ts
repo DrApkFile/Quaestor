@@ -1,7 +1,8 @@
 import { it, expect, vi, beforeEach } from 'vitest';
 import type { UnifiedAccount } from '@qorechain/sdk';
 import type { Gateway } from '@quaestor/chain/executor';
-const mocks = vi.hoisted(() => ({ estimate: vi.fn(), window: vi.fn(), events: [] as string[] }));
+const mocks = vi.hoisted(() => ({ estimate: vi.fn(), window: vi.fn(), confirm: vi.fn(), events: [] as string[] }));
+vi.mock('../src/confirmWindow.js', () => ({ confirmWindow: mocks.confirm }));
 vi.mock('../src/client.js', () => ({
   browserChain: {},
   client: {
@@ -47,25 +48,20 @@ beforeEach(() => {
   mocks.events.length = 0;
   mocks.estimate.mockResolvedValue(1000000n);
   mocks.window.mockResolvedValue({ kind: 'CLOSED' });
-  vi.stubGlobal(
-    'confirm',
-    vi.fn(() => true),
-  );
+  mocks.confirm.mockReset().mockResolvedValue(true);
 });
 it('A11 estimated margin plus remaining-operation caps opens before signing and reading the nonce', async () => {
   const { gateway, open, plan } = setup();
   await expect(gateway.sign(prepared)).resolves.toEqual(signed);
   expect(open).toHaveBeenCalledWith(2, 3062500n);
-  expect(globalThis.confirm).toHaveBeenCalledWith(
-    'This needs a transaction window: about 2 transactions, up to 3.1625 QOR including fees',
-  );
+  expect(mocks.confirm).toHaveBeenCalledWith(2, 3062500n);
   expect(mocks.events).toEqual(['open', 'sign-with-budget-check-and-nonce']);
   expect(plan).toEqual({ operations: 1, valueWei: 0n });
 });
 it('A11 declined window never signs or broadcasts', async () => {
-  vi.stubGlobal('confirm', () => false);
+  mocks.confirm.mockResolvedValue(false);
   const { gateway, open } = setup();
-  await expect(gateway.sign(prepared)).rejects.toThrow('WINDOW_CLOSED');
+  await expect(gateway.sign(prepared)).rejects.toThrow('WINDOW_DECLINED');
   expect(open).not.toHaveBeenCalled();
   expect(mocks.events).toEqual([]);
 });
@@ -77,11 +73,18 @@ it('A11 sufficient signed window continues without another confirmation', async 
   const { gateway, open } = setup();
   await gateway.sign(prepared);
   expect(open).not.toHaveBeenCalled();
-  expect(globalThis.confirm).not.toHaveBeenCalled();
+  expect(mocks.confirm).not.toHaveBeenCalled();
 });
 it('T-JOURNAL unknown window broadcast stops before signing', async () => {
   const { gateway, open } = setup();
   open.mockRejectedValueOnce(new Error('OUTCOME_UNKNOWN'));
   await expect(gateway.sign(prepared)).rejects.toThrow('OUTCOME_UNKNOWN');
+  expect(mocks.events).toEqual([]);
+});
+it('A11 real expiry or budget rejection retains WINDOW_CLOSED', async () => {
+  const { gateway, open } = setup();
+  open.mockRejectedValueOnce(new Error('WINDOW_CLOSED'));
+  await expect(gateway.sign(prepared)).rejects.toThrow('WINDOW_CLOSED');
+  expect(mocks.confirm).toHaveBeenCalledOnce();
   expect(mocks.events).toEqual([]);
 });

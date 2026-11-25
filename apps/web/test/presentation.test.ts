@@ -9,3 +9,7 @@ it('A12 unknown checks and unshared periods cannot acquire a green presentation'
   for (const code of Object.keys(errorMessages)) expect(errorMessage(new Error(code))).not.toContain(`${code} —`);
   expect(errorMessage(new Error('secret stack or JSON'))).not.toContain('secret stack');
 });
+it('A11 declining a window is calm cancellation while an expired window explains recovery', () => {
+  expect(errorMessage(new Error('WINDOW_DECLINED'))).toBe('Cancelled. Nothing was sent.');
+  expect(errorMessage(new Error('WINDOW_CLOSED'))).toContain('expired or lacks budget');
+});

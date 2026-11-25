@@ -11,6 +11,7 @@ import { errorMessage } from './messages.js';
 export type BusinessView = 'wallet' | 'pay' | 'receive' | 'books' | 'grants';
 export function Dashboard({ runtime, view }: { runtime: BusinessRuntime; view: BusinessView }) {
   const [busy, setBusy] = useState(false),
+    [cancelled, setCancelled] = useState(false),
     [error, setError] = useState(''),
     [, setRevision] = useState(0);
   const retry = useRef<(() => Promise<unknown>) | null>(null);
@@ -18,6 +19,7 @@ export function Dashboard({ runtime, view }: { runtime: BusinessRuntime; view: B
     retry.current = work;
     setBusy(true);
     setError('');
+    setCancelled(false);
     void work()
       .catch((value: unknown) => {
         const diagnostic =
@@ -26,6 +28,7 @@ export function Dashboard({ runtime, view }: { runtime: BusinessRuntime; view: B
             : 'REQUEST_FAILED';
         Object.assign(window, { quaestorLastError: diagnostic });
         setError(errorMessage(value));
+        setCancelled(value instanceof Error && value.message === 'WINDOW_DECLINED');
       })
       .finally(() => {
         setBusy(false);
@@ -59,16 +62,22 @@ export function Dashboard({ runtime, view }: { runtime: BusinessRuntime; view: B
         </p>
       )}
       {error && (
-        <p role="alert" className="error" data-testid="workflow-error">
+        <p
+          role={cancelled ? 'status' : 'alert'}
+          className={cancelled ? 'notice' : 'error'}
+          data-testid="workflow-error"
+        >
           {error}
-          <button
-            disabled={busy}
-            onClick={() => {
-              run(held.length ? () => runtime.resolve() : (retry.current ?? (() => runtime.resolve())));
-            }}
-          >
-            Retry
-          </button>
+          {!cancelled && (
+            <button
+              disabled={busy}
+              onClick={() => {
+                run(held.length ? () => runtime.resolve() : (retry.current ?? (() => runtime.resolve())));
+              }}
+            >
+              Retry
+            </button>
+          )}
         </p>
       )}
       {held.length > 0 && (
