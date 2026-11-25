@@ -1,4 +1,5 @@
-if (
+if (process.argv[2] === '--m10b-deploy') await import('./m10b-deploy.js');
+else if (
   process.argv[2]?.startsWith('--m10b-') &&
   process.argv[2] !== '--m10b-secret-scan' &&
   process.argv[2] !== '--m10b-checks'
