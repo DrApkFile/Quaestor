@@ -12,6 +12,7 @@ test('S-WINDOW-REOPEN demo business replaces a live small window and spends from
   mkdirSync('../../.accounts/m10b-window-profile', { recursive: true, mode: 0o700 });
   const context = await chromium.launchPersistentContext('../../.accounts/m10b-window-profile', { headless: true });
   const page = await context.newPage();
+  await page.routeWebSocket('ws://127.0.0.1:5173/**', (socket) => socket.close());
   const target = '../../evidence/m10b-window-reopen.json';
   if (existsSync(target)) copyFileSync(target, target.replace('.json', `-attempt-${String(Date.now())}.json`));
   try {
@@ -46,6 +47,28 @@ test('S-WINDOW-REOPEN demo business replaces a live small window and spends from
       ) + '\n',
     );
     expect(result).toMatchObject({ outcome: 'REPLACED', evm: { kind: 'LANDED' }, after: { remainingTxs: '2' } });
+  } catch (error: unknown) {
+    const progress: unknown = await page.evaluate(async (address) => {
+      const path = '/e2e/m10bWindowDriver.ts';
+      const driver = (await import(path)) as typeof import('./m10bWindowDriver.js');
+      return driver.spikeProgress(address);
+    }, business.address);
+    if (!existsSync(target))
+      writeFileSync(
+        target,
+        JSON.stringify(
+          {
+            command: 'pnpm evidence --m10b-window-reopen',
+            at: new Date().toISOString(),
+            status: 'FAILED',
+            reason: 'SPIKE_DID_NOT_COMPLETE',
+            progress,
+          },
+          null,
+          2,
+        ) + '\n',
+      );
+    throw error;
   } finally {
     await context.close();
   }

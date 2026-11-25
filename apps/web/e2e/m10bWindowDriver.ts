@@ -16,6 +16,14 @@ const stateSchema = z
   })
   .strict();
 const stepSchema = z.object({ receipt: receiptSchema, state: stateSchema }).strict();
+export async function spikeProgress(address: string) {
+  const key = `m10b-window-spike:${address}`;
+  return {
+    native: receiptSchema.nullable().parse((await dbGet('journal', `native:${address}`)) ?? null),
+    small: stepSchema.nullable().parse((await dbGet('journal', `${key}:small`)) ?? null),
+    large: stepSchema.nullable().parse((await dbGet('journal', `${key}:large`)) ?? null),
+  };
+}
 export async function windowSpike(backup: unknown, password: string, expectedAddress: string) {
   const payload = await decryptVault(backup, password);
   const account = await deriveUnifiedAccount(payload.mnemonic, 0);
