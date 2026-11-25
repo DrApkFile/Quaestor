@@ -2,7 +2,9 @@
 
 Scope: Books v2 at `0x9775c1d0dc814e41fb1b38d26fa17f60d24faf64` and BlobBoard at `0xe79e5a3108d8e856aa7ac770c97ac7af308c1d67` on Diana (qorechain-diana, EVM 9800).
 
-Gloam's contracts (contracts/vendor/gloam/, upstream commit d8db1e6, MIT) are out of this audit's scope. They are third-party code used unmodified, and scripts/vendor-gloam.sh checks them byte-for-byte against SHA256SUMS. Because we never modify them, findings there could not be fixed in this repository. Our responsibility is our deploy script and configuration (contracts/script/DeployQuaestorPool.s.sol: deposit limits, verifier wiring, endSetup), covered by the [deployment evidence](../evidence/m0-deploy.json). Groth16/BN254 is not post-quantum.
+Gloam's contracts (contracts/vendor/gloam/, upstream commit d8db1e6, MIT) are out of this audit's scope. They are third-party code used unmodified, and scripts/vendor-gloam.sh checks them byte-for-byte against SHA256SUMS. Because we never modify them, findings there could not be fixed in this repository. Our responsibility is our deploy script and configuration (contracts/script/DeployQuaestorPool.s.sol: deposit limits, verifier wiring, endSetup), covered by the deployment evidence. Groth16/BN254 is not post-quantum.
+
+Deployment evidence: [M0 deployed contracts and configuration receipts](../evidence/m0-deploy.json).
 
 The builder uses the free daily audit only at https://dashboard.qorechain.io. Actual setting: **Framework EVM/Solidity**, the same in both stages. The PDF renders Blockchain as `ethereum`. Compiler settings for our independent compilations: Solidity 0.8.24, Shanghai, optimizer enabled, 200 runs. Dashboard compiler controls beyond Framework were not recorded; do not assume they were exposed or selected.
 

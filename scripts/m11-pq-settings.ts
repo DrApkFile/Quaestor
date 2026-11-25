@@ -38,7 +38,7 @@ const sources = files.map(([id, file, start, end]) => {
     excerpt: source
       .split('\n')
       .slice(start - 1, end)
-      .map((line, index) => `${start + index}: ${line}`)
+      .map((line, index) => `${String(start + index)}: ${line}`)
       .join('\n'),
   };
 });

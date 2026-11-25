@@ -58,5 +58,5 @@ const result = {
 };
 writeFileSync(new URL('../evidence/m11-pq-gas.json', import.meta.url), JSON.stringify(result, null, 2) + '\n');
 console.log(
-  `M11 close ${hash}: gas=${result.receipt.gasUsed}, calldata=${calldataBytes} bytes, ML-DSA-87 signature=${signatureBytes} bytes; verifier cost not isolated.`,
+  `M11 close ${hash}: gas=${result.receipt.gasUsed}, calldata=${String(calldataBytes)} bytes, ML-DSA-87 signature=${String(signatureBytes)} bytes; verifier cost not isolated.`,
 );
