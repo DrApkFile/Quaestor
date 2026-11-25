@@ -40,7 +40,7 @@ export function Landing() {
         </a>
       </header>
       <main>
-        <aside className="notice demo-banner">Testnet (demo) · Fictional books, real testnet transactions.</aside>
+        <div className="notice demo-banner">Testnet (demo) · Fictional books, real testnet transactions.</div>
         <section className="hero">
           <div className="hero-copy">
             <p className="eyebrow">Private to the world. Open to your auditor.</p>
@@ -135,10 +135,10 @@ export function Landing() {
             {' · '}
             <a href={`${evidence}m8-kits.json`}>Registry and kit receipts</a>
           </p>
-          <aside className="notice">
+          <div className="notice">
             Testnet only. Not affiliated with Gloam. The pool’s Groth16/BN254 proofs are not post-quantum. Holdings
             checks do not detect hidden income or payments from unbooked funds.
-          </aside>
+          </div>
         </section>
       </main>
       <footer>

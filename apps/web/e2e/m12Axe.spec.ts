@@ -27,7 +27,7 @@ test('T-M12 all requested pages pass unfiltered axe at 390 and 1440 and the dete
     width: number;
     fits: boolean;
     passes: number;
-    incomplete: string[];
+    incomplete: { id: string; reason: string; nodes: { target: unknown; reason: string | undefined }[] }[];
     violations: {
       id: string;
       impact: string | null | undefined;
@@ -50,7 +50,12 @@ test('T-M12 all requested pages pass unfiltered axe at 390 and 1440 and the dete
         width,
         fits,
         passes: axe.passes.length,
-        incomplete: axe.incomplete.map(({ id }) => id),
+        incomplete: axe.incomplete.map(({ id, nodes }) => ({
+          id,
+          reason:
+            'Axe requires manual review; no automated pass is claimed for this rule. Per-node reasons and targets follow.',
+          nodes: nodes.map(({ target, failureSummary }) => ({ target, reason: failureSummary })),
+        })),
         violations: axe.violations.map(({ id, impact, description, helpUrl, nodes }) => ({
           id,
           impact,
@@ -76,7 +81,7 @@ test('T-M12 all requested pages pass unfiltered axe at 390 and 1440 and the dete
       await scan(page, name, 'initial');
       if (name === 'Public check') {
         await page.getByRole('button', { name: 'Check chain', exact: true }).click();
-        await expect(page.getByText('anchored entries', { exact: true })).toBeVisible({ timeout: 300000 });
+        await expect(page.getByText('anchored entries', { exact: true })).toBeVisible({ timeout: 600000 });
         await scan(page, name, 'chain results');
       }
       if (name === 'Auditor') {

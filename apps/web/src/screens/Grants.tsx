@@ -78,7 +78,7 @@ export function Grants({ runtime, run, busy }: ScreenProps) {
             }}
           />
         </label>
-        <aside className="notice">A grant can't be undone. The auditor can keep what they read.</aside>
+        <div className="notice">A grant can't be undone. The auditor can keep what they read.</div>
         <label className="confirm">
           <input
             type="checkbox"

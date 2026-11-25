@@ -55,7 +55,7 @@ export function AttackLab() {
         <a href="/app?view=public">Public check</a>
       </header>
       <main className="shell">
-        <aside className="notice demo-banner">Testnet (demo) · Public fictional attack cases.</aside>
+        <div className="notice demo-banner">Testnet (demo) · Public fictional attack cases.</div>
         <p className="eyebrow">Attack lab</p>
         <h1>See what the checks catch.</h1>
         <p>

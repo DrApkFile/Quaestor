@@ -94,10 +94,10 @@ export function PublicView() {
             </dd>
           </dl>
           {value.opening.legacy && (
-            <aside className="notice">
+            <div className="notice">
               Legacy M4 demo: opening balances should be treated as disclosed. Ciphertext hashes and owner-signed
               mappings are checked here; the plaintext link is checked only by an authorized auditor.
-            </aside>
+            </div>
           )}
           <div className="stats">
             <div className="panel">
