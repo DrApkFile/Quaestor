@@ -1,0 +1,84 @@
+Command: pnpm evidence --m10b-checks
+Commit: 5d5e97d315bc5fa83a8e3d634fe592421228f892
+Started: 2026-11-25T07:56:30.824Z
+
+$ pnpm gate
+
+> quaestor@ gate /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test
+
+
+> quaestor@ claims:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/claims.ts
+
+T-CLAIMS PASSED: every README section maps to PROVEN claims, existing evidence/code/tests and observed hashes.
+
+> quaestor@ format:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> prettier --check "**/*.{ts,tsx}"
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> quaestor@ typecheck /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+
+> @quaestor/core@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/packages/core
+> tsc --noEmit
+
+
+> @quaestor/scripts@ typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/scripts
+> tsc --noEmit
+
+
+> @quaestor/evm-window@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/tools/evm-window
+> tsc --noEmit
+
+
+> @quaestor/chain@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/packages/chain
+> tsc --noEmit
+
+
+> @quaestor/web@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web
+> tsc --noEmit
+
+
+> quaestor@ lint /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --workspace-concurrency=1 --if-present lint
+
+Scope: 6 of 7 workspace projects
+
+> @quaestor/core@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/packages/core
+> eslint src test
+
+
+> @quaestor/scripts@ lint /home/kingghidorah/Documents/projects/bounties/quaestor/scripts
+> eslint *.ts
+
+
+> @quaestor/evm-window@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/tools/evm-window
+> eslint scripts
+
+
+> @quaestor/chain@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/packages/chain
+> eslint src scripts test
+
+
+> @quaestor/web@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web
+> eslint server src test e2e vite.config.ts playwright.config.ts playwright.cover.config.ts playwright.m9.config.ts vitest.config.ts ../../api
+
+
+/home/kingghidorah/Documents/projects/bounties/quaestor/apps/web/test/m10Attempt.test.ts
+  20:18  error  Returning a void expression from an arrow function shorthand is forbidden. Please add braces to the arrow function  @typescript-eslint/no-confusing-void-expression
+
+✖ 1 problem (1 error, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+
+/home/kingghidorah/Documents/projects/bounties/quaestor/apps/web:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @quaestor/web@0.0.0 lint: `eslint server src test e2e vite.config.ts playwright.config.ts playwright.cover.config.ts playwright.m9.config.ts vitest.config.ts ../../api`
+Exit status 1
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.
+
+exit=1
