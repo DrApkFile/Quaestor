@@ -110,8 +110,8 @@ function AppContent() {
             Attack lab
           </a>
         </nav>
-        <p className="nav-hint">Swipe navigation to see all areas →</p>
         <main>
+          <p className="nav-hint">Swipe navigation to see all areas →</p>
           <aside className="notice demo-banner">
             Testnet (demo) · Faucet tokens have no real value. Demo books use daily periods.
           </aside>
