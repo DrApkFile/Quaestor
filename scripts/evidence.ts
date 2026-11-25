@@ -1,4 +1,12 @@
-if (process.argv[2] === '--m10-secret-scan') await import('./m10-secret-scan.js');
+if (
+  process.argv[2]?.startsWith('--m10b-') &&
+  process.argv[2] !== '--m10b-secret-scan' &&
+  process.argv[2] !== '--m10b-checks'
+)
+  await import('./m10b-browser.js');
+else if (['--m10-secret-scan', '--m10b-secret-scan'].includes(process.argv[2] ?? ''))
+  await import('./m10-secret-scan.js');
+else if (process.argv[2] === '--m10b-checks') await import('./m10-checks.js');
 else if (process.argv[2] === '--m10-checks') await import('./m10-checks.js');
 else if (process.argv[2] === '--m10-audit') await import('./m10-audit.js');
 else if (['--m10-screens', '--m10-fresh-signup', '--m10-cashout-retry'].includes(process.argv[2] ?? ''))
