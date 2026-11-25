@@ -3,6 +3,7 @@ import { readFileSync, writeFileSync, existsSync, copyFileSync } from 'node:fs';
 import { z } from 'zod';
 import { m9Privacy } from './m9Privacy.js';
 import { m10Screens } from './m10Screens.js';
+import { m10CancelWindow } from './m10WindowUI.js';
 const run = process.env.QUAESTOR_M10_RUN === 'm10b' ? 'm10b' : 'm10';
 const m9Screens: typeof m10Screens = (page, phase, view) => m10Screens(page, phase, view, run);
 import { m9Download, m9Navigate, m9SaveBackup } from './m9Driver.js';
@@ -21,6 +22,11 @@ test('T-NOPLAIN-WEB M10 measured setup fees and the 1.5 QOR private change resto
   const context = await browser.newContext(),
     monitor = m9Privacy(context, [session.password]);
   await monitor.start();
+  await context.route('**/*', async (route) => {
+    if (/eth_sendRawTransaction|eth_sendTransaction|broadcast_tx/.test(route.request().postData() ?? ''))
+      await route.abort();
+    else await route.fallback();
+  });
   let mutations = 0;
   context.on('request', (request) => {
     if (/eth_sendRawTransaction|eth_sendTransaction|broadcast_tx/.test(request.postData() ?? '')) mutations++;
@@ -55,32 +61,9 @@ test('T-NOPLAIN-WEB M10 measured setup fees and the 1.5 QOR private change resto
     await expect(page.getByLabel('Planned operations', { exact: true })).toHaveValue('');
     await expect(page.getByLabel('Planned native QOR value', { exact: true })).toHaveValue('');
     screens.push(...(await m9Screens(page, 'after', 'wallet-history-details')));
-    await page.getByRole('button', { name: 'Deposit privately', exact: true }).click();
-    const modal = page.getByRole('dialog', { name: 'Open a transaction window', exact: true });
-    await expect(modal).toBeVisible({ timeout: 180000 });
-    const cancel = modal.getByRole('button', { name: 'Cancel', exact: true });
-    const accept = modal.getByRole('button', { name: 'Open window and continue', exact: true });
-    await expect(cancel).toBeFocused();
-    await page.keyboard.press('Tab');
-    await expect(accept).toBeFocused();
-    await page.keyboard.press('Tab');
-    await expect(cancel).toBeFocused();
-    await page.keyboard.press('Shift+Tab');
-    await expect(accept).toBeFocused();
-    await page.keyboard.press('Shift+Tab');
-    await expect(cancel).toBeFocused();
-    windowConfirmation = await modal.locator('p').textContent();
-    expect(windowConfirmation).toMatch(
-      /^This needs a transaction window: about 1 transaction, up to [\d.]+ QOR including fees\.$/,
-    );
-    screens.push(...(await m9Screens(page, 'after', 'window-modal')));
-    await page.keyboard.press('Escape');
-    await expect(modal).toHaveCount(0);
-    await expect(page.locator('.workflow')).toHaveAttribute('aria-busy', 'false', { timeout: 30000 });
-    await expect(page.getByTestId('workflow-error')).toHaveText('Cancelled. Nothing was sent.');
-    await expect(page.getByTestId('workflow-error')).toHaveAttribute('role', 'status');
-    await expect(page.getByTestId('workflow-error').getByRole('button')).toHaveCount(0);
-    screens.push(...(await m9Screens(page, 'after', 'window-cancelled')));
+    const cancelled = await m10CancelWindow(page, run);
+    windowConfirmation = cancelled.confirmation;
+    screens.push(...cancelled.screens);
     await m9SaveBackup(page, `../../.accounts/${run}-browser/readback-backup.json`, session.password);
   }
   await page.waitForLoadState('networkidle');
@@ -132,6 +115,11 @@ test('T-NOPLAIN-WEB M10 populated business notes and books remain private at bot
   const context = await browser.newContext(),
     monitor = m9Privacy(context, [fixture.password]);
   await monitor.start();
+  await context.route('**/*', async (route) => {
+    if (/eth_sendRawTransaction|eth_sendTransaction|broadcast_tx/.test(route.request().postData() ?? ''))
+      await route.abort();
+    else await route.fallback();
+  });
   let mutations = 0;
   context.on('request', (request) => {
     if (/eth_sendRawTransaction|eth_sendTransaction|broadcast_tx/.test(request.postData() ?? '')) mutations++;
