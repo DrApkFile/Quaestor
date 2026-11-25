@@ -57,10 +57,6 @@ export function Wallet(props: ScreenProps) {
           <strong>{publicBalances ? formatUnits(BigInt(publicBalances.token), 6) : '…'} fUSD</strong>
         </article>
       </div>
-      <p className="muted">
-        Pinned balance block: {publicBalances?.block ?? '…'}. Bank fUSD: {formatUnits(BigInt(bankFusd), 6)} · bank QOR:{' '}
-        {formatUnits(BigInt(publicBalances?.bank.find((coin) => coin.denom === 'uqor')?.amount ?? '0'), 6)}.
-      </p>
       {error && (
         <p className="error" role="alert">
           {error}
@@ -76,7 +72,12 @@ export function Wallet(props: ScreenProps) {
           </button>
         </p>
       )}
-      <Prepare {...props} />
+      <Prepare {...props}>
+        <p className="muted">
+          Pinned balance block: {publicBalances?.block ?? '…'}. Bank fUSD: {formatUnits(BigInt(bankFusd), 6)} · bank
+          QOR: {formatUnits(BigInt(publicBalances?.bank.find((coin) => coin.denom === 'uqor')?.amount ?? '0'), 6)}.
+        </p>
+      </Prepare>
       <div className="panel">
         <h2>Deposit into the private pool</h2>
         <label>

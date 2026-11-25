@@ -24,7 +24,7 @@ export async function browserProof(
   const result = await groth16.fullProve(input, wasm, zkey, undefined, undefined, { singleThread: true });
   if (!(await groth16.verify(vkey, result.publicSignals, result.proof, undefined, { singleThread: true })))
     throw new Error('BAD_PROOF');
-  progress(`${name} proved`);
+  progress('Private proof ready.');
   return result;
 }
 export const browserProver =

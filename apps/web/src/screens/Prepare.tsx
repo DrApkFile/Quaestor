@@ -4,9 +4,10 @@ import { checkWindow } from '@quaestor/chain/browser';
 import { browserChain } from '../business/runtime.js';
 import { prepareWindow } from '../business/windows.js';
 import type { ScreenProps } from './types.js';
-export function Prepare({ runtime, run, busy }: ScreenProps) {
-  const [operations, setOperations] = useState('32'),
-    [value, setValue] = useState('5');
+import type { ReactNode } from 'react';
+export function Prepare({ runtime, run, busy, children }: ScreenProps & { children?: ReactNode }) {
+  const [operations, setOperations] = useState(''),
+    [value, setValue] = useState('');
   const [window, setWindow] = useState<Awaited<ReturnType<typeof checkWindow>> | null>(null);
   useEffect(() => {
     void checkWindow(browserChain, runtime.account.cosmos)
@@ -18,6 +19,7 @@ export function Prepare({ runtime, run, busy }: ScreenProps) {
   return (
     <details className="panel">
       <summary>Details</summary>
+      {children}
       <details>
         <summary>Advanced: transaction window</summary>
         <div className="row-title">
@@ -53,7 +55,7 @@ export function Prepare({ runtime, run, busy }: ScreenProps) {
         </div>
         <div className="actions">
           <button
-            disabled={busy}
+            disabled={busy || !operations || !value}
             onClick={() => {
               run(async () => {
                 setWindow(await prepareWindow(runtime, Number(operations), parseEther(value)));

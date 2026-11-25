@@ -1,12 +1,16 @@
 import { formatUnits, zeroAddress } from 'viem';
+import { useState } from 'react';
 import { Status } from '../Status.js';
 import { Hash } from '../Hash.js';
 import { cashOut } from '../business/wallet.js';
 import type { ScreenProps } from './types.js';
 export function WalletNotes({ runtime, run, busy, refresh }: ScreenProps & { refresh: () => Promise<void> }) {
+  const [showAll, setShowAll] = useState(false);
   const journal = runtime.journal.read();
   const spendable = journal.notes.filter((note) => note.state === 'OWNED' && BigInt(note.amountWei) > 0n);
-  const history = journal.notes.filter((note) => !spendable.some((owned) => owned.commitment === note.commitment));
+  const history = journal.notes
+    .filter((note) => !spendable.some((owned) => owned.commitment === note.commitment))
+    .reverse();
   const table = (notes: typeof journal.notes, active: boolean) => (
     <div className="table-wrap">
       <table>
@@ -28,7 +32,11 @@ export function WalletNotes({ runtime, run, busy, refresh }: ScreenProps & { ref
                 {BigInt(note.amountWei) === 0n && ' · zero-value change'}
               </td>
               <td data-label="State">
-                <Status code={note.state} />
+                {BigInt(note.amountWei) === 0n ? (
+                  <span className="badge neutral">Zero-value change, nothing to spend</span>
+                ) : (
+                  <Status code={note.state} />
+                )}
               </td>
               <td data-label={active ? 'Own-address cash-out' : 'Receipts'}>
                 {active ? (
@@ -118,7 +126,12 @@ export function WalletNotes({ runtime, run, busy, refresh }: ScreenProps & { ref
           Spent notes, zero-value change and notes awaiting confirmation. Held notes remain unavailable until their
           outcome is resolved.
         </p>
-        {history.length ? table(history, false) : <p>No note history yet.</p>}
+        {history.length ? table(showAll ? history : history.slice(0, 10), false) : <p>No note history yet.</p>}
+        {!showAll && history.length > 10 && (
+          <button className="secondary" onClick={() => setShowAll(true)}>
+            Show all ({history.length})
+          </button>
+        )}
       </details>
       <p className="muted">
         Cash-out destination: your own EVM address {runtime.account.evm}. Deposits and cash-outs are public.
