@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 const root = new URL('../', import.meta.url);
 const origin = 'https://use-quaestor.vercel.app';
 const commit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
-const entry = (html: string) => html.match(/<script[^>]+src="([^\"]+\.js)"/)?.[1];
+const entry = (html: string) => html.match(/<script[^>]+src="([^"]+\.js)"/)?.[1];
 const localEntry = entry(readFileSync(new URL('apps/web/dist/index.html', root), 'utf8'));
 if (!localEntry) throw new Error('LOCAL_BUILD_ENTRY_REQUIRED');
 const marker = 'Open window and continue';
