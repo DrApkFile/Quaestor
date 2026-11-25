@@ -19,3 +19,5 @@ The following information is public or outside that protection:
 Compromised devices, leaked mnemonics, malicious key backups and an auditor sharing credentials break the corresponding access boundary. Public signatures and anchors do not prove a counterparty's real-world identity. Missing or unverifiable data produces UNKNOWN, never a green result.
 
 M4 legacy disclosure: the opening records were anchored by plaintext SHA3. Their public book ID, near-registration timestamp and small demo balances make dictionary attacks practical. Treat the M4 opening balances as disclosed (demo). Close records include proof bytes and are not similarly guessable. New records anchor ciphertext SHA3. Historical M4 opening/close compatibility mappings expose the link between the old anchor and ciphertext, signed by the owner; they do not recover confidentiality already lost to plaintext hashing. The auditor verifies that link again after decryption.
+
+Exact modes, contexts, dependency versions and measured close gas: [PQ parameters](docs/PQ_PARAMETERS.md).

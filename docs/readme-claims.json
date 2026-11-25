@@ -26,7 +26,7 @@
     },
     {
       "heading": "Try it in three steps",
-      "textSha256": "e4f2b1e85d3abcd5e9681931b0aac546a5374a682e0c3ceded2b8f9a5536c89d",
+      "textSha256": "88ae26e671ab27c44a014047c80acc92447f5062dc92e95f54aaa7241cb97c88",
       "claims": [
         "C3",
         "C4",
@@ -48,7 +48,9 @@
         "evidence/m9-deploy.json",
         "evidence/m9-judge-after.json",
         "evidence/m9-fresh-signup.json",
-        "evidence/m9-activation-cost.json"
+        "evidence/m9-activation-cost.json",
+        "evidence/m10-signup-attempts/m10-1795594340224-d0023e20cd51bf67/report.json",
+        "evidence/m10-signup-cost.json"
       ],
       "code": [
         "apps/web/e2e/m7.spec.ts",
@@ -153,23 +155,35 @@
     },
     {
       "heading": "QoreChain features used",
-      "textSha256": "9ef3500c35a2c8d298ea207f7a1ad27826eec58c98673e4ba032793cdfb72cd1",
+      "textSha256": "d895170adb4971b50da6835932c41675a2a88cb8b8791d3f0b57b53022101362",
       "claims": [
-        "C7"
+        "C7",
+        "M0",
+        "M5",
+        "C12"
       ],
       "evidence": [
         "evidence/m8-kits.json",
         "evidence/m3-precompiles.json",
         "evidence/m2-ticket.json",
         "evidence/m3-books.json",
-        "evidence/m2b-ticket-anonymous.json"
+        "evidence/m2b-ticket-anonymous.json",
+        "evidence/m0-deploy.json",
+        "evidence/m5-blobs.json",
+        "evidence/m10-signup-cost.json",
+        "evidence/m11-pq-gas.json",
+        "evidence/m11-pq-settings.json",
+        "spikes/s03-output.txt"
       ],
       "code": [
         "contracts/src/Books.sol",
         "packages/chain/src/window.ts",
         "tools/evm-window/package.json",
         "tools/evm-window/scripts/window.ts",
-        "packages/core/src/signing.ts"
+        "packages/core/src/signing.ts",
+        "contracts/src/BlobBoard.sol",
+        "docs/PQ_PARAMETERS.md",
+        "scripts/m11-pq-gas.ts"
       ],
       "tests": [
         {
@@ -238,7 +252,7 @@
     },
     {
       "heading": "What we don't claim",
-      "textSha256": "9af628329dd844b9113baa299f269838033cb662713aad751d0339f57e2b20ab",
+      "textSha256": "ae1bcfba5ca209148eaea9febb1ad55f27a832921bdbb7cb2f712271622f1348",
       "claims": [
         "C1",
         "C5",
@@ -246,7 +260,8 @@
         "C8",
         "C9",
         "M1b",
-        "C11"
+        "C11",
+        "C13"
       ],
       "evidence": [
         "evidence/m2b-ticket-anonymous.json",
@@ -258,14 +273,18 @@
         "evidence/m9-deploy.json",
         "evidence/m9-judge-after.json",
         "evidence/m9-fresh-signup.json",
-        "evidence/m9-activation-cost.json"
+        "evidence/m9-activation-cost.json",
+        "evidence/m10-signup-attempts/m10-1795594340224-d0023e20cd51bf67/report.json",
+        "docs/AUDIT.md",
+        "evidence/m11-bytecode-equivalence.json"
       ],
       "code": [
         "THREAT_MODEL.md",
         "DECISIONS.md",
         "packages/core/src/holdingsSelection.ts",
         "apps/web/src/business/close.ts",
-        "apps/web/e2e/m9Signup.spec.ts"
+        "apps/web/e2e/m9Signup.spec.ts",
+        "contracts/src/Books.sol"
       ],
       "tests": [
         {
@@ -279,6 +298,10 @@
         {
           "path": "apps/web/e2e/m9Signup.spec.ts",
           "name": "T-NOPLAIN-WEB M9 fresh signup activates deposits pays and receives through the live UI"
+        },
+        {
+          "path": "contracts/test/Books.t.sol",
+          "name": "testQ2MaximumIndexPanicsAndRollsBack"
         }
       ]
     },

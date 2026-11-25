@@ -11,10 +11,11 @@
     "typecheck": "pnpm -r --if-present typecheck",
     "lint": "pnpm -r --workspace-concurrency=1 --if-present lint",
     "test": "pnpm -r --if-present test",
-    "gate": "pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test",
+    "gate": "pnpm bytecode:check && pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test",
     "evidence": "pnpm -C packages/chain exec tsx ../../scripts/evidence.ts",
     "format:check": "prettier --check \"**/*.{ts,tsx}\"",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "bytecode:check": "pnpm -C packages/chain exec tsx ../../scripts/m11-bytecode.ts --check",
     "claims:check": "pnpm -C packages/chain exec tsx ../../scripts/claims.ts"
   },
   "devDependencies": {

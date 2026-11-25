@@ -1,0 +1,21 @@
+{
+  "command": "pnpm evidence --m11-pq-gas",
+  "at": "2026-11-25T19:10:03.081Z",
+  "commit": "237227d8e30db470d2b9bc92d395c57cecd1c96f",
+  "sourceEvidence": "evidence/m4-verdicts.json:transactions.closeTx",
+  "chainId": "0x2648",
+  "receipt": {
+    "transactionHash": "0xcbc5dc60c0c858acde34d541e3d9f91d6388ddb8ae5df9cbef0673166d6391bd",
+    "blockNumber": "10494795",
+    "blockHash": "0x26577b4e39b0f0a5efb71a3f0a2cac6ae46aa4b75efecd623ecc1204620089f7",
+    "status": "0x1",
+    "gasUsed": "259404",
+    "to": "0x9775c1d0dc814e41fb1b38d26fa17f60d24faf64"
+  },
+  "calldataBytes": 4868,
+  "signatureBytes": 4627,
+  "signaturePaddedBytes": 4640,
+  "abiOverheadBytes": 228,
+  "pqcVerifyGas": null,
+  "isolation": "Not isolated. This is total closePeriod receipt gas, including calldata, key status, storage, event and verification; no Ethereum comparison measured."
+}

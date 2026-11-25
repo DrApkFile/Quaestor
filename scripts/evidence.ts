@@ -1,4 +1,9 @@
-if (process.argv[2] === '--m10b-deploy') await import('./m10b-deploy.js');
+if (process.argv[2] === '--m11-window') await import('./m11-window.js');
+else if (process.argv[2] === '--m11-checks') await import('./m11-checks.js');
+else if (process.argv[2] === '--m11-pq-settings') await import('./m11-pq-settings.js');
+else if (process.argv[2] === '--m11-bytecode') await import('./m11-bytecode.js');
+else if (process.argv[2] === '--m11-pq-gas') await import('./m11-pq-gas.js');
+else if (process.argv[2] === '--m10b-deploy') await import('./m10b-deploy.js');
 else if (
   process.argv[2]?.startsWith('--m10b-') &&
   process.argv[2] !== '--m10b-secret-scan' &&
