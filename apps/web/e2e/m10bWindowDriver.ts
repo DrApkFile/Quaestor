@@ -95,7 +95,7 @@ export async function windowSpike(backup: unknown, password: string, expectedAdd
       requestKey: 'm10b-self-transfer-002-qor',
       build: () =>
         Promise.resolve({
-          data: '0x',
+          data: '0x00',
           valueWei: '20000000000000000',
           outputs: [],
           root: null,
