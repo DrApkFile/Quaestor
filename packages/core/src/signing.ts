@@ -24,6 +24,7 @@ export function signHash(hash: Hex, keys: SigningKeys): Signature {
       data: toBytes(hash),
       classicalKey: keys.classicalKey,
       pqKey: keys.pqKey,
+      hedged: true,
     }),
   );
 }

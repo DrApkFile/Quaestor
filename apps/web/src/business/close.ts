@@ -1,5 +1,5 @@
 import { buildFundsWitness } from '@gloamtrade/sdk';
-import { pqcSign } from '@qorechain/sdk';
+import { signCloseDigest } from './closeSignature.js';
 import {
   selectHoldingsNotes,
   closeRecord,
@@ -12,7 +12,7 @@ import {
   type HoldingsClose,
 } from '@quaestor/core';
 import { createPoolTreeSync, requireNotePath, hexSchema } from '@quaestor/chain/browser';
-import { encodeFunctionData, hexToBytes, toHex, type Hex } from 'viem';
+import { encodeFunctionData, type Hex } from 'viem';
 import { BusinessRuntime, client, browserChain, poolAbi, booksAbi, deployment } from './runtime.js';
 import { epoch } from './books.js';
 import { post, blobBytes } from './blobs.js';
@@ -119,20 +119,16 @@ export async function closePeriod(runtime: BusinessRuntime, book: Book) {
   const cachedSignature = await runtime.storage.get(signatureKey);
   const signature =
     cachedSignature === undefined
-      ? toHex(
-          pqcSign(
-            runtime.account.pqc.secretKey,
-            hexToBytes(
-              closeDigestV2(
-                book.id,
-                period.id,
-                close.entryCount,
-                close.lastEntrySha3,
-                sealed.sha3,
-                9800n,
-                deployment.books.address,
-              ),
-            ),
+      ? signCloseDigest(
+          runtime.account.pqc.secretKey,
+          closeDigestV2(
+            book.id,
+            period.id,
+            close.entryCount,
+            close.lastEntrySha3,
+            sealed.sha3,
+            9800n,
+            deployment.books.address,
           ),
         )
       : hexSchema.parse(cachedSignature);
