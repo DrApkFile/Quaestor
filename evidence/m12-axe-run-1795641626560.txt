@@ -1,0 +1,57 @@
+
+Running 1 test using 1 worker
+
+(node:508869) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M12 axe Landing initial 390: 0 violations, fits=true
+M12 axe Landing initial 1440: 0 violations, fits=true
+M12 axe Account initial 390: 0 violations, fits=true
+M12 axe Account initial 1440: 0 violations, fits=true
+M12 axe Public check initial 390: 0 violations, fits=true
+M12 axe Public check initial 1440: 0 violations, fits=true
+M12 axe Public check chain results 390: 0 violations, fits=true
+M12 axe Public check chain results 1440: 0 violations, fits=true
+M12 axe Auditor initial 390: 0 violations, fits=true
+M12 axe Auditor initial 1440: 0 violations, fits=true
+M12 axe Auditor verified deterministic judge records 390: 1 violations, fits=true
+M12 axe Auditor verified deterministic judge records 1440: 1 violations, fits=true
+M12 axe Attack lab initial 390: 0 violations, fits=true
+M12 axe Attack lab initial 1440: 0 violations, fits=true
+M12 axe Attack lab chain results 390: 0 violations, fits=true
+M12 axe Attack lab chain results 1440: 0 violations, fits=true
+M12 axe Account unlocked 390: 0 violations, fits=true
+M12 axe Account unlocked 1440: 0 violations, fits=true
+M12 axe Wallet unlocked 390: 0 violations, fits=true
+M12 axe Wallet unlocked 1440: 0 violations, fits=true
+M12 axe Pay unlocked 390: 0 violations, fits=true
+M12 axe Pay unlocked 1440: 0 violations, fits=true
+M12 axe Books unlocked 390: 1 violations, fits=true
+M12 axe Books unlocked 1440: 1 violations, fits=true
+M12 axe Grants unlocked 390: 0 violations, fits=true
+M12 axe Grants unlocked 1440: 0 violations, fits=true
+  ✘  1 e2e/m12Axe.spec.ts:8:1 › T-M12 all requested pages pass unfiltered axe at 390 and 1440 and the deterministic judge book still verifies (18.9m)
+
+
+  1) e2e/m12Axe.spec.ts:8:1 › T-M12 all requested pages pass unfiltered axe at 390 and 1440 and the deterministic judge book still verifies 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      159 |   );
+      160 |   await context.close();
+    > 161 |   expect(passed).toBe(true);
+          |                  ^
+      162 | });
+      163 |
+        at /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web/e2e/m12Axe.spec.ts:161:18
+
+    Error Context: test-results/m12Axe-T-M12-all-requested-725e3-c-judge-book-still-verifies/error-context.md
+
+  Slow test file: e2e/m12Axe.spec.ts (18.9m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  1 failed
+    e2e/m12Axe.spec.ts:8:1 › T-M12 all requested pages pass unfiltered axe at 390 and 1440 and the deterministic judge book still verifies 
+
+exit=1

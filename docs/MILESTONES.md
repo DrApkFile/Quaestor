@@ -153,3 +153,17 @@ Builder brief: [docs/briefs/M11.md](briefs/M11.md). No contract behavior changes
 - [x] Inspect resolved crypto dependencies, record modes/randomness/contexts/final-standard implementation selection, close calldata and measured whole-transaction gas with scoped claims.
 - [x] Clear stale proof progress on cancellation; verify at 390px without broadcasts.
 - [x] Full gate including claims and production build pass on `6b19949`; separate commits and M11 handoff prepared. Final delivery is the handoff commit push after a second pull, then stop.
+
+## M12 — Hedged application signatures and complete axe rules
+
+Builder brief: [docs/briefs/M12.md](briefs/M12.md). M11 approved by Claude, as reported by the builder. No contract source changes, deployments, vendor changes or secrets.
+
+- [x] Preserve the entire builder message in a separate brief commit.
+- [x] Hedge our QoreSign records and Books close signatures with the existing digest, key, empty context and wire format; leave library-internal signatures unchanged.
+- [x] Verify repeated hedged signatures differ and both verify; retain deterministic record and judge-book verification.
+- [x] Prove hedged close acceptance in a Books contract regression and pinned live pqcVerify/Books calls, then close a fresh test book and retain the receipt.
+- [x] Update PQ parameters and C12 with scoped evidence and library-default reasons.
+- [x] Place all visible content inside landmarks and run unfiltered axe on all nine requested pages at 390/1440; record every remaining finding with its reason.
+- [x] Run gate and production build on `2349f03`, scan changed files for known secrets and prepare the M12 handoff.
+
+Final delivery after committing the handoff: push, wait for that commit’s live Vercel deployment, verify the deployed JavaScript and stop. The subsequent push/deployment result is reported in the final chat response because this record precedes its own commit and push.
