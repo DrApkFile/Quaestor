@@ -128,7 +128,12 @@ export function WalletNotes({ runtime, run, busy, refresh }: ScreenProps & { ref
         </p>
         {history.length ? table(showAll ? history : history.slice(0, 10), false) : <p>No note history yet.</p>}
         {!showAll && history.length > 10 && (
-          <button className="secondary" onClick={() => setShowAll(true)}>
+          <button
+            className="secondary"
+            onClick={() => {
+              setShowAll(true);
+            }}
+          >
             Show all ({history.length})
           </button>
         )}

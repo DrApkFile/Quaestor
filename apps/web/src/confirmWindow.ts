@@ -34,8 +34,12 @@ export function confirmWindow(operations: number, maxValue: bigint): Promise<boo
       if (previous instanceof HTMLElement && previous.isConnected) previous.focus();
       resolve(accepted);
     };
-    accept.addEventListener('click', () => finish(true));
-    cancel.addEventListener('click', () => finish(false));
+    accept.addEventListener('click', () => {
+      finish(true);
+    });
+    cancel.addEventListener('click', () => {
+      finish(false);
+    });
     dialog.addEventListener('cancel', (event) => {
       event.preventDefault();
       finish(false);
