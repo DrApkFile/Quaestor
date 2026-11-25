@@ -1,16 +1,40 @@
-# QCAI audit — prepared inputs, audit pending
+# QCAI audit — Books stage 1 triaged; later reports pending
 
-Scope: Books v2 at `0x9775c1d0dc814e41fb1b38d26fa17f60d24faf64` and BlobBoard at `0xe79e5a3108d8e856aa7ac770c97ac7af308c1d67` on Diana (qorechain-diana, EVM 9800). Upload `docs/audit/Books.flat.sol` and `docs/audit/BlobBoard.flat.sol` separately. Books includes its precompile interfaces. Gloam's vendored contracts are excluded because they are unmodified and audited upstream; this scope does not independently validate that upstream audit or make Groth16 post-quantum.
+Scope: Books v2 at `0x9775c1d0dc814e41fb1b38d26fa17f60d24faf64` and BlobBoard at `0xe79e5a3108d8e856aa7ac770c97ac7af308c1d67` on Diana (qorechain-diana, EVM 9800).
 
-The builder runs the audit at https://dashboard.qorechain.io. Select Blockchain: the EVM/Ethereum option. Use exactly the same Blockchain setting in both stages, Solidity 0.8.24, Shanghai, optimizer enabled with 200 runs where those settings are available. Record the actual dashboard option names and report identifiers when run.
+Gloam's contracts (contracts/vendor/gloam/, upstream commit d8db1e6, MIT) are out of this audit's scope. They are third-party code used unmodified, and scripts/vendor-gloam.sh checks them byte-for-byte against SHA256SUMS. Because we never modify them, findings there could not be fixed in this repository. Our responsibility is our deploy script and configuration (contracts/script/DeployQuaestorPool.s.sol: deposit limits, verifier wiring, endSetup), covered by the [deployment evidence](../evidence/m0-deploy.json). Groth16/BN254 is not post-quantum.
 
-1. Stage 1: submit both flattened files; retain both complete reports with input hashes, settings and timestamps.
-2. Triage every finding below. Fix accepted findings in separate behavioural commits, add relevant tests, and explain any finding not changed. No contract behaviour fixes are authorized by M10; bring such findings to the builder before changing deployed behaviour.
-3. Regenerate and independently compile inputs after fixes. Run gate, then stage 2 with identical dashboard settings. Retain both reports and map every original finding to its fix or explanation and regression test. Do not claim completion until stage 2 reports are reviewed.
+The builder uses the free daily audit only at https://dashboard.qorechain.io. Actual setting: **Framework EVM/Solidity**, the same in both stages. The PDF renders Blockchain as `ethereum`. Compiler settings for our independent compilations: Solidity 0.8.24, Shanghai, optimizer enabled, 200 runs. Dashboard compiler controls beyond Framework were not recorded; do not assume they were exposed or selected.
 
-| ID | severity | title | our response (fixed in `<commit>` / explained) | test |
-|---|---|---|---|---|
+## Books v2 stage 1 — 25 Nov 2026
 
-No QCAI audit has been run by Codex. No findings or reports are implied by the empty table.
+[Exported PDF](audit/stage1-Books.pdf) is the report of record; the dashboard offered no public report link. Score **65/100**, risk **HIGH**, quantum safe **Not scored**, five findings. The PDF displays Generated 11/25/2026, 7:27:10 PM (timezone unspecified). Claude's triage was provided by the builder; the regression tests below were run locally by Codex. The score is the auditor's result, not our corrected score or a security certification.
 
-Regenerate with `pnpm evidence --m10-audit`. Each flattened file compiles alone in a temporary Forge root with solc 0.8.24, without repository imports. The header records the source git commit and deployment address. A literal full-file hash cannot include itself: the header's SHA-256 hashes the complete UTF-8 file with that hash field normalized to 64 zeros. `evidence/m10-audit.json` also records the final file's ordinary SHA-256, exact commands and real compiler output. The source commit is the input checkout; generated files land in a later commit.
+| ID | severity | title | auditor's claim | what the code does | verdict | test |
+|---|---|---|---|---|---|---|
+| Q1 | HIGH | Missing access control on anchorEntry/anchorGrant | Ownership checks permit unauthorized changes | Ownership is the authorization rule: requireOwner rejects every sender except books[book], the registering address | False positive | `testQ1UnauthorizedCallsPreserveState`: entry, grant and close revert NotOwner; count, hashes, grant, new entry and close stay unchanged |
+| Q2 | MEDIUM | Overflow in index + 1 | uint64 maximum could wrap nextIndex | Solidity 0.8.24 checked addition panics 0x11 and rolls back all writes; reaching this boundary naturally would require 2^64 entries in a period | False positive | `testQ2MaximumIndexPanicsAndRollsBack`: vm.store maximum index; next append panics 0x11; period and anchor unchanged |
+| Q3 | MEDIUM | Unchecked pqcKeyStatus/pqcVerify returns | Failed calls allow execution with bad assumptions | Unregistered or non-2592-byte key gives NoPqKey; algorithm other than 1 gives WrongAlgorithm; missing possession gives PossessionNotProven; false verify gives BadSignature. Missing or malformed return data reverts on ABI decode (or the compiler's external-code check), failing closed | False positive | `testRegistrationRequiresProvenAlgorithmOne`, `testQ3WrongLengthKeyFailsClosed`, `testBadSignatureRefusedAndPeriodRemainsOpen`, `testQ3MissingKeyPrecompileFailsClosed`, `testQ3MissingVerifyPrecompileFailsClosed` |
+| Q4 | LOW | Front-running book registration | An attacker can register your salt first | ID is keccak256(abi.encodePacked(msg.sender, salt)); a different sender gets a different ID | False positive | `testQ4SameSaltCannotTakeAnotherOwnersBook`: attacker registers first with same salt; owner then registers successfully; IDs and owners differ |
+| Q5 | INFO | Unbounded nested mappings exhaust gas | Growing mappings make each access more expensive | Mapping slots are calculated directly; access does not traverse existing keys. Books never loops over a mapping. Cold/warm access and zero/nonzero writes affect gas, not total mapping size | Informational, no risk from mapping growth | No test needed: bounded direct accesses by source inspection |
+
+Tests: [Books.t.sol](../contracts/test/Books.t.sol). No finding required a logic change, so the deployed contracts were not redeployed.
+
+## Inputs and equivalence
+
+Stage 1 [Books](audit/Books.flat.sol) and [BlobBoard](audit/BlobBoard.flat.sol) are unchanged. Stage 2 [Books](audit/Books.stage2.flat.sol) and [BlobBoard](audit/BlobBoard.stage2.flat.sol) add NatSpec only. Each compiles alone, including the Books precompile interface, with solc 0.8.24.
+
+Headers record source checkout commit and deployment address. The SHA-256 header covers the complete UTF-8 file with its own hash field normalized to 64 zeros; it cannot be a literal self-containing hash. [M10 evidence](../evidence/m10-audit.json) retains the stage 1 ordinary hashes and independent compile output. [M11 bytecode equivalence](../evidence/m11-bytecode-equivalence.json) retains stage 1/2 ordinary hashes, exact compiler commands/output and pinned eth_getCode for both deployments.
+
+`pnpm evidence --m11-bytecode` compiles stage 1, stage 2 and current sources with CBOR disabled and requires byte-identical runtime. Deployed CBOR is length-decoded and removed. Solc omits the terminal `fe` INVALID metadata separator under `--no-metadata`; the check requires the remaining deployed bytes to equal the compiled runtime plus exactly this separator. No executable difference is ignored. `pnpm bytecode:check` repeats all six isolated compiles offline against the retained code and rejects source, header, evidence or runtime drift; it is part of gate. Regeneration rereads both contracts at one pinned block, without transactions.
+
+## Builder report schedule
+
+| Contract | Stage | Date (2026) | Record / status |
+|---|---|---|---|
+| Books | 1 | 25 Nov | [PDF received](audit/stage1-Books.pdf), triaged above |
+| BlobBoard | 1 | 26 Nov | Pending builder upload: `docs/audit/stage1-BlobBoard.pdf` |
+| Books | 2 | 27 Nov | Pending builder upload: `docs/audit/stage2-Books.pdf` |
+| BlobBoard | 2 | 28 Nov | Pending builder upload: `docs/audit/stage2-BlobBoard.pdf` |
+
+These placeholders do not imply audits were run or findings reviewed. The builder uploads each exported PDF. Stage 2 must use Framework EVM/Solidity again, free daily audit only, and original findings must be mapped to the resulting report before claiming two-stage completion.
