@@ -69,7 +69,7 @@ const signatures = [plan.signature, plan.secondSignature, deterministic];
 const accepted = await Promise.all(signatures.map(verify));
 const flippedRejected = !(await verify(toHex(flipped)));
 if (
-  accepted.some((value) => value !== true) ||
+  accepted.some((value) => !value) ||
   !flippedRejected ||
   signatures.some((value) => !pqcVerify(registry.pqPublicKey, hexToBytes(digest), hexToBytes(value)))
 )

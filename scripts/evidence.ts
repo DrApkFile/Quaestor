@@ -1,4 +1,9 @@
-if (process.argv[2] === '--m11-window') await import('./m11-window.js');
+if (process.argv[2] === '--m12-secret-scan') await import('./m12-secret-scan.js');
+else if (process.argv[2] === '--m12-close') await import('./m12-close.js');
+else if (process.argv[2] === '--m12-axe') await import('./m12-axe.js');
+else if (process.argv[2] === '--m12-checks') await import('./m12-checks.js');
+else if (process.argv[2] === '--m12-deploy') await import('./m12-deploy.js');
+else if (process.argv[2] === '--m11-window') await import('./m11-window.js');
 else if (process.argv[2] === '--m11-checks') await import('./m11-checks.js');
 else if (process.argv[2] === '--m11-pq-settings') await import('./m11-pq-settings.js');
 else if (process.argv[2] === '--m11-bytecode') await import('./m11-bytecode.js');

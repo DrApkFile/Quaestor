@@ -13,7 +13,9 @@ it('T-M12 QoreSign records hedge repeated signing and both signatures verify', (
   expect(first.pq.signature).not.toBe(second.pq.signature);
   expect(first.classical).toEqual(second.classical);
   for (const signature of [first, second])
-    expect(() => requireSignature(hash, signature, signer, pqKey.publicKey)).not.toThrow();
+    expect(() => {
+      requireSignature(hash, signature, signer, pqKey.publicKey);
+    }).not.toThrow();
 });
 it('T-M12 pre-M12 deterministic QoreSign records still verify without migration', () => {
   const legacy = () =>
@@ -29,5 +31,7 @@ it('T-M12 pre-M12 deterministic QoreSign records still verify without migration'
     );
   const first = legacy();
   expect(first).toEqual(legacy());
-  expect(() => requireSignature(hash, first, signer, pqKey.publicKey)).not.toThrow();
+  expect(() => {
+    requireSignature(hash, first, signer, pqKey.publicKey);
+  }).not.toThrow();
 });
