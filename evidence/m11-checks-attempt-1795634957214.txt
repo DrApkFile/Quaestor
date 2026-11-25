@@ -1,0 +1,112 @@
+Command: pnpm evidence --m11-checks
+Commit: d8fad814e7f3fd10caac7536db76f997b01b7d63
+
+Negative control: temporarily change BlobBoard limit to 24577, run pnpm bytecode:check, then restore in finally.
+
+> quaestor@ bytecode:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/m11-bytecode.ts --check
+
+T-M11 Books: stage1 = stage2 = source = deployed runtime (CBOR removed)
+ ELIFECYCLE  Command failed with exit code 1.
+/home/kingghidorah/Documents/projects/bounties/quaestor/scripts/m11-bytecode.ts:103
+    throw new Error(`${name}: BYTECODE_DIVERGED`);
+          ^
+
+Error: BlobBoard: BYTECODE_DIVERGED
+    at <anonymous> (/home/kingghidorah/Documents/projects/bounties/quaestor/scripts/m11-bytecode.ts:103:11)
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.19.0
+
+exit=1
+
+$ pnpm gate
+
+> quaestor@ gate /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm bytecode:check && pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test
+
+
+> quaestor@ bytecode:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/m11-bytecode.ts --check
+
+T-M11 Books: stage1 = stage2 = source = deployed runtime (CBOR removed)
+T-M11 BlobBoard: stage1 = stage2 = source = deployed runtime (CBOR removed)
+
+> quaestor@ claims:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/claims.ts
+
+T-CLAIMS PASSED: every README section maps to PROVEN claims, existing evidence/code/tests and observed hashes.
+
+> quaestor@ format:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> prettier --check "**/*.{ts,tsx}"
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> quaestor@ typecheck /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+
+> @quaestor/core@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/packages/core
+> tsc --noEmit
+
+
+> @quaestor/scripts@ typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/scripts
+> tsc --noEmit
+
+
+> @quaestor/evm-window@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/tools/evm-window
+> tsc --noEmit
+
+
+> @quaestor/chain@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/packages/chain
+> tsc --noEmit
+
+
+> @quaestor/web@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web
+> tsc --noEmit
+
+
+> quaestor@ lint /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --workspace-concurrency=1 --if-present lint
+
+Scope: 6 of 7 workspace projects
+
+> @quaestor/core@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/packages/core
+> eslint src test
+
+
+> @quaestor/scripts@ lint /home/kingghidorah/Documents/projects/bounties/quaestor/scripts
+> eslint *.ts
+
+
+/home/kingghidorah/Documents/projects/bounties/quaestor/scripts/m11-checks.ts
+   5:84   error  Invalid type "number" of template literal expression         @typescript-eslint/restrict-template-expressions
+  17:163  error  Invalid type "number | null" of template literal expression  @typescript-eslint/restrict-template-expressions
+  27:94   error  Invalid type "number | null" of template literal expression  @typescript-eslint/restrict-template-expressions
+  28:47   error  Invalid type "number | null" of template literal expression  @typescript-eslint/restrict-template-expressions
+
+/home/kingghidorah/Documents/projects/bounties/quaestor/scripts/m11-pq-gas.ts
+  61:65   error  Invalid type "number" of template literal expression  @typescript-eslint/restrict-template-expressions
+  61:109  error  Invalid type "4627" of template literal expression    @typescript-eslint/restrict-template-expressions
+
+/home/kingghidorah/Documents/projects/bounties/quaestor/scripts/m11-pq-settings.ts
+  41:32  error  Invalid type "number" of template literal expression  @typescript-eslint/restrict-template-expressions
+
+/home/kingghidorah/Documents/projects/bounties/quaestor/scripts/m11-window.ts
+   5:85  error  Invalid type "number" of template literal expression         @typescript-eslint/restrict-template-expressions
+  12:38  error  Invalid type "number" of template literal expression         @typescript-eslint/restrict-template-expressions
+  13:45  error  Invalid type "number | null" of template literal expression  @typescript-eslint/restrict-template-expressions
+
+✖ 10 problems (10 errors, 0 warnings)
+
+/home/kingghidorah/Documents/projects/bounties/quaestor/scripts:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @quaestor/scripts@ lint: `eslint *.ts`
+Exit status 1
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.
+
+exit=1

@@ -94,7 +94,7 @@ Current brief: docs/briefs/M8.md. The original external checks remain open below
 - [x] CLAIMS, milestones and AI log reflect observed results; handoff written. Final delivery is the handoff commit push, then stop.
 
 Original external M8 checks, still open:
-- [ ] Two-stage QCAI audit on Books.sol, with reports and findings mapping in docs/AUDIT.md. No reports exist yet.
+- [ ] Two-stage QCAI audit on Books.sol, with reports and findings mapping in docs/AUDIT.md. Books stage 1 is recorded and triaged in M11; subsequent reports remain pending.
 - [ ] Final recorded video, independent human judge walkthrough and external project-page/eligibility/submission actions remain unperformed. Public hosting was subsequently verified in M9.
 
 ## M9 — Live deployment, readable UX and one-step activation
@@ -141,3 +141,15 @@ M10b fresh attempt, 25 Nov 2026: builder go-ahead received; `pnpm evidence --m10
 Builder retry amendment: [docs/briefs/M10b-retry.md](briefs/M10b-retry.md). Push the failed record `0896ff0`; extend the next attempt's manual funding wait to 60 minutes with a prominent address and two-minute reminders; preserve separate account/session/report/screenshot identity; validate, commit and push before starting the authorized new deployed attempt.
 
 The separately authorized retry `m10-1795594340224-d0023e20cd51bf67` PASSED uninterrupted on the deployed site. The same payer context detected manual funding, activated, deposited 2 QOR and privately sent 0.5 QOR; supplier1 checked the exact commitment in another context. Activation: 63.851 seconds / 0.319120916 QOR; total observed fees: 0.818424821 QOR excluding deposit principal. Receipt rereads, all 58 M10 image secret checks, the full gate (80 TypeScript / 13 distinct Forge tests) and production build passed. C5/C11 and JUDGES now include this scoped result; M9 resumed evidence and the earlier FAILED M10 attempt remain intact. Final delivery ends at the M10b handoff.
+
+## M11 — Audit triage, unchanged stage 2 sources and verified PQ settings
+
+Builder brief: [docs/briefs/M11.md](briefs/M11.md). No contract behavior changes or redeployment authorized.
+- [x] Preserve the entire builder message in its own commit and pull the builder's uploaded Books PDF.
+- [x] Triage all five Books stage 1 findings with regression tests; retain the exported PDF and later report placeholders.
+- [x] Correct audit scope wording without a vendor audit-status claim.
+- [x] Add NatSpec only, retain stage 1 files, independently compile stage 2 sources and prove unchanged runtime against both deployments; gate rejects divergence.
+- [x] Document observed deployment, BN254, BlobBoard receipts and M10 uninterrupted timing/fees; retain earlier attempts and links.
+- [x] Inspect resolved crypto dependencies, record modes/randomness/contexts/final-standard implementation selection, close calldata and measured whole-transaction gas with scoped claims.
+- [x] Clear stale proof progress on cancellation; verify at 390px without broadcasts.
+- [x] Full gate including claims and production build pass on `6b19949`; separate commits and M11 handoff prepared. Final delivery is the handoff commit push after a second pull, then stop.

@@ -1,0 +1,29 @@
+{
+  "command": "pnpm evidence --m11-window",
+  "commit": "d8fad814e7f3fd10caac7536db76f997b01b7d63",
+  "at": "2026-11-25T19:20:01.858Z",
+  "origin": "http://127.0.0.1:4181",
+  "status": "FAILED",
+  "controls": [
+    "Escape",
+    "Cancel"
+  ],
+  "progressCleared": true,
+  "preparedOperationKept": true,
+  "width": 390,
+  "fits": true,
+  "axeViolations": [
+    {
+      "id": "region",
+      "impact": "moderate"
+    }
+  ],
+  "broadcasts": 0,
+  "network": {
+    "requests": 174,
+    "responses": 174,
+    "leaks": 0,
+    "errors": [],
+    "pendingInspections": 0
+  }
+}

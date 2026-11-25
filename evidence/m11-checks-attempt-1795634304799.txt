@@ -1,0 +1,63 @@
+Command: pnpm evidence --m11-checks
+Commit: d8fad814e7f3fd10caac7536db76f997b01b7d63
+
+Negative control: temporarily change BlobBoard limit to 24577, run pnpm bytecode:check, then restore in finally.
+
+> quaestor@ bytecode:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/m11-bytecode.ts --check
+
+T-M11 Books: stage1 = stage2 = source = deployed runtime (CBOR removed)
+ ELIFECYCLE  Command failed with exit code 1.
+/home/kingghidorah/Documents/projects/bounties/quaestor/scripts/m11-bytecode.ts:99
+    throw new Error(`${name}: BYTECODE_DIVERGED`);
+          ^
+
+Error: BlobBoard: BYTECODE_DIVERGED
+    at <anonymous> (/home/kingghidorah/Documents/projects/bounties/quaestor/scripts/m11-bytecode.ts:99:11)
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.19.0
+
+exit=1
+
+$ pnpm gate
+
+> quaestor@ gate /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm bytecode:check && pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test
+
+
+> quaestor@ bytecode:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/m11-bytecode.ts --check
+
+T-M11 Books: stage1 = stage2 = source = deployed runtime (CBOR removed)
+T-M11 BlobBoard: stage1 = stage2 = source = deployed runtime (CBOR removed)
+
+> quaestor@ claims:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/claims.ts
+
+T-CLAIMS PASSED: every README section maps to PROVEN claims, existing evidence/code/tests and observed hashes.
+
+> quaestor@ format:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> prettier --check "**/*.{ts,tsx}"
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> quaestor@ typecheck /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+packages/core typecheck$ tsc --noEmit
+scripts typecheck$ tsc --noEmit
+tools/evm-window typecheck$ tsc --noEmit
+tools/evm-window typecheck: Done
+packages/core typecheck: Failed
+/home/kingghidorah/Documents/projects/bounties/quaestor/packages/core:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @quaestor/core@0.0.0 typecheck: `tsc --noEmit`
+Command failed with signal "SIGTERM"
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.
+
+exit=1
