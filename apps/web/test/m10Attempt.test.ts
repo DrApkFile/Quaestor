@@ -17,7 +17,9 @@ it('A11 a used attempt never overwrites its original session when started again'
   try {
     reserveM10Session(directory, 'fixture-first');
     const original = readFileSync(`${directory}/signup-session.json`, 'utf8');
-    expect(() => reserveM10Session(directory, 'fixture-second')).toThrow('FRESH_SIGNUP_PROFILE_ALREADY_USED');
+    expect(() => {
+      reserveM10Session(directory, 'fixture-second');
+    }).toThrow('FRESH_SIGNUP_PROFILE_ALREADY_USED');
     expect(readFileSync(`${directory}/signup-session.json`, 'utf8')).toBe(original);
   } finally {
     rmSync(directory, { recursive: true });
