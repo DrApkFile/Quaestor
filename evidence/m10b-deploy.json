@@ -1,0 +1,25 @@
+{
+  "command": "pnpm evidence --m10b-deploy",
+  "commit": "b227ad54c0b76f1d09ed8972df39556e79ec1235",
+  "at": "2026-11-25T03:24:07.302Z",
+  "origin": "https://use-quaestor.vercel.app",
+  "status": "PASSED",
+  "failure": null,
+  "localEntry": "/assets/index-BhLp5Ya-.js",
+  "localModalHash": "a0ceac8ee6809915eb64428c23a19ece4a44e3f3e75e1eea62338b82aa41cb27",
+  "marker": "Open window and continue",
+  "checks": [
+    {
+      "path": "/app",
+      "status": 200,
+      "matchesLocal": true
+    },
+    {
+      "path": "/assets/onboarding-CyRxOHse.js",
+      "status": 200,
+      "matchesLocal": true,
+      "containsModal": true,
+      "sha256": "a0ceac8ee6809915eb64428c23a19ece4a44e3f3e75e1eea62338b82aa41cb27"
+    }
+  ]
+}
