@@ -20,6 +20,9 @@ export async function m9Download(page: Page, target: string) {
   await page.getByRole('button', { name: 'Download backup', exact: true }).click();
   await (await result).saveAs(target);
   await page.waitForFunction(() => !!window.quaestorM6, {}, { timeout: 60000 });
+  await expect(page.getByRole('progressbar', { name: 'Account operation', exact: true })).toHaveCount(0, {
+    timeout: 60000,
+  });
 }
 export async function m9ActivationReceipts(page: Page) {
   return page.getByTestId('activation-receipt').evaluateAll((elements) =>

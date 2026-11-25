@@ -81,8 +81,8 @@ export function m9Privacy(context: BrowserContext, passwords: readonly string[])
     },
     async finish() {
       const deadline = Date.now() + 30000;
-      while (pending.size && Date.now() < deadline)
-        await Promise.race([Promise.all([...pending]), new Promise((resolve) => setTimeout(resolve, 1000))]);
+      while ((pending.size || requests !== responses) && Date.now() < deadline)
+        await Promise.race([...pending, new Promise((resolve) => setTimeout(resolve, 250))]);
       return { requests, responses, leaks, errors, pendingInspections: pending.size };
     },
   };
