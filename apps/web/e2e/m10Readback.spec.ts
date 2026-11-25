@@ -2,7 +2,9 @@ import { test, expect } from '@playwright/test';
 import { readFileSync, writeFileSync, existsSync, copyFileSync } from 'node:fs';
 import { z } from 'zod';
 import { m9Privacy } from './m9Privacy.js';
-import { m10Screens as m9Screens } from './m10Screens.js';
+import { m10Screens } from './m10Screens.js';
+const run = process.env.QUAESTOR_M10_RUN === 'm10b' ? 'm10b' : 'm10';
+const m9Screens: typeof m10Screens = (page, phase, view) => m10Screens(page, phase, view, run);
 import { m9Download, m9Navigate, m9SaveBackup } from './m9Driver.js';
 test('T-NOPLAIN-WEB M10 measured setup fees and the 1.5 QOR private change restore without a transaction', async ({
   browser,
@@ -34,6 +36,8 @@ test('T-NOPLAIN-WEB M10 measured setup fees and the 1.5 QOR private change resto
   const screens = await m9Screens(page, process.env.QUAESTOR_M10_PHASE ?? 'before', 'signup-account-estimate');
   await m9Navigate(page, 'Wallet');
   await expect(page.locator('.stats article').first().locator('strong')).toHaveText('1.5 QOR');
+  await expect(page.getByText(/^Pinned balance block:/)).toBeHidden();
+  await expect(page.getByText('Advanced: transaction window', { exact: true })).toBeHidden();
   screens.push(...(await m9Screens(page, process.env.QUAESTOR_M10_PHASE ?? 'before', 'signup-restored-wallet')));
   for (const view of ['Pay', 'Books', 'Grants']) {
     await m9Navigate(page, view);
@@ -48,21 +52,36 @@ test('T-NOPLAIN-WEB M10 measured setup fees and the 1.5 QOR private change resto
       .filter({ hasText: /^Details$/ })
       .click();
     await page.getByText('Advanced: transaction window', { exact: true }).click();
+    await expect(page.getByLabel('Planned operations', { exact: true })).toHaveValue('');
+    await expect(page.getByLabel('Planned native QOR value', { exact: true })).toHaveValue('');
     screens.push(...(await m9Screens(page, 'after', 'wallet-history-details')));
-    let confirmation = '';
-    page.once('dialog', (dialog) => {
-      confirmation = dialog.message();
-      void dialog.dismiss();
-    });
     await page.getByRole('button', { name: 'Deposit privately', exact: true }).click();
-    await expect(page.locator('.workflow')).toHaveAttribute('aria-busy', 'false', { timeout: 180000 });
-    expect(confirmation).toMatch(
-      /^This needs a transaction window: about 1 transactions, up to [\d.]+ QOR including fees$/,
+    const modal = page.getByRole('dialog', { name: 'Open a transaction window', exact: true });
+    await expect(modal).toBeVisible({ timeout: 180000 });
+    const cancel = modal.getByRole('button', { name: 'Cancel', exact: true });
+    const accept = modal.getByRole('button', { name: 'Open window and continue', exact: true });
+    await expect(cancel).toBeFocused();
+    await page.keyboard.press('Tab');
+    await expect(accept).toBeFocused();
+    await page.keyboard.press('Tab');
+    await expect(cancel).toBeFocused();
+    await page.keyboard.press('Shift+Tab');
+    await expect(accept).toBeFocused();
+    await page.keyboard.press('Shift+Tab');
+    await expect(cancel).toBeFocused();
+    windowConfirmation = await modal.locator('p').textContent();
+    expect(windowConfirmation).toMatch(
+      /^This needs a transaction window: about 1 transaction, up to [\d.]+ QOR including fees\.$/,
     );
-    windowConfirmation = confirmation;
-    await expect(page.getByTestId('workflow-error')).toBeVisible();
+    screens.push(...(await m9Screens(page, 'after', 'window-modal')));
+    await page.keyboard.press('Escape');
+    await expect(modal).toHaveCount(0);
+    await expect(page.locator('.workflow')).toHaveAttribute('aria-busy', 'false', { timeout: 30000 });
+    await expect(page.getByTestId('workflow-error')).toHaveText('Cancelled. Nothing was sent.');
+    await expect(page.getByTestId('workflow-error')).toHaveAttribute('role', 'status');
+    await expect(page.getByTestId('workflow-error').getByRole('button')).toHaveCount(0);
     screens.push(...(await m9Screens(page, 'after', 'window-cancelled')));
-    await m9SaveBackup(page, '../../.accounts/m10-browser/readback-backup.json', session.password);
+    await m9SaveBackup(page, `../../.accounts/${run}-browser/readback-backup.json`, session.password);
   }
   await page.waitForLoadState('networkidle');
   const network = await monitor.finish();
@@ -77,13 +96,13 @@ test('T-NOPLAIN-WEB M10 measured setup fees and the 1.5 QOR private change resto
     )
       ? 'FAILED'
       : 'PASSED';
-  const target = `../../evidence/m10-readback-${process.env.QUAESTOR_M10_PHASE ?? 'before'}.json`;
+  const target = `../../evidence/${run}-readback-${process.env.QUAESTOR_M10_PHASE ?? 'before'}.json`;
   if (existsSync(target)) copyFileSync(target, target.replace('.json', `-attempt-${String(Date.now())}.json`));
   writeFileSync(
     target,
     JSON.stringify(
       {
-        command: 'pnpm evidence --m10-screens',
+        command: `pnpm evidence --${run}-screens`,
         origin: baseURL,
         at: new Date().toISOString(),
         status,
@@ -121,7 +140,7 @@ test('T-NOPLAIN-WEB M10 populated business notes and books remain private at bot
   await page.goto('/app?view=account');
   await page.getByLabel('Passphrase', { exact: true }).fill(fixture.password);
   await page.getByLabel('Restore encrypted backup', { exact: true }).setInputFiles(business.backup);
-  await m9Download(page, '../../.accounts/m10-browser/business-readback-backup.json');
+  await m9Download(page, `../../.accounts/${run}-browser/business-readback-backup.json`);
   const screens = [];
   const phase = process.env.QUAESTOR_M10_PHASE ?? 'before';
   for (const view of ['Wallet', 'Pay', 'Books', 'Grants']) {
@@ -131,7 +150,14 @@ test('T-NOPLAIN-WEB M10 populated business notes and books remain private at bot
       const history = page.locator('details').filter({ has: page.locator('summary').filter({ hasText: /^History/ }) });
       await history.locator(':scope > summary').click();
       await expect(history.getByRole('button', { name: 'Cash out', exact: true })).toHaveCount(0);
+      const count = Number((await history.locator(':scope > summary').textContent())?.match(/\d+/)?.[0]);
+      await expect(history.locator('tbody tr')).toHaveCount(Math.min(count, 10));
+      await expect(history.getByText('Ready to spend', { exact: true })).toHaveCount(0);
       screens.push(...(await m9Screens(page, phase, 'business-wallet-history')));
+      if (count > 10) {
+        await history.getByRole('button', { name: `Show all (${String(count)})`, exact: true }).click();
+        await expect(history.locator('tbody tr')).toHaveCount(count);
+      }
     }
   }
   await page.waitForLoadState('networkidle');
@@ -145,12 +171,12 @@ test('T-NOPLAIN-WEB M10 populated business notes and books remain private at bot
     screens.some((screen) => !screen.fits || screen.violations.length)
       ? 'FAILED'
       : 'PASSED';
-  const target = `../../evidence/m10-business-${phase}.json`;
+  const target = `../../evidence/${run}-business-${phase}.json`;
   if (existsSync(target)) copyFileSync(target, target.replace('.json', `-attempt-${String(Date.now())}.json`));
   writeFileSync(
     target,
     JSON.stringify(
-      { command: 'pnpm evidence --m10-screens', origin: baseURL, status, mutations, network, screens },
+      { command: `pnpm evidence --${run}-screens`, origin: baseURL, status, mutations, network, screens },
       null,
       2,
     ) + '\n',

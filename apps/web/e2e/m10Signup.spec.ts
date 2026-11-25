@@ -33,9 +33,12 @@ test('T-NOPLAIN-WEB M10 fresh signup activates deposits pays and receives throug
   await otherMonitor.start();
   const page = await context.newPage(),
     other = await supplierContext.newPage();
-  page.on('dialog', (dialog) => {
-    void dialog.accept();
-  });
+  await page.addLocatorHandler(
+    page.getByRole('dialog', { name: 'Open a transaction window', exact: true }),
+    async (modal) => {
+      await modal.getByRole('button', { name: 'Open window and continue', exact: true }).click();
+    },
+  );
   const startedAt = new Date().toISOString();
   const started = Date.now();
   const steps: { step: string; ms: number }[] = [],

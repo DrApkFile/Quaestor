@@ -31,10 +31,13 @@ test('T-JOURNAL M10 cancelled cash-out resumes the same prepared request from Hi
   await m9Download(page, '../../.accounts/m10-browser/cashout-readback-backup.json');
   await m9Navigate(page, 'Wallet');
   const confirmations: string[] = [];
-  page.on('dialog', (dialog) => {
-    confirmations.push(dialog.message());
-    void dialog.dismiss();
-  });
+  await page.addLocatorHandler(
+    page.getByRole('dialog', { name: 'Open a transaction window', exact: true }),
+    async (modal) => {
+      confirmations.push(await modal.locator('p').innerText());
+      await modal.getByRole('button', { name: 'Cancel', exact: true }).click();
+    },
+  );
   await page.getByRole('button', { name: 'Cash out', exact: true }).click();
   await expect(page.locator('.workflow')).toHaveAttribute('aria-busy', 'false', { timeout: 180000 });
   const original = (await m9Snapshot(page)).operations.filter((operation) => operation.id.startsWith('cashout-'));
@@ -50,7 +53,7 @@ test('T-JOURNAL M10 cancelled cash-out resumes the same prepared request from Hi
   expect(resumed).toEqual(original);
   expect(confirmations).toHaveLength(2);
   expect(
-    confirmations.every((value) => value.startsWith('This needs a transaction window: about 1 transactions')),
+    confirmations.every((value) => value.startsWith('This needs a transaction window: about 1 transaction,')),
   ).toBe(true);
   await page.setViewportSize({ width: 390, height: 844 });
   const fits390 = await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth);

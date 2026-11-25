@@ -8,10 +8,15 @@ export interface M10Screen {
   javascript: { name: string; bytes: number }[];
   violations: { id: string; impact: string; targets: string[] }[];
 }
-export async function m10Screens(page: Page, phase: string, view: string): Promise<M10Screen[]> {
+export async function m10Screens(
+  page: Page,
+  phase: string,
+  view: string,
+  run: 'm10' | 'm10b' = 'm10',
+): Promise<M10Screen[]> {
   const screens = [];
-  mkdirSync('../../evidence/m10-screens', { recursive: true });
-  mkdirSync('../../.accounts/m10-browser', { recursive: true, mode: 0o700 });
+  mkdirSync(`../../evidence/${run}-screens`, { recursive: true });
+  mkdirSync(`../../.accounts/${run}-browser`, { recursive: true, mode: 0o700 });
   for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: width === 390 ? 844 : 1000 });
     const text = await page.evaluate(() =>
@@ -23,8 +28,13 @@ export async function m10Screens(page: Page, phase: string, view: string): Promi
       ].join('\n'),
     );
     expect(await page.evaluate((input) => window.quaestorPrivateCheck?.(input) ?? false, text)).toBe(false);
-    writeFileSync(`../../.accounts/m10-browser/${phase}-${view}-${String(width)}-visible.txt`, text, { mode: 0o600 });
-    await page.screenshot({ path: `../../evidence/m10-screens/${phase}-${view}-${String(width)}.png`, fullPage: true });
+    writeFileSync(`../../.accounts/${run}-browser/${phase}-${view}-${String(width)}-visible.txt`, text, {
+      mode: 0o600,
+    });
+    await page.screenshot({
+      path: `../../evidence/${run}-screens/${phase}-${view}-${String(width)}.png`,
+      fullPage: true,
+    });
     const fits = await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth);
     const audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
     const javascript = await page.evaluate(() =>

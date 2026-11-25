@@ -1,6 +1,7 @@
 import { expect, it } from 'vitest';
 import { statuses, reasons } from '../src/presentation.js';
 import { errorMessages, errorMessage } from '../src/messages.js';
+import { windowPrompt } from '../src/confirmWindow.js';
 it('A12 unknown checks and unshared periods cannot acquire a green presentation', () => {
   expect(statuses.UNKNOWN[1]).toBe('unknown');
   expect(statuses.NOT_GRANTED[1]).toBe('neutral');
@@ -12,4 +13,12 @@ it('A12 unknown checks and unshared periods cannot acquire a green presentation'
 it('A11 declining a window is calm cancellation while an expired window explains recovery', () => {
   expect(errorMessage(new Error('WINDOW_DECLINED'))).toBe('Cancelled. Nothing was sent.');
   expect(errorMessage(new Error('WINDOW_CLOSED'))).toContain('expired or lacks budget');
+});
+it('A11 window confirmation pluralises transaction counts and includes the opening fee', () => {
+  expect(windowPrompt(1, 1000000n)).toBe(
+    'This needs a transaction window: about 1 transaction, up to 1.1 QOR including fees.',
+  );
+  expect(windowPrompt(3, 3000000n)).toBe(
+    'This needs a transaction window: about 3 transactions, up to 3.1 QOR including fees.',
+  );
 });

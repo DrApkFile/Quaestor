@@ -8,8 +8,9 @@ import { accountSealKeys } from '../packages/chain/src/tickets/sealKeys.js';
 import { hashBytes } from '../packages/core/src/codec.js';
 import { decryptVault } from '../apps/web/src/vault.js';
 import { imageScanSecrets } from './m8Secrets.js';
+const run = process.argv[2] === '--m10b-secret-scan' ? 'm10b' : 'm10';
 const root = new URL('../', import.meta.url),
-  directory = new URL('.accounts/m10-browser/', root);
+  directory = new URL(`.accounts/${run}-browser/`, root);
 if (process.argv.includes('--merge-completed')) {
   await import('./m10-merge-scan.js');
   process.exit(0);
@@ -81,9 +82,9 @@ for (const value of [...secrets]) {
   }
 }
 writeFileSync(new URL('scan-secrets.json', directory), JSON.stringify([...secrets]), { mode: 0o600 });
-const target = new URL('evidence/m10-image-secret-scan.json', root);
+const target = new URL(`evidence/${run}-image-secret-scan.json`, root);
 if (existsSync(target))
-  copyFileSync(target, new URL(`evidence/m10-image-secret-scan-attempt-${String(Date.now())}.json`, root));
+  copyFileSync(target, new URL(`evidence/${run}-image-secret-scan-attempt-${String(Date.now())}.json`, root));
 const results = await Promise.allSettled(
   [0, 1].map(
     (part) =>
@@ -93,7 +94,7 @@ const results = await Promise.allSettled(
           [new URL('m8-image-scan.py', import.meta.url).pathname],
           {
             cwd: root,
-            env: { ...process.env, QUAESTOR_IMAGE_RUN: 'm10', QUAESTOR_IMAGE_PART: String(part) },
+            env: { ...process.env, QUAESTOR_IMAGE_RUN: run, QUAESTOR_IMAGE_PART: String(part) },
             stdio: 'inherit',
           },
         );
@@ -111,7 +112,7 @@ if (results.some((result) => result.status === 'rejected')) {
   writeFileSync(
     target,
     JSON.stringify(
-      { command: 'pnpm evidence --m10-secret-scan', status: 'FAILED', reason: 'IMAGE_SCAN_FAILED' },
+      { command: `pnpm evidence --${run}-secret-scan`, status: 'FAILED', reason: 'IMAGE_SCAN_FAILED' },
       null,
       2,
     ) + '\n',
@@ -121,18 +122,20 @@ if (results.some((result) => result.status === 'rejected')) {
   const reports: unknown[] = [0, 1].map(
     (part) =>
       JSON.parse(
-        readFileSync(new URL(`evidence/m10-image-secret-scan-part${String(part)}.json`, root), 'utf8'),
+        readFileSync(new URL(`evidence/${run}-image-secret-scan-part${String(part)}.json`, root), 'utf8'),
       ) as unknown,
   );
-  const expected = readdirSync(new URL('evidence/m10-screens/', root))
+  const expected = readdirSync(new URL(`evidence/${run}-screens/`, root))
     .filter((name) => name.endsWith('.png'))
     .map((name) => ({
-      file: `evidence/m10-screens/${name}`,
+      file: `evidence/${run}-screens/${name}`,
       sha256: createHash('sha256')
-        .update(readFileSync(new URL(`evidence/m10-screens/${name}`, root)))
+        .update(readFileSync(new URL(`evidence/${run}-screens/${name}`, root)))
         .digest('hex'),
     }));
-  const report = { ...mergeImageReports(reports, expected), command: 'pnpm evidence --m10-secret-scan' };
+  const report = { ...mergeImageReports(reports, expected), command: `pnpm evidence --${run}-secret-scan` };
   writeFileSync(target, JSON.stringify(report, null, 2) + '\n');
-  console.log(`M10 screenshot scan PASSED: ${String(report.images.length)} images; every current image hash checked.`);
+  console.log(
+    `${run.toUpperCase()} screenshot scan PASSED: ${String(report.images.length)} images; every current image hash checked.`,
+  );
 }
