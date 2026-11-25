@@ -1,0 +1,30 @@
+Command: pnpm evidence --m10b-window-reopen
+Origin: http://127.0.0.1:5173
+Started: 2026-11-25T01:26:00.711Z
+
+Running 1 test using 1 worker
+
+  ✘  1 e2e/m10bWindow.spec.ts:5:1 › S-WINDOW-REOPEN demo business replaces a live small window and spends from the larger budget (41.8s)
+
+
+  1) e2e/m10bWindow.spec.ts:5:1 › S-WINDOW-REOPEN demo business replaces a live small window and spends from the larger budget 
+
+    Error: page.evaluate: Execution context was destroyed, most likely because of a navigation
+
+      17 |   try {
+      18 |     await page.goto(baseURL);
+    > 19 |     const result: unknown = await page.evaluate(
+         |                                        ^
+      20 |       async ({ backup, password, address }) => {
+      21 |         const path = '/e2e/m10bWindowDriver.ts';
+      22 |         const driver = (await import(path)) as typeof import('./m10bWindowDriver.js');
+        at /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web/e2e/m10bWindow.spec.ts:19:40
+
+    Error Context: test-results/m10bWindow-S-WINDOW-REOPEN-16e63-ends-from-the-larger-budget/error-context.md
+
+  1 failed
+    e2e/m10bWindow.spec.ts:5:1 › S-WINDOW-REOPEN demo business replaces a live small window and spends from the larger budget 
+(node:394647) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+exit=1

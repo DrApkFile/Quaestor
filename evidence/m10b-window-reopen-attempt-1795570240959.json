@@ -1,0 +1,44 @@
+{
+  "command": "pnpm evidence --m10b-window-reopen",
+  "at": "2026-11-25T01:28:53.085Z",
+  "status": "FAILED",
+  "reason": "SPIKE_DID_NOT_COMPLETE",
+  "progress": {
+    "native": {
+      "id": "m10b-window-large",
+      "hash": "8FBDCD792031A0B0E637D67647C24CAC7672AE338EA2608C1F0CE3E8369BE64C",
+      "height": 10699988,
+      "code": 0
+    },
+    "small": {
+      "receipt": {
+        "id": "m10b-window-small",
+        "hash": "5599BD52BEA26E764C3FD745AB9AC85672C02A8892968EB0E450BB5F588B6589",
+        "height": 10699812,
+        "code": 0
+      },
+      "state": {
+        "block": "10699980",
+        "kind": "OPEN",
+        "remainingTxs": "1",
+        "remainingValue": "10000",
+        "remainingBlocks": "427"
+      }
+    },
+    "large": {
+      "receipt": {
+        "id": "m10b-window-large",
+        "hash": "8FBDCD792031A0B0E637D67647C24CAC7672AE338EA2608C1F0CE3E8369BE64C",
+        "height": 10699988,
+        "code": 0
+      },
+      "state": {
+        "block": "10699989",
+        "kind": "OPEN",
+        "remainingTxs": "3",
+        "remainingValue": "1000000",
+        "remainingBlocks": "599"
+      }
+    }
+  }
+}

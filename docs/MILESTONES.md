@@ -123,3 +123,15 @@ Builder brief: [docs/briefs/M10.md](briefs/M10.md). M9 approved by Claude per bu
 - [ ] Run uninterrupted deployed empty-profile create/backup/manual faucet/activate/deposit 2/pay 0.5/supplier1 receive; stop on faucet refusal, no deployer funding.
 - [ ] Only after success, update C5/C11 and JUDGES with measured fresh-run time/cost; retain M9 resumed evidence.
 - [x] Gate, separate behavioural commits, handoff, push and stop.
+
+## M10b — Window confirmation, wallet cleanup and fresh-signup checkpoint
+
+Builder brief: [docs/briefs/M10b.md](briefs/M10b.md). M10 approved with fixes per builder.
+- [x] Preserve the full builder brief in its own commit.
+- [x] Accessible in-app window modal; correctly pluralised estimate; WINDOW_DECLINED cancellation and real WINDOW_CLOSED recovery remain distinct.
+- [x] Human proof progress, balance metadata under Details, collapsed manual window with empty fields, newest-ten History and clear zero-value labels.
+- [x] S-WINDOW-REOPEN observes replacement on the demo business account and confirms an EVM spend from the new budget using existing journals.
+- [x] Audit documentation explains normalized header hashes and points to evidence/m10-audit.json (already present in M10).
+- [ ] Gate, Wallet/modal/cancellation/History screenshots at 390/1440, axe and known-secret scan pass.
+- [ ] Push and verify the deployed JavaScript contains the new modal string; stop for the builder's fresh-signup go-ahead.
+- [ ] Only after a new go-ahead in this session: uninterrupted deployed M10 signup with manual faucet, no alternative funding; update C5/C11/JUDGES only after success.

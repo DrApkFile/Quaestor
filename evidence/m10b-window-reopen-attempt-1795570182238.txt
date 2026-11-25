@@ -1,0 +1,44 @@
+Command: pnpm evidence --m10b-window-reopen
+Origin: http://127.0.0.1:5173
+Started: 2026-11-25T01:27:35.136Z
+
+Running 1 test using 1 worker
+
+  ✘  1 e2e/m10bWindow.spec.ts:5:1 › S-WINDOW-REOPEN demo business replaces a live small window and spends from the larger budget (56.0s)
+
+
+  1) e2e/m10bWindow.spec.ts:5:1 › S-WINDOW-REOPEN demo business replaces a live small window and spends from the larger budget 
+
+    Error: page.evaluate: ZodError: [
+      {
+        "validation": "regex",
+        "code": "invalid_string",
+        "message": "Invalid",
+        "path": [
+          "operations",
+          0,
+          "prepared",
+          "data"
+        ]
+      }
+    ]
+        at get error (http://127.0.0.1:5173/node_modules/.vite/deps/zod.js?v=8c804dba:439:19)
+        at ZodObject.parse (http://127.0.0.1:5173/node_modules/.vite/deps/zod.js?v=8c804dba:509:16)
+        at PrivateJournal.save (http://127.0.0.1:5173/src/privateJournal.ts:31:30)
+        at http://127.0.0.1:5173/@fs/home/kingghidorah/Documents/projects/bounties/quaestor/packages/chain/src/executor.ts:93:12
+        at async run (http://127.0.0.1:5173/src/privateJournal.ts:55:12)
+        at get error (http://127.0.0.1:5173/node_modules/.vite/deps/zod.js?v=8c804dba:439:19)
+        at ZodObject.parse (http://127.0.0.1:5173/node_modules/.vite/deps/zod.js?v=8c804dba:509:16)
+        at PrivateJournal.save (http://127.0.0.1:5173/src/privateJournal.ts:31:30)
+        at http://127.0.0.1:5173/@fs/home/kingghidorah/Documents/projects/bounties/quaestor/packages/chain/src/executor.ts:93:12
+        at async run (http://127.0.0.1:5173/src/privateJournal.ts:55:12)
+        at /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web/e2e/m10bWindow.spec.ts:20:40
+
+    Error Context: test-results/m10bWindow-S-WINDOW-REOPEN-16e63-ends-from-the-larger-budget/error-context.md
+
+  1 failed
+    e2e/m10bWindow.spec.ts:5:1 › S-WINDOW-REOPEN demo business replaces a live small window and spends from the larger budget 
+(node:395123) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+exit=1

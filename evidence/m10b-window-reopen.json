@@ -1,0 +1,89 @@
+{
+  "command": "pnpm evidence --m10b-window-reopen",
+  "commit": "ed93a6a2825123d99cc7a2a0bd21de98a4b90b48",
+  "at": "2026-11-25T01:31:06.360Z",
+  "demo": true,
+  "result": {
+    "address": "qor1v8fa9dfyau5scylvskqtlq7ctwddxv4twr4mqf",
+    "small": {
+      "receipt": {
+        "id": "m10b-window-small",
+        "hash": "5599BD52BEA26E764C3FD745AB9AC85672C02A8892968EB0E450BB5F588B6589",
+        "height": 10699812,
+        "code": 0
+      },
+      "state": {
+        "block": "10699980",
+        "kind": "OPEN",
+        "remainingTxs": "1",
+        "remainingValue": "10000",
+        "remainingBlocks": "427"
+      }
+    },
+    "smallPlan": {
+      "maxTxs": "1",
+      "maxValue": "10000"
+    },
+    "large": {
+      "receipt": {
+        "id": "m10b-window-large",
+        "hash": "8FBDCD792031A0B0E637D67647C24CAC7672AE338EA2608C1F0CE3E8369BE64C",
+        "height": 10699988,
+        "code": 0
+      },
+      "state": {
+        "block": "10699989",
+        "kind": "OPEN",
+        "remainingTxs": "3",
+        "remainingValue": "1000000",
+        "remainingBlocks": "599"
+      }
+    },
+    "largePlan": {
+      "maxTxs": "3",
+      "maxValue": "1000000"
+    },
+    "outcome": "REPLACED",
+    "evm": {
+      "kind": "LANDED",
+      "operation": {
+        "id": "m10b-window-next-evm",
+        "requestKey": "m10b-self-transfer-002-qor",
+        "stage": "LANDED",
+        "input": null,
+        "prepared": {
+          "data": "0x00",
+          "valueWei": "20000000000000000",
+          "outputs": [],
+          "root": null,
+          "nullifier": null,
+          "feeWei": "0"
+        },
+        "hash": "0x0e823ad916e44e213243c49861095a8d0933fc5866b2f0820fed84aed4c9ead8",
+        "receipt": {
+          "hash": "0x0e823ad916e44e213243c49861095a8d0933fc5866b2f0820fed84aed4c9ead8",
+          "blockNumber": "10700083",
+          "blockHash": "0xd8e5e4d893cfc9f5bc7f939de7f31a5988a4c74554b2f2714073ebc9183511bb",
+          "gasUsed": "21004",
+          "effectiveGasPrice": "101000000000",
+          "status": "success"
+        },
+        "plannedAt": "2026-11-25T01:28:52.627Z",
+        "updatedAt": "2026-11-25T01:31:05.724Z",
+        "gas": {
+          "estimatedGas": "21010",
+          "gasLimit": "26263",
+          "maxFeePerGas": "250000000000",
+          "estimationBlock": "10700081"
+        }
+      }
+    },
+    "after": {
+      "block": "10700083",
+      "kind": "OPEN",
+      "remainingTxs": "2",
+      "remainingValue": "973434",
+      "remainingBlocks": "505"
+    }
+  }
+}

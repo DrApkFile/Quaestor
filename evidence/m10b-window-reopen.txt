@@ -1,0 +1,13 @@
+Command: pnpm evidence --m10b-window-reopen
+Origin: http://127.0.0.1:5173
+Started: 2026-11-25T01:29:42.546Z
+
+Running 1 test using 1 worker
+
+  ✓  1 e2e/m10bWindow.spec.ts:5:1 › S-WINDOW-REOPEN demo business replaces a live small window and spends from the larger budget (52.7s)
+
+  1 passed (1.0m)
+(node:395668) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+exit=0
