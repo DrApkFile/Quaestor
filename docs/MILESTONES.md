@@ -135,3 +135,5 @@ Builder brief: [docs/briefs/M10b.md](briefs/M10b.md). M10 approved with fixes pe
 - [x] Gate, Wallet/modal/cancellation/History screenshots at 390/1440, axe and known-secret scan pass.
 - [x] Push and verify the deployed JavaScript contains the new modal string; stop for the builder's fresh-signup go-ahead.
 - [ ] Only after a new go-ahead in this session: uninterrupted deployed M10 signup with manual faucet, no alternative funding; update C5/C11/JUDGES only after success.
+
+M10b fresh attempt, 25 Nov 2026: builder go-ahead received; `pnpm evidence --m10-fresh-signup` created/downloaded the backup, then FAILED at WAIT_FOR_MANUAL_FAUCET after the 20-minute funding timeout. No activation or payment was reached. Evidence: `evidence/m10-fresh-signup.json`; session/evidence retained, no resume or alternative funding. C5/C11 and JUDGES remain unchanged.

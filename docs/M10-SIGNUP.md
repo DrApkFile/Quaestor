@@ -1,6 +1,6 @@
-# M10 uninterrupted signup — waiting for the builder
+# M10 uninterrupted signup — first attempt timed out
 
-Do not run before the builder explicitly says the faucet is ready, after **24 November 2026, 09:40 Africa/Lagos (08:40 UTC)**. Time alone is insufficient. Codex has prepared the runner; it has not started this signup.
+Do not run before the builder explicitly says the faucet is ready, after **24 November 2026, 09:40 Africa/Lagos (08:40 UTC)**. Time alone is insufficient. The builder subsequently said “go” on 25 November. The attempt at 03:51:53–04:12:40 UTC created and backed up its account, then timed out waiting for manual faucet funding. See `evidence/m10-fresh-signup.json` and `docs/handoff/M10b.md`. The existing session is consumed; do not delete it or restore it into an uninterrupted-success claim. The original prepared procedure follows; a future fresh trial needs separate authorization and a distinct preserved attempt identity.
 
 After that signal, run on the deployed M10 build:
 
