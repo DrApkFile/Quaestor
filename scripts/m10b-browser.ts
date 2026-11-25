@@ -12,6 +12,8 @@ const target = new URL(`evidence/${command.slice(2)}.txt`, root);
 if (existsSync(target))
   copyFileSync(target, new URL(`evidence/${command.slice(2)}-attempt-${String(Date.now())}.txt`, root));
 const startedAt = new Date().toISOString();
+const header = `Command: pnpm evidence ${command}\nOrigin: ${process.env.QUAESTOR_M9_ORIGIN ?? 'https://use-quaestor.vercel.app'}\nStarted: ${startedAt}\n`;
+writeFileSync(target, `${header}Status: INCOMPLETE_UNTIL_EXIT_RECORDED\n`);
 const result = spawnSync(
   'pnpm',
   ['-C', 'apps/web', 'exec', 'playwright', 'test', '--config=playwright.m9.config.ts', spec],
@@ -22,9 +24,6 @@ const result = spawnSync(
     env: { ...process.env, QUAESTOR_M10_RUN: 'm10b', QUAESTOR_M10_PHASE: 'after' },
   },
 );
-writeFileSync(
-  target,
-  `Command: pnpm evidence ${command}\nOrigin: ${process.env.QUAESTOR_M9_ORIGIN ?? 'https://use-quaestor.vercel.app'}\nStarted: ${startedAt}\n${result.stdout}${result.stderr}\nexit=${String(result.status)}\n`,
-);
+writeFileSync(target, `${header}${result.stdout}${result.stderr}\nexit=${String(result.status)}\n`);
 console.log(result.stdout + result.stderr);
 process.exitCode = result.status ?? 1;
