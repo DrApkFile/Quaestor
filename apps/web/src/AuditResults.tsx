@@ -22,7 +22,7 @@ export function AuditResults({
         Book: <Hash value={value.book} />
       </div>
       <p className="notice">Only periods shared with this auditor can be opened. Every other period stays sealed.</p>
-      <div className="stats" aria-label="Period access at a glance">
+      <div className="stats" role="group" aria-label="Period access at a glance">
         {value.periods.map((period) => (
           <article className="panel" key={period.id}>
             <h3>{humanDate(period.label)}</h3>

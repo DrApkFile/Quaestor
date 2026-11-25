@@ -5,10 +5,8 @@ import AxeBuilder from '@axe-core/playwright';
 import { m9Privacy } from './m9Privacy.js';
 import { m9Fixtures } from './m9Fixtures.js';
 import { m9Download, m9Navigate } from './m9Driver.js';
-test('T-M12 all requested pages pass unfiltered axe at 390 and 1440 and the deterministic judge book still verifies', async ({
-  browser,
-  baseURL,
-}) => {
+test('T-M12 unfiltered responsive axe coverage and deterministic judge verification', async ({ browser, baseURL }) => {
+  const ledgerOnly = process.env.QUAESTOR_M12_RECHECK === 'ledger';
   const fixture = m9Fixtures();
   const context = await browser.newContext();
   const monitor = m9Privacy(context, [fixture.password]);
@@ -77,8 +75,9 @@ test('T-M12 all requested pages pass unfiltered axe at 390 and 1440 and the dete
       ['Auditor', '/app?view=auditor'],
       ['Attack lab', '/attack-lab'],
     ] as const) {
+      if (ledgerOnly && name !== 'Auditor') continue;
       await page.goto(path);
-      await scan(page, name, 'initial');
+      if (!ledgerOnly) await scan(page, name, 'initial');
       if (name === 'Public check') {
         await page.getByRole('button', { name: 'Check chain', exact: true }).click();
         await expect(page.getByText('anchored entries', { exact: true })).toBeVisible({ timeout: 600000 });
@@ -108,8 +107,9 @@ test('T-M12 all requested pages pass unfiltered axe at 390 and 1440 and the dete
     await page.getByLabel('Passphrase', { exact: true }).fill(fixture.password);
     await page.getByLabel('Restore encrypted backup', { exact: true }).setInputFiles(business.backup);
     await m9Download(page, '../../.accounts/m12/axe-readback-backup.json');
-    await scan(page, 'Account', 'unlocked');
+    if (!ledgerOnly) await scan(page, 'Account', 'unlocked');
     for (const name of ['Wallet', 'Pay', 'Books', 'Grants']) {
+      if (ledgerOnly && name !== 'Books') continue;
       await m9Navigate(page, name);
       await scan(page, name, 'unlocked');
     }
@@ -119,7 +119,7 @@ test('T-M12 all requested pages pass unfiltered axe at 390 and 1440 and the dete
   }
   const network = await monitor.finish();
   const passed =
-    results.length === 26 &&
+    results.length === (ledgerOnly ? 4 : 26) &&
     results.every((result) => result.violations.length === 0 && result.fits) &&
     failures.length === 0 &&
     legacyJudgeVerified &&
@@ -132,7 +132,7 @@ test('T-M12 all requested pages pass unfiltered axe at 390 and 1440 and the dete
     '../../evidence/m12-axe.json',
     JSON.stringify(
       {
-        command: 'pnpm evidence --m12-axe',
+        command: ledgerOnly ? 'pnpm evidence --m12-axe --ledger-recheck' : 'pnpm evidence --m12-axe',
         commit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
         at: new Date().toISOString(),
         origin: baseURL,

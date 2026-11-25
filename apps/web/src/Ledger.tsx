@@ -15,7 +15,7 @@ export function Ledger({ rows, onRetry }: { rows: readonly LedgerRow[]; onRetry?
   return (
     <div className="ledger" role="list" aria-label="Private ledger">
       {rows.map((row, index) => (
-        <article className="ledger-row" role="listitem" key={index}>
+        <div className="ledger-row" role="listitem" key={index}>
           <div className="ledger-cells" data-private-ledger>
             <div>
               <span className="muted">Date</span>
@@ -64,7 +64,7 @@ export function Ledger({ rows, onRetry }: { rows: readonly LedgerRow[]; onRetry?
               {row.entry.receipt && <pre>{JSON.stringify(row.entry.receipt, null, 2)}</pre>}
             </div>
           </details>
-        </article>
+        </div>
       ))}
     </div>
   );
