@@ -1,0 +1,64 @@
+Command: pnpm evidence --m10b-screens
+Origin: http://127.0.0.1:5173
+Started: 2026-11-25T01:31:35.238Z
+
+Running 2 tests using 1 worker
+
+  ✘  1 e2e/m10Readback.spec.ts:10:1 › T-NOPLAIN-WEB M10 measured setup fees and the 1.5 QOR private change restore without a transaction (2.7m)
+  ✘  2 e2e/m10Readback.spec.ts:107:1 › T-NOPLAIN-WEB M10 populated business notes and books remain private at both widths (3.2m)
+
+
+  1) e2e/m10Readback.spec.ts:10:1 › T-NOPLAIN-WEB M10 measured setup fees and the 1.5 QOR private change restore without a transaction 
+
+    Error: expect(locator).toBeEnabled() failed
+
+    Locator: getByRole('button', { name: 'Download backup', exact: true })
+    Expected: enabled
+    Timeout: 60000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeEnabled" getByRole('button', { name: 'Download backup', exact: true }) with timeout 60000ms
+      - waiting for getByRole('button', { name: 'Download backup', exact: true })
+
+
+       at m9Driver.ts:18
+
+      16 | }
+      17 | export async function m9Download(page: Page, target: string) {
+    > 18 |   await expect(page.getByRole('button', { name: 'Download backup', exact: true })).toBeEnabled({ timeout: 60000 });
+         |                                                                                    ^
+      19 |   const result = page.waitForEvent('download');
+      20 |   await page.getByRole('button', { name: 'Download backup', exact: true }).click();
+      21 |   await (await result).saveAs(target);
+        at m9Download (/home/kingghidorah/Documents/projects/bounties/quaestor/apps/web/e2e/m9Driver.ts:18:84)
+        at /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web/e2e/m10Readback.spec.ts:40:9
+
+    Error Context: test-results/m10Readback-T-NOPLAIN-WEB--8d67d-store-without-a-transaction/error-context.md
+
+  2) e2e/m10Readback.spec.ts:107:1 › T-NOPLAIN-WEB M10 populated business notes and books remain private at both widths 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "PASSED"
+    Received: "FAILED"
+
+      171 |   );
+      172 |   await context.close();
+    > 173 |   expect(status).toBe('PASSED');
+          |                  ^
+      174 | });
+      175 |
+        at /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web/e2e/m10Readback.spec.ts:173:18
+
+    Error Context: test-results/m10Readback-T-NOPLAIN-WEB--4509b-main-private-at-both-widths/error-context.md
+
+  2 failed
+    e2e/m10Readback.spec.ts:10:1 › T-NOPLAIN-WEB M10 measured setup fees and the 1.5 QOR private change restore without a transaction 
+    e2e/m10Readback.spec.ts:107:1 › T-NOPLAIN-WEB M10 populated business notes and books remain private at both widths 
+(node:396053) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:396453) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+exit=1

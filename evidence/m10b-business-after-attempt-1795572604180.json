@@ -1,0 +1,1681 @@
+{
+  "command": "pnpm evidence --m10b-screens",
+  "origin": "http://127.0.0.1:5173",
+  "status": "FAILED",
+  "mutations": 0,
+  "network": {
+    "requests": 193,
+    "responses": 192,
+    "leaks": 0,
+    "errors": [
+      "REQUEST_FAILED"
+    ],
+    "pendingInspections": 0
+  },
+  "screens": [
+    {
+      "view": "business-wallet",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/node_modules/.vite/deps/buffer.js",
+          "bytes": 762
+        },
+        {
+          "name": "/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+          "bytes": 35972
+        },
+        {
+          "name": "/node_modules/.vite/deps/buffer-CeEHqG1y.js",
+          "bytes": 184700
+        },
+        {
+          "name": "/node_modules/.vite/deps/rolldown-runtime-DpEnGzO4.js",
+          "bytes": 12689
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-BnNVfMEl.js",
+          "bytes": 135522
+        },
+        {
+          "name": "/node_modules/.vite/deps/base64-js-BksK_bI5.js",
+          "bytes": 12418
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom_client.js",
+          "bytes": 3132738
+        },
+        {
+          "name": "/node_modules/.vite/deps/react.js",
+          "bytes": 755
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom-CwrS_w0G.js",
+          "bytes": 51257
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_sdk.js",
+          "bytes": 8517550
+        },
+        {
+          "name": "/node_modules/.vite/deps/zod.js",
+          "bytes": 424208
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_scrypt__js.js",
+          "bytes": 35460
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem.js",
+          "bytes": 76014
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal.js",
+          "bytes": 41971
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal_network.js",
+          "bytes": 27668
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign_network.js",
+          "bytes": 63374
+        },
+        {
+          "name": "/node_modules/.vite/deps/build-C2Cf_ojq.js",
+          "bytes": 7844402
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-CE-FKEqm.js",
+          "bytes": 38060
+        },
+        {
+          "name": "/node_modules/.vite/deps/src-DQyxgl0T.js",
+          "bytes": 251877
+        },
+        {
+          "name": "/node_modules/.vite/deps/secp256k1-Z8wwNkKK.js",
+          "bytes": 906680
+        },
+        {
+          "name": "/node_modules/.vite/deps/serializeSignature-C07-7pOX.js",
+          "bytes": 832633
+        },
+        {
+          "name": "/node_modules/.vite/deps/_esm-wZee_-UN.js",
+          "bytes": 2765116
+        },
+        {
+          "name": "/node_modules/.vite/deps/accounts-qjbFhavL.js",
+          "bytes": 900421
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-Dkghgnbd.js",
+          "bytes": 304649
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha2-DJxwnoM0.js",
+          "bytes": 97769
+        },
+        {
+          "name": "/node_modules/.vite/deps/_u64-Dif4UtLK.js",
+          "bytes": 73801
+        },
+        {
+          "name": "/node_modules/.vite/deps/dist-DvvN2fS0.js",
+          "bytes": 122780
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_evm.js",
+          "bytes": 7090
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-NSORPEVS-W2JHk71A.js",
+          "bytes": 310827
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha3-CZOsShND.js",
+          "bytes": 41937
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-CC36VDKC-kDrypHDh.js",
+          "bytes": 110432
+        },
+        {
+          "name": "/node_modules/.vite/deps/@cosmjs_stargate.js",
+          "bytes": 767
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign.js",
+          "bytes": 17496
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem_accounts.js",
+          "bytes": 6468
+        },
+        {
+          "name": "/node_modules/.vite/deps/@gloamtrade_sdk.js",
+          "bytes": 1311147
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_sha3__js.js",
+          "bytes": 2554
+        },
+        {
+          "name": "/node_modules/.vite/deps/bip32-Co_1M0bF.js",
+          "bytes": 36449
+        },
+        {
+          "name": "/node_modules/.vite/deps/snarkjs.js",
+          "bytes": 3114457
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "business-wallet",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/node_modules/.vite/deps/buffer.js",
+          "bytes": 762
+        },
+        {
+          "name": "/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+          "bytes": 35972
+        },
+        {
+          "name": "/node_modules/.vite/deps/buffer-CeEHqG1y.js",
+          "bytes": 184700
+        },
+        {
+          "name": "/node_modules/.vite/deps/rolldown-runtime-DpEnGzO4.js",
+          "bytes": 12689
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-BnNVfMEl.js",
+          "bytes": 135522
+        },
+        {
+          "name": "/node_modules/.vite/deps/base64-js-BksK_bI5.js",
+          "bytes": 12418
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom_client.js",
+          "bytes": 3132738
+        },
+        {
+          "name": "/node_modules/.vite/deps/react.js",
+          "bytes": 755
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom-CwrS_w0G.js",
+          "bytes": 51257
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_sdk.js",
+          "bytes": 8517550
+        },
+        {
+          "name": "/node_modules/.vite/deps/zod.js",
+          "bytes": 424208
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_scrypt__js.js",
+          "bytes": 35460
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem.js",
+          "bytes": 76014
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal.js",
+          "bytes": 41971
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal_network.js",
+          "bytes": 27668
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign_network.js",
+          "bytes": 63374
+        },
+        {
+          "name": "/node_modules/.vite/deps/build-C2Cf_ojq.js",
+          "bytes": 7844402
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-CE-FKEqm.js",
+          "bytes": 38060
+        },
+        {
+          "name": "/node_modules/.vite/deps/src-DQyxgl0T.js",
+          "bytes": 251877
+        },
+        {
+          "name": "/node_modules/.vite/deps/secp256k1-Z8wwNkKK.js",
+          "bytes": 906680
+        },
+        {
+          "name": "/node_modules/.vite/deps/serializeSignature-C07-7pOX.js",
+          "bytes": 832633
+        },
+        {
+          "name": "/node_modules/.vite/deps/_esm-wZee_-UN.js",
+          "bytes": 2765116
+        },
+        {
+          "name": "/node_modules/.vite/deps/accounts-qjbFhavL.js",
+          "bytes": 900421
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-Dkghgnbd.js",
+          "bytes": 304649
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha2-DJxwnoM0.js",
+          "bytes": 97769
+        },
+        {
+          "name": "/node_modules/.vite/deps/_u64-Dif4UtLK.js",
+          "bytes": 73801
+        },
+        {
+          "name": "/node_modules/.vite/deps/dist-DvvN2fS0.js",
+          "bytes": 122780
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_evm.js",
+          "bytes": 7090
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-NSORPEVS-W2JHk71A.js",
+          "bytes": 310827
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha3-CZOsShND.js",
+          "bytes": 41937
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-CC36VDKC-kDrypHDh.js",
+          "bytes": 110432
+        },
+        {
+          "name": "/node_modules/.vite/deps/@cosmjs_stargate.js",
+          "bytes": 767
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign.js",
+          "bytes": 17496
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem_accounts.js",
+          "bytes": 6468
+        },
+        {
+          "name": "/node_modules/.vite/deps/@gloamtrade_sdk.js",
+          "bytes": 1311147
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_sha3__js.js",
+          "bytes": 2554
+        },
+        {
+          "name": "/node_modules/.vite/deps/bip32-Co_1M0bF.js",
+          "bytes": 36449
+        },
+        {
+          "name": "/node_modules/.vite/deps/snarkjs.js",
+          "bytes": 3114457
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "business-wallet-history",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/node_modules/.vite/deps/buffer.js",
+          "bytes": 762
+        },
+        {
+          "name": "/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+          "bytes": 35972
+        },
+        {
+          "name": "/node_modules/.vite/deps/buffer-CeEHqG1y.js",
+          "bytes": 184700
+        },
+        {
+          "name": "/node_modules/.vite/deps/rolldown-runtime-DpEnGzO4.js",
+          "bytes": 12689
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-BnNVfMEl.js",
+          "bytes": 135522
+        },
+        {
+          "name": "/node_modules/.vite/deps/base64-js-BksK_bI5.js",
+          "bytes": 12418
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom_client.js",
+          "bytes": 3132738
+        },
+        {
+          "name": "/node_modules/.vite/deps/react.js",
+          "bytes": 755
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom-CwrS_w0G.js",
+          "bytes": 51257
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_sdk.js",
+          "bytes": 8517550
+        },
+        {
+          "name": "/node_modules/.vite/deps/zod.js",
+          "bytes": 424208
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_scrypt__js.js",
+          "bytes": 35460
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem.js",
+          "bytes": 76014
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal.js",
+          "bytes": 41971
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal_network.js",
+          "bytes": 27668
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign_network.js",
+          "bytes": 63374
+        },
+        {
+          "name": "/node_modules/.vite/deps/build-C2Cf_ojq.js",
+          "bytes": 7844402
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-CE-FKEqm.js",
+          "bytes": 38060
+        },
+        {
+          "name": "/node_modules/.vite/deps/src-DQyxgl0T.js",
+          "bytes": 251877
+        },
+        {
+          "name": "/node_modules/.vite/deps/secp256k1-Z8wwNkKK.js",
+          "bytes": 906680
+        },
+        {
+          "name": "/node_modules/.vite/deps/serializeSignature-C07-7pOX.js",
+          "bytes": 832633
+        },
+        {
+          "name": "/node_modules/.vite/deps/_esm-wZee_-UN.js",
+          "bytes": 2765116
+        },
+        {
+          "name": "/node_modules/.vite/deps/accounts-qjbFhavL.js",
+          "bytes": 900421
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-Dkghgnbd.js",
+          "bytes": 304649
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha2-DJxwnoM0.js",
+          "bytes": 97769
+        },
+        {
+          "name": "/node_modules/.vite/deps/_u64-Dif4UtLK.js",
+          "bytes": 73801
+        },
+        {
+          "name": "/node_modules/.vite/deps/dist-DvvN2fS0.js",
+          "bytes": 122780
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_evm.js",
+          "bytes": 7090
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-NSORPEVS-W2JHk71A.js",
+          "bytes": 310827
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha3-CZOsShND.js",
+          "bytes": 41937
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-CC36VDKC-kDrypHDh.js",
+          "bytes": 110432
+        },
+        {
+          "name": "/node_modules/.vite/deps/@cosmjs_stargate.js",
+          "bytes": 767
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign.js",
+          "bytes": 17496
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem_accounts.js",
+          "bytes": 6468
+        },
+        {
+          "name": "/node_modules/.vite/deps/@gloamtrade_sdk.js",
+          "bytes": 1311147
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_sha3__js.js",
+          "bytes": 2554
+        },
+        {
+          "name": "/node_modules/.vite/deps/bip32-Co_1M0bF.js",
+          "bytes": 36449
+        },
+        {
+          "name": "/node_modules/.vite/deps/snarkjs.js",
+          "bytes": 3114457
+        },
+        {
+          "name": "/node_modules/.vite/deps/protobufjs.js",
+          "bytes": 811127
+        },
+        {
+          "name": "/node_modules/.vite/deps/__vite-browser-external-BSK91P65.js",
+          "bytes": 609
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "business-wallet-history",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/node_modules/.vite/deps/buffer.js",
+          "bytes": 762
+        },
+        {
+          "name": "/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+          "bytes": 35972
+        },
+        {
+          "name": "/node_modules/.vite/deps/buffer-CeEHqG1y.js",
+          "bytes": 184700
+        },
+        {
+          "name": "/node_modules/.vite/deps/rolldown-runtime-DpEnGzO4.js",
+          "bytes": 12689
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-BnNVfMEl.js",
+          "bytes": 135522
+        },
+        {
+          "name": "/node_modules/.vite/deps/base64-js-BksK_bI5.js",
+          "bytes": 12418
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom_client.js",
+          "bytes": 3132738
+        },
+        {
+          "name": "/node_modules/.vite/deps/react.js",
+          "bytes": 755
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom-CwrS_w0G.js",
+          "bytes": 51257
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_sdk.js",
+          "bytes": 8517550
+        },
+        {
+          "name": "/node_modules/.vite/deps/zod.js",
+          "bytes": 424208
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_scrypt__js.js",
+          "bytes": 35460
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem.js",
+          "bytes": 76014
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal.js",
+          "bytes": 41971
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal_network.js",
+          "bytes": 27668
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign_network.js",
+          "bytes": 63374
+        },
+        {
+          "name": "/node_modules/.vite/deps/build-C2Cf_ojq.js",
+          "bytes": 7844402
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-CE-FKEqm.js",
+          "bytes": 38060
+        },
+        {
+          "name": "/node_modules/.vite/deps/src-DQyxgl0T.js",
+          "bytes": 251877
+        },
+        {
+          "name": "/node_modules/.vite/deps/secp256k1-Z8wwNkKK.js",
+          "bytes": 906680
+        },
+        {
+          "name": "/node_modules/.vite/deps/serializeSignature-C07-7pOX.js",
+          "bytes": 832633
+        },
+        {
+          "name": "/node_modules/.vite/deps/_esm-wZee_-UN.js",
+          "bytes": 2765116
+        },
+        {
+          "name": "/node_modules/.vite/deps/accounts-qjbFhavL.js",
+          "bytes": 900421
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-Dkghgnbd.js",
+          "bytes": 304649
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha2-DJxwnoM0.js",
+          "bytes": 97769
+        },
+        {
+          "name": "/node_modules/.vite/deps/_u64-Dif4UtLK.js",
+          "bytes": 73801
+        },
+        {
+          "name": "/node_modules/.vite/deps/dist-DvvN2fS0.js",
+          "bytes": 122780
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_evm.js",
+          "bytes": 7090
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-NSORPEVS-W2JHk71A.js",
+          "bytes": 310827
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha3-CZOsShND.js",
+          "bytes": 41937
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-CC36VDKC-kDrypHDh.js",
+          "bytes": 110432
+        },
+        {
+          "name": "/node_modules/.vite/deps/@cosmjs_stargate.js",
+          "bytes": 767
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign.js",
+          "bytes": 17496
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem_accounts.js",
+          "bytes": 6468
+        },
+        {
+          "name": "/node_modules/.vite/deps/@gloamtrade_sdk.js",
+          "bytes": 1311147
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_sha3__js.js",
+          "bytes": 2554
+        },
+        {
+          "name": "/node_modules/.vite/deps/bip32-Co_1M0bF.js",
+          "bytes": 36449
+        },
+        {
+          "name": "/node_modules/.vite/deps/snarkjs.js",
+          "bytes": 3114457
+        },
+        {
+          "name": "/node_modules/.vite/deps/protobufjs.js",
+          "bytes": 811127
+        },
+        {
+          "name": "/node_modules/.vite/deps/__vite-browser-external-BSK91P65.js",
+          "bytes": 609
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "business-pay",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/node_modules/.vite/deps/buffer.js",
+          "bytes": 762
+        },
+        {
+          "name": "/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+          "bytes": 35972
+        },
+        {
+          "name": "/node_modules/.vite/deps/buffer-CeEHqG1y.js",
+          "bytes": 184700
+        },
+        {
+          "name": "/node_modules/.vite/deps/rolldown-runtime-DpEnGzO4.js",
+          "bytes": 12689
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-BnNVfMEl.js",
+          "bytes": 135522
+        },
+        {
+          "name": "/node_modules/.vite/deps/base64-js-BksK_bI5.js",
+          "bytes": 12418
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom_client.js",
+          "bytes": 3132738
+        },
+        {
+          "name": "/node_modules/.vite/deps/react.js",
+          "bytes": 755
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom-CwrS_w0G.js",
+          "bytes": 51257
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_sdk.js",
+          "bytes": 8517550
+        },
+        {
+          "name": "/node_modules/.vite/deps/zod.js",
+          "bytes": 424208
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_scrypt__js.js",
+          "bytes": 35460
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem.js",
+          "bytes": 76014
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal.js",
+          "bytes": 41971
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal_network.js",
+          "bytes": 27668
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign_network.js",
+          "bytes": 63374
+        },
+        {
+          "name": "/node_modules/.vite/deps/build-C2Cf_ojq.js",
+          "bytes": 7844402
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-CE-FKEqm.js",
+          "bytes": 38060
+        },
+        {
+          "name": "/node_modules/.vite/deps/src-DQyxgl0T.js",
+          "bytes": 251877
+        },
+        {
+          "name": "/node_modules/.vite/deps/secp256k1-Z8wwNkKK.js",
+          "bytes": 906680
+        },
+        {
+          "name": "/node_modules/.vite/deps/serializeSignature-C07-7pOX.js",
+          "bytes": 832633
+        },
+        {
+          "name": "/node_modules/.vite/deps/_esm-wZee_-UN.js",
+          "bytes": 2765116
+        },
+        {
+          "name": "/node_modules/.vite/deps/accounts-qjbFhavL.js",
+          "bytes": 900421
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-Dkghgnbd.js",
+          "bytes": 304649
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha2-DJxwnoM0.js",
+          "bytes": 97769
+        },
+        {
+          "name": "/node_modules/.vite/deps/_u64-Dif4UtLK.js",
+          "bytes": 73801
+        },
+        {
+          "name": "/node_modules/.vite/deps/dist-DvvN2fS0.js",
+          "bytes": 122780
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_evm.js",
+          "bytes": 7090
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-NSORPEVS-W2JHk71A.js",
+          "bytes": 310827
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha3-CZOsShND.js",
+          "bytes": 41937
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-CC36VDKC-kDrypHDh.js",
+          "bytes": 110432
+        },
+        {
+          "name": "/node_modules/.vite/deps/@cosmjs_stargate.js",
+          "bytes": 767
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign.js",
+          "bytes": 17496
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem_accounts.js",
+          "bytes": 6468
+        },
+        {
+          "name": "/node_modules/.vite/deps/@gloamtrade_sdk.js",
+          "bytes": 1311147
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_sha3__js.js",
+          "bytes": 2554
+        },
+        {
+          "name": "/node_modules/.vite/deps/bip32-Co_1M0bF.js",
+          "bytes": 36449
+        },
+        {
+          "name": "/node_modules/.vite/deps/snarkjs.js",
+          "bytes": 3114457
+        },
+        {
+          "name": "/node_modules/.vite/deps/protobufjs.js",
+          "bytes": 811127
+        },
+        {
+          "name": "/node_modules/.vite/deps/__vite-browser-external-BSK91P65.js",
+          "bytes": 609
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "business-pay",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/node_modules/.vite/deps/buffer.js",
+          "bytes": 762
+        },
+        {
+          "name": "/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+          "bytes": 35972
+        },
+        {
+          "name": "/node_modules/.vite/deps/buffer-CeEHqG1y.js",
+          "bytes": 184700
+        },
+        {
+          "name": "/node_modules/.vite/deps/rolldown-runtime-DpEnGzO4.js",
+          "bytes": 12689
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-BnNVfMEl.js",
+          "bytes": 135522
+        },
+        {
+          "name": "/node_modules/.vite/deps/base64-js-BksK_bI5.js",
+          "bytes": 12418
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom_client.js",
+          "bytes": 3132738
+        },
+        {
+          "name": "/node_modules/.vite/deps/react.js",
+          "bytes": 755
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom-CwrS_w0G.js",
+          "bytes": 51257
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_sdk.js",
+          "bytes": 8517550
+        },
+        {
+          "name": "/node_modules/.vite/deps/zod.js",
+          "bytes": 424208
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_scrypt__js.js",
+          "bytes": 35460
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem.js",
+          "bytes": 76014
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal.js",
+          "bytes": 41971
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal_network.js",
+          "bytes": 27668
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign_network.js",
+          "bytes": 63374
+        },
+        {
+          "name": "/node_modules/.vite/deps/build-C2Cf_ojq.js",
+          "bytes": 7844402
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-CE-FKEqm.js",
+          "bytes": 38060
+        },
+        {
+          "name": "/node_modules/.vite/deps/src-DQyxgl0T.js",
+          "bytes": 251877
+        },
+        {
+          "name": "/node_modules/.vite/deps/secp256k1-Z8wwNkKK.js",
+          "bytes": 906680
+        },
+        {
+          "name": "/node_modules/.vite/deps/serializeSignature-C07-7pOX.js",
+          "bytes": 832633
+        },
+        {
+          "name": "/node_modules/.vite/deps/_esm-wZee_-UN.js",
+          "bytes": 2765116
+        },
+        {
+          "name": "/node_modules/.vite/deps/accounts-qjbFhavL.js",
+          "bytes": 900421
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-Dkghgnbd.js",
+          "bytes": 304649
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha2-DJxwnoM0.js",
+          "bytes": 97769
+        },
+        {
+          "name": "/node_modules/.vite/deps/_u64-Dif4UtLK.js",
+          "bytes": 73801
+        },
+        {
+          "name": "/node_modules/.vite/deps/dist-DvvN2fS0.js",
+          "bytes": 122780
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_evm.js",
+          "bytes": 7090
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-NSORPEVS-W2JHk71A.js",
+          "bytes": 310827
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha3-CZOsShND.js",
+          "bytes": 41937
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-CC36VDKC-kDrypHDh.js",
+          "bytes": 110432
+        },
+        {
+          "name": "/node_modules/.vite/deps/@cosmjs_stargate.js",
+          "bytes": 767
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign.js",
+          "bytes": 17496
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem_accounts.js",
+          "bytes": 6468
+        },
+        {
+          "name": "/node_modules/.vite/deps/@gloamtrade_sdk.js",
+          "bytes": 1311147
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_sha3__js.js",
+          "bytes": 2554
+        },
+        {
+          "name": "/node_modules/.vite/deps/bip32-Co_1M0bF.js",
+          "bytes": 36449
+        },
+        {
+          "name": "/node_modules/.vite/deps/snarkjs.js",
+          "bytes": 3114457
+        },
+        {
+          "name": "/node_modules/.vite/deps/protobufjs.js",
+          "bytes": 811127
+        },
+        {
+          "name": "/node_modules/.vite/deps/__vite-browser-external-BSK91P65.js",
+          "bytes": 609
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "business-books",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/node_modules/.vite/deps/buffer.js",
+          "bytes": 762
+        },
+        {
+          "name": "/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+          "bytes": 35972
+        },
+        {
+          "name": "/node_modules/.vite/deps/buffer-CeEHqG1y.js",
+          "bytes": 184700
+        },
+        {
+          "name": "/node_modules/.vite/deps/rolldown-runtime-DpEnGzO4.js",
+          "bytes": 12689
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-BnNVfMEl.js",
+          "bytes": 135522
+        },
+        {
+          "name": "/node_modules/.vite/deps/base64-js-BksK_bI5.js",
+          "bytes": 12418
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom_client.js",
+          "bytes": 3132738
+        },
+        {
+          "name": "/node_modules/.vite/deps/react.js",
+          "bytes": 755
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom-CwrS_w0G.js",
+          "bytes": 51257
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_sdk.js",
+          "bytes": 8517550
+        },
+        {
+          "name": "/node_modules/.vite/deps/zod.js",
+          "bytes": 424208
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_scrypt__js.js",
+          "bytes": 35460
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem.js",
+          "bytes": 76014
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal.js",
+          "bytes": 41971
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal_network.js",
+          "bytes": 27668
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign_network.js",
+          "bytes": 63374
+        },
+        {
+          "name": "/node_modules/.vite/deps/build-C2Cf_ojq.js",
+          "bytes": 7844402
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-CE-FKEqm.js",
+          "bytes": 38060
+        },
+        {
+          "name": "/node_modules/.vite/deps/src-DQyxgl0T.js",
+          "bytes": 251877
+        },
+        {
+          "name": "/node_modules/.vite/deps/secp256k1-Z8wwNkKK.js",
+          "bytes": 906680
+        },
+        {
+          "name": "/node_modules/.vite/deps/serializeSignature-C07-7pOX.js",
+          "bytes": 832633
+        },
+        {
+          "name": "/node_modules/.vite/deps/_esm-wZee_-UN.js",
+          "bytes": 2765116
+        },
+        {
+          "name": "/node_modules/.vite/deps/accounts-qjbFhavL.js",
+          "bytes": 900421
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-Dkghgnbd.js",
+          "bytes": 304649
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha2-DJxwnoM0.js",
+          "bytes": 97769
+        },
+        {
+          "name": "/node_modules/.vite/deps/_u64-Dif4UtLK.js",
+          "bytes": 73801
+        },
+        {
+          "name": "/node_modules/.vite/deps/dist-DvvN2fS0.js",
+          "bytes": 122780
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_evm.js",
+          "bytes": 7090
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-NSORPEVS-W2JHk71A.js",
+          "bytes": 310827
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha3-CZOsShND.js",
+          "bytes": 41937
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-CC36VDKC-kDrypHDh.js",
+          "bytes": 110432
+        },
+        {
+          "name": "/node_modules/.vite/deps/@cosmjs_stargate.js",
+          "bytes": 767
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign.js",
+          "bytes": 17496
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem_accounts.js",
+          "bytes": 6468
+        },
+        {
+          "name": "/node_modules/.vite/deps/@gloamtrade_sdk.js",
+          "bytes": 1311147
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_sha3__js.js",
+          "bytes": 2554
+        },
+        {
+          "name": "/node_modules/.vite/deps/bip32-Co_1M0bF.js",
+          "bytes": 36449
+        },
+        {
+          "name": "/node_modules/.vite/deps/snarkjs.js",
+          "bytes": 3114457
+        },
+        {
+          "name": "/node_modules/.vite/deps/protobufjs.js",
+          "bytes": 811127
+        },
+        {
+          "name": "/node_modules/.vite/deps/__vite-browser-external-BSK91P65.js",
+          "bytes": 609
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "business-books",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/node_modules/.vite/deps/buffer.js",
+          "bytes": 762
+        },
+        {
+          "name": "/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+          "bytes": 35972
+        },
+        {
+          "name": "/node_modules/.vite/deps/buffer-CeEHqG1y.js",
+          "bytes": 184700
+        },
+        {
+          "name": "/node_modules/.vite/deps/rolldown-runtime-DpEnGzO4.js",
+          "bytes": 12689
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-BnNVfMEl.js",
+          "bytes": 135522
+        },
+        {
+          "name": "/node_modules/.vite/deps/base64-js-BksK_bI5.js",
+          "bytes": 12418
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom_client.js",
+          "bytes": 3132738
+        },
+        {
+          "name": "/node_modules/.vite/deps/react.js",
+          "bytes": 755
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom-CwrS_w0G.js",
+          "bytes": 51257
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_sdk.js",
+          "bytes": 8517550
+        },
+        {
+          "name": "/node_modules/.vite/deps/zod.js",
+          "bytes": 424208
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_scrypt__js.js",
+          "bytes": 35460
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem.js",
+          "bytes": 76014
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal.js",
+          "bytes": 41971
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal_network.js",
+          "bytes": 27668
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign_network.js",
+          "bytes": 63374
+        },
+        {
+          "name": "/node_modules/.vite/deps/build-C2Cf_ojq.js",
+          "bytes": 7844402
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-CE-FKEqm.js",
+          "bytes": 38060
+        },
+        {
+          "name": "/node_modules/.vite/deps/src-DQyxgl0T.js",
+          "bytes": 251877
+        },
+        {
+          "name": "/node_modules/.vite/deps/secp256k1-Z8wwNkKK.js",
+          "bytes": 906680
+        },
+        {
+          "name": "/node_modules/.vite/deps/serializeSignature-C07-7pOX.js",
+          "bytes": 832633
+        },
+        {
+          "name": "/node_modules/.vite/deps/_esm-wZee_-UN.js",
+          "bytes": 2765116
+        },
+        {
+          "name": "/node_modules/.vite/deps/accounts-qjbFhavL.js",
+          "bytes": 900421
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-Dkghgnbd.js",
+          "bytes": 304649
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha2-DJxwnoM0.js",
+          "bytes": 97769
+        },
+        {
+          "name": "/node_modules/.vite/deps/_u64-Dif4UtLK.js",
+          "bytes": 73801
+        },
+        {
+          "name": "/node_modules/.vite/deps/dist-DvvN2fS0.js",
+          "bytes": 122780
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_evm.js",
+          "bytes": 7090
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-NSORPEVS-W2JHk71A.js",
+          "bytes": 310827
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha3-CZOsShND.js",
+          "bytes": 41937
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-CC36VDKC-kDrypHDh.js",
+          "bytes": 110432
+        },
+        {
+          "name": "/node_modules/.vite/deps/@cosmjs_stargate.js",
+          "bytes": 767
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign.js",
+          "bytes": 17496
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem_accounts.js",
+          "bytes": 6468
+        },
+        {
+          "name": "/node_modules/.vite/deps/@gloamtrade_sdk.js",
+          "bytes": 1311147
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_sha3__js.js",
+          "bytes": 2554
+        },
+        {
+          "name": "/node_modules/.vite/deps/bip32-Co_1M0bF.js",
+          "bytes": 36449
+        },
+        {
+          "name": "/node_modules/.vite/deps/snarkjs.js",
+          "bytes": 3114457
+        },
+        {
+          "name": "/node_modules/.vite/deps/protobufjs.js",
+          "bytes": 811127
+        },
+        {
+          "name": "/node_modules/.vite/deps/__vite-browser-external-BSK91P65.js",
+          "bytes": 609
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "business-grants",
+      "width": 390,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/node_modules/.vite/deps/buffer.js",
+          "bytes": 762
+        },
+        {
+          "name": "/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+          "bytes": 35972
+        },
+        {
+          "name": "/node_modules/.vite/deps/buffer-CeEHqG1y.js",
+          "bytes": 184700
+        },
+        {
+          "name": "/node_modules/.vite/deps/rolldown-runtime-DpEnGzO4.js",
+          "bytes": 12689
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-BnNVfMEl.js",
+          "bytes": 135522
+        },
+        {
+          "name": "/node_modules/.vite/deps/base64-js-BksK_bI5.js",
+          "bytes": 12418
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom_client.js",
+          "bytes": 3132738
+        },
+        {
+          "name": "/node_modules/.vite/deps/react.js",
+          "bytes": 755
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom-CwrS_w0G.js",
+          "bytes": 51257
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_sdk.js",
+          "bytes": 8517550
+        },
+        {
+          "name": "/node_modules/.vite/deps/zod.js",
+          "bytes": 424208
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_scrypt__js.js",
+          "bytes": 35460
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem.js",
+          "bytes": 76014
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal.js",
+          "bytes": 41971
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal_network.js",
+          "bytes": 27668
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign_network.js",
+          "bytes": 63374
+        },
+        {
+          "name": "/node_modules/.vite/deps/build-C2Cf_ojq.js",
+          "bytes": 7844402
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-CE-FKEqm.js",
+          "bytes": 38060
+        },
+        {
+          "name": "/node_modules/.vite/deps/src-DQyxgl0T.js",
+          "bytes": 251877
+        },
+        {
+          "name": "/node_modules/.vite/deps/secp256k1-Z8wwNkKK.js",
+          "bytes": 906680
+        },
+        {
+          "name": "/node_modules/.vite/deps/serializeSignature-C07-7pOX.js",
+          "bytes": 832633
+        },
+        {
+          "name": "/node_modules/.vite/deps/_esm-wZee_-UN.js",
+          "bytes": 2765116
+        },
+        {
+          "name": "/node_modules/.vite/deps/accounts-qjbFhavL.js",
+          "bytes": 900421
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-Dkghgnbd.js",
+          "bytes": 304649
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha2-DJxwnoM0.js",
+          "bytes": 97769
+        },
+        {
+          "name": "/node_modules/.vite/deps/_u64-Dif4UtLK.js",
+          "bytes": 73801
+        },
+        {
+          "name": "/node_modules/.vite/deps/dist-DvvN2fS0.js",
+          "bytes": 122780
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_evm.js",
+          "bytes": 7090
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-NSORPEVS-W2JHk71A.js",
+          "bytes": 310827
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha3-CZOsShND.js",
+          "bytes": 41937
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-CC36VDKC-kDrypHDh.js",
+          "bytes": 110432
+        },
+        {
+          "name": "/node_modules/.vite/deps/@cosmjs_stargate.js",
+          "bytes": 767
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign.js",
+          "bytes": 17496
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem_accounts.js",
+          "bytes": 6468
+        },
+        {
+          "name": "/node_modules/.vite/deps/@gloamtrade_sdk.js",
+          "bytes": 1311147
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_sha3__js.js",
+          "bytes": 2554
+        },
+        {
+          "name": "/node_modules/.vite/deps/bip32-Co_1M0bF.js",
+          "bytes": 36449
+        },
+        {
+          "name": "/node_modules/.vite/deps/snarkjs.js",
+          "bytes": 3114457
+        },
+        {
+          "name": "/node_modules/.vite/deps/protobufjs.js",
+          "bytes": 811127
+        },
+        {
+          "name": "/node_modules/.vite/deps/__vite-browser-external-BSK91P65.js",
+          "bytes": 609
+        }
+      ],
+      "violations": []
+    },
+    {
+      "view": "business-grants",
+      "width": 1440,
+      "fits": true,
+      "javascript": [
+        {
+          "name": "/node_modules/.vite/deps/buffer.js",
+          "bytes": 762
+        },
+        {
+          "name": "/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+          "bytes": 35972
+        },
+        {
+          "name": "/node_modules/.vite/deps/buffer-CeEHqG1y.js",
+          "bytes": 184700
+        },
+        {
+          "name": "/node_modules/.vite/deps/rolldown-runtime-DpEnGzO4.js",
+          "bytes": 12689
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-BnNVfMEl.js",
+          "bytes": 135522
+        },
+        {
+          "name": "/node_modules/.vite/deps/base64-js-BksK_bI5.js",
+          "bytes": 12418
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom_client.js",
+          "bytes": 3132738
+        },
+        {
+          "name": "/node_modules/.vite/deps/react.js",
+          "bytes": 755
+        },
+        {
+          "name": "/node_modules/.vite/deps/react-dom-CwrS_w0G.js",
+          "bytes": 51257
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_sdk.js",
+          "bytes": 8517550
+        },
+        {
+          "name": "/node_modules/.vite/deps/zod.js",
+          "bytes": 424208
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_scrypt__js.js",
+          "bytes": 35460
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem.js",
+          "bytes": 76014
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal.js",
+          "bytes": 41971
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoreseal_network.js",
+          "bytes": 27668
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign_network.js",
+          "bytes": 63374
+        },
+        {
+          "name": "/node_modules/.vite/deps/build-C2Cf_ojq.js",
+          "bytes": 7844402
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-CE-FKEqm.js",
+          "bytes": 38060
+        },
+        {
+          "name": "/node_modules/.vite/deps/src-DQyxgl0T.js",
+          "bytes": 251877
+        },
+        {
+          "name": "/node_modules/.vite/deps/secp256k1-Z8wwNkKK.js",
+          "bytes": 906680
+        },
+        {
+          "name": "/node_modules/.vite/deps/serializeSignature-C07-7pOX.js",
+          "bytes": 832633
+        },
+        {
+          "name": "/node_modules/.vite/deps/_esm-wZee_-UN.js",
+          "bytes": 2765116
+        },
+        {
+          "name": "/node_modules/.vite/deps/accounts-qjbFhavL.js",
+          "bytes": 900421
+        },
+        {
+          "name": "/node_modules/.vite/deps/utils-Dkghgnbd.js",
+          "bytes": 304649
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha2-DJxwnoM0.js",
+          "bytes": 97769
+        },
+        {
+          "name": "/node_modules/.vite/deps/_u64-Dif4UtLK.js",
+          "bytes": 73801
+        },
+        {
+          "name": "/node_modules/.vite/deps/dist-DvvN2fS0.js",
+          "bytes": 122780
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_evm.js",
+          "bytes": 7090
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-NSORPEVS-W2JHk71A.js",
+          "bytes": 310827
+        },
+        {
+          "name": "/node_modules/.vite/deps/sha3-CZOsShND.js",
+          "bytes": 41937
+        },
+        {
+          "name": "/node_modules/.vite/deps/chunk-CC36VDKC-kDrypHDh.js",
+          "bytes": 110432
+        },
+        {
+          "name": "/node_modules/.vite/deps/@cosmjs_stargate.js",
+          "bytes": 767
+        },
+        {
+          "name": "/node_modules/.vite/deps/@qorechain_qoresign.js",
+          "bytes": 17496
+        },
+        {
+          "name": "/node_modules/.vite/deps/viem_accounts.js",
+          "bytes": 6468
+        },
+        {
+          "name": "/node_modules/.vite/deps/@gloamtrade_sdk.js",
+          "bytes": 1311147
+        },
+        {
+          "name": "/node_modules/.vite/deps/@noble_hashes_sha3__js.js",
+          "bytes": 2554
+        },
+        {
+          "name": "/node_modules/.vite/deps/bip32-Co_1M0bF.js",
+          "bytes": 36449
+        },
+        {
+          "name": "/node_modules/.vite/deps/snarkjs.js",
+          "bytes": 3114457
+        },
+        {
+          "name": "/node_modules/.vite/deps/protobufjs.js",
+          "bytes": 811127
+        },
+        {
+          "name": "/node_modules/.vite/deps/__vite-browser-external-BSK91P65.js",
+          "bytes": 609
+        }
+      ],
+      "violations": []
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+Command: pnpm evidence --m10b-checks
+Commit: a9d72bd19b7c2d3cd14a87bebdeab5f39f893f68
+Started: 2026-11-25T01:52:03.293Z
+
+$ pnpm gate
+
+> quaestor@ gate /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test
+
+
+> quaestor@ claims:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/claims.ts
+
+T-CLAIMS PASSED: every README section maps to PROVEN claims, existing evidence/code/tests and observed hashes.
+
+> quaestor@ format:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> prettier --check "**/*.{ts,tsx}"
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> quaestor@ typecheck /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+
+> @quaestor/core@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/packages/core
+> tsc --noEmit
+
+
+> @quaestor/scripts@ typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/scripts
+> tsc --noEmit
+
+
+> @quaestor/evm-window@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/tools/evm-window
+> tsc --noEmit
+
+
+> @quaestor/chain@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/packages/chain
+> tsc --noEmit
+
+
+> @quaestor/web@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web
+> tsc --noEmit
+
+ ELIFECYCLE  Command failed.
+
+exit=null

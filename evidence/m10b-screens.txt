@@ -1,0 +1,16 @@
+Command: pnpm evidence --m10b-screens
+Origin: http://127.0.0.1:4173
+Started: 2026-11-25T02:17:15.301Z
+
+Running 2 tests using 1 worker
+
+  ✓  1 e2e/m10Readback.spec.ts:12:1 › T-NOPLAIN-WEB M10 measured setup fees and the 1.5 QOR private change restore without a transaction (3.1m)
+  ✓  2 e2e/m10Readback.spec.ts:110:1 › T-NOPLAIN-WEB M10 populated business notes and books remain private at both widths (2.0m)
+
+  Slow test file: e2e/m10Readback.spec.ts (5.1m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  2 passed (5.3m)
+(node:405801) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+exit=0

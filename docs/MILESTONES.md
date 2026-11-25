@@ -132,6 +132,6 @@ Builder brief: [docs/briefs/M10b.md](briefs/M10b.md). M10 approved with fixes pe
 - [x] Human proof progress, balance metadata under Details, collapsed manual window with empty fields, newest-ten History and clear zero-value labels.
 - [x] S-WINDOW-REOPEN observes replacement on the demo business account and confirms an EVM spend from the new budget using existing journals.
 - [x] Audit documentation explains normalized header hashes and points to evidence/m10-audit.json (already present in M10).
-- [ ] Gate, Wallet/modal/cancellation/History screenshots at 390/1440, axe and known-secret scan pass.
+- [x] Gate, Wallet/modal/cancellation/History screenshots at 390/1440, axe and known-secret scan pass.
 - [ ] Push and verify the deployed JavaScript contains the new modal string; stop for the builder's fresh-signup go-ahead.
 - [ ] Only after a new go-ahead in this session: uninterrupted deployed M10 signup with manual faucet, no alternative funding; update C5/C11/JUDGES only after success.
