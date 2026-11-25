@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync, writeFileSync, existsSync, copyFileSync } from 'node:fs';
 import { z } from 'zod';
+import { execFileSync } from 'node:child_process';
+const commit = () => execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
 import { m9Privacy } from './m9Privacy.js';
 import { m10Screens } from './m10Screens.js';
 import { m10CancelWindow } from './m10WindowUI.js';
@@ -86,6 +88,7 @@ test('T-NOPLAIN-WEB M10 measured setup fees and the 1.5 QOR private change resto
     JSON.stringify(
       {
         command: `pnpm evidence --${run}-screens`,
+        commit: commit(),
         origin: baseURL,
         at: new Date().toISOString(),
         status,
@@ -164,7 +167,16 @@ test('T-NOPLAIN-WEB M10 populated business notes and books remain private at bot
   writeFileSync(
     target,
     JSON.stringify(
-      { command: `pnpm evidence --${run}-screens`, origin: baseURL, status, mutations, network, screens },
+      {
+        command: `pnpm evidence --${run}-screens`,
+        commit: commit(),
+        at: new Date().toISOString(),
+        origin: baseURL,
+        status,
+        mutations,
+        network,
+        screens,
+      },
       null,
       2,
     ) + '\n',
