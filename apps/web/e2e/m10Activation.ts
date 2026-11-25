@@ -1,34 +1,57 @@
 import { expect, type Page } from '@playwright/test';
-import { writeFileSync, existsSync } from 'node:fs';
+import { writeFileSync, existsSync, copyFileSync, mkdirSync } from 'node:fs';
 import { parseEther, formatEther } from 'viem';
 import { z } from 'zod';
 import { m9ActivationReceipts } from './m9Driver.js';
+import { m10Attempt } from './m10Attempt.js';
+import { fundingWaitMs, fundingReminderMs, waitForM10Funding } from './m10Funding.js';
 export async function m10Fund(page: Page, address: string | null) {
-  console.log(
-    `M10 FAUCET FUNDING NEEDED: ${String(address)} — use https://dashboard.qorechain.io/faucet manually. Polling for up to 20 minutes; faucet is never automated.`,
-  );
-  writeFileSync(
-    '../../evidence/m10-funding-needed.json',
+  const attempt = m10Attempt();
+  const publicAddress = z
+    .string()
+    .regex(/^qor1[a-z0-9]+$/)
+    .parse(address);
+  const startedAt = Date.now();
+  const target = '../../evidence/m10-funding-needed.json';
+  const directory = `../../evidence/m10-signup-attempts/${attempt.id}`;
+  mkdirSync(directory, { recursive: true });
+  if (existsSync(target)) copyFileSync(target, target.replace('.json', `-attempt-${String(startedAt)}.json`));
+  const record =
     JSON.stringify(
       {
         command: 'pnpm evidence --m10-fresh-signup',
-        address,
+        attemptId: attempt.id,
+        sourceCommit: attempt.sourceCommit,
+        address: publicAddress,
         stage: 'WAITING_FOR_BUILDER_FAUCET',
-        timeoutSeconds: 1200,
-        at: new Date().toISOString(),
+        timeoutSeconds: fundingWaitMs / 1000,
+        reminderSeconds: fundingReminderMs / 1000,
+        at: new Date(startedAt).toISOString(),
+        deadlineAt: new Date(startedAt + fundingWaitMs).toISOString(),
+        refusalMarker: `.accounts/m10-browser/attempts/${attempt.id}/faucet-refused`,
       },
       null,
       2,
-    ) + '\n',
+    ) + '\n';
+  writeFileSync(`${directory}/funding-needed.json`, record, { flag: 'wx' });
+  writeFileSync(target, record);
+  await waitForM10Funding(
+    publicAddress,
+    {
+      now: Date.now,
+      refused: () => existsSync(`${attempt.directory}/faucet-refused`),
+      funded: async () => {
+        const value = await page.getByTestId('funding-balance').textContent();
+        const amount = value?.match(/Public balance: ([\d.]+) QOR/)?.[1];
+        return amount !== undefined && parseEther(amount) >= parseEther('3.05');
+      },
+      sleep: (ms) => page.waitForTimeout(ms),
+      notify: (message) => {
+        console.log(message);
+      },
+    },
+    startedAt,
   );
-  const deadline = Date.now() + 1200000;
-  while (Date.now() < deadline) {
-    if (existsSync('../../.accounts/m10-browser/faucet-refused')) throw new Error('FAUCET_REFUSED_STOP');
-    const value = await page.getByTestId('funding-balance').textContent();
-    if (Number(value?.match(/Public balance: ([\d.]+) QOR/)?.[1] ?? '0') >= 3.05) return;
-    await page.waitForTimeout(10000);
-  }
-  throw new Error('MANUAL_FAUCET_TIMEOUT');
 }
 export async function m10Activate(page: Page) {
   const ready = page.getByRole('heading', { name: 'Ready for private payments', exact: true }).first();

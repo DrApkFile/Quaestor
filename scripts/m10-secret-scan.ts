@@ -32,8 +32,19 @@ const collect = (value: unknown, name = '') => {
   else if (typeof value === 'object' && value !== null)
     for (const [key, item] of Object.entries(value)) collect(item, key);
 };
+const attemptsDirectory = new URL('attempts/', directory);
+const signupDirectories = [
+  directory,
+  ...(existsSync(attemptsDirectory)
+    ? readdirSync(attemptsDirectory)
+        .filter((name) => /^m10-\d{13}-[a-f0-9]{16}$/.test(name))
+        .map((name) => new URL(`${name}/`, attemptsDirectory))
+    : []),
+];
 for (const [sessionPath, backupPath] of [
-  [new URL('signup-session.json', directory), new URL('signup-backup.json', directory)],
+  ...signupDirectories.map(
+    (path) => [new URL('signup-session.json', path), new URL('signup-backup.json', path)] as const,
+  ),
   [new URL('.accounts/m9-browser/signup-session.json', root), new URL('readback-backup.json', directory)],
 ] as const) {
   if (!existsSync(sessionPath) || !existsSync(backupPath)) continue;

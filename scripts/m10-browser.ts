@@ -1,4 +1,5 @@
-import { spawnSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { newM10AttemptId } from '../apps/web/e2e/m10Attempt.js';
 const signup = process.argv[2] === '--m10-fresh-signup';
 if (
   signup &&
@@ -20,6 +21,18 @@ const result = spawnSync(
         ? 'm10Cashout.spec.ts'
         : 'm10Readback.spec.ts',
   ],
-  { cwd: new URL('../', import.meta.url), stdio: 'inherit', env: process.env },
+  {
+    cwd: new URL('../', import.meta.url),
+    stdio: 'inherit',
+    env: {
+      ...process.env,
+      ...(signup
+        ? {
+            QUAESTOR_M10_ATTEMPT: newM10AttemptId(),
+            QUAESTOR_M10_SOURCE_COMMIT: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
+          }
+        : {}),
+    },
+  },
 );
 process.exitCode = result.status ?? 1;

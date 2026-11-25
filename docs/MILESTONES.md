@@ -137,3 +137,5 @@ Builder brief: [docs/briefs/M10b.md](briefs/M10b.md). M10 approved with fixes pe
 - [ ] Only after a new go-ahead in this session: uninterrupted deployed M10 signup with manual faucet, no alternative funding; update C5/C11/JUDGES only after success.
 
 M10b fresh attempt, 25 Nov 2026: builder go-ahead received; `pnpm evidence --m10-fresh-signup` created/downloaded the backup, then FAILED at WAIT_FOR_MANUAL_FAUCET after the 20-minute funding timeout. No activation or payment was reached. Evidence: `evidence/m10-fresh-signup.json`; session/evidence retained, no resume or alternative funding. C5/C11 and JUDGES remain unchanged.
+
+Builder retry amendment: [docs/briefs/M10b-retry.md](briefs/M10b-retry.md). Push the failed record `0896ff0`; extend the next attempt's manual funding wait to 60 minutes with a prominent address and two-minute reminders; preserve separate account/session/report/screenshot identity; validate, commit and push before starting the authorized new deployed attempt.

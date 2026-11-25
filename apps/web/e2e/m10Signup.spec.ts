@@ -1,7 +1,9 @@
 import { m10Report } from './m10Report.js';
 import { test, expect } from '@playwright/test';
 import { randomBytes } from 'node:crypto';
-import { chmodSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { chmodSync } from 'node:fs';
+import { m10Attempt, reserveM10Session } from './m10Attempt.js';
+import { signupTimeoutMs } from './m10Funding.js';
 import { m10Fund, m10Activate } from './m10Activation.js';
 import { m9Privacy } from './m9Privacy.js';
 import { m10Screens } from './m10Screens.js';
@@ -11,16 +13,14 @@ test('T-NOPLAIN-WEB M10 fresh signup activates deposits pays and receives throug
   browser,
   baseURL,
 }) => {
-  test.setTimeout(2700000);
+  test.setTimeout(signupTimeoutMs);
   if (baseURL !== 'https://use-quaestor.vercel.app') throw new Error('LIVE_ORIGIN_REQUIRED');
-  const directory = '../../.accounts/m10-browser';
-  mkdirSync(directory, { recursive: true, mode: 0o700 });
-  const sessionFile = `${directory}/signup-session.json`;
   if (process.env.QUAESTOR_M10_FAUCET_READY !== 'builder-confirmed' || Date.now() < Date.parse('2026-11-24T08:40:00Z'))
     throw new Error('BUILDER_FAUCET_READY_SIGNAL_REQUIRED');
-  if (existsSync(sessionFile)) throw new Error('FRESH_SIGNUP_PROFILE_ALREADY_USED');
+  const attempt = m10Attempt();
+  const directory = attempt.directory;
   const session = { password: randomBytes(32).toString('base64url') };
-  writeFileSync(sessionFile, JSON.stringify(session), { mode: 0o600 });
+  reserveM10Session(directory, session.password);
   const fixture = m9Fixtures(),
     supplier = fixture.roles.supplier1;
   if (!supplier || supplier.address !== 'qor1uz3zu3883m06vcguymnkxema9uantwxn8dmmw2')
@@ -63,14 +63,14 @@ test('T-NOPLAIN-WEB M10 fresh signup activates deposits pays and receives throug
   try {
     await step('CREATE_ACCOUNT', async () => {
       await page.goto('/app?view=account');
-      screens.push(...(await m10Screens(page, 'after', 'signup-empty')));
+      screens.push(...(await m10Screens(page, attempt.phase, 'signup-empty')));
       await page.getByLabel('Passphrase', { exact: true }).fill(session.password);
       await page.getByRole('button', { name: 'Create account', exact: true }).click();
       await m9Download(page, `${directory}/signup-backup.json`);
       chmodSync(`${directory}/signup-backup.json`, 0o600);
       address = await page.getByTestId('funding-address').textContent();
       if (!address || !/^qor1[a-z0-9]+$/.test(address)) throw new Error('ADDRESS_REQUIRED');
-      screens.push(...(await m10Screens(page, 'after', 'signup-funding')));
+      screens.push(...(await m10Screens(page, attempt.phase, 'signup-funding')));
     });
     await step('WAIT_FOR_MANUAL_FAUCET', () => m10Fund(page, address));
     await step('ACTIVATE', async () => {
@@ -78,7 +78,7 @@ test('T-NOPLAIN-WEB M10 fresh signup activates deposits pays and receives throug
       activation = result.activation;
       activationCostQor = result.cost;
       activationMs = result.ms;
-      screens.push(...(await m10Screens(page, 'after', 'signup-activated')));
+      screens.push(...(await m10Screens(page, attempt.phase, 'signup-activated')));
       await m9SaveBackup(page, `${directory}/signup-backup.json`, session.password);
     });
     await step('SUPPLIER_CONTEXT', async () => {
@@ -101,7 +101,7 @@ test('T-NOPLAIN-WEB M10 fresh signup activates deposits pays and receives throug
       if ((await m9Snapshot(page)).transactions.some((transaction) => transaction.id.startsWith('deposit-'))) return;
       await page.getByLabel('Deposit amount', { exact: true }).fill('2');
       await m9Action(page, 'Deposit privately');
-      screens.push(...(await m10Screens(page, 'after', 'signup-deposited')));
+      screens.push(...(await m10Screens(page, attempt.phase, 'signup-deposited')));
       await m9SaveBackup(page, `${directory}/signup-backup.json`, session.password);
     });
     await step('PAY_0_5_QOR', async () => {
@@ -123,7 +123,7 @@ test('T-NOPLAIN-WEB M10 fresh signup activates deposits pays and receives throug
       expect(
         snapshot.payments.filter((payment) => payment.direction === 'OUT' && payment.stage === 'TICKET_POSTED'),
       ).toHaveLength(1);
-      screens.push(...(await m10Screens(page, 'after', 'signup-paid')));
+      screens.push(...(await m10Screens(page, attempt.phase, 'signup-paid')));
       await m9SaveBackup(page, `${directory}/signup-backup.json`, session.password);
     });
     await step('RECEIVE_CHECKED_TICKET', async () => {
@@ -134,7 +134,7 @@ test('T-NOPLAIN-WEB M10 fresh signup activates deposits pays and receives throug
         received.payments.some((payment) => payment.direction === 'IN' && payment.commitment === outgoing?.commitment),
       ).toBe(true);
       await expect(other.getByRole('heading', { name: '0.5 QOR', exact: true }).last()).toBeVisible();
-      screens.push(...(await m10Screens(other, 'after', 'signup-received')));
+      screens.push(...(await m10Screens(other, attempt.phase, 'signup-received')));
     });
     status = 'PASSED';
   } catch (error: unknown) {
