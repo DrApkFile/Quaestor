@@ -120,8 +120,8 @@ Builder brief: [docs/briefs/M10.md](briefs/M10.md). M9 approved by Claude per bu
 - [x] Account/nav copy, 390px axe and T-NOPLAIN-WEB checks; before/after screenshots and secret scan.
 - [x] Flatten Books v2 and BlobBoard, compile each alone with solc 0.8.24, commit/address/hash headers and audit process document with empty findings table.
 - [x] Prepare `pnpm evidence --m10-fresh-signup`; do not start before builder faucet-ready signal after 09:40 Lagos on 24 Nov.
-- [ ] Run uninterrupted deployed empty-profile create/backup/manual faucet/activate/deposit 2/pay 0.5/supplier1 receive; stop on faucet refusal, no deployer funding.
-- [ ] Only after success, update C5/C11 and JUDGES with measured fresh-run time/cost; retain M9 resumed evidence.
+- [x] Run uninterrupted deployed empty-profile create/backup/manual faucet/activate/deposit 2/pay 0.5/supplier1 receive; stop on faucet refusal, no deployer funding.
+- [x] Only after success, update C5/C11 and JUDGES with measured fresh-run time/cost; retain M9 resumed evidence.
 - [x] Gate, separate behavioural commits, handoff, push and stop.
 
 ## M10b — Window confirmation, wallet cleanup and fresh-signup checkpoint
@@ -134,8 +134,10 @@ Builder brief: [docs/briefs/M10b.md](briefs/M10b.md). M10 approved with fixes pe
 - [x] Audit documentation explains normalized header hashes and points to evidence/m10-audit.json (already present in M10).
 - [x] Gate, Wallet/modal/cancellation/History screenshots at 390/1440, axe and known-secret scan pass.
 - [x] Push and verify the deployed JavaScript contains the new modal string; stop for the builder's fresh-signup go-ahead.
-- [ ] Only after a new go-ahead in this session: uninterrupted deployed M10 signup with manual faucet, no alternative funding; update C5/C11/JUDGES only after success.
+- [x] Only after a new go-ahead in this session: uninterrupted deployed M10 signup with manual faucet, no alternative funding; update C5/C11/JUDGES only after success.
 
-M10b fresh attempt, 25 Nov 2026: builder go-ahead received; `pnpm evidence --m10-fresh-signup` created/downloaded the backup, then FAILED at WAIT_FOR_MANUAL_FAUCET after the 20-minute funding timeout. No activation or payment was reached. Evidence: `evidence/m10-fresh-signup.json`; session/evidence retained, no resume or alternative funding. C5/C11 and JUDGES remain unchanged.
+M10b fresh attempt, 25 Nov 2026: builder go-ahead received; `pnpm evidence --m10-fresh-signup` created/downloaded the backup, then FAILED at WAIT_FOR_MANUAL_FAUCET after the 20-minute funding timeout. No activation or payment was reached. Failure evidence: `evidence/m10-fresh-signup-attempt-1795595160341.json`; session/evidence retained, no resume or alternative funding. C5/C11 and JUDGES were unchanged at that checkpoint.
 
 Builder retry amendment: [docs/briefs/M10b-retry.md](briefs/M10b-retry.md). Push the failed record `0896ff0`; extend the next attempt's manual funding wait to 60 minutes with a prominent address and two-minute reminders; preserve separate account/session/report/screenshot identity; validate, commit and push before starting the authorized new deployed attempt.
+
+The separately authorized retry `m10-1795594340224-d0023e20cd51bf67` PASSED uninterrupted on the deployed site. The same payer context detected manual funding, activated, deposited 2 QOR and privately sent 0.5 QOR; supplier1 checked the exact commitment in another context. Activation: 63.851 seconds / 0.319120916 QOR; total observed fees: 0.818424821 QOR excluding deposit principal. Receipt rereads, all 58 M10 image secret checks, the full gate (80 TypeScript / 13 distinct Forge tests) and production build passed. C5/C11 and JUDGES now include this scoped result; M9 resumed evidence and the earlier FAILED M10 attempt remain intact. Final delivery ends at the M10b handoff.

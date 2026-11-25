@@ -1,0 +1,145 @@
+{
+  "command": "pnpm evidence --m10-cost",
+  "status": "PASSED",
+  "at": "2026-11-25T08:31:02.942Z",
+  "commit": "376f15e8a5719e1e163ed6ba35f7d53acaa7657d",
+  "attemptId": "m10-1795594340224-d0023e20cd51bf67",
+  "signupSourceCommit": "921ea7e93f89ffd3ccc1f978943c0819b75d3826",
+  "inputSha256": "5ca09fa51239c0ee9e0f93a6fbbc3e92b46ec1ef7ec0b158bda39ebcdc2e993a",
+  "network": "qorechain-diana",
+  "chainId": 9800,
+  "address": "qor1xfkjs6nf57z2azdkx65ntq7ttj5mhxwp3kup02",
+  "startedAt": "2026-11-25T08:12:32.087Z",
+  "completedAt": "2026-11-25T08:26:00.340Z",
+  "elapsedMs": 808253,
+  "steps": [
+    {
+      "step": "CREATE_ACCOUNT",
+      "ms": 35485
+    },
+    {
+      "step": "WAIT_FOR_MANUAL_FAUCET",
+      "ms": 410694
+    },
+    {
+      "step": "ACTIVATE",
+      "ms": 89781
+    },
+    {
+      "step": "SUPPLIER_CONTEXT",
+      "ms": 43146
+    },
+    {
+      "step": "DEPOSIT_2_QOR",
+      "ms": 74871
+    },
+    {
+      "step": "PAY_0_5_QOR",
+      "ms": 99033
+    },
+    {
+      "step": "RECEIVE_CHECKED_TICKET",
+      "ms": 55233
+    }
+  ],
+  "activationMs": 63851,
+  "activationQor": "0.319120916",
+  "uiActivationDeltaQor": "0.319120916",
+  "paymentFeesQor": "0.499303905",
+  "totalFeesQor": "0.818424821",
+  "native": [
+    {
+      "hash": "BF9CFCCCBCECFA670EFA2CB5D0932354B6FA5DAE532D6DF25B17CC2D8CDE2B08",
+      "block": "10717281",
+      "step": "pqc-register",
+      "phase": "activation",
+      "code": 0,
+      "gasUsed": "297147",
+      "gasWanted": "800000",
+      "feeUqor": "100000"
+    },
+    {
+      "hash": "F6D3F18816D78F41D2DA43CAC350A99A0A9B6882DDB23075FB6462D3AB055C9C",
+      "block": "10717285",
+      "step": "kem-register",
+      "phase": "activation",
+      "code": 0,
+      "gasUsed": "267708",
+      "gasWanted": "800000",
+      "feeUqor": "100000"
+    },
+    {
+      "hash": "3F6B5051430097BE0F1958512B7DF7B9CEA6D93784BE9AC99FC3584BE22BE821",
+      "block": "10717309",
+      "step": "window-0x79860de106a656f84e689be393ed703979a9ff7dd05caa8545b6cda56f762293-10717295",
+      "phase": "activation",
+      "code": 0,
+      "gasUsed": "186702",
+      "gasWanted": "800000",
+      "feeUqor": "100000"
+    },
+    {
+      "hash": "47C79E2225C8CE29969B909362F644949B358AD8FD32E71DE005104333E5AE5A",
+      "block": "10717391",
+      "step": "prepare-c9c0b9f8-5397-400e-91db-5726fa8723bb",
+      "phase": "payment",
+      "code": 0,
+      "gasUsed": "186782",
+      "gasWanted": "800000",
+      "feeUqor": "100000"
+    },
+    {
+      "hash": "CE412EFAEF716396BFB4132DA490718626CB07D565641690D72A3EFF7CD442DA",
+      "block": "10717468",
+      "step": "prepare-089fcbde-cda2-4fc9-8aca-cfec53f0f38c",
+      "phase": "payment",
+      "code": 0,
+      "gasUsed": "186782",
+      "gasWanted": "800000",
+      "feeUqor": "100000"
+    }
+  ],
+  "evm": [
+    {
+      "hash": "0x66e84bed4ed523254f3e9d4fc0c3c470f0d8b6c90919147918a3c8ac1ec2e102",
+      "block": "10717312",
+      "step": "card-79860de106a656f84e689be393ed703979a9ff7dd05caa8545b6cda56f762293",
+      "phase": "activation",
+      "status": "success",
+      "gasUsed": "189316",
+      "effectiveGasPrice": "101000000000",
+      "feeWei": "19120916000000000"
+    },
+    {
+      "hash": "0x464923a64fe0ff355a0d5813151fda79e71d56b14cd4726750fa24c2b7cb3a49",
+      "block": "10717394",
+      "step": "deposit-8531f089-a361-49b3-9b45-94eacddd7d40",
+      "phase": "payment",
+      "status": "success",
+      "gasUsed": "1065315",
+      "effectiveGasPrice": "101000000000",
+      "feeWei": "107596815000000000"
+    },
+    {
+      "hash": "0xa0c53570e2953cc25fd78dfdb77072ec028563e00a549c10c8b3a36767a46ab7",
+      "block": "10717471",
+      "step": "pay-086a6573-c527-4d3a-99c4-ab6f27608c08",
+      "phase": "payment",
+      "status": "success",
+      "gasUsed": "1782590",
+      "effectiveGasPrice": "101000000000",
+      "feeWei": "180041590000000000"
+    },
+    {
+      "hash": "0x55d9b7173f0e8e35c29e357166efd4924c61e4bb3431a170ada2d98e4ef1c239",
+      "block": "10717475",
+      "step": "pay-086a6573-c527-4d3a-99c4-ab6f27608c08-memo",
+      "phase": "payment",
+      "status": "success",
+      "gasUsed": "115500",
+      "effectiveGasPrice": "101000000000",
+      "feeWei": "11665500000000000"
+    }
+  ],
+  "limits": "One observed uninterrupted testnet signup. Total elapsed includes manual faucet wait, screenshots, axe, backups and supplier restore. Fees exclude the 2-QOR deposit principal; the 0.5-QOR payment spends that deposit. Gas prices and timings can change. Receipt rereads send no transactions."
+}

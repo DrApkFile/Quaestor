@@ -1,0 +1,141 @@
+Command: pnpm evidence --m10b-checks
+Commit: 376f15e8a5719e1e163ed6ba35f7d53acaa7657d
+Started: 2026-11-25T08:30:56.329Z
+
+$ pnpm gate
+
+> quaestor@ gate /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm claims:check && pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm -C contracts test
+
+
+> quaestor@ claims:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -C packages/chain exec tsx ../../scripts/claims.ts
+
+T-CLAIMS PASSED: every README section maps to PROVEN claims, existing evidence/code/tests and observed hashes.
+
+> quaestor@ format:check /home/kingghidorah/Documents/projects/bounties/quaestor
+> prettier --check "**/*.{ts,tsx}"
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> quaestor@ typecheck /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+
+> @quaestor/core@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/packages/core
+> tsc --noEmit
+
+
+> @quaestor/scripts@ typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/scripts
+> tsc --noEmit
+
+
+> @quaestor/evm-window@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/tools/evm-window
+> tsc --noEmit
+
+
+> @quaestor/chain@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/packages/chain
+> tsc --noEmit
+
+
+> @quaestor/web@0.0.0 typecheck /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web
+> tsc --noEmit
+
+
+> quaestor@ lint /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --workspace-concurrency=1 --if-present lint
+
+Scope: 6 of 7 workspace projects
+
+> @quaestor/core@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/packages/core
+> eslint src test
+
+
+> @quaestor/scripts@ lint /home/kingghidorah/Documents/projects/bounties/quaestor/scripts
+> eslint *.ts
+
+
+> @quaestor/evm-window@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/tools/evm-window
+> eslint scripts
+
+
+> @quaestor/chain@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/packages/chain
+> eslint src scripts test
+
+
+> @quaestor/web@0.0.0 lint /home/kingghidorah/Documents/projects/bounties/quaestor/apps/web
+> eslint server src test e2e vite.config.ts playwright.config.ts playwright.cover.config.ts playwright.m9.config.ts vitest.config.ts ../../api
+
+
+> quaestor@ test /home/kingghidorah/Documents/projects/bounties/quaestor
+> pnpm -r --if-present test
+
+Scope: 6 of 7 workspace projects
+
+> @quaestor/contracts@ test /home/kingghidorah/Documents/projects/bounties/quaestor/contracts
+> forge test
+
+No files changed, compilation skipped
+
+Ran 9 tests for test/Books.t.sol:BooksTest
+[PASS] testBadSignatureRefusedAndPeriodRemainsOpen() (gas: 78047)
+[PASS] testCloseBindsExactDomainAndLocksEntries() (gas: 382020)
+[PASS] testCloseRejectsMisstatedCountOrLastHash() (gas: 179572)
+[PASS] testDuplicateBookRefused() (gas: 44638)
+[PASS] testGrantAfterCloseAllowedButCannotBeOverwritten() (gas: 208400)
+[PASS] testOpeningHashIsRequiredAndAnchoredAtRegistration() (gas: 51914)
+[PASS] testRegistrationRequiresProvenAlgorithmOne() (gas: 344997)
+[PASS] testRejectsOutOfOrderAndBrokenPreviousHash() (gas: 178350)
+[PASS] testRejectsWrongOwner() (gas: 90895)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 220.46ms (12.49ms CPU time)
+
+Ran 4 tests for test/BlobBoard.t.sol:BlobBoardTest
+[PASS] testAcceptsBoundaryAndAnyPosterWithoutStorage() (gas: 667261)
+[PASS] testPostedHashIsUntrustedMetadata() (gas: 36146)
+[PASS] testRejectsEmptyData() (gas: 30134)
+[PASS] testRejectsMoreThan24576Bytes() (gas: 201260)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 223.37ms (11.93ms CPU time)
+
+Ran 2 test suites in 227.66ms (443.83ms CPU time): 13 tests passed, 0 failed, 0 skipped (13 total tests)
+
+> @quaestor/core@0.0.0 test /home/kingghidorah/Documents/projects/bounties/quaestor/packages/core
+> vitest run --maxWorkers=1 --minWorkers=1
+
+
+ RUN  v2.1.9 /home/kingghidorah/Documents/projects/bounties/quaestor/packages/core
+
+ ❯ test/verdict.test.ts (5 tests | 1 failed) 61272ms
+   ✓ T-VERDICT ceiling reaches every entry verdict and reason in precedence order 2162ms
+   × T-VERDICT root history retains an old insertion root beyond the last 100 roots 58309ms
+     → Test timed out in 30000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ T-VERDICT duplicate payment commitments after the first are UNBACKED across openable periods 674ms
+ ✓ test/books.test.ts (6 tests) 2458ms
+   ✓ T-SEAL auditor opens only its granted demo-scale period and outsiders are refused 899ms
+   ✓ T-BIND edited ciphertext fails the anchor SHA3 and signature even if its stated digest is replaced 327ms
+   ✓ T-PERIOD-B-ONLY later-period key opens its signed declared opening without granting the first period 771ms
+ ✓ test/legacy.test.ts (2 tests) 1193ms
+   ✓ T-LEGACY mismatched decrypted plaintext hash and non-owner mapping signature are TAMPERED 973ms
+ ✓ test/holdingsSelection.test.ts (1 test) 23ms
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 13 passed (14)
+   Start at  10:03:22
+   Duration  191.44s (transform 4.66s, setup 0ms, collect 110.44s, tests 64.95s, environment 11ms, prepare 6.26s)
+
+/home/kingghidorah/Documents/projects/bounties/quaestor/packages/core:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @quaestor/core@0.0.0 test: `vitest run --maxWorkers=1 --minWorkers=1`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/verdict.test.ts > T-VERDICT root history retains an old insertion root beyond the last 100 roots
+Error: Test timed out in 30000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+exit=1
