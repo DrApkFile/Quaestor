@@ -28,7 +28,9 @@ export function Dashboard({ runtime, view }: { runtime: BusinessRuntime; view: B
             : 'REQUEST_FAILED';
         Object.assign(window, { quaestorLastError: diagnostic });
         setError(errorMessage(value));
-        setCancelled(value instanceof Error && value.message === 'WINDOW_DECLINED');
+        const declined = value instanceof Error && value.message === 'WINDOW_DECLINED';
+        setCancelled(declined);
+        if (declined) runtime.progress('');
       })
       .finally(() => {
         setBusy(false);
