@@ -17,6 +17,10 @@ export async function m10Screens(
   await expect(page.getByText('Opening Quaestor…', { exact: true })).toHaveCount(0);
   await expect(page.getByRole('heading').first()).toBeVisible({ timeout: 120000 });
   await page.waitForLoadState('networkidle');
+  if (view.includes('wallet') || view.startsWith('window-'))
+    await expect(page.getByText(/^Pinned balance block:/)).toContainText(/Pinned balance block: \d+/, {
+      timeout: 60000,
+    });
   const screens = [];
   mkdirSync(`../../evidence/${run}-screens`, { recursive: true });
   mkdirSync(`../../.accounts/${run}-browser`, { recursive: true, mode: 0o700 });
