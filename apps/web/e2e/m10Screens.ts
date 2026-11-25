@@ -14,6 +14,9 @@ export async function m10Screens(
   view: string,
   run: 'm10' | 'm10b' = 'm10',
 ): Promise<M10Screen[]> {
+  await expect(page.getByText('Opening Quaestor…', { exact: true })).toHaveCount(0);
+  await expect(page.getByRole('heading').first()).toBeVisible({ timeout: 120000 });
+  await page.waitForLoadState('networkidle');
   const screens = [];
   mkdirSync(`../../evidence/${run}-screens`, { recursive: true });
   mkdirSync(`../../.accounts/${run}-browser`, { recursive: true, mode: 0o700 });
