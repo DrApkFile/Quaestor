@@ -175,6 +175,6 @@ Builder brief: [M13](briefs/M13.md). No contract source changes, redeployment, v
 - [x] Record all four PDFs, scores, unscored PQ status and finding/test mapping; disclose historical-log availability.
 - [x] Add truncated/empty signature Forge regression and pinned live precompile evidence.
 - [x] Replace recording script and verify labels against deployed UI/bundles.
-- [ ] Claims, README/JUDGES links and deployed routes checked; gate passes.
+- [x] Claims, README/JUDGES links and deployed routes checked; gate passes.
 - [ ] Fresh temporary clone of pushed repository: frozen install, gate and web build captured.
 - [ ] Handoff with project-page values written; pull before final push, push and stop.
