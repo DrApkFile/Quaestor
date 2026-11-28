@@ -1,6 +1,6 @@
 # Pre-submit checklist report
 
-This applies every item in [briefing/pre-submit-audit.md](../briefing/pre-submit-audit.md). A passing repository build does not mean the external festival submission is complete. The current M8 brief explicitly requests a recording script and deploy readiness. The actual video and original external audit checks remain unperformed. M9 subsequently verified the deployed Vercel app; this does not complete the festival submission.
+This applies every item in [briefing/pre-submit-audit.md](../briefing/pre-submit-audit.md). A passing repository build does not mean the external festival submission is complete. The current M8 brief explicitly requests a recording script and deploy readiness. The actual video remains unperformed. M13 records all four builder-exported QCAI reports and finding responses in [AUDIT.md](AUDIT.md). M9 subsequently verified the deployed Vercel app; this does not complete the festival submission.
 
 | Checklist item | Result / evidence |
 |---|---|
@@ -27,9 +27,9 @@ This applies every item in [briefing/pre-submit-audit.md](../briefing/pre-submit
 | Independent 60-second judge walkthrough | Automated empty-browser auditor/public checks pass; an uninvolved human walkthrough has not been performed. The “60 seconds” is click-path guidance; chain reads/circuit downloads can take longer. |
 | Copy-paste verification commands | Fresh clone exercises frozen install, circuit and pinned forge-std setup, gate and production build. Judge path uses the same production preview/relay handler as Playwright. |
 | Live attack guards and refusal codes | Read-only attack lab's four results are checked live; fresh auditor refusal of C and B-only isolation are checked. No new transactions are sent by those audit pages. |
-| Final video length / required segments | Not recorded. VIDEO_SCRIPT.md totals 2:45; builder must record real interactions, label omitted waiting time and run ffprobe before submission. |
+| Final video length / required segments | Not recorded. VIDEO_SCRIPT.md totals 2:55; builder must record real interactions, label omitted waiting time and run ffprobe before submission. |
 | UI 390px / empty / error / stale | M7/M7b captures check every requested screen at 390 and 1440, with request errors failing the run. Existing empty/UNKNOWN/refusal states have source/unit coverage; exhaustive visual testing of every stale/error combination is not claimed. |
 
-The planned two-stage QCAI audit is also unperformed; no report is claimed. It remains external follow-up in ROADMAP.md. The builder must finish video/project-page and any required audit/social/eligibility actions before submission.
+The two-stage QCAI audit is recorded in [AUDIT.md](AUDIT.md): Books 65 → 75, BlobBoard 85 → 95, no PQ score. The builder must finish video/project-page and any required social/eligibility actions before submission.
 
 The passing fresh clone used TMPDIR under the larger home filesystem. Earlier attempts exposed a nested Foundry relative-root error, a /tmp artifact-checkout failure, locale-dependent checksum-manifest ordering and deprecated SDK property access in the new diagnostic. Each failed log is retained; the code/setup blockers were fixed before the passing run. The final clone is clean after build, and the primary Gloam vendor tree is unchanged. Existing Solidity parameter-shadowing, browser assert externalization and large-bundle warnings are non-blocking and retained in the exact output.

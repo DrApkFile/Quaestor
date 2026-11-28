@@ -32,7 +32,7 @@ Concrete changes from that loop:
 | Codex, M8 setup | Repeated optional top-ups without first checking already-funded demo accounts; the deployer could not cover another transfer | A confirmed code-5 receipt was retained in evidence/m7b-funding-attempt.json. The runner now checks pinned public balances and uses existing client/business gas funds |
 | Codex, M7 evidence | Left canary content in the judge book and masked the ledger | M8 separates privacy testing from the new fictional judge book; the first run is labelled superseded, not deleted |
 | Codex, M7 browser test | Did not consume health-response bodies; traffic inspection remained unfinished | Bounded inspection reported the failure; consumed all response bodies and reran; [M7 handoff](docs/handoff/M7.md) |
-| Claude/Codex, earlier AI_USAGE draft | Described a planned QCAI audit as completed | M8 removed the unsupported statement. No QCAI report exists; the two-stage external audit remains unperformed |
+| Claude/Codex, earlier AI_USAGE draft | Described a planned QCAI audit as completed | M8 removed the unsupported statement when no report existed. M13 subsequently records the four builder-exported PDFs and finding responses in docs/AUDIT.md |
 
 ## Generated vs human
 
@@ -47,6 +47,8 @@ Concrete changes from that loop:
 
 ## Verification limits
 
-AI-generated code is checked by tests and live receipts, not trusted because another model agrees. Browser interception is scoped to exercised flows and known encodings. Claim mappings enforce recorded support and reviewed text, not semantic truth automatically. The pool's Groth16 proofs are not post-quantum. No QCAI audit, independent human judge walkthrough, recorded final video or submitted project-page verification is claimed here.
+AI-generated code is checked by tests and live receipts, not trusted because another model agrees. Browser interception is scoped to exercised flows and known encodings. Claim mappings enforce recorded support and reviewed text, not semantic truth automatically. The pool's Groth16 proofs are not post-quantum. The QCAI two-stage audit is recorded in [AUDIT.md](docs/AUDIT.md), with all four PDFs and no post-quantum score. Independent human judge walkthrough, recorded final video and submitted project-page verification remain unperformed.
 
 M9: the builder specified the deployed judge journey and UX brief; Codex implemented readable verdicts, one-click demo auditing, lazy route loading, resumable activation, accessibility checks and a manually funded fresh-signup evidence runner. The initial relay-blocked attempt is retained; the corrected deployment and original-account resume completed registration and payments with receipt-backed fees. The successful contexts, and the lost-response limit of the failed attempt, are recorded separately in the M9 handoff.
+
+M13: the builder supplied all four QCAI PDFs and triage instructions. Codex mapped findings to source/tests, added a short-signature regression and pinned public live precompile probes, checked deployed UI labels/links/routes and prepared a fresh-clone gate/build run. The contract logic and vendor tree remain unchanged; the AI audit is not a security certification.
