@@ -252,7 +252,7 @@
     },
     {
       "heading": "What we don't claim",
-      "textSha256": "ae1bcfba5ca209148eaea9febb1ad55f27a832921bdbb7cb2f712271622f1348",
+      "textSha256": "77a10e16170ad672c44c13cb4d64afe0e54d817a7b673fdab9cdf6e6357245bb",
       "claims": [
         "C1",
         "C5",
@@ -276,7 +276,8 @@
         "evidence/m9-activation-cost.json",
         "evidence/m10-signup-attempts/m10-1795594340224-d0023e20cd51bf67/report.json",
         "docs/AUDIT.md",
-        "evidence/m11-bytecode-equivalence.json"
+        "evidence/m11-bytecode-equivalence.json",
+        "evidence/m13-short-signature.json"
       ],
       "code": [
         "THREAT_MODEL.md",
@@ -284,7 +285,8 @@
         "packages/core/src/holdingsSelection.ts",
         "apps/web/src/business/close.ts",
         "apps/web/e2e/m9Signup.spec.ts",
-        "contracts/src/Books.sol"
+        "contracts/src/Books.sol",
+        "contracts/test/BlobBoard.t.sol"
       ],
       "tests": [
         {
@@ -302,12 +304,20 @@
         {
           "path": "contracts/test/Books.t.sol",
           "name": "testQ2MaximumIndexPanicsAndRollsBack"
+        },
+        {
+          "path": "contracts/test/Books.t.sol",
+          "name": "testS2_4TruncatedAndEmptySignaturesRevertBadSignatureAndPreserveOpenPeriod"
+        },
+        {
+          "path": "contracts/test/BlobBoard.t.sol",
+          "name": "testRejectsMoreThan24576Bytes"
         }
       ]
     },
     {
       "heading": "Credits and licence",
-      "textSha256": "a24f9dc1740791fcea10bdf1aa3e19a302663246785e201915e4076a2ee95cd1",
+      "textSha256": "8e76715998d4d9668599ae01a5cee23d667d61642fe3dbb7476668029e83ba26",
       "claims": [
         "C9",
         "C7"

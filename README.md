@@ -120,8 +120,10 @@ Network: `qorechain-diana`, EVM **9800**. QOR here has no value. Current fiction
 | fUSD conversion and shielding | Proven by script only; later fUSD payment/browser privacy flows are unproven |
 | Notes spread over more than four covering inputs | Pool cannot merge; close refuses CONSOLIDATION_UNSUPPORTED |
 | Unknown broadcasts | Notes stay held; original-hash recovery is tested. Live fault injection and universal stale-backup recovery are unproven |
-| QCAI audit | [Books stage 1 PDF and triage](docs/AUDIT.md) recorded; BlobBoard stage 1 and both stage 2 reports pending |
+| QCAI audit | [Four PDFs and finding responses](docs/AUDIT.md); Quantum Safe: Not scored in all four runs; [actual PQ parameters](docs/PQ_PARAMETERS.md) |
 | Audit CLI, final recorded video | Not delivered; [pre-submit checklist report](docs/PRESUBMIT.md) tracks external submission work |
+
+QCAI two-stage audit: Books 65 → 75, BlobBoard 85 → 95, every finding answered with a test, no logic change needed: [docs/AUDIT.md](docs/AUDIT.md).
 
 ## Credits and licence
 
@@ -129,4 +131,4 @@ Gloam's open-source pool, SDK, circuits and final ceremony keys: **MIT**, vendor
 
 Other open-source building blocks: React/react-dom, Vite/@vitejs/plugin-react, TypeScript and @types packages; viem; snarkjs/circomlibjs; @noble/hashes and @noble/curves; @cosmjs/stargate, @cosmjs/proto-signing and cosmjs-types; protobufjs, buffer, events and zod. Verification uses axe-core/@axe-core/playwright (MPL-2.0), Foundry/forge-std (MIT or Apache-2.0), Vitest, @playwright/test, ESLint/@eslint/js/typescript-eslint, Prettier and tsx. Optional local image OCR uses RapidOCR/ONNX Runtime and the [pinned Python tool environment](scripts/ocr-requirements.txt). Workspace @quaestor/core and @quaestor/chain are our own packages. Exact JavaScript package versions are pinned in the workspace manifests and lockfile.
 
-Quaestor code: **MIT**, [LICENSE](LICENSE). [AI_USAGE.md](AI_USAGE.md) records Claude's planning/review, Codex's build work, the builder's decisions and errors that changed the implementation. [HOW_ITS_MADE.md](docs/HOW_ITS_MADE.md) is the short technical story; [VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md) is the 2:45 recording plan.
+Quaestor code: **MIT**, [LICENSE](LICENSE). [AI_USAGE.md](AI_USAGE.md) records Claude's planning/review, Codex's build work, the builder's decisions and errors that changed the implementation. [HOW_ITS_MADE.md](docs/HOW_ITS_MADE.md) is the short technical story; [VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md) is the 2:55 recording plan.

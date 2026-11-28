@@ -7,6 +7,7 @@ We defend payment-ticket and period-key payload confidentiality with QoreSeal hy
 The following information is public or outside that protection:
 
 - The payer's EVM address originates private sends and memo posts; there is no relay.
+- BlobBoard historical logs require a node retaining full history. A pruned RPC can make old records unreadable, never forgeable: readers verify ciphertext SHA3 against Books anchors and return UNKNOWN for unavailable records.
 - Memo transaction timing and envelope size are public.
 - Grant anchors reveal the auditor EVM address and period identifier.
 - Per-period entry counts and anchor timing are public. Hashed demo date labels can be guessed.
