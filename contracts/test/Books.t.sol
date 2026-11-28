@@ -101,6 +101,29 @@ contract BooksTest is Test {
         vm.expectRevert(Books.BadSignature.selector); vm.prank(owner); ledger.closePeriod(book, period, 0, bytes32(0), bytes32(uint256(3)), hex"01");
         (,,bool closed,) = ledger.periods(book, period); assertFalse(closed);
     }
+    function testS2_4TruncatedAndEmptySignaturesRevertBadSignatureAndPreserveOpenPeriod() public {
+        bytes32 closeHash = bytes32(uint256(3));
+        bytes32 digest = keccak256(abi.encodePacked("quaestor:close", block.chainid, address(ledger), book, period, uint64(0), bytes32(0), closeHash));
+        bytes memory truncated = new bytes(4626);
+        vm.mockCall(address(0x0a01), abi.encodeCall(IQoreBooksPQC.pqcVerify, (key, truncated, abi.encodePacked(digest))), abi.encode(false));
+        vm.mockCall(address(0x0a01), abi.encodeCall(IQoreBooksPQC.pqcVerify, (key, hex"", abi.encodePacked(digest))), abi.encode(false));
+        vm.expectRevert(Books.BadSignature.selector); vm.prank(owner);
+        ledger.closePeriod(book, period, 0, bytes32(0), closeHash, truncated);
+        assertPeriodUnchanged(0, bytes32(0));
+        vm.expectRevert(Books.BadSignature.selector); vm.prank(owner);
+        ledger.closePeriod(book, period, 0, bytes32(0), closeHash, hex"");
+        assertPeriodUnchanged(0, bytes32(0));
+    }
+    function testS2_3OneBooksGrowthCannotWriteAnotherBook() public {
+        vm.prank(owner); bytes32 other = ledger.registerBook(bytes32(uint256(17)), bytes32(uint256(88)));
+        for (uint64 i = 0; i < 20; i++) {
+            vm.prank(owner); ledger.anchorEntry(book, period, i, bytes32(uint256(i + 1)), bytes32(uint256(i)));
+        }
+        (uint64 index, bytes32 last, bool closed, bytes32 closeHash) = ledger.periods(other, period);
+        assertEq(index, 0); assertEq(last, bytes32(0)); assertFalse(closed); assertEq(closeHash, bytes32(0));
+        vm.prank(owner); ledger.anchorEntry(other, period, 0, bytes32(uint256(55)), bytes32(0));
+        (index,,,) = ledger.periods(other, period); assertEq(index, 1);
+    }
     function testGrantAfterCloseAllowedButCannotBeOverwritten() public {
         vm.mockCall(address(0x0a01), abi.encodeWithSelector(IQoreBooksPQC.pqcVerify.selector), abi.encode(true));
         vm.prank(owner); ledger.closePeriod(book, period, 0, bytes32(0), bytes32(uint256(3)), hex"01");
