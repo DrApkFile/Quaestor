@@ -1,0 +1,944 @@
+{
+  "command": "pnpm evidence --m13-review",
+  "at": "2026-11-28T00:14:58.185Z",
+  "origin": "https://use-quaestor.vercel.app",
+  "links": [
+    {
+      "file": "README.md",
+      "target": "CLAIMS.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "https://use-quaestor.vercel.app",
+      "kind": "external",
+      "exists": null
+    },
+    {
+      "file": "README.md",
+      "target": "JUDGES.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "https://use-quaestor.vercel.app/attack-lab",
+      "kind": "external",
+      "exists": null
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m7b-browser.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m7b-fresh-auditors.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m7b-screens/",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "JUDGES.md#try-it-yourself",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m10-signup-attempts/m10-1795594340224-d0023e20cd51bf67/report.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m10-signup-cost.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m9-fresh-signup.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m9-activation-cost.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m7-browser-initial.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m8-privacy-browser.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m7b-image-secret-scan.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "CLAIMS.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "packages/chain/src/tickets/ticket.ts",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m2b-ticket-anonymous.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "packages/chain/src/tickets/cardCodec.ts",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "packages/chain/src/tickets/kemRegistry.ts",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m2-ticket.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "packages/core/src/signing.ts",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "contracts/src/Books.sol",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m3-precompiles.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m3-books.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "apps/web/src/business/runtime.ts",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "packages/chain/src/chainAudit.ts",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m8-privacy-browser.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m7b-fresh-auditors.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "CLAIMS.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m8-kits.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m2-ticket.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m2-ticket.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m3-precompiles.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m2b-ticket-anonymous.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "packages/chain/src/window.ts",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m3-precompiles.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m3-books.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m3-precompiles.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m2b-ticket-anonymous.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "packages/core/src/signing.ts",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "apps/web/package.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "tools/evm-window/package.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "docs/ai-log/2026-11-20.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m0-deploy.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "spikes/s03-output.txt",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m10-signup-cost.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m5-blobs.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "contracts/src/BlobBoard.sol",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m11-pq-gas.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "docs/PQ_PARAMETERS.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "apps/web/",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "packages/core/",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "packages/chain/",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "contracts/",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "api/",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "docs/DEPLOY.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m8-presubmit.txt",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "docs/readme-claims.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "JUDGES.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m0-deploy.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m4-books-v2.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m5-blob-deploy.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "THREAT_MODEL.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "CLAIMS.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "DECISIONS.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m10-signup-attempts/m10-1795594340224-d0023e20cd51bf67/report.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m9-fresh-signup.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "evidence/m9-judge-after.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "docs/AUDIT.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "docs/PQ_PARAMETERS.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "docs/PRESUBMIT.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "docs/AUDIT.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "NOTICE",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "docs/design/muuve-style.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "apps/web/public/",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "scripts/ocr-requirements.txt",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "LICENSE",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "AI_USAGE.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "docs/HOW_ITS_MADE.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "docs/VIDEO_SCRIPT.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "https://use-quaestor.vercel.app/",
+      "kind": "external",
+      "exists": null
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "https://use-quaestor.vercel.app/app?view=public&book=0xb878a86609f1492d103847d8625177cb64b800f0b6c25ee2115766be35a02a16",
+      "kind": "external",
+      "exists": null
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "https://use-quaestor.vercel.app/app?view=auditor&book=0xb878a86609f1492d103847d8625177cb64b800f0b6c25ee2115766be35a02a16&demo=1",
+      "kind": "external",
+      "exists": null
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "https://use-quaestor.vercel.app/attack-lab",
+      "kind": "external",
+      "exists": null
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "#evidence-table",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m9-screens/",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m7-browser-initial.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m7-screens/",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "https://use-quaestor.vercel.app/app?view=account",
+      "kind": "external",
+      "exists": null
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "https://dashboard.qorechain.io/faucet",
+      "kind": "external",
+      "exists": null
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m10-signup-attempts/m10-1795594340224-d0023e20cd51bf67/report.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m10-signup-cost.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m10-image-secret-scan.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m10-fresh-signup-attempt-1795595160341.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m9-fresh-signup.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m9-activation-cost.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m7b-browser.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m7b-fresh-auditors.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m7b-browser.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m7-duplicate.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m4-verdicts.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m7b-attack-browser.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m9-screens/",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m9-image-secret-scan.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m7b-image-secret-scan.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m8-privacy-browser.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m8-privacy-screens/",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m7-browser-initial.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m7-runs.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m9-deploy.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m9-judge-after.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m10-signup-attempts/m10-1795594340224-d0023e20cd51bf67/report.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m10-signup-cost.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m10-image-secret-scan.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m9-fresh-signup.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m9-activation-cost.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m9-manual-retry.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "evidence/m9-readback.json",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "CLAIMS.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "THREAT_MODEL.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "docs/DEPLOY.md",
+      "kind": "repository",
+      "exists": true
+    },
+    {
+      "file": "JUDGES.md",
+      "target": "https://use-quaestor.vercel.app/demo-auditor.json",
+      "kind": "external",
+      "exists": null
+    }
+  ],
+  "externalChecks": [
+    {
+      "target": "https://use-quaestor.vercel.app",
+      "status": 200,
+      "finalUrl": "https://use-quaestor.vercel.app/"
+    },
+    {
+      "target": "https://use-quaestor.vercel.app/attack-lab",
+      "status": 200,
+      "finalUrl": "https://use-quaestor.vercel.app/attack-lab"
+    },
+    {
+      "target": "https://use-quaestor.vercel.app/",
+      "status": 200,
+      "finalUrl": "https://use-quaestor.vercel.app/"
+    },
+    {
+      "target": "https://use-quaestor.vercel.app/app?view=public&book=0xb878a86609f1492d103847d8625177cb64b800f0b6c25ee2115766be35a02a16",
+      "status": 200,
+      "finalUrl": "https://use-quaestor.vercel.app/app?view=public&book=0xb878a86609f1492d103847d8625177cb64b800f0b6c25ee2115766be35a02a16"
+    },
+    {
+      "target": "https://use-quaestor.vercel.app/app?view=auditor&book=0xb878a86609f1492d103847d8625177cb64b800f0b6c25ee2115766be35a02a16&demo=1",
+      "status": 200,
+      "finalUrl": "https://use-quaestor.vercel.app/app?view=auditor&book=0xb878a86609f1492d103847d8625177cb64b800f0b6c25ee2115766be35a02a16&demo=1"
+    },
+    {
+      "target": "https://use-quaestor.vercel.app/app?view=account",
+      "status": 200,
+      "finalUrl": "https://use-quaestor.vercel.app/app?view=account"
+    },
+    {
+      "target": "https://dashboard.qorechain.io/faucet",
+      "status": 200,
+      "finalUrl": "https://dashboard.qorechain.io/auth/signin?callbackUrl=%2Ffaucet"
+    },
+    {
+      "target": "https://use-quaestor.vercel.app/demo-auditor.json",
+      "status": 200,
+      "finalUrl": "https://use-quaestor.vercel.app/demo-auditor.json"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "expected": "Try the demo auditor",
+      "visible": true,
+      "fits": true
+    },
+    {
+      "path": "/app",
+      "status": 200,
+      "expected": "Account",
+      "visible": true,
+      "fits": true
+    },
+    {
+      "path": "/attack-lab",
+      "status": 200,
+      "expected": "Read attack book from chain",
+      "visible": true,
+      "fits": true
+    }
+  ],
+  "labelChecks": [
+    {
+      "label": "Deposit amount",
+      "bundle": "Dashboard-BhPvwTFV.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "549866868d30afeeaba837260255c534515af868dcfa5c4a01470bf3ac3c3a61"
+    },
+    {
+      "label": "Payment amount",
+      "bundle": "Dashboard-BhPvwTFV.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "549866868d30afeeaba837260255c534515af868dcfa5c4a01470bf3ac3c3a61"
+    },
+    {
+      "label": "Recipient qor1 address",
+      "bundle": "Dashboard-BhPvwTFV.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "549866868d30afeeaba837260255c534515af868dcfa5c4a01470bf3ac3c3a61"
+    },
+    {
+      "label": "Matches a real payment",
+      "bundle": "messages-CeZbd1iW.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "e298c6fbb616adea677e8b472ed2f37886a577878a89b92696ca86090568d214"
+    },
+    {
+      "label": "Holdings cover the books",
+      "bundle": "messages-CeZbd1iW.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "e298c6fbb616adea677e8b472ed2f37886a577878a89b92696ca86090568d214"
+    },
+    {
+      "label": "Not shared with you",
+      "bundle": "messages-CeZbd1iW.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "e298c6fbb616adea677e8b472ed2f37886a577878a89b92696ca86090568d214"
+    },
+    {
+      "label": "Activate quantum-safe account",
+      "bundle": "AccountView-HcKqUaaK.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "fc686d952eb82b193b41848f4872e5683bb43c743658f8255eeff64ad23732f4"
+    },
+    {
+      "label": "Ready for private payments",
+      "bundle": "AccountView-HcKqUaaK.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "fc686d952eb82b193b41848f4872e5683bb43c743658f8255eeff64ad23732f4"
+    },
+    {
+      "label": "Details",
+      "bundle": "AccountView-HcKqUaaK.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "fc686d952eb82b193b41848f4872e5683bb43c743658f8255eeff64ad23732f4"
+    },
+    {
+      "label": "Transaction details",
+      "bundle": "AccountView-HcKqUaaK.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "fc686d952eb82b193b41848f4872e5683bb43c743658f8255eeff64ad23732f4"
+    },
+    {
+      "label": "Deposit privately",
+      "bundle": "Dashboard-BhPvwTFV.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "549866868d30afeeaba837260255c534515af868dcfa5c4a01470bf3ac3c3a61"
+    },
+    {
+      "label": "Prove and pay",
+      "bundle": "Dashboard-BhPvwTFV.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "549866868d30afeeaba837260255c534515af868dcfa5c4a01470bf3ac3c3a61"
+    },
+    {
+      "label": "Open window and continue",
+      "bundle": "onboarding-CNS0loAd.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "df0766a3ca1cd185e16674e783d0d7aed6e75b2f226ac5f9bc11e06fe4cba3f1"
+    },
+    {
+      "label": "Proof details",
+      "bundle": "Ledger-ZhOO2Q29.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "8ee16de7ed01ff95483b52d60a2b670e0d9128bf27e9dbd142dbc1035bbfd8c6"
+    },
+    {
+      "label": "Check chain",
+      "bundle": "PublicView-DUgSGyli.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "fec09258f8bd6e170d92a46b566912d2a3acad557b9b445952578ed08caf59e6"
+    },
+    {
+      "label": "Securing your account with a quantum-safe signature (1/3)",
+      "bundle": "AccountView-HcKqUaaK.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "fc686d952eb82b193b41848f4872e5683bb43c743658f8255eeff64ad23732f4"
+    },
+    {
+      "label": "Publishing your quantum-safe encryption key, so people can pay you privately (2/3)",
+      "bundle": "AccountView-HcKqUaaK.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "fc686d952eb82b193b41848f4872e5683bb43c743658f8255eeff64ad23732f4"
+    },
+    {
+      "label": "Publishing your payment card (3/3)",
+      "bundle": "AccountView-HcKqUaaK.js",
+      "status": 200,
+      "byteIdentical": true,
+      "sha256": "fc686d952eb82b193b41848f4872e5683bb43c743658f8255eeff64ad23732f4"
+    }
+  ],
+  "metadata": {
+    "description": "Private payments on QoreChain with books sealed by post-quantum encryption (ML-KEM-1024, ML-DSA-87). Grant your auditor one quarter; every entry is checked against the chain. Private rail: our own deployment of Gloam’s open-source shielded pool. Build Before Q-Day · Encrypted Apps.",
+    "html_url": "https://github.com/DrApkFile/Quaestor"
+  },
+  "status": "PASSED",
+  "scope": "Local Markdown file and heading links checked; external URLs fetched. Three production routes rendered at 390px. Account/payment labels checked against byte-identical deployed JavaScript without account creation or broadcasts."
+}

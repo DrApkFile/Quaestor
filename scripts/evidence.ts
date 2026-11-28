@@ -1,4 +1,9 @@
-if (process.argv[2] === '--m12-secret-scan') await import('./m12-secret-scan.js');
+if (process.argv[2] === '--m13-clean-clone') await import('./m13-clean-clone.js');
+else if (process.argv[2] === '--m13-checks') await import('./m13-checks.js');
+else if (process.argv[2] === '--m13-secret-scan') await import('./m13-secret-scan.js');
+else if (process.argv[2] === '--m13-review') await import('./m13-review.js');
+else if (process.argv[2] === '--m13-signature') await import('./m13-signature.js');
+else if (process.argv[2] === '--m12-secret-scan') await import('./m12-secret-scan.js');
 else if (process.argv[2] === '--m12-close') await import('./m12-close.js');
 else if (process.argv[2] === '--m12-axe') await import('./m12-axe.js');
 else if (process.argv[2] === '--m12-checks') await import('./m12-checks.js');

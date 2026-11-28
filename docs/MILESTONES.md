@@ -94,7 +94,7 @@ Current brief: docs/briefs/M8.md. The original external checks remain open below
 - [x] CLAIMS, milestones and AI log reflect observed results; handoff written. Final delivery is the handoff commit push, then stop.
 
 Original external M8 checks, still open:
-- [ ] Two-stage QCAI audit on Books.sol, with reports and findings mapping in docs/AUDIT.md. Books stage 1 is recorded and triaged in M11; subsequent reports remain pending.
+- [x] Two-stage QCAI audit on Books and BlobBoard: four PDFs and all responses in docs/AUDIT.md (M13). No post-quantum score was offered.
 - [ ] Final recorded video, independent human judge walkthrough and external project-page/eligibility/submission actions remain unperformed. Public hosting was subsequently verified in M9.
 
 ## M9 — Live deployment, readable UX and one-step activation
@@ -167,3 +167,14 @@ Builder brief: [docs/briefs/M12.md](briefs/M12.md). M11 approved by Claude, as r
 - [x] Run gate and production build on `2349f03`, scan changed files for known secrets and prepare the M12 handoff.
 
 Final delivery after committing the handoff: push, wait for that commit’s live Vercel deployment, verify the deployed JavaScript and stop. The subsequent push/deployment result is reported in the final chat response because this record precedes its own commit and push.
+
+## M13 — Four-report audit closure and submission checks
+
+Builder brief: [M13](briefs/M13.md). No contract source changes, redeployment, vendor changes or secrets.
+- [x] Save the entire builder message in a separate commit and pull first.
+- [x] Record all four PDFs, scores, unscored PQ status and finding/test mapping; disclose historical-log availability.
+- [x] Add truncated/empty signature Forge regression and pinned live precompile evidence.
+- [x] Replace recording script and verify labels against deployed UI/bundles.
+- [ ] Claims, README/JUDGES links and deployed routes checked; gate passes.
+- [ ] Fresh temporary clone of pushed repository: frozen install, gate and web build captured.
+- [ ] Handoff with project-page values written; pull before final push, push and stop.
