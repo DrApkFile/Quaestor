@@ -176,5 +176,5 @@ Builder brief: [M13](briefs/M13.md). No contract source changes, redeployment, v
 - [x] Add truncated/empty signature Forge regression and pinned live precompile evidence.
 - [x] Replace recording script and verify labels against deployed UI/bundles.
 - [x] Claims, README/JUDGES links and deployed routes checked; gate passes.
-- [ ] Fresh temporary clone of pushed repository: frozen install, gate and web build captured.
-- [ ] Handoff with project-page values written; pull before final push, push and stop.
+- [x] Fresh temporary clone of pushed repository: frozen install, gate and web build captured (db37f86; evidence/m13-clean-clone.txt).
+- [x] Handoff with project-page values written; final delivery is its commit’s pre-push pull, push and stop.
