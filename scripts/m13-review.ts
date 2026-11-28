@@ -127,6 +127,6 @@ const report = {
 };
 writeFileSync(new URL('evidence/m13-review.json', root), JSON.stringify(report, null, 2) + '\n');
 console.log(
-  `M13 review ${report.status}: ${links.length} links, ${routes.length} routes, ${labelChecks.length} deployed labels.`,
+  `M13 review ${report.status}: ${String(links.length)} links, ${String(routes.length)} routes, ${String(labelChecks.length)} deployed labels.`,
 );
 if (!passed) process.exitCode = 1;
